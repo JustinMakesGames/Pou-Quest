@@ -20,7 +20,7 @@ public class CamMovement : MonoBehaviour
     {
         CalculateOffsets();
 
-        player = FindObjectOfType<MovementG>().transform;
+        player = FindObjectOfType<PlayerOverworld>().transform;
         offset = player.position - transform.position;
         
     }

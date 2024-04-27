@@ -9,7 +9,12 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyOverworld : MonoBehaviour
 {
-    [SerializeField] private Transform player;
+    public Transform player;
+    public float radius;
+    public float angle;
+    public LayerMask playerLayer;
+    public float rotationSpeed;
+
     private NavMeshAgent agent;
     private Vector3 startPosition;
     private float walkRange = 10;
@@ -23,24 +28,22 @@ public class EnemyOverworld : MonoBehaviour
     //Checking for player
     private bool isChasing;
     private bool isPreparing;
-    [SerializeField] private float radius;
-    [SerializeField] private float angle;
-    [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private float rotationSpeed;
+    
 
 
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = FindObjectOfType<MovementG>().transform;
+        player = FindObjectOfType<PlayerOverworld>().transform;
     }
 
     private void Start()
     {
         startPosition = transform.position;
         minPosition = new Vector3(startPosition.x - walkRange, transform.position.y - walkRange, startPosition.z - walkRange);
-        maxPosition = new Vector3(startPosition.x + walkRange, transform.position.y + walkRange, startPosition.z + walkRange);        
+        maxPosition = new Vector3(startPosition.x + walkRange, transform.position.y + walkRange, startPosition.z + walkRange);
+        print("Start");
     }
 
     private void OnEnable()
@@ -58,9 +61,7 @@ public class EnemyOverworld : MonoBehaviour
         {
             ChasePlayer();
             CheckingOutOfRadius();
-        }
-        
-        
+        }       
     }
 
     //Patrolling around
@@ -78,11 +79,17 @@ public class EnemyOverworld : MonoBehaviour
                 validPosition = IsNavMeshBaked();
                 yield return null;
             } while (!validPosition);
+
             validPosition = false;
             MovingToDestination();
 
             yield return new WaitUntil(() => Vector3.Distance(transform.position, nextDestination) < 1f);
         }
+    }
+
+    private bool IsNavMeshBaked()
+    {
+        return NavMesh.SamplePosition(nextDestination, out NavMeshHit hit, 1f, NavMesh.AllAreas);
     }
 
     private void MovingToDestination()
@@ -145,7 +152,7 @@ public class EnemyOverworld : MonoBehaviour
         }
     }
 
-    bool IsInPosition(Vector3 target, Vector3 min, Vector3 max)
+    private bool IsInPosition(Vector3 target, Vector3 min, Vector3 max)
     {
         return target.x >= min.x && target.x <= max.x &&
         target.y >= min.y && target.y <= max.y &&
@@ -160,13 +167,11 @@ public class EnemyOverworld : MonoBehaviour
         yield return new WaitForSeconds(1);
         StartCoroutine(GettingNextDestination());
     }
-    private bool IsNavMeshBaked()
-    {
-        return NavMesh.SamplePosition(nextDestination, out NavMeshHit hit, 1f, NavMesh.AllAreas);
-    }
+    
 
     private void OnDisable()
     {
+        agent.SetDestination(transform.position);
         StopAllCoroutines();
     }
 
@@ -174,7 +179,7 @@ public class EnemyOverworld : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StartBattle.instance.TriggeredEnemy();
+            StartBattle.instance.ActivateEvent();
         }
     }
 

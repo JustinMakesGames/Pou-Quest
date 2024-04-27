@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.XR;
 
 [RequireComponent(typeof(Rigidbody))]
-public class MovementG : MonoBehaviour
+public class PlayerOverworld : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float rotateSpeed;
