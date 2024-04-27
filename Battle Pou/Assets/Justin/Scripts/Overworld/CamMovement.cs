@@ -37,7 +37,6 @@ public class CamMovement : MonoBehaviour
         
         cameraPos.x = Mathf.Clamp(cameraPos.x, area.bounds.min.x - cameraXOffset, area.bounds.max.x + cameraXOffset);
         cameraPos.z = Mathf.Clamp(cameraPos.z, area.bounds.min.z + cameraZOffset, area.bounds.max.z - cameraZOffset);
-        print(area.bounds.min.x);
     }
 
     public void ChangeCollider(Collider collider)
