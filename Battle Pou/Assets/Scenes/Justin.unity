@@ -472,7 +472,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1360388556}
-  - component: {fileID: 1360388555}
+  - component: {fileID: 1360388559}
+  - component: {fileID: 1360388558}
+  - component: {fileID: 1360388557}
   m_Layer: 0
   m_Name: BattleStarting
   m_TagString: Untagged
@@ -480,23 +482,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1360388555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360388554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2192d616212b06448c7ecbe823ef3b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arenaSpawn: {fileID: 1433705713}
-  blackScreen: {fileID: 1363579092}
-  battleArena: {fileID: 811789342809806454, guid: 780765ae5e854a34184362ae83cb50ce,
-    type: 3}
-  blackScreenFadeSpeed: 1
 --- !u!4 &1360388556
 Transform:
   m_ObjectHideFlags: 0
@@ -512,6 +497,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1360388557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360388554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf27e8fb582df24599c7f08bf4c92e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1360388558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360388554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864d73b5aa5e2474d9f9c9e5ddae5db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arenaSpawn: {fileID: 1433705713}
+  battleArena: {fileID: 811789342809806454, guid: 780765ae5e854a34184362ae83cb50ce,
+    type: 3}
+--- !u!114 &1360388559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360388554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2192d616212b06448c7ecbe823ef3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackScreen: {fileID: 1363579092}
+  blackScreenFadeSpeed: 1
 --- !u!1 &1363579091
 GameObject:
   m_ObjectHideFlags: 0

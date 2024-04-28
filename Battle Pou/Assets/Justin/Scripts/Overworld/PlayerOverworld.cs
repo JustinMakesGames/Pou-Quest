@@ -8,8 +8,8 @@ using UnityEngine.XR;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerOverworld : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float rotateSpeed;
+    public float speed;
+    public float rotateSpeed;
     private float hor, vert;
     private Vector3 dir;
     private Rigidbody rb;

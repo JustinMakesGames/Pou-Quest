@@ -13,8 +13,18 @@ public class BattleCamera : MonoBehaviour
         player = transform.parent;
     }
 
+    private void Update()
+    {
+        InputCheck();
+    }
+
+    private void InputCheck()
+    {
+
+    }
+
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.RotateAround(player.position, player.up, rotationSpeed * Time.deltaTime);
     }

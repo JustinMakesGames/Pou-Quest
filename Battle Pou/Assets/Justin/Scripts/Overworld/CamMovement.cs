@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class CamMovement : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private float speed;
-    [SerializeField] private LayerMask ground;
+    public Transform player;
+    public float speed;
+    public LayerMask ground;
+    public Collider area;
+    public GameObject spawn;
+
     private Vector3 offset;
     private Vector3 cameraPos;
     private float cameraXOffset;
     private float cameraZOffset;
-    public Collider area;
-    public GameObject spawn;
+    
 
 
     private void Start()

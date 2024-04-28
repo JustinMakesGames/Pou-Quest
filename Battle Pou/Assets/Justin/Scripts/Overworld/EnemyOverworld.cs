@@ -15,6 +15,8 @@ public class EnemyOverworld : MonoBehaviour
     public LayerMask playerLayer;
     public float rotationSpeed;
 
+    public GameObject battleEnemy;
+
     private NavMeshAgent agent;
     private Vector3 startPosition;
     private float walkRange = 10;
@@ -180,6 +182,7 @@ public class EnemyOverworld : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             StartBattle.instance.ActivateEvent();
+            CreateBattleArena.instance.SpawnEnemy(battleEnemy);
         }
     }
 
