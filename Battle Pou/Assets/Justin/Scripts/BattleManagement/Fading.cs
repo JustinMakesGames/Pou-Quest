@@ -7,14 +7,14 @@ public class Fading : MonoBehaviour
 {
     public static Fading instance;
 
-    
-    
+
+    public Transform player;
     public Image blackScreen;
-    
+    private Transform cam;
     public float blackScreenFadeSpeed;
 
-    
 
+    public float rotationSpeed;
     private float fovSpeed = 30f;   
     
 
@@ -24,7 +24,8 @@ public class Fading : MonoBehaviour
         {
             instance = this;
         }
-        
+
+        cam = Camera.main.transform;
     }
     
 
@@ -38,11 +39,15 @@ public class Fading : MonoBehaviour
 
     private IEnumerator FovChange()
     {
+        
         while (Camera.main.fieldOfView >= 30)
         {
+            Quaternion lookRotation = Quaternion.LookRotation(player.position - cam.position);
+            cam.rotation = Quaternion.Lerp(cam.rotation, lookRotation, rotationSpeed * Time.deltaTime);
             Camera.main.fieldOfView -= fovSpeed * Time.deltaTime;
             yield return null;
         }
+        CreateBattleArena.instance.SetCameraInPosition();
         Camera.main.fieldOfView = 60;       
     }
 
@@ -54,7 +59,7 @@ public class Fading : MonoBehaviour
             yield return null;
         }
 
-        CreateBattleArena.instance.SetCameraInPosition();
+        
         while (blackScreen.color.a >= 0)
         {
             blackScreen.color -= new Color(0, 0, 0, blackScreenFadeSpeed * Time.deltaTime);

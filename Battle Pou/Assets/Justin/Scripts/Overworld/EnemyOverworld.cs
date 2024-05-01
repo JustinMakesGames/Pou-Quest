@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 public class EnemyOverworld : MonoBehaviour
 {
     public Transform player;
-    public float radius;
+    public float playerDistance;
     public float angle;
     public LayerMask playerLayer;
     public float rotationSpeed;
@@ -101,26 +101,28 @@ public class EnemyOverworld : MonoBehaviour
 
     private void CheckingForPlayer()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius, playerLayer);
-        
-        for (int i = 0; i < colliders.Length; i++)
+        if (Vector3.Distance(transform.position, player.position) < playerDistance && CanObjectBeSeen())
         {
-            Vector3 dirToPlayer = (player.position - transform.position).normalized;
-
-            if (Vector3.Angle(transform.position, dirToPlayer) < angle / 2)
-            {
-                float playerdistance = Vector3.Distance(transform.position, player.position);
-
-                if (!Physics.Raycast(transform.position, dirToPlayer,playerdistance,~playerLayer) && IsInPosition(player.position, minPosition, maxPosition))
-                {                  
-                    StopAllCoroutines();
-                    StartCoroutine(PreparingForChase());
-                    break;
-                }
-            }
+            StopAllCoroutines();
+            StartCoroutine(PreparingForChase());
         }
     }
 
+    
+    private bool CanObjectBeSeen()
+    {
+        Vector3 directionToPlayer = player.position - transform.position;
+
+        float dotProduct = Vector3.Dot(directionToPlayer, transform.forward);
+
+        if (dotProduct > 0.2f)
+        {
+            print("True yes xd");
+            return true;
+        }
+
+        return false;
+    }
     //Chasing
     private IEnumerator PreparingForChase()
     {

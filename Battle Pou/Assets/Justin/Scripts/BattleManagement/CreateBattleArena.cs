@@ -47,6 +47,8 @@ public class CreateBattleArena : MonoBehaviour
         Instantiate(enemy, enemySpawn.position, Quaternion.Euler(0, 180, 0));
     }
 
+
+
     public void SetCameraInPosition()
     {
         cameraPosition = battleArenaClone.transform.Find("CameraSpawn");
