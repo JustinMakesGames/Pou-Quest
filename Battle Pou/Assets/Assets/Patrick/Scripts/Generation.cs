@@ -62,7 +62,7 @@ public class Generation : MonoBehaviour
         }
         else
         {
-            //TODO: put player inside dungeon instead of making new one
+            //TODO: put player inside dungeon
         }
     }
 }
