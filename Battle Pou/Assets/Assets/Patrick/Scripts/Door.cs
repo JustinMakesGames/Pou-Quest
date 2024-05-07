@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Door : MonoBehaviour
 {
-    public enum Direction { Left, Right, Top, Bottom }
+    public enum Direction { Left, Right, Top, Bottom, None }
 
     public Direction dir;
     private Generation generation;
@@ -15,10 +15,10 @@ public class Door : MonoBehaviour
     {
         switch (dir)
         {
-            case Direction.Left: generation.GenerateDungeon(generation.currentDungeon - 1); break;
-            case Direction.Right: generation.GenerateDungeon(generation.currentDungeon + 1); break;
-            case Direction.Top: generation.GenerateDungeon(generation.currentDungeon + 30); break;
-            case Direction.Bottom: generation.GenerateDungeon(generation.currentDungeon - 30); break;
+            case Direction.Left: generation.GenerateDungeon(Direction.Left); break;
+            case Direction.Right: generation.GenerateDungeon(Direction.Right); break;
+            case Direction.Top: generation.GenerateDungeon(Direction.Top); break;
+            case Direction.Bottom: generation.GenerateDungeon(Direction.Bottom); break;
         }
     }
 }

@@ -11,6 +11,7 @@ public class DialogManager : MonoBehaviour
     public GameObject dialogPanel;
     public string[] lines;
     public string npcName;
+    public float textSpeed = 1;
 
     private void Update()
     {
@@ -38,7 +39,7 @@ public class DialogManager : MonoBehaviour
             for (int c = 0; c < lines[i].ToCharArray().Length; c++)
             {
                 dialogText.text = dialogText.text + lines[i].ToCharArray()[c];
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(textSpeed * 0.1f);
             }
             yield return new WaitUntil(() => clicked);
             clicked = false;
