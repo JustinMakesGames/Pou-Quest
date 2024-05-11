@@ -24,7 +24,12 @@ public class EnemyMoveAround : MonoBehaviour, IAttacking
         enemyHandler = transform.parent.GetComponent<EnemyHandler>();
     }
 
-    public virtual void Attack()
+    public virtual void StartAttack()
+    {
+        isMoving = false;
+    }
+
+    public virtual void UpdateAttack()
     {
         if (!isMoving)
         {
@@ -54,4 +59,6 @@ public class EnemyMoveAround : MonoBehaviour, IAttacking
             Random.Range(minPosition.z, maxPosition.z));
         return destination;
     }
+
+
 }

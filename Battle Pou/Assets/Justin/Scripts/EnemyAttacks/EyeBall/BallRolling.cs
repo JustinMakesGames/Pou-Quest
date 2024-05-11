@@ -14,6 +14,7 @@ public class BallRolling : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         enemyHandler = FindObjectOfType<EnemyHandler>();
+        dir = transform.forward;
     }
 
     private void Start()
@@ -23,7 +24,7 @@ public class BallRolling : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddTorque(transform.right * speed * Time.deltaTime);
+        rb.velocity = dir * speed * Time.deltaTime;
         
     }
 

@@ -7,7 +7,11 @@ public class Fight : MonoBehaviour, IAttacking
     public Transform player;
     public LayerMask enemy;
 
-    public void Attack()
+    public void StartAttack()
+    {
+        print("EUEHVBERG");
+    }
+    public void UpdateAttack()
     {
         player = FindObjectOfType<BattlePlayerMovement>().transform;
         if (Physics.Raycast(player.position, player.forward, out RaycastHit hit, 3f, enemy) && Input.GetMouseButtonDown(0))

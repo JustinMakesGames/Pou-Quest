@@ -193,4 +193,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 5026574812760903670, guid: a9841a2fb2c53bb48977d3a1f3b8a61e, type: 3}
-  attackLength: 0
+  attackInterval: 1

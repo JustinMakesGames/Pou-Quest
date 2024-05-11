@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IAttacking
 {
-    void Attack();
+    void StartAttack();
+    void UpdateAttack();
 }

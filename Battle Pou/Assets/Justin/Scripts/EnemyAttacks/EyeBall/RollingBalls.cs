@@ -9,10 +9,15 @@ public class RollingBalls : EnemyMoveAround
     private bool hasChosen;
     private Vector3 spawnPosition;
     private Quaternion spawnRotation;
-    public float attackLength;
-    public override void Attack()
+    public float attackInterval;
+
+    public override void StartAttack()
     {
-        base.Attack();
+        base.StartAttack();
+    }
+    public override void UpdateAttack()
+    {
+        base.UpdateAttack();
         PreparingToSpawn();
     }
 
@@ -20,6 +25,7 @@ public class RollingBalls : EnemyMoveAround
     {
         if (!hasChosen)
         {
+            hasChosen = true;
             int randomIndex = Random.Range(0, 4);
             SetPosition(randomIndex);
             SetRotation(randomIndex);
@@ -88,8 +94,8 @@ public class RollingBalls : EnemyMoveAround
 
     private IEnumerator SpawningProjectile()
     {
+        yield return new WaitForSeconds(attackInterval);
         Instantiate(ball, spawnPosition, spawnRotation);
-        yield return new WaitForSeconds(attackLength);
         hasChosen = false;
     }
 

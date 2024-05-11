@@ -1085,6 +1085,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OverworldPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 5611900649105681000, guid: f7592272a12754646a35df9a8392d25d,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7601140400575150888, guid: f7592272a12754646a35df9a8392d25d,
         type: 3}
       propertyPath: m_Enabled

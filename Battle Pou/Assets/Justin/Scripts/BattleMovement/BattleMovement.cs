@@ -6,7 +6,7 @@ public class BattlePlayerMovement : MonoBehaviour
 {
     private float hor;
     private float vert;
-    private float speed = 500f;
+    private float speed = 800;
     private float rotateSpeed = 5f;
     private Vector3 dir;
     private Transform cam;

@@ -14,7 +14,7 @@ public class BattleCamera : MonoBehaviour
     private float height;
     private float distance;
     private float currentRotationAngle;
-
+    private bool rightMouseClick;
 
     private void OnEnable()
     {
@@ -26,18 +26,35 @@ public class BattleCamera : MonoBehaviour
     private void Update()
     {
         InputCheck();
+        CursorLocked();
     }
 
     private void InputCheck()
     {
         hor = Input.GetAxis("Mouse X");
+        rightMouseClick = Input.GetMouseButton(1);
+    }
+
+    private void CursorLocked()
+    {
+        if (rightMouseClick)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-
-        currentRotationAngle += hor * rotationSpeed * Time.deltaTime;
+        if (rightMouseClick)
+        {
+            currentRotationAngle += hor * rotationSpeed * Time.deltaTime;
+        }
+        
         Quaternion rotation = Quaternion.Euler(0, currentRotationAngle, 0);
         Vector3 offset = rotation * new Vector3(0, height, -distance);
         cam.position = transform.position + offset;

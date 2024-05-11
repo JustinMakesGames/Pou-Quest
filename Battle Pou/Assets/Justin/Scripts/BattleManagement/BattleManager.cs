@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
-public enum BattleState { Start, PlayerTurn, AttackingTurn, Win, Lose}
+public enum BattleState { Start, PlayerTurn, AttackingTurn, Win, Lose, Flee}
 public class BattleManager : MonoBehaviour
 {
 
@@ -42,7 +43,7 @@ public class BattleManager : MonoBehaviour
         switch (state)
         {
             case BattleState.Start:
-                StartCoroutine(SettingUpStats());
+                StartCoroutine(SettingUpBattle());
                 StartCoroutine(BattleTextAppears());
                 break;
             case BattleState.PlayerTurn:
@@ -57,16 +58,24 @@ public class BattleManager : MonoBehaviour
             case BattleState.Lose:
                 //Lose
                 break;
+            case BattleState.Flee:
+                //Flee
+                break;
         }
     }
     
-    private IEnumerator SettingUpStats()
+    private IEnumerator SettingUpBattle()
     {
         yield return new WaitForEndOfFrame();
         player = FindObjectOfType<BattlePlayerMovement>().transform;
         enemy = FindObjectOfType<EnemyHandler>().transform;
         playerHandler = PlayerHandler.Instance;
         enemyHandler = FindObjectOfType<EnemyHandler>();
+        playerStartPosition = player.position;
+        enemyStartPosition = enemy.position;
+        playerHandler.BattlePlayerSet(player);
+        yield return new WaitForSeconds(2);
+        player.GetComponent<BattleCamera>().enabled = true;
     }
 
     private IEnumerator BattleTextAppears()
@@ -87,39 +96,83 @@ public class BattleManager : MonoBehaviour
     private IEnumerator Attacking()
     {
         float time = 0f;
-        const float attackingLength = 99999999f;
-
-        player.GetComponent<BattleCamera>().enabled = true;
+        const float attackingLength = 5f;
         player.GetComponent<BattlePlayerMovement>().enabled = true;
+
         enemyHandler.ChoosingAttack();
+
+        playerAttack.GetComponent<IAttacking>().StartAttack();
+        enemyAttack.GetComponent<IAttacking>().StartAttack();
         while (time < attackingLength)
         {
             time += Time.deltaTime;
             if (playerAttack != null)
             {
-                playerAttack.GetComponent<IAttacking>().Attack();
+                playerAttack.GetComponent<IAttacking>().UpdateAttack();
             }
 
             if (enemy != null)
             {
-                enemyAttack.GetComponent<IAttacking>().Attack();
+                enemyAttack.GetComponent<IAttacking>().UpdateAttack();
             }
             
             yield return null;
         }
 
-        while (player.position != playerStartPosition && enemy.position != enemyStartPosition)
-        {
-            PuttingObjectsAtPosition();
+        StartCoroutine(HandlingEndOfTurn());
+    }
+
+    private IEnumerator HandlingEndOfTurn()
+    {
+        player.GetComponent<BattlePlayerMovement>().enabled = false;
+        PuttingObjectsAtPosition();
+        RemovingAllProjectiles();
+        bool areObjectsReturned = false;
+        while (!areObjectsReturned)
+        {          
+            if (AreObjectsAtStartPosition())
+            {
+                areObjectsReturned = true;
+            }
             yield return null;
         }
-        
-
-
+        PuttingStartRotation();
+        HandlingStates(BattleState.PlayerTurn);
     }
     
     private void PuttingObjectsAtPosition()
     {
+        player.GetComponent<NavMeshAgent>().enabled = true;
+        player.GetComponent<NavMeshAgent>().SetDestination(playerStartPosition);
+        enemy.GetComponent<NavMeshAgent>().SetDestination(enemyStartPosition);
+    }
 
+    private void RemovingAllProjectiles()
+    {
+        GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
+
+        foreach (GameObject projectile in projectiles)
+        {
+            Destroy(projectile);
+        }
+    }
+
+    private void PuttingStartRotation()
+    {
+        player.rotation = Quaternion.identity;
+        enemy.rotation = Quaternion.Euler(0, 180, 0);
+        player.GetComponent<NavMeshAgent>().enabled = false;
+    }
+
+    private bool AreObjectsAtStartPosition()
+    {
+        float playerDistance = Vector3.Distance(player.position, playerStartPosition);
+        float enemyDistance = Vector3.Distance(enemy.position, enemyStartPosition);
+        if (playerDistance < 0.02f && enemyDistance < 0.02f)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -15,4 +15,9 @@ public class BattleUI : MonoBehaviour
         BattleManager.instance.playerAttack = playerHandler.attacks[0];
         BattleManager.instance.HandlingStates(BattleState.AttackingTurn);
     }
+    
+    public void Flee()
+    {
+
+    }
 }

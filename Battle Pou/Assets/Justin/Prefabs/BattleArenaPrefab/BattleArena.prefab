@@ -88,7 +88,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811789342809806454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -101,7 +101,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 798a13d3206647f44ad0e85422170dcb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 724ba60412dacbd498e0057d3824436f, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 3380c8cfa55c9b64abd3ef607d1cf2c2, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &2520995740393870617
 MonoBehaviour:
@@ -2030,7 +2030,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc6f5e7a898e63d43b43d3436a13e248, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2089,6 +2089,7 @@ GameObject:
   - component: {fileID: 4591293650377489974}
   - component: {fileID: 5136449123356977219}
   - component: {fileID: 8743354714151018364}
+  - component: {fileID: 4019431417012098013}
   m_Layer: 7
   m_Name: BattlePlayer
   m_TagString: Player
@@ -2105,7 +2106,7 @@ Transform:
   m_GameObject: {fileID: 5618238894879508849}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.016, z: -0.42454544}
+  m_LocalPosition: {x: 0, y: 1.08, z: -0.42454544}
   m_LocalScale: {x: 0.045454543, y: 1, z: 0.045454543}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2256,6 +2257,28 @@ MonoBehaviour:
   maxExp: 100
   attacks:
   - {fileID: 4062011818438038506}
+--- !u!195 &4019431417012098013
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618238894879508849}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: Infinity
+  avoidancePriority: 50
+  m_AngularSpeed: Infinity
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &5918905981917107176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2632,10 +2655,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4148152acca5143b8c008babb0c75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 4513673508717543545}
   enemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!1 &7723683001821800793
 GameObject:
   m_ObjectHideFlags: 0
