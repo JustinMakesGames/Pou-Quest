@@ -183,7 +183,7 @@ public class EnemyOverworld : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StartBattle.instance.ActivateEvent();
+            BattleTransition.instance.StartBattle();
             CreateBattleArena.instance.SpawnEnemy(battleEnemy);
         }
     }

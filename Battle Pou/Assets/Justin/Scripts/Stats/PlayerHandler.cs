@@ -16,7 +16,7 @@ public class PlayerHandler : MonoBehaviour
 
     //Battle Management
     public Transform battlePlayer;
-    public List<Transform> attacks = new List<Transform>(3);
+    public List<Transform> attacks;
     public bool invincible;
 
     private void Awake()
@@ -31,6 +31,11 @@ public class PlayerHandler : MonoBehaviour
     public void BattlePlayerSet(Transform player)
     {
         battlePlayer = player;
+
+        for (int i = 0; i < battlePlayer.childCount; i++)
+        {
+            attacks.Add(battlePlayer.GetChild(i));
+        }
     }
     public void TakeDamage(int damage)
     {
@@ -38,8 +43,17 @@ public class PlayerHandler : MonoBehaviour
         {
             print("Took " + damage + " damage");
             hp -= damage;
-            invincible = true;
-            StartCoroutine(InvincibleFrames());
+
+            if (hp <= 0)
+            {
+                BattleManager.instance.HandlingStates(BattleState.Lose);
+            }
+            else
+            {
+                invincible = true;
+                StartCoroutine(InvincibleFrames());
+            }
+            
         }
         
         

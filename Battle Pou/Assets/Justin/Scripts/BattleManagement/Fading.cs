@@ -31,7 +31,7 @@ public class Fading : MonoBehaviour
 
     
 
-    public void ActivateIEnumerator()
+    public void FadingOut()
     {
         StartCoroutine(FovChange());
         StartCoroutine(BlackScreenFading());
@@ -47,8 +47,8 @@ public class Fading : MonoBehaviour
             Camera.main.fieldOfView -= fovSpeed * Time.deltaTime;
             yield return null;
         }
-        CreateBattleArena.instance.SetCameraInPosition();
-        Camera.main.fieldOfView = 60;       
+        Camera.main.fieldOfView = 60;
+               
     }
 
     private IEnumerator BlackScreenFading()
@@ -58,8 +58,6 @@ public class Fading : MonoBehaviour
             blackScreen.color += new Color(0, 0, 0, blackScreenFadeSpeed * Time.deltaTime);
             yield return null;
         }
-
-        
         while (blackScreen.color.a >= 0)
         {
             blackScreen.color -= new Color(0, 0, 0, blackScreenFadeSpeed * Time.deltaTime);

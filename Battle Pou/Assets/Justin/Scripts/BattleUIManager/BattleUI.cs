@@ -8,7 +8,7 @@ public class BattleUI : MonoBehaviour
 
     private void Awake()
     {
-        playerHandler = FindObjectOfType<PlayerHandler>();
+        playerHandler = PlayerHandler.Instance;
     }
     public void Attack1()
     {

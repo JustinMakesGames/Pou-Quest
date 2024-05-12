@@ -9,4 +9,5 @@ public class EnemyStats : ScriptableObject
     public int hp;
     public int maxHp;
     public int attackPower;
+    public int exp;
 }

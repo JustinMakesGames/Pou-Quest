@@ -8,6 +8,7 @@ public class EnemyHandler : MonoBehaviour
     public int hp;
     public int maxHp;
     public int attackPower;
+    public int exp;
     public EnemyStats stats;
     public List<Transform> enemyAttacks;
 
@@ -17,6 +18,7 @@ public class EnemyHandler : MonoBehaviour
         hp = stats.hp;
         maxHp = stats.maxHp;
         attackPower = stats.attackPower;
+        exp = stats.exp;
 
         for (int i = 0; i < transform.childCount; i++)
         {

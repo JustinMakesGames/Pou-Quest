@@ -9,15 +9,19 @@ public class Fight : MonoBehaviour, IAttacking
 
     public void StartAttack()
     {
+        player = FindObjectOfType<BattlePlayerMovement>().transform;
         print("EUEHVBERG");
     }
+    
     public void UpdateAttack()
     {
-        player = FindObjectOfType<BattlePlayerMovement>().transform;
+        
         if (Physics.Raycast(player.position, player.forward, out RaycastHit hit, 3f, enemy) && Input.GetMouseButtonDown(0))
         {
             hit.transform.GetComponent<EnemyHandler>().TakeDamage(3);
         }
+    
         
     }
 }
+

@@ -53,7 +53,9 @@ public class BattleManager : MonoBehaviour
                 StartCoroutine(Attacking());
                 break;
             case BattleState.Win:
-                //Win
+                StopAllCoroutines();
+                WinManagement.instance.WinScreen(playerHandler.exp, playerHandler.maxExp, enemyHandler.exp);
+                DestroyingEnemy();
                 break;
             case BattleState.Lose:
                 //Lose
@@ -175,4 +177,13 @@ public class BattleManager : MonoBehaviour
 
         return false;
     }
+
+    
+    private void DestroyingEnemy()
+    {
+        Destroy(enemy.gameObject);
+    }
+    
+    
+    
 }

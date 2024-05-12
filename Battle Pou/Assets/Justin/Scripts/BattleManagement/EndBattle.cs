@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateBattleArena : MonoBehaviour
+public class EndBattle : MonoBehaviour
 {
-    public static CreateBattleArena instance;
+    public static EndBattle instance;
 
     public Transform arenaSpawn;
     public GameObject battleArena;
@@ -19,29 +19,15 @@ public class CreateBattleArena : MonoBehaviour
         {
             instance = this;
         }
-
-        cam = Camera.main.transform;
     }
-    public void DeactivateOverworldScripts()
+    public void SettingUpDeletion()
     {
-        PlayerOverworld playerScript = GameObject.FindObjectOfType<PlayerOverworld>();
-        CamMovement camScript = GameObject.FindObjectOfType<CamMovement>();
-        EnemyOverworld[] enemyScripts = GameObject.FindObjectsOfType<EnemyOverworld>();
-        foreach (EnemyOverworld script in enemyScripts)
-        {
-            script.enabled = !script.enabled;
-        }
-        playerScript.enabled = !playerScript.enabled;
-        camScript.enabled = !camScript.enabled;
-    }
+        battleArenaClone = FindObjectOfType<BattleManager>().gameObject;
 
-    public void MakeBattleArena()
-    {
-        battleArenaClone = Instantiate(battleArena, arenaSpawn.position, Quaternion.identity);
 
     }
 
-    public void SpawnEnemy(GameObject enemy)
+    public void DestroyEnemy(GameObject enemy)
     {
         enemySpawn = battleArenaClone.transform.Find("EnemySpawn");
         Instantiate(enemy, enemySpawn.position, Quaternion.Euler(0, 180, 0));
