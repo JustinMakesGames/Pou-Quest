@@ -35,7 +35,6 @@ public class DialogManager : MonoBehaviour
         nameText.text = npcName;
         for (int i = 0; i < lines.Length; i++)
         {
-            dialogText.text = "";
             for (int c = 0; c < lines[i].ToCharArray().Length; c++)
             {
                 dialogText.text = dialogText.text + lines[i].ToCharArray()[c];

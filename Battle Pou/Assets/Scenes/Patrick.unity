@@ -2003,28 +2003,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056a9b550ac82414f933429c8e1f2323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxX: 30
-  maxY: 30
-  gridOffset: 30
-  cube: {fileID: 2469733057725918285, guid: b3e0e7fd4450f794d9c21c31175ad2d0, type: 3}
-  door: {fileID: 3315297580282856540, guid: 033442fb4e77f304b86a96d104bbe37b, type: 3}
+  offset: 30
   player: {fileID: 0}
-  gridList: []
-  children: []
   dungeons: []
   dungeon: {fileID: 284857136394968901, guid: 8f243d53e7f157f49a4ba0f8d90f06ce, type: 3}
-  currentDungeon: 30
-  rotations:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 90, z: 0}
-  - {x: 0, y: 180, z: 0}
-  - {x: 0, y: 270, z: 0}
-  currentGridX: 0
-  currentGridY: 0
+  currentDungeon: 0
   currentDungeonPos: {x: 0, y: 0, z: 0}
-  checkForDungeon: {fileID: 749155910533267107, guid: 82ceaae2bd952554da2ac9ba5d2ccfd5,
-    type: 3}
-  hasWaited: 0
 --- !u!4 &1742206641
 Transform:
   m_ObjectHideFlags: 0
