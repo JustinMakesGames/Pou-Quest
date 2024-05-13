@@ -11,17 +11,14 @@ public class Generation : MonoBehaviour
     public GameObject dungeon;
     public int currentDungeon = 0;
     public Vector3 currentDungeonPos;
+    public List<Vector3> dungeonPositions = new List<Vector3>();
     private void Start()
     {
         GenerateDungeon(Door.Direction.None);
     }
     bool DoesDungeonExist(Vector3 pos)
     {
-        foreach (var d in dungeons)
-        {
-            if (d.transform.position == pos) return true;
-        }
-        return false;
+        return dungeonPositions.Contains(pos);
     }
     Vector3 Pos(Door.Direction direction)
     {
@@ -35,7 +32,6 @@ public class Generation : MonoBehaviour
             default: throw new ArgumentOutOfRangeException();
         }
     }
-
     public void GenerateDungeon(Door.Direction direction)
     {
         Vector3 pos = Pos(direction);
@@ -47,6 +43,7 @@ public class Generation : MonoBehaviour
             dungeons.Add(newDungeon);
             newDungeon.name = (dungeons.Count - 1).ToString();
             currentDungeonPos = newDungeon.transform.position;
+            dungeonPositions.Add(currentDungeonPos);
         }
         else
         {
@@ -54,6 +51,4 @@ public class Generation : MonoBehaviour
             currentDungeonPos = pos;
         }
     }
-
-
 }

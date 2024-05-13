@@ -13,6 +13,7 @@ public class ResManager : MonoBehaviour
     private float currentRefRate;
     private int currentResolutionIndex = 0;
     public string currentRes;
+    public bool fullscreen;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class ResManager : MonoBehaviour
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-            if ((float)resolutions[i].refreshRateRatio.value == currentRefRate)
+            if (resolutions[i].refreshRateRatio.value == currentRefRate)
             {
                 resolutionList.Add(resolutions[i]);
             }
@@ -33,7 +34,7 @@ public class ResManager : MonoBehaviour
         List<string> options = new List<string>();
         for (int i = 0; i < resolutionList.Count; i++)
         {
-            string resolutionOption = resolutionList[i].width + "x" + resolutionList[i].height + " " + (float)resolutionList[i].refreshRateRatio.value + " Hz";
+            string resolutionOption = resolutionList[i].width + "x" + resolutionList[i].height + " " + resolutionList[i].refreshRateRatio.value + " Hz";
             options.Add(resolutionOption);
             if (resolutionList[i].width == Screen.width && resolutionList[i].height == Screen.height)
             {
@@ -48,7 +49,7 @@ public class ResManager : MonoBehaviour
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutionList[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, true);
+        Screen.SetResolution(resolution.width, resolution.height, fullscreen);
     }
 
 
