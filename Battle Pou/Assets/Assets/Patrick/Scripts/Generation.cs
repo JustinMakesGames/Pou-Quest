@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class Generation : MonoBehaviour
@@ -12,8 +13,14 @@ public class Generation : MonoBehaviour
     public int currentDungeon = 0;
     public Vector3 currentDungeonPos;
     public List<Vector3> dungeonPositions = new List<Vector3>();
+    public int currentChance = 2000;
+    public int random;
+    public GameObject pou;
+    public static Generation instance;
     private void Start()
     {
+        instance = this;
+        random = UnityEngine.Random.Range(0, currentChance);
         GenerateDungeon(Door.Direction.None);
     }
     bool DoesDungeonExist(Vector3 pos)
@@ -44,6 +51,12 @@ public class Generation : MonoBehaviour
             newDungeon.name = (dungeons.Count - 1).ToString();
             currentDungeonPos = newDungeon.transform.position;
             dungeonPositions.Add(currentDungeonPos);
+            int time = Mathf.RoundToInt(Time.time);
+            int randomNum = UnityEngine.Random.Range(0, currentChance);
+            if (randomNum == random)
+            {
+                Instantiate(pou, new Vector3(currentDungeonPos.x + 13, currentDungeonPos.y + 1, currentDungeonPos.z), Quaternion.Euler(0, -90, 0));
+            }
         }
         else
         {
