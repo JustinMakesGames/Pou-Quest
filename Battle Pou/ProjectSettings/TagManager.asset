@@ -8,6 +8,8 @@ TagManager:
   - Door
   - Dungeon
   - Projectile
+  - Inventory
+  - InventoryMenu
   layers:
   - Default
   - TransparentFX
