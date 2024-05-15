@@ -17,9 +17,13 @@ public class Generation : MonoBehaviour
     public int random;
     public GameObject pou;
     public static Generation instance;
-    private void Start()
+
+    private void Awake()
     {
         instance = this;
+    }
+    private void Start()
+    {
         random = UnityEngine.Random.Range(0, currentChance);
         GenerateDungeon(Door.Direction.None);
     }
@@ -63,5 +67,15 @@ public class Generation : MonoBehaviour
             currentDungeon--;
             currentDungeonPos = pos;
         }
+    }
+
+    public void GenerateDungeonAtPos(Vector3 pos)
+    {
+        currentDungeon++;
+        GameObject newDungeon = Instantiate(dungeon, pos, Quaternion.identity);
+        dungeons.Add(newDungeon);
+        newDungeon.name = (dungeons.Count - 1).ToString();
+        currentDungeonPos = newDungeon.transform.position;
+        dungeonPositions.Add(currentDungeonPos);
     }
 }
