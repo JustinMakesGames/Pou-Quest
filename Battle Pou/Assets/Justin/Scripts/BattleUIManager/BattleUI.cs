@@ -18,6 +18,12 @@ public class BattleUI : MonoBehaviour
     
     public void Flee()
     {
+        int chanceToEscape = 1;
 
+        if (chanceToEscape == 1)
+        {
+            BattleManager.instance.HandlingStates(BattleState.Flee);
+
+        }
     }
 }

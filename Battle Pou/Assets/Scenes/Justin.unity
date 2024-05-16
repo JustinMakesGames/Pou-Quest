@@ -270,8 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fbbe87f1a423e449a61834b36a558d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100000
-  maxHp: 100000
+  hp: 100
+  maxHp: 3
   sp: 2
   maxSp: 2
   attackPower: 2
@@ -279,7 +279,7 @@ MonoBehaviour:
   maxExp: 100
   battlePlayer: {fileID: 0}
   attacks: []
-  invincible: 0
+  immunityFrames: 0
 --- !u!4 &547322700
 Transform:
   m_ObjectHideFlags: 0
@@ -529,8 +529,9 @@ GameObject:
   - component: {fileID: 1360388559}
   - component: {fileID: 1360388558}
   - component: {fileID: 1360388557}
+  - component: {fileID: 1360388560}
   m_Layer: 0
-  m_Name: BattleStarting
+  m_Name: BattleTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -578,6 +579,8 @@ MonoBehaviour:
   arenaSpawn: {fileID: 1433705713}
   battleArena: {fileID: 811789342809806454, guid: 780765ae5e854a34184362ae83cb50ce,
     type: 3}
+  oldCamPosition: {x: 0, y: 0, z: 0}
+  oldCamRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1360388559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,6 +597,21 @@ MonoBehaviour:
   blackScreen: {fileID: 1363579092}
   blackScreenFadeSpeed: 1
   rotationSpeed: 5
+--- !u!114 &1360388560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360388554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a69838aa5e91b946b61c687bc1b4a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arenaSpawn: {fileID: 0}
+  battleArena: {fileID: 0}
+  overworldEnemy: {fileID: 0}
 --- !u!1 &1363579091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1028,7 @@ MonoBehaviour:
   maxExp: 0
   battlePlayer: {fileID: 0}
   attacks: []
-  invincible: 0
+  immunityFrames: 0
 --- !u!1001 &2464952906923217022
 PrefabInstance:
   m_ObjectHideFlags: 0

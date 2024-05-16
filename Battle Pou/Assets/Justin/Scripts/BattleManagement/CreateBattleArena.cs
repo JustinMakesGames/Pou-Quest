@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class CreateBattleArena : MonoBehaviour
@@ -13,6 +15,9 @@ public class CreateBattleArena : MonoBehaviour
     private Transform cameraPosition;
     private Transform cam;
 
+    public Vector3 oldCamPosition;
+    public Quaternion oldCamRotation;
+
     private void Awake()
     {
         if (instance == null)
@@ -22,8 +27,10 @@ public class CreateBattleArena : MonoBehaviour
 
         cam = Camera.main.transform;
     }
-    public void DeactivateOverworldScripts()
-    {
+    public void OverworldManagement()
+    {      
+        oldCamPosition = cam.position;
+        oldCamRotation = cam.rotation;
         PlayerOverworld playerScript = GameObject.FindObjectOfType<PlayerOverworld>();
         CamMovement camScript = GameObject.FindObjectOfType<CamMovement>();
         EnemyOverworld[] enemyScripts = GameObject.FindObjectsOfType<EnemyOverworld>();
@@ -44,7 +51,7 @@ public class CreateBattleArena : MonoBehaviour
     public void SpawnEnemy(GameObject enemy)
     {
         enemySpawn = battleArenaClone.transform.Find("EnemySpawn");
-        Instantiate(enemy, enemySpawn.position, Quaternion.Euler(0, 180, 0));
+        Instantiate(enemy, enemySpawn.position, Quaternion.Euler(0, 180, 0));      
     }
 
 
@@ -57,7 +64,6 @@ public class CreateBattleArena : MonoBehaviour
     private IEnumerator SetCameraAtPosition()
     {
         yield return new WaitUntil(() => Camera.main.fieldOfView <= 30);
-
         cameraPosition = battleArenaClone.transform.Find("CameraSpawn");
         cam.position = cameraPosition.position;
         cam.rotation = cameraPosition.rotation;

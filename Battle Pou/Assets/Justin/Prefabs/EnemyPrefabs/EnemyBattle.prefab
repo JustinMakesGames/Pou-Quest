@@ -146,6 +146,7 @@ MonoBehaviour:
   hp: 0
   maxHp: 0
   attackPower: 0
+  exp: 0
   stats: {fileID: 11400000, guid: aeac320c9445d5243bd0279c625d179f, type: 2}
   enemyAttacks: []
 --- !u!1 &7421653408279558846

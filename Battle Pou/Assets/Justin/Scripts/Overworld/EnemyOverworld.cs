@@ -185,6 +185,7 @@ public class EnemyOverworld : MonoBehaviour
         {
             BattleTransition.instance.StartBattle();
             CreateBattleArena.instance.SpawnEnemy(battleEnemy);
+            EndBattle.instance.GetEnemy(gameObject);
         }
     }
 

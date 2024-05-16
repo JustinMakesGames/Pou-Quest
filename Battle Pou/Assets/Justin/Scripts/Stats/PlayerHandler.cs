@@ -17,7 +17,7 @@ public class PlayerHandler : MonoBehaviour
     //Battle Management
     public Transform battlePlayer;
     public List<Transform> attacks;
-    public bool invincible;
+    public bool immunityFrames;
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ public class PlayerHandler : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        if (!invincible)
+        if (!immunityFrames)
         {
             print("Took " + damage + " damage");
             hp -= damage;
@@ -50,7 +50,7 @@ public class PlayerHandler : MonoBehaviour
             }
             else
             {
-                invincible = true;
+                immunityFrames = true;
                 StartCoroutine(InvincibleFrames());
             }
             
@@ -70,6 +70,6 @@ public class PlayerHandler : MonoBehaviour
             battlePlayer.GetComponent <MeshRenderer>().enabled = true;
             yield return new WaitForSeconds(0.1f);
         }
-        invincible = false;
+        immunityFrames = false;
     }
 }

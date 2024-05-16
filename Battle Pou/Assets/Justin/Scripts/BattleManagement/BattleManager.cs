@@ -32,7 +32,7 @@ public class BattleManager : MonoBehaviour
             instance = this;
         }
     }
-    private void OnEnable()
+    private void Start()
     {       
         HandlingStates(BattleState.Start);
     }
@@ -55,24 +55,29 @@ public class BattleManager : MonoBehaviour
             case BattleState.Win:
                 StopAllCoroutines();
                 WinManagement.instance.WinScreen(playerHandler.exp, playerHandler.maxExp, enemyHandler.exp);
+                WinManagement.instance.ClearAttacks();
                 DestroyingEnemy();
                 break;
             case BattleState.Lose:
-                //Lose
+                StopAllCoroutines();
+                LoseManager.instance.LoseManagement();
                 break;
             case BattleState.Flee:
-                //Flee
+                StopAllCoroutines();
+                BattleTransition.instance.FleeingBattle();
+                WinManagement.instance.ClearAttacks();
                 break;
         }
     }
     
+
     private IEnumerator SettingUpBattle()
     {
-        yield return new WaitForEndOfFrame();
-        player = FindObjectOfType<BattlePlayerMovement>().transform;
-        enemy = FindObjectOfType<EnemyHandler>().transform;
+        yield return null;
+        player = FindAnyObjectByType<BattlePlayerMovement>().transform;
+        enemy = FindAnyObjectByType<EnemyHandler>().transform;
         playerHandler = PlayerHandler.Instance;
-        enemyHandler = FindObjectOfType<EnemyHandler>();
+        enemyHandler = FindAnyObjectByType<EnemyHandler>();
         playerStartPosition = player.position;
         enemyStartPosition = enemy.position;
         playerHandler.BattlePlayerSet(player);
@@ -98,11 +103,9 @@ public class BattleManager : MonoBehaviour
     private IEnumerator Attacking()
     {
         float time = 0f;
-        const float attackingLength = 5f;
+        const float attackingLength = 3f;
         player.GetComponent<BattlePlayerMovement>().enabled = true;
-
-        enemyHandler.ChoosingAttack();
-
+        enemyHandler.ChoosingAttack();       
         playerAttack.GetComponent<IAttacking>().StartAttack();
         enemyAttack.GetComponent<IAttacking>().StartAttack();
         while (time < attackingLength)
@@ -168,9 +171,11 @@ public class BattleManager : MonoBehaviour
 
     private bool AreObjectsAtStartPosition()
     {
-        float playerDistance = Vector3.Distance(player.position, playerStartPosition);
+        float playerDistance = CalculatePlayerDistance();
         float enemyDistance = Vector3.Distance(enemy.position, enemyStartPosition);
-        if (playerDistance < 0.02f && enemyDistance < 0.02f)
+        print(playerDistance + " " + enemyDistance);
+        print(player.position + " " + playerStartPosition);
+        if (playerDistance < 0.05f && enemyDistance < 0.05f)
         {
             return true;
         }
@@ -178,6 +183,13 @@ public class BattleManager : MonoBehaviour
         return false;
     }
 
+    private float CalculatePlayerDistance()
+    {
+        Vector3 playerPosition = new Vector3(player.position.x,0,player.position.z);
+        Vector3 playerStartPos = new Vector3(playerStartPosition.x,0,playerStartPosition.z);
+        
+        return Vector3.Distance(playerPosition, playerStartPos);
+    }
     
     private void DestroyingEnemy()
     {

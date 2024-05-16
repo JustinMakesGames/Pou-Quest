@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class BallRolling : MonoBehaviour
+public class ProjectileBall : MonoBehaviour
 {
     public float speed;
     private Rigidbody rb;
@@ -30,7 +30,7 @@ public class BallRolling : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("BattlePlayer"))
         {
             PlayerHandler.Instance.TakeDamage(enemyHandler.attackPower);
         }

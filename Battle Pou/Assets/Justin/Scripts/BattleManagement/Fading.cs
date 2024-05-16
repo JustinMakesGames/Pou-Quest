@@ -39,7 +39,7 @@ public class Fading : MonoBehaviour
 
     private IEnumerator FovChange()
     {
-        
+        yield return null;
         while (Camera.main.fieldOfView >= 30)
         {
             Quaternion lookRotation = Quaternion.LookRotation(player.position - cam.position);
