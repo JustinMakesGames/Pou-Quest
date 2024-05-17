@@ -14,7 +14,15 @@ public class AttackButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public string attackName, attackDescription;
 
+    private Transform description;
     public TMP_Text attackNameText, attackDescriptionText;
+
+    private void Awake()
+    {
+        description = GameObject.FindGameObjectWithTag("Description").transform;
+        attackNameText = description.GetChild(0).GetComponent<TMP_Text>();
+        attackDescriptionText = description.GetChild(1).GetComponent<TMP_Text>();
+    }
     public void OnClicked()
     {
         print("On Clicked");

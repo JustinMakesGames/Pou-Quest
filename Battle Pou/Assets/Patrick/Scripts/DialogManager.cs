@@ -13,6 +13,15 @@ public class DialogManager : MonoBehaviour
     public string npcName;
     public float textSpeed = 1;
 
+    public int showDialogOption;
+    public GameObject optionScreen;
+
+    private void Start()
+    {
+        dialogPanel = GameObject.FindGameObjectWithTag("Dialogue").transform.GetChild(0).gameObject;
+        nameText = dialogPanel.transform.GetChild(0).GetComponent<TMP_Text>();
+        dialogText = dialogPanel.transform.GetChild(1).GetComponent<TMP_Text>();
+    }
     private void Update()
     {
         if (dialogPanel.activeSelf)
@@ -35,6 +44,10 @@ public class DialogManager : MonoBehaviour
         nameText.text = npcName;
         for (int i = 0; i < lines.Length; i++)
         {
+            if (i == showDialogOption)
+            {
+                optionScreen.SetActive(true);
+            }
             dialogText.text = "";
             for (int c = 0; c < lines[i].ToCharArray().Length; c++)
             {

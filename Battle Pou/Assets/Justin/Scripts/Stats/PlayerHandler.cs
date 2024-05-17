@@ -13,7 +13,8 @@ public class PlayerHandler : MonoBehaviour
     public int attackPower;
     public int exp;
     public int maxExp;
-
+    public int level;
+    public int coins;
     //Battle Management
     public Transform battlePlayer;
     public List<Transform> attacks;
