@@ -51,8 +51,12 @@ MonoBehaviour:
     dungeonZ: []
     health: 0
     sp: 0
+    attackPower: 0
+    exp: 0
+    level: 0
     inventoryIds: 
   path: 
+  key: wowamazingitspou
 --- !u!114 &3418497987001249811
 MonoBehaviour:
   m_ObjectHideFlags: 0

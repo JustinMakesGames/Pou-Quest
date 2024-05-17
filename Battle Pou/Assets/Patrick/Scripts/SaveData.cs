@@ -10,5 +10,8 @@ public class SaveData
     public float[] dungeonZ;
     public int health;
     public int sp;
+    public int attackPower;
+    public int exp;
+    public int level;
     public List<int> inventoryIds = new List<int>();
 }
