@@ -6,4 +6,5 @@ public interface IAttacking
 {
     void StartAttack();
     void UpdateAttack();
+    void FinishAttack();
 }

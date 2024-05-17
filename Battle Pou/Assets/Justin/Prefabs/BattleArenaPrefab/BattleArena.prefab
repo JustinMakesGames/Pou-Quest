@@ -295,6 +295,7 @@ MonoBehaviour:
   chooseScreen: {fileID: 3140698185157222259}
   playerAttack: {fileID: 0}
   enemyAttack: {fileID: 0}
+  attackingLength: 10
 --- !u!114 &2914757257139795198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +339,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c01df066a4fae944b7484034692fb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackTexts:
+  - {fileID: 5852487432265302818}
+  - {fileID: 7953310547318990584}
+  - {fileID: 7311929475274308899}
 --- !u!114 &7317259815553325502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1878,7 +1883,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6656795829420577531}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2520995740393870617}
+        m_TargetAssemblyTypeName: BattleUI, Assembly-CSharp
+        m_MethodName: Attack3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6216179947145524714}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3522098519260061852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2493,8 +2522,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.08, z: -0.42454544}
   m_LocalScale: {x: 0.045454543, y: 1, z: 0.045454543}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4062011818438038506}
+  m_Children: []
   m_Father: {fileID: 526896164776255276}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3873841093420149307
@@ -2630,7 +2658,7 @@ NavMeshAgent:
   m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 10
   m_Acceleration: Infinity
   avoidancePriority: 50
   m_AngularSpeed: Infinity
@@ -3089,54 +3117,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0012207031, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &6330590389816661247
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4062011818438038506}
-  - component: {fileID: 6603203145217056010}
-  m_Layer: 7
-  m_Name: Fight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4062011818438038506
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330590389816661247}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4513673508717543545}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6603203145217056010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330590389816661247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd4148152acca5143b8c008babb0c75c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 4513673508717543545}
-  enemy:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!1 &7723683001821800793
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,7 +3238,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4337165560909243596}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2520995740393870617}
+        m_TargetAssemblyTypeName: BattleUI, Assembly-CSharp
+        m_MethodName: Attack2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6216179947145524714}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1205143667620281048
 MonoBehaviour:
   m_ObjectHideFlags: 0

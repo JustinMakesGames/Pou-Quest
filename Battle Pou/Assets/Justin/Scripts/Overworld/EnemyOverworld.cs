@@ -45,7 +45,6 @@ public class EnemyOverworld : MonoBehaviour
         startPosition = transform.position;
         minPosition = new Vector3(startPosition.x - walkRange, transform.position.y - walkRange, startPosition.z - walkRange);
         maxPosition = new Vector3(startPosition.x + walkRange, transform.position.y + walkRange, startPosition.z + walkRange);
-        print("Start");
     }
 
     private void OnEnable()
@@ -101,7 +100,7 @@ public class EnemyOverworld : MonoBehaviour
 
     private void CheckingForPlayer()
     {
-        if (Vector3.Distance(transform.position, player.position) < playerDistance && CanObjectBeSeen())
+        if (Vector3.Distance(transform.position, player.position) < playerDistance & CanObjectBeSeen() & IsInPosition(player.position, minPosition, maxPosition))
         {
             StopAllCoroutines();
             StartCoroutine(PreparingForChase());
@@ -117,7 +116,6 @@ public class EnemyOverworld : MonoBehaviour
 
         if (dotProduct > 0.2f)
         {
-            print("True yes xd");
             return true;
         }
 
@@ -126,7 +124,6 @@ public class EnemyOverworld : MonoBehaviour
     //Chasing
     private IEnumerator PreparingForChase()
     {
-        print("Seen");
         isPreparing = true;
         agent.SetDestination(transform.position);
         float time = 0f;

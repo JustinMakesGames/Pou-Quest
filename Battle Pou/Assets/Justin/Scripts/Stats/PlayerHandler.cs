@@ -31,11 +31,6 @@ public class PlayerHandler : MonoBehaviour
     public void BattlePlayerSet(Transform player)
     {
         battlePlayer = player;
-
-        for (int i = 0; i < battlePlayer.childCount; i++)
-        {
-            attacks.Add(battlePlayer.GetChild(i));
-        }
     }
     public void TakeDamage(int damage)
     {

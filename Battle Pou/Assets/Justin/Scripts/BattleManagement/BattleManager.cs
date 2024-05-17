@@ -25,6 +25,8 @@ public class BattleManager : MonoBehaviour
     private Vector3 playerStartPosition;
     private Vector3 enemyStartPosition;
 
+    public float attackingLength;
+
     private void Awake()
     {
         if (instance == null)
@@ -55,7 +57,6 @@ public class BattleManager : MonoBehaviour
             case BattleState.Win:
                 StopAllCoroutines();
                 WinManagement.instance.WinScreen(playerHandler.exp, playerHandler.maxExp, enemyHandler.exp);
-                WinManagement.instance.ClearAttacks();
                 DestroyingEnemy();
                 break;
             case BattleState.Lose:
@@ -65,7 +66,6 @@ public class BattleManager : MonoBehaviour
             case BattleState.Flee:
                 StopAllCoroutines();
                 BattleTransition.instance.FleeingBattle();
-                WinManagement.instance.ClearAttacks();
                 break;
         }
     }
@@ -74,6 +74,7 @@ public class BattleManager : MonoBehaviour
     private IEnumerator SettingUpBattle()
     {
         yield return null;
+        
         player = FindAnyObjectByType<BattlePlayerMovement>().transform;
         enemy = FindAnyObjectByType<EnemyHandler>().transform;
         playerHandler = PlayerHandler.Instance;
@@ -81,8 +82,17 @@ public class BattleManager : MonoBehaviour
         playerStartPosition = player.position;
         enemyStartPosition = enemy.position;
         playerHandler.BattlePlayerSet(player);
+        SettingUpAttacks();
         yield return new WaitForSeconds(2);
         player.GetComponent<BattleCamera>().enabled = true;
+    }
+
+    private void SettingUpAttacks()
+    {
+        foreach (var attack in PlayerHandler.Instance.attacks)
+        {
+            Instantiate(attack, player);
+        }
     }
 
     private IEnumerator BattleTextAppears()
@@ -103,10 +113,13 @@ public class BattleManager : MonoBehaviour
     private IEnumerator Attacking()
     {
         float time = 0f;
-        const float attackingLength = 3f;
         player.GetComponent<BattlePlayerMovement>().enabled = true;
-        enemyHandler.ChoosingAttack();       
-        playerAttack.GetComponent<IAttacking>().StartAttack();
+        enemyHandler.ChoosingAttack(); 
+        
+        if (playerAttack != null)
+        {
+            playerAttack.GetComponent<IAttacking>().StartAttack();
+        }      
         enemyAttack.GetComponent<IAttacking>().StartAttack();
         while (time < attackingLength)
         {
@@ -124,27 +137,35 @@ public class BattleManager : MonoBehaviour
             yield return null;
         }
 
+        if (playerAttack != null)
+        {
+            playerAttack.GetComponent<IAttacking>().FinishAttack();
+        }
+        enemyAttack.GetComponent<IAttacking>().FinishAttack();
         StartCoroutine(HandlingEndOfTurn());
     }
 
     private IEnumerator HandlingEndOfTurn()
     {
-        player.GetComponent<BattlePlayerMovement>().enabled = false;
+        TurnPlayerMovementOff();  
         PuttingObjectsAtPosition();
         RemovingAllProjectiles();
-        bool areObjectsReturned = false;
-        while (!areObjectsReturned)
-        {          
-            if (AreObjectsAtStartPosition())
-            {
-                areObjectsReturned = true;
-            }
+
+        bool areObjectsBack = false;
+        while (!areObjectsBack)
+        {
+            areObjectsBack = AreObjectsAtStartPosition();
             yield return null;
         }
         PuttingStartRotation();
         HandlingStates(BattleState.PlayerTurn);
     }
     
+    private void TurnPlayerMovementOff()
+    {
+        player.GetComponent<BattlePlayerMovement>().enabled = false;
+        playerAttack = null;
+    }
     private void PuttingObjectsAtPosition()
     {
         player.GetComponent<NavMeshAgent>().enabled = true;
@@ -173,8 +194,6 @@ public class BattleManager : MonoBehaviour
     {
         float playerDistance = CalculatePlayerDistance();
         float enemyDistance = Vector3.Distance(enemy.position, enemyStartPosition);
-        print(playerDistance + " " + enemyDistance);
-        print(player.position + " " + playerStartPosition);
         if (playerDistance < 0.05f && enemyDistance < 0.05f)
         {
             return true;

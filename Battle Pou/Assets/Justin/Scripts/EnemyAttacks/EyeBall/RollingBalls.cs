@@ -21,6 +21,11 @@ public class RollingBalls : EnemyMoveAround
         PreparingToSpawn();
     }
 
+    public override void FinishAttack()
+    {
+        base.FinishAttack();
+        StopAllCoroutines();
+    }
     private void PreparingToSpawn()
     {
         if (!hasChosen)

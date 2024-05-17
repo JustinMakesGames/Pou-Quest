@@ -10,7 +10,6 @@ public class Fight : MonoBehaviour, IAttacking
     public void StartAttack()
     {
         player = FindObjectOfType<BattlePlayerMovement>().transform;
-        print("EUEHVBERG");
     }
     
     public void UpdateAttack()
@@ -21,6 +20,11 @@ public class Fight : MonoBehaviour, IAttacking
             hit.transform.GetComponent<EnemyHandler>().TakeDamage(3);
         }
     
+        
+    }
+
+    public void FinishAttack()
+    {
         
     }
 }

@@ -27,11 +27,6 @@ public class WinManagement : MonoBehaviour
         StartCoroutine(ExperienceChanging(playerExp, playerMaxExp));
     }
 
-    public void ClearAttacks()
-    {
-        PlayerHandler.Instance.attacks.Clear();
-    }
-
     private IEnumerator ExperienceChanging(int playerExp, int playerMaxExp)
     {
         PlayerHandler.Instance.exp += expGained;

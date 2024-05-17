@@ -44,6 +44,11 @@ public class EnemyMoveAround : MonoBehaviour, IAttacking
 
     }
 
+    public virtual void FinishAttack()
+    {
+
+    }
+
     private void PositionReached()
     {
         if (Vector3.Distance(transform.position, destinationPoint) < 0.2f)

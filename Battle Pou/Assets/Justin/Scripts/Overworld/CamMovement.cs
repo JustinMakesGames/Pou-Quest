@@ -15,8 +15,16 @@ public class CamMovement : MonoBehaviour
     private Vector3 cameraPos;
     private float cameraXOffset;
     private float cameraZOffset;
-    
 
+    public static CamMovement instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
