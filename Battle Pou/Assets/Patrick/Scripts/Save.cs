@@ -85,6 +85,10 @@ public class Save : MonoBehaviour
         }
         saveData.dungeonX = listX.ToArray();
         saveData.dungeonZ = listZ.ToArray();
+        foreach (var v in InventoryManager.instance.items)
+        {
+            saveData.inventoryIds.Add(v.GetComponent<ItemInfo>().id);
+        }
         //player health
         //player sp
         //dungeon type

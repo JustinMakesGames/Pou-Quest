@@ -8,6 +8,7 @@ public class SaveData
     public int[] dungeonType;
     public float[] dungeonX;
     public float[] dungeonZ;
-    public float health;
-    public float sp;
+    public int health;
+    public int sp;
+    public List<int> inventoryIds = new List<int>();
 }
