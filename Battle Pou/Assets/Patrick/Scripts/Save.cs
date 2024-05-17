@@ -11,15 +11,25 @@ public class Save : MonoBehaviour
     public static Save instance;
     public SaveData saveData;
     public string path;
+    public string key;
 
-    public string EncryptString(string key, string saveData)
+    public byte[] MakeKey()
+    {
+        byte[] keyBytes = Encoding.UTF8.GetBytes(key);
+        string baseString = Convert.ToBase64String(keyBytes);
+        byte[] aesKey = Encoding.UTF8.GetBytes(baseString);
+        return aesKey;
+    }
+    public string EncryptString(string saveData)
     {
         byte[] iv = new byte[16];
         byte[] array;
         
         using (Aes aes = Aes.Create())
         {
-            aes.Key = Encoding.UTF8.GetBytes(key);
+            byte[] aesKey;
+            aesKey = MakeKey();
+            aes.Key = aesKey;
             aes.IV = iv;
 
             ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
@@ -40,14 +50,16 @@ public class Save : MonoBehaviour
 
         return Convert.ToBase64String(array);
     }
-    public string DecryptString(string key, string encryptedJson)
+    public string DecryptString(string encryptedJson)
     {
         byte[] iv = new byte[16];
         byte[] buffer = Convert.FromBase64String(encryptedJson);
 
         using (Aes aes = Aes.Create())
         {
-            aes.Key = Encoding.UTF8.GetBytes(key);
+            byte[] aesKey;
+            aesKey = MakeKey();
+            aes.Key = aesKey;
             aes.IV = iv;
             ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
@@ -85,17 +97,17 @@ public class Save : MonoBehaviour
         }
         saveData.dungeonX = listX.ToArray();
         saveData.dungeonZ = listZ.ToArray();
-        foreach (var v in InventoryManager.instance.items)
-        {
-            saveData.inventoryIds.Add(v.GetComponent<ItemInfo>().id);
-        }
-        //player health
-        //player sp
-        //dungeon type
-        //(these havent been implemented yet as of writing this)
+        //foreach (var v in InventoryManager.instance.items)
+        //{
+        //    saveData.inventoryIds.Add(v.GetComponent<ItemInfo>().id);
+        //}
+        saveData.health = PlayerHandler.Instance.hp;
+        saveData.sp = PlayerHandler.Instance.sp;
+        saveData.exp = PlayerHandler.Instance.exp;
+        saveData.attackPower = PlayerHandler.Instance.attackPower;
         string json = JsonUtility.ToJson(saveData);
         Debug.Log(json);
-        string encryptedJson = EncryptString("iYwk2WngMh4XHChHYbA9KH34HmJues2s", json);
+        string encryptedJson = EncryptString(json);
 
         using (StreamWriter sw = new StreamWriter(path)) 
         {
@@ -114,7 +126,7 @@ public class Save : MonoBehaviour
             {
                 json = sr.ReadToEnd();
             }
-            string decodedJson = DecryptString("iYwk2WngMh4XHChHYbA9KH34HmJues2s", json);
+            string decodedJson = DecryptString(json);
 
             data = JsonUtility.FromJson<SaveData>(decodedJson);
         }
@@ -124,5 +136,4 @@ public class Save : MonoBehaviour
         }
         return data;
     }
-
 }

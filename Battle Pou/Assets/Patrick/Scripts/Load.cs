@@ -12,10 +12,15 @@ public class Load : MonoBehaviour
             Generation.instance.GenerateDungeonAtPos(new Vector3(data.dungeonX[i], 0, data.dungeonZ[i]));
         }
 
-        foreach (int i in data.inventoryIds)
-        {
-            InventoryManager.instance.AddItem(items[i]);
-        }
+        //foreach (int i in data.inventoryIds)
+        //{
+        //    InventoryManager.instance.AddItem(items[i]);
+        //}
+
+        PlayerHandler.Instance.attackPower = data.attackPower;
+        PlayerHandler.Instance.hp = data.health;
+        PlayerHandler.Instance.sp = data.sp;
+        PlayerHandler.Instance.exp = data.exp;
         //health and shit
     }
 }
