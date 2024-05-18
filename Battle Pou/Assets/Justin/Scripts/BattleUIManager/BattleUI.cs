@@ -40,9 +40,9 @@ public class BattleUI : MonoBehaviour
     
     public void Flee()
     {
-        int chanceToEscape = 2;
+        int chanceToEscape = Random.Range(0,3);
 
-        if (chanceToEscape == 1)
+        if (chanceToEscape == 0)
         {
             BattleManager.instance.HandlingStates(BattleState.Flee);
 

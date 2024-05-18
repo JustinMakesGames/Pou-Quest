@@ -14,6 +14,7 @@ public class RollingBalls : EnemyMoveAround
     public override void StartAttack()
     {
         base.StartAttack();
+        hasChosen = false;
     }
     public override void UpdateAttack()
     {

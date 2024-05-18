@@ -57,7 +57,6 @@ public class InventoryManager : MonoBehaviour
             itemInfo.id = item.id;
             itemInfo.itemName = item.itemName;
             itemInfo.itemDescription = item.itemDescription;
-            itemInfo.type = item.type;
             newItem.name = item.itemName;
             items.Add(newItem);
             itemInfo.count = 1;
@@ -66,13 +65,7 @@ public class InventoryManager : MonoBehaviour
 
     public void UseItem(GameObject item)
     {
-        ItemType type = item.GetComponentInChildren<ItemInfo>().type;
-        switch (type)
-        {
-            case ItemType.consumable: print("consumable"); break;
-            case ItemType.spell: print("spell"); break;
-            case ItemType.weapon: print("weapon"); break;
-        }
+        
         item.GetComponentInChildren<ItemInfo>().count--;
         item.GetComponentInChildren<TMP_Text>().text = item.GetComponentInChildren<ItemInfo>().count.ToString();
         if (item.GetComponentInChildren<ItemInfo>().count <= 0)

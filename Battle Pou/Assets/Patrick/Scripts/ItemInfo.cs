@@ -8,6 +8,7 @@ public class ItemInfo : MonoBehaviour
     public Sprite itemSprite;
     public string itemName;
     public string itemDescription;
-    public ItemType type;
     public int count = 1;
+
+    
 }
