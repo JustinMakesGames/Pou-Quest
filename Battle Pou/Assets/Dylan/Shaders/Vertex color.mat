@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: Vertex color
   m_Shader: {fileID: -6465566751694194690, guid: e6fc9250aa7e4614992be49cdbf83a88,
     type: 3}
   m_Parent: {fileID: 0}
