@@ -36,9 +36,4 @@ public class AttackShop : MonoBehaviour
         
 
     }
-
-    private void Epic()
-    {
-        
-    }
 }

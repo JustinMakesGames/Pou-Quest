@@ -16,5 +16,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: b6517273bf674c74f9b4026b4efae24d, type: 3}
   itemName: Apple
   itemDescription: 'This '
-  hp: 0
+  hp: 5
   sp: 0

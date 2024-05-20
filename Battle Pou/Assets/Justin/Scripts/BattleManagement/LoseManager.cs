@@ -15,8 +15,11 @@ public class LoseManager : MonoBehaviour
             instance = this;
         }
     }
-    public void LoseManagement()
+    public void LoseManagement(GameObject player)
     {
+        Destroy(player);
+
+        Cursor.lockState = CursorLockMode.None;
         loseUI.SetActive(true);
     }
 

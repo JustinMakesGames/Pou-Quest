@@ -53,11 +53,15 @@ public class InventoryManager : MonoBehaviour
             newItem.GetComponentInChildren<Image>().sprite = item.itemSprite;
             newItem.transform.SetParent(inventory.transform, false);
             ItemInfo itemInfo = newItem.GetComponentInChildren<ItemInfo>();
+            itemInfo.item = item;
             itemInfo.itemSprite = item.itemSprite;
             itemInfo.id = item.id;
             itemInfo.itemName = item.itemName;
             itemInfo.itemDescription = item.itemDescription;
+            itemInfo.hpPlus = item.hp;
+            itemInfo.spPlus = item.sp;
             newItem.name = item.itemName;
+            
             items.Add(newItem);
             itemInfo.count = 1;
         }

@@ -61,7 +61,7 @@ public class BattleManager : MonoBehaviour
                 break;
             case BattleState.Lose:
                 StopAllCoroutines();
-                LoseManager.instance.LoseManagement();
+                LoseManager.instance.LoseManagement(player.gameObject);
                 break;
             case BattleState.Flee:
                 StopAllCoroutines();
