@@ -21,11 +21,11 @@ public class ResManager : MonoBehaviour
         resolutionList = new List<Resolution>();
 
         resolutionDropdown.ClearOptions();
-        currentRefRate = (float)Screen.currentResolution.refreshRateRatio.value;
+        currentRefRate = Mathf.Round((float)Screen.currentResolution.refreshRateRatio.value);
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-            if (resolutions[i].refreshRateRatio.value == currentRefRate)
+            if (Mathf.Round((float)resolutions[i].refreshRateRatio.value) == currentRefRate)
             {
                 resolutionList.Add(resolutions[i]);
             }
@@ -34,7 +34,7 @@ public class ResManager : MonoBehaviour
         List<string> options = new List<string>();
         for (int i = 0; i < resolutionList.Count; i++)
         {
-            string resolutionOption = resolutionList[i].width + "x" + resolutionList[i].height + " " + resolutionList[i].refreshRateRatio.value + " Hz";
+            string resolutionOption = resolutionList[i].width + "x" + resolutionList[i].height + " " + Mathf.Round((float)resolutionList[i].refreshRateRatio.value) + " Hz";
             options.Add(resolutionOption);
             if (resolutionList[i].width == Screen.width && resolutionList[i].height == Screen.height)
             {

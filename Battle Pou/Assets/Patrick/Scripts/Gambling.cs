@@ -6,17 +6,22 @@ using UnityEngine.UI;
 
 public class Gambling : MonoBehaviour
 {
+    private bool isGambling;
     public Sprite[] sprites;
     public List<int> ints = new List<int>();
     public GameObject[] gamblingPanels;
     public void StartGambling()
     {
-        StartCoroutine(Gamble());
+        if (!isGambling)
+        {
+            StartCoroutine(Gamble());
+        }
     }
 
 
     IEnumerator Gamble()
     {
+        isGambling = true;
         foreach (GameObject go in gamblingPanels)
         {
             go.GetComponent<Image>().sprite = null;
@@ -42,5 +47,6 @@ public class Gambling : MonoBehaviour
             Debug.Log("you lost");
         }
         ints.Clear();
+        isGambling = false;
     }
 }
