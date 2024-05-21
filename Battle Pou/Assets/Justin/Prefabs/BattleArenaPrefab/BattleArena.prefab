@@ -340,6 +340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c01df066a4fae944b7484034692fb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 4513673508717543545}
+  attacks: []
   attackTexts:
   - {fileID: 5852487432265302818}
   - {fileID: 7953310547318990584}
@@ -3338,6 +3340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b3a32531d748443ac5f05bdbd81cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!195 &4019431417012098013
 NavMeshAgent:
   m_ObjectHideFlags: 0

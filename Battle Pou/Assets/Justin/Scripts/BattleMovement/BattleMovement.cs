@@ -11,6 +11,7 @@ public class BattlePlayerMovement : MonoBehaviour
     private Vector3 dir;
     private Transform cam;
     private Rigidbody rb;
+    public Animator animator;
     
     private void OnEnable()
     {
@@ -21,6 +22,16 @@ public class BattlePlayerMovement : MonoBehaviour
     private void Update()
     {
         InputCheck();
+        Animating();
+    }
+
+    private void Animating()
+    {
+        if (animator != null)
+        {
+            animator.SetFloat("Walking", dir.magnitude);
+
+        }
     }
 
     private void FixedUpdate()
@@ -57,5 +68,10 @@ public class BattlePlayerMovement : MonoBehaviour
             transform.rotation = lookRotation;
         }
 
+    }
+
+    private void OnDisable()
+    {
+        animator.SetFloat("Walking", 0);
     }
 }

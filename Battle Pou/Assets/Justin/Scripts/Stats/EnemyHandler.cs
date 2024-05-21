@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnemyHandler : MonoBehaviour
@@ -37,6 +38,7 @@ public class EnemyHandler : MonoBehaviour
         print("YOUCH");
         hp -= damage;
 
+       
         if (hp <= 0)
         {
             BattleManager.instance.HandlingStates(BattleState.Win);

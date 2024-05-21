@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class BattleUI : MonoBehaviour
 {
     private PlayerHandler playerHandler;
+    public Transform player;
+    public List<Transform> attacks;
     public List<TMP_Text> attackTexts = new List<TMP_Text>(3);
     public Transform itemList;
     public List<Item> items;
@@ -17,12 +19,27 @@ public class BattleUI : MonoBehaviour
     private void Awake()
     {
         playerHandler = PlayerHandler.Instance;
+        player = FindObjectOfType<BattlePlayerMovement>().transform;
+
+        
     }
 
     private void Start()
     {
         SetUpPlayerAttacks();
-        SetUpItems();       
+        SetUpItems();
+        StartCoroutine(SetUpAttacks());
+        
+    }
+
+    private IEnumerator SetUpAttacks()
+    {
+        yield return null;
+        yield return null;
+        for (int i = 0; i < player.childCount; i++)
+        {
+            attacks.Add(player.GetChild(i));
+        }
     }
 
     private void SetUpPlayerAttacks()
@@ -64,19 +81,19 @@ public class BattleUI : MonoBehaviour
          
     public void Attack1()
     {
-        BattleManager.instance.playerAttack = playerHandler.attacks[0];
+        BattleManager.instance.playerAttack = attacks[0];
         BattleManager.instance.HandlingStates(BattleState.AttackingTurn);
     }
 
     public void Attack2()
     {
-        BattleManager.instance.playerAttack = playerHandler.attacks[1];
+        BattleManager.instance.playerAttack = attacks[1];
         BattleManager.instance.HandlingStates(BattleState.AttackingTurn);
     }
 
     public void Attack3()
     {
-        BattleManager.instance.playerAttack = playerHandler.attacks[2];
+        BattleManager.instance.playerAttack = attacks[2];
         BattleManager.instance.HandlingStates(BattleState.AttackingTurn);
     }
     

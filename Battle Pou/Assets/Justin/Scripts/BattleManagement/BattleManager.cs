@@ -118,7 +118,11 @@ public class BattleManager : MonoBehaviour
         
         if (playerAttack != null)
         {
+            player.GetComponent<MeshRenderer>().enabled = false;
+            playerAttack.GetComponent<MeshRenderer>().enabled = true;
             playerAttack.GetComponent<IAttacking>().StartAttack();
+
+            player.GetComponent<BattlePlayerMovement>().animator = playerAttack.GetComponent<InheritAnimator>().animator;
         }      
         enemyAttack.GetComponent<IAttacking>().StartAttack();
         while (time < attackingLength)

@@ -62,7 +62,7 @@ public class CamMovement : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, ground))
         {
             cameraXOffset = CalculateXOffset(hit.point.x);
-            cameraZOffset = CalculateYOffset(hit.point.z);
+            cameraZOffset = CalculateZOffset(hit.point.z);
             
         }
         
@@ -74,7 +74,7 @@ public class CamMovement : MonoBehaviour
         return distance;
     }
 
-    float CalculateYOffset(float hitPointZ)
+    float CalculateZOffset(float hitPointZ)
     {
         float distance = hitPointZ - transform.position.z;
         return distance;
