@@ -13,7 +13,7 @@ public class Generation : MonoBehaviour
     public int currentDungeon = 0;
     public Vector3 currentDungeonPos;
     public List<Vector3> dungeonPositions = new List<Vector3>();
-    public int currentChance = 2000;
+    public int currentChance = 400;
     public int random;
     public GameObject pou;
     public static Generation instance;
@@ -55,7 +55,6 @@ public class Generation : MonoBehaviour
             newDungeon.name = (dungeons.Count - 1).ToString();
             currentDungeonPos = newDungeon.transform.position;
             dungeonPositions.Add(currentDungeonPos);
-            int time = Mathf.RoundToInt(Time.time);
             int randomNum = UnityEngine.Random.Range(0, currentChance);
             if (randomNum == random)
             {
