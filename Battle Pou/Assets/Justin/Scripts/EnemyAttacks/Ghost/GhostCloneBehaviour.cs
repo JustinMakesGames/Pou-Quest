@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMoveAround : Attacking
+public class GhostCloneBehaviour : MonoBehaviour
 {
-    public Transform enemy;
     public Transform player;
     protected NavMeshAgent agent;
     protected Vector3 minPosition;
@@ -19,21 +18,20 @@ public class EnemyMoveAround : Attacking
 
     private void Awake()
     {
-        enemy = transform.parent;
         player = FindObjectOfType<BattlePlayerMovement>().transform;
-        agent = transform.parent.GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
         battleArena = FindObjectOfType<BattleManager>().GetComponent<Collider>().bounds;
         minPosition = battleArena.min;
         maxPosition = battleArena.max;
-        enemyHandler = transform.parent.GetComponent<EnemyHandler>();
+        enemyHandler = FindObjectOfType<EnemyHandler>();
     }
 
-    public override void StartAttack()
+    private void Start()
     {
         isMoving = false;
     }
 
-    public override void UpdateAttack()
+    private void Update()
     {
         if (!isMoving)
         {
@@ -48,12 +46,7 @@ public class EnemyMoveAround : Attacking
 
     }
 
-    public override void FinishAttack()
-    {
-
-    }
-
-    protected virtual void PositionReached()
+    private void PositionReached()
     {
         if (Vector3.Distance(transform.position, destinationPoint) < 0.2f)
         {
@@ -61,13 +54,19 @@ public class EnemyMoveAround : Attacking
         }
     }
 
-    protected virtual Vector3 ReturnPosition()
-    {
+   private Vector3 ReturnPosition()
+   {
         Vector3 destination = new Vector3(Random.Range(minPosition.x, maxPosition.x),
             transform.position.y,
             Random.Range(minPosition.z, maxPosition.z));
         return destination;
+   }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform == player)
+        {
+            PlayerHandler.Instance.TakeDamage(PlayerHandler.Instance.attackPower);
+        }
     }
-
-
 }

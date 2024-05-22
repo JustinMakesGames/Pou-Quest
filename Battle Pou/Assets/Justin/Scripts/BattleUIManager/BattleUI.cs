@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour
 {
+    public static BattleUI instance;
     private PlayerHandler playerHandler;
     public Transform player;
     public List<Transform> attacks;
@@ -16,8 +18,16 @@ public class BattleUI : MonoBehaviour
 
     public ItemInfo itemInfo;
     public ItemInfo inventoryItemInfo;
+
+    public TMP_Text playerHPText, playerSPText;
+
+    public Slider playerHPSlider, playerSPSlider, enemyHPSlider;
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
         playerHandler = PlayerHandler.Instance;
         player = FindObjectOfType<BattlePlayerMovement>().transform;
 
@@ -29,9 +39,16 @@ public class BattleUI : MonoBehaviour
         SetUpPlayerAttacks();
         SetUpItems();
         StartCoroutine(SetUpAttacks());
+
+        StartCoroutine(StartShowingStats());
         
     }
 
+    private IEnumerator StartShowingStats()
+    {
+        yield return null;
+        StatsChange();
+    }
     private IEnumerator SetUpAttacks()
     {
         yield return null;
@@ -81,6 +98,7 @@ public class BattleUI : MonoBehaviour
          
     public void Attack1()
     {
+        
         BattleManager.instance.playerAttack = attacks[0];
         BattleManager.instance.HandlingStates(BattleState.AttackingTurn);
     }
@@ -120,5 +138,19 @@ public class BattleUI : MonoBehaviour
     public void HUB()
     {
         print("Go to hub");
+    }
+
+    public void StatsChange()
+    {
+        playerHPText.text = playerHandler.hp.ToString() + "/" + playerHandler.maxHp.ToString();
+        playerSPText.text = playerHandler.sp.ToString() + "/" + playerHandler.maxSp.ToString();
+
+        playerHPSlider.maxValue = playerHandler.maxHp;
+        playerHPSlider.value = playerHandler.hp;
+        playerSPSlider.maxValue = playerHandler.sp;
+        playerSPSlider.value = playerHandler.sp;
+
+        enemyHPSlider.maxValue = FindObjectOfType<EnemyHandler>().maxHp;
+        enemyHPSlider.value = FindObjectOfType<EnemyHandler>().hp;
     }
 }

@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fight : InheritAnimator, IAttacking
+public class Fight : Attacking
 {
     public Transform player;
     public LayerMask enemy;
 
-    public void StartAttack()
+    public override void StartAttack()
     {
         StartCoroutine(SwordAttack());
         player = FindObjectOfType<BattlePlayerMovement>().transform;
     }
     
-    public void UpdateAttack()
+    public override void UpdateAttack()
     {
         
     }
@@ -24,7 +24,7 @@ public class Fight : InheritAnimator, IAttacking
         print("Played attack");
         animator.SetTrigger("Attack");
 
-        if (Physics.Raycast(player.position, player.forward, out RaycastHit hit, 90, enemy))
+        if (Physics.Raycast(player.position, player.forward, out RaycastHit hit, 3, enemy))
         {
             hit.transform.GetComponent<EnemyHandler>().TakeDamage(PlayerHandler.Instance.attackPower);
 
@@ -34,7 +34,7 @@ public class Fight : InheritAnimator, IAttacking
        
 
     }
-    public void FinishAttack()
+    public override void FinishAttack()
     {
         StopAllCoroutines();
     }

@@ -30,6 +30,9 @@ public class EnemyOverworld : MonoBehaviour
     //Checking for player
     private bool isChasing;
     private bool isPreparing;
+
+    //Animator
+    public Animator animator;
     
 
 
@@ -54,15 +57,35 @@ public class EnemyOverworld : MonoBehaviour
 
     private void Update()
     {
+        SetAnimation();
         if (!isChasing && !isPreparing)
         {
             CheckingForPlayer();
         }
         else if (isChasing)
         {
+            
             ChasePlayer();
             CheckingOutOfRadius();
         }       
+    }
+
+    private void SetAnimation()
+    {
+        if (animator != null)
+        {
+            animator.SetFloat("Walking", agent.velocity.magnitude);
+
+            if (isChasing)
+            {
+                animator.SetBool("Running", true);
+            }
+            else
+            {
+                animator.SetBool("Running", false);
+            }
+        }
+        
     }
 
     //Patrolling around

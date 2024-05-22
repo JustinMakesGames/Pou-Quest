@@ -55,12 +55,11 @@ public class BattleManager : MonoBehaviour
                 StartCoroutine(Attacking());
                 break;
             case BattleState.Win:
-                StopAllCoroutines();
-                WinManagement.instance.WinScreen(playerHandler.exp, playerHandler.maxExp, enemyHandler.exp);
-                DestroyingEnemy();
+                HandleWinning();
                 break;
             case BattleState.Lose:
                 StopAllCoroutines();
+                
                 LoseManager.instance.LoseManagement(player.gameObject);
                 break;
             case BattleState.Flee:
@@ -120,22 +119,22 @@ public class BattleManager : MonoBehaviour
         {
             player.GetComponent<MeshRenderer>().enabled = false;
             playerAttack.GetComponent<MeshRenderer>().enabled = true;
-            playerAttack.GetComponent<IAttacking>().StartAttack();
+            playerAttack.GetComponent<Attacking>().StartAttack();
 
-            player.GetComponent<BattlePlayerMovement>().animator = playerAttack.GetComponent<InheritAnimator>().animator;
+            player.GetComponent<BattlePlayerMovement>().animator = playerAttack.GetComponent<Attacking>().animator;
         }      
-        enemyAttack.GetComponent<IAttacking>().StartAttack();
+        enemyAttack.GetComponent<Attacking>().StartAttack();
         while (time < attackingLength)
         {
             time += Time.deltaTime;
             if (playerAttack != null)
             {
-                playerAttack.GetComponent<IAttacking>().UpdateAttack();
+                playerAttack.GetComponent<Attacking>().UpdateAttack();
             }
 
             if (enemy != null)
             {
-                enemyAttack.GetComponent<IAttacking>().UpdateAttack();
+                enemyAttack.GetComponent<Attacking>().UpdateAttack();
             }
             
             yield return null;
@@ -143,18 +142,18 @@ public class BattleManager : MonoBehaviour
 
         if (playerAttack != null)
         {
-            playerAttack.GetComponent<IAttacking>().FinishAttack();
+            playerAttack.GetComponent<Attacking>().FinishAttack();
         }
-        enemyAttack.GetComponent<IAttacking>().FinishAttack();
+        enemyAttack.GetComponent<Attacking>().FinishAttack();
         StartCoroutine(HandlingEndOfTurn());
     }
 
     private IEnumerator HandlingEndOfTurn()
     {
+        TurnAttackRendererOff();
         TurnPlayerMovementOff();  
         PuttingObjectsAtPosition();
         RemovingAllProjectiles();
-
         bool areObjectsBack = false;
         while (!areObjectsBack)
         {
@@ -187,6 +186,15 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    private void TurnAttackRendererOff()
+    {
+        if (playerAttack != null)
+        {
+            player.GetComponent<MeshRenderer>().enabled = true;
+            playerAttack.GetComponent<MeshRenderer>().enabled = false;
+        }
+    }
+
     private void PuttingStartRotation()
     {
         player.rotation = Quaternion.identity;
@@ -213,10 +221,19 @@ public class BattleManager : MonoBehaviour
         
         return Vector3.Distance(playerPosition, playerStartPos);
     }
-    
-    private void DestroyingEnemy()
+
+    private void HandleWinning()
     {
-        Destroy(enemy.gameObject);
+        StopAllCoroutines();
+        RemovingAllProjectiles();
+
+        if (playerAttack != null)
+        {
+            playerAttack.GetComponent<Attacking>().FinishAttack();
+        }
+        enemyAttack.GetComponent<Attacking>().FinishAttack();
+        StartCoroutine(WinManagement.instance.WinScreen(playerHandler.exp, playerHandler.maxExp, enemyHandler.exp));
+
     }
     
     

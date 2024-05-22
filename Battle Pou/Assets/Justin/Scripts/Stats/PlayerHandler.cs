@@ -40,6 +40,7 @@ public class PlayerHandler : MonoBehaviour
             print("Took " + damage + " damage");
             hp -= damage;
 
+            BattleUI.instance.StatsChange();
             if (hp <= 0)
             {
                 BattleManager.instance.HandlingStates(BattleState.Lose);
@@ -47,7 +48,15 @@ public class PlayerHandler : MonoBehaviour
             else
             {
                 immunityFrames = true;
-                StartCoroutine(InvincibleFrames());
+
+                if (BattleManager.instance.playerAttack != null)
+                {
+                    StartCoroutine(InvincibleFrames(BattleManager.instance.playerAttack));
+                }
+                else
+                {
+                    StartCoroutine(InvincibleFrames(battlePlayer));
+                }
             }
             
         }
@@ -55,15 +64,15 @@ public class PlayerHandler : MonoBehaviour
         
     }
 
-    private IEnumerator InvincibleFrames()
+    private IEnumerator InvincibleFrames(Transform player)
     {
         int invincibleFrameCount = 10;
 
         for (int i = 0; i < invincibleFrameCount; i++)
         {
-            battlePlayer.GetComponent<MeshRenderer>().enabled = false;
+            player.GetComponent<MeshRenderer>().enabled = false;
             yield return new WaitForSeconds(0.1f);
-            battlePlayer.GetComponent <MeshRenderer>().enabled = true;
+            player.GetComponent <MeshRenderer>().enabled = true;
             yield return new WaitForSeconds(0.1f);
         }
         immunityFrames = false;

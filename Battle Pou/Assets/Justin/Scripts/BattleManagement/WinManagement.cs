@@ -18,8 +18,9 @@ public class WinManagement : MonoBehaviour
             instance = this;
         }
     }
-    public void WinScreen(int playerExp, int playerMaxExp, int enemyExp)
+    public IEnumerator WinScreen(int playerExp, int playerMaxExp, int enemyExp)
     {
+        yield return new WaitForSeconds(3);
         expGained = enemyExp;
         winPanel.SetActive(true);
         experiencePoints.text = playerExp.ToString() + "/" + playerMaxExp.ToString();
