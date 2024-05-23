@@ -72,6 +72,10 @@ public class BattlePlayerMovement : MonoBehaviour
 
     private void OnDisable()
     {
-        animator.SetFloat("Walking", 0);
+        if (animator != null)
+        {
+            animator.SetFloat("Walking", 0);
+        }
+        
     }
 }

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonAttack : Attacking
+public class RangeAttack : Attacking
 {
-    public GameObject cannonBall;
+    public GameObject projectile;
     public Transform spawnPlace;
     public Transform player;
     public bool isReloading;
@@ -18,7 +18,9 @@ public class CannonAttack : Attacking
     {
         if (Input.GetMouseButtonDown(0) & !isReloading)
         {
-            Instantiate(cannonBall, spawnPlace.position, player.rotation);
+
+            PlayAnimation();
+            Instantiate(projectile, spawnPlace.position, player.rotation, transform);
             isReloading = true;
             StartCoroutine(Reload());
         }
@@ -26,10 +28,17 @@ public class CannonAttack : Attacking
 
     private IEnumerator Reload()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(attackStats.attackInterval);
         isReloading = false;
     }
 
+    private void PlayAnimation()
+    {
+        if (animator != null)
+        {
+            animator.SetTrigger("Attack");
+        }
+    }
     public override void FinishAttack()
     {
         StopAllCoroutines();

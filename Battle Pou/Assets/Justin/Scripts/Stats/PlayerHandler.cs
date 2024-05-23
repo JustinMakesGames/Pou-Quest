@@ -70,9 +70,9 @@ public class PlayerHandler : MonoBehaviour
 
         for (int i = 0; i < invincibleFrameCount; i++)
         {
-            player.GetComponent<MeshRenderer>().enabled = false;
+            player.GetComponentInChildren<Renderer>().enabled = false;
             yield return new WaitForSeconds(0.1f);
-            player.GetComponent <MeshRenderer>().enabled = true;
+            player.GetComponentInChildren<Renderer>().enabled = true;
             yield return new WaitForSeconds(0.1f);
         }
         immunityFrames = false;

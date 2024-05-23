@@ -522,6 +522,79 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1001 &419776374
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547322700}
+    m_Modifications:
+    - target: {fileID: 1243150539014657577, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243150539014657577, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243150539014657577, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243150539014657577, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243150539014657577, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243150539014657577, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243150539014657577, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243150539014657577, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243150539014657577, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243150539014657577, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876697542221991059, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_Name
+      value: Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786862183360912739, guid: 738b2f172a45b61449298d8617d45f0d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 738b2f172a45b61449298d8617d45f0d, type: 3}
 --- !u!1 &456314914 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 929312117055429321, guid: db601f1f7b298e7408975ce7065537bc,
@@ -659,8 +732,8 @@ MonoBehaviour:
   battlePlayer: {fileID: 0}
   attacks:
   - {fileID: 944832952}
-  - {fileID: 816396949}
   - {fileID: 2087601299}
+  - {fileID: 635850398}
   immunityFrames: 0
 --- !u!4 &547322700
 Transform:
@@ -677,11 +750,17 @@ Transform:
   m_Children:
   - {fileID: 944832952}
   - {fileID: 2087601299}
-  - {fileID: 816396949}
+  - {fileID: 635850398}
   - {fileID: 1673820341}
   - {fileID: 1498071366}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &635850398 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1243150539014657577, guid: 738b2f172a45b61449298d8617d45f0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 419776374}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &638795635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,37 +1147,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &816396948
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 816396949}
-  m_Layer: 0
-  m_Name: SuperCool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &816396949
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 816396948}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 547322700}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,7 +2226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1498071366}
   m_Layer: 0
-  m_Name: No
+  m_Name: Staff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2346,7 +2394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1673820341}
   m_Layer: 0
-  m_Name: Yes
+  m_Name: Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3022,46 +3070,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8327604184700520832, guid: 2b62dee77a6932645a99e2a829deab9a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2087601303}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b62dee77a6932645a99e2a829deab9a, type: 3}
---- !u!1 &2087601298 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8327604184700520832, guid: 2b62dee77a6932645a99e2a829deab9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 2021246001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2087601299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8708351233860162362, guid: 2b62dee77a6932645a99e2a829deab9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 2021246001}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2087601303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2087601298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e1a5e6c4287014a9cfd3addd0b23a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackStats: {fileID: 0}
-  animator: {fileID: 2087601304}
-  cannonBall: {fileID: 3971318611644657489, guid: 38d5a03d4b6bf58468f38c83427a5401,
-    type: 3}
-  spawnPlace: {fileID: 0}
-  player: {fileID: 0}
-  isReloading: 0
---- !u!95 &2087601304 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6375836877563584683, guid: 2b62dee77a6932645a99e2a829deab9a,
     type: 3}
   m_PrefabInstance: {fileID: 2021246001}
   m_PrefabAsset: {fileID: 0}
@@ -3682,6 +3695,16 @@ PrefabInstance:
       propertyPath: attack
       value: 
       objectReference: {fileID: 1498071366}
+    - target: {fileID: 955424290706027429, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: attackName
+      value: Spear
+      objectReference: {fileID: 0}
+    - target: {fileID: 955424290706027429, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: attackDescription
+      value: Use a powerful melee attack.
+      objectReference: {fileID: 0}
     - target: {fileID: 2232294675131413216, guid: db601f1f7b298e7408975ce7065537bc,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3696,6 +3719,16 @@ PrefabInstance:
         type: 3}
       propertyPath: attack
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633737660122502719, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: attackName
+      value: bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633737660122502719, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: attackDescription
+      value: Use the bow to shoot faster arrows.
       objectReference: {fileID: 0}
     - target: {fileID: 2647927126336307273, guid: db601f1f7b298e7408975ce7065537bc,
         type: 3}
@@ -3722,6 +3755,21 @@ PrefabInstance:
       propertyPath: attack
       value: 
       objectReference: {fileID: 944832952}
+    - target: {fileID: 3054968835043496821, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: attackDescription
+      value: Use the sword.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925865547139161395, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: m_text
+      value: Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332983458542437752, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: m_text
+      value: Cannon
+      objectReference: {fileID: 0}
     - target: {fileID: 4861620450037976695, guid: db601f1f7b298e7408975ce7065537bc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -3730,7 +3778,7 @@ PrefabInstance:
     - target: {fileID: 5790917117267760490, guid: db601f1f7b298e7408975ce7065537bc,
         type: 3}
       propertyPath: m_text
-      value: No
+      value: Spear
       objectReference: {fileID: 0}
     - target: {fileID: 5790917117267760490, guid: db601f1f7b298e7408975ce7065537bc,
         type: 3}
@@ -3846,6 +3894,11 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6830734383229759941, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: m_text
+      value: Spear
+      objectReference: {fileID: 0}
     - target: {fileID: 6861146665094425865, guid: db601f1f7b298e7408975ce7065537bc,
         type: 3}
       propertyPath: m_IsActive
@@ -3861,6 +3914,16 @@ PrefabInstance:
       propertyPath: attack
       value: 
       objectReference: {fileID: 1673820341}
+    - target: {fileID: 7051881559992374266, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: attackName
+      value: Spear
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051881559992374266, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: attackDescription
+      value: Use a powerful melee attack.
+      objectReference: {fileID: 0}
     - target: {fileID: 7561729953722702063, guid: db601f1f7b298e7408975ce7065537bc,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4012,7 +4075,17 @@ PrefabInstance:
         type: 3}
       propertyPath: attack
       value: 
-      objectReference: {fileID: 816396949}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290132223946702594, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: attackName
+      value: Cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290132223946702594, guid: db601f1f7b298e7408975ce7065537bc,
+        type: 3}
+      propertyPath: attackDescription
+      value: Shoot with the powerful cannon to do 3 times more damage.
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8671199003787751631, guid: db601f1f7b298e7408975ce7065537bc, type: 3}
     m_RemovedGameObjects: []

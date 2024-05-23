@@ -45,6 +45,7 @@ public class EnemyHandler : MonoBehaviour
         int randomAttack = Random.Range(0, enemyAttacks.Count);
         Transform attack = enemyAttacks[randomAttack];
         BattleManager.instance.enemyAttack = attack;
+        BattleManager.instance.InitializeHandlers();
     }
 
     public void TakeDamage(int damage)
@@ -75,9 +76,9 @@ public class EnemyHandler : MonoBehaviour
 
     private IEnumerator ShowDamage()
     {
-        GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        GetComponentInChildren<Renderer>().material.color = Color.red;
         yield return new WaitForSeconds(0.5f);
-        GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+        GetComponentInChildren<Renderer>().material.color = Color.white;
     }
 
 

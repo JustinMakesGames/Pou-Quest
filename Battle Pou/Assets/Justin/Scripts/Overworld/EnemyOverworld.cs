@@ -137,7 +137,7 @@ public class EnemyOverworld : MonoBehaviour
 
         float dotProduct = Vector3.Dot(directionToPlayer, transform.forward);
 
-        if (dotProduct > 0.2f)
+        if (dotProduct >= 0f)
         {
             return true;
         }
