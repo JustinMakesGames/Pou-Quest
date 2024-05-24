@@ -341,7 +341,7 @@ RectTransform:
   m_Father: {fileID: 7947910810838772239}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.52, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4649,7 +4649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &59456648053613742
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6459,7 +6459,7 @@ RectTransform:
   m_Father: {fileID: 1908255101058154611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.52, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6623,7 +6623,7 @@ RectTransform:
   m_Father: {fileID: 6178997880487586590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.52, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6880,7 +6880,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.66026163, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7238,7 +7238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: {fileID: 8514266127654416520}
   nameText: {fileID: 2806269860242445452}
-  clicked: 0
+  questNpc: 0
   dialogPanel: {fileID: 7125116176672414765}
   lines:
   - hello
@@ -7246,6 +7246,7 @@ MonoBehaviour:
   - i am good
   - dfghrnbtygfb
   npcName: cool name here
+  quest: 
   textSpeed: 0.5
   showDialogOption: 0
   optionScreen: {fileID: 0}
@@ -7772,6 +7773,42 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &4425672389189048204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 276099162528326902}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Dialogue
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &276099162528326902
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425672389189048204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8384118196570555677}
+  m_Father: {fileID: 6008059264499773396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -354.38367}
+  m_SizeDelta: {x: 0, y: -708.76733}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4435512578766694892
 GameObject:
   m_ObjectHideFlags: 0
@@ -11842,19 +11879,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7125116176672414765}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 392348524960676202}
   - {fileID: 3932958594195462634}
-  m_Father: {fileID: 6008059264499773396}
+  m_Father: {fileID: 276099162528326902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -354.38367}
-  m_SizeDelta: {x: 0, y: -708.7673}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4938528961640108772
 CanvasRenderer:
@@ -13320,7 +13357,7 @@ RectTransform:
   - {fileID: 5701116254635111774}
   - {fileID: 6173110767326731053}
   - {fileID: 7725232181619487586}
-  - {fileID: 8384118196570555677}
+  - {fileID: 276099162528326902}
   - {fileID: 1752521068918831122}
   - {fileID: 1625762568161032998}
   m_Father: {fileID: 0}

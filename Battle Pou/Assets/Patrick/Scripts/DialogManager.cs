@@ -7,10 +7,11 @@ public class DialogManager : MonoBehaviour
 {
     public TMP_Text dialogText;
     public TMP_Text nameText;
-    public bool clicked;
+    public bool questNpc;
     public GameObject dialogPanel;
-    public string[] lines;
+    public List<string> lines = new List<string>();
     public string npcName;
+    public string quest;
     public float textSpeed = 1;
 
     public int showDialogOption;
@@ -22,16 +23,6 @@ public class DialogManager : MonoBehaviour
         nameText = dialogPanel.transform.GetChild(0).GetComponent<TMP_Text>();
         dialogText = dialogPanel.transform.GetChild(1).GetComponent<TMP_Text>();
     }
-    private void Update()
-    {
-        if (dialogPanel.activeSelf)
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                clicked = true;
-            }
-        }
-    }
 
     public void StartDialog()
     {
@@ -42,11 +33,24 @@ public class DialogManager : MonoBehaviour
     IEnumerator Dialog()
     {
         nameText.text = npcName;
-        for (int i = 0; i < lines.Length; i++)
+        if (questNpc)
+        {
+            quest = QuestGenerator.Instance.GenerateQuest();
+            lines.Add(quest);
+
+        }
+        for (int i = 0; i < lines.Count; i++)
         {
             if (i == showDialogOption)
             {
                 optionScreen.SetActive(true);
+            }
+            if (lines[i] == quest)
+            {
+                if (quest.StartsWith("Find my pages"))
+                {
+                    nameText.text = "Slenderman (real not fake)";
+                }
             }
             dialogText.text = "";
             for (int c = 0; c < lines[i].ToCharArray().Length; c++)
@@ -54,8 +58,11 @@ public class DialogManager : MonoBehaviour
                 dialogText.text += lines[i].ToCharArray()[c];
                 yield return new WaitForSeconds(textSpeed * 0.1f);
             }
-            yield return new WaitUntil(() => clicked);
-            clicked = false;
+            yield return new WaitUntil(() => Input.GetButtonDown("Fire1"));
+            if (lines[i] == quest)
+            {
+                lines.Remove(quest);
+            }
         }
         dialogPanel.SetActive(false);
     }

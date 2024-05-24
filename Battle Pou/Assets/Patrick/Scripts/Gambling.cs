@@ -16,6 +16,7 @@ public class Gambling : MonoBehaviour
         {
             StartCoroutine(Gamble());
         }
+
     }
 
 
