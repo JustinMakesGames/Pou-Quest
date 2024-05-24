@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a54cd29fd2fdee41826e3156531b8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackStats: {fileID: 0}
+  animator: {fileID: 5585934596581207000}
   enemy: {fileID: 0}
   player: {fileID: 0}
-  animator: {fileID: 5585934596581207000}
   ball: {fileID: 5026574812760903670, guid: a9841a2fb2c53bb48977d3a1f3b8a61e, type: 3}
   attackInterval: 1
 --- !u!1 &5336432887053179444
@@ -93,9 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea63f933071ee948a02502353e6942f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackStats: {fileID: 0}
+  animator: {fileID: 5585934596581207000}
   enemy: {fileID: 0}
   player: {fileID: 0}
-  animator: {fileID: 5585934596581207000}
   radius: 10
   laser: {fileID: 428854887141434588, guid: 8fbbf29278ad02341b2961fcb2e7e05b, type: 3}
   amountOfLasers: 3
@@ -117,7 +119,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 157f49575a1d25e459ae2222a5d58e09,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.196
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 157f49575a1d25e459ae2222a5d58e09,
         type: 3}
@@ -176,7 +178,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8743813690021804245, guid: 157f49575a1d25e459ae2222a5d58e09,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8743813690021804245, guid: 157f49575a1d25e459ae2222a5d58e09,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e507957e12c65714ea3a80bcabd45eed, type: 2}
+    - target: {fileID: 8743813690021804245, guid: 157f49575a1d25e459ae2222a5d58e09,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: bf7e3a1759c3c9e44aeaa2fc57feba19, type: 2}
     m_RemovedComponents: []
