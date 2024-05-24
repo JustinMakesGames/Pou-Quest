@@ -53,12 +53,12 @@ public class LaserAttack : EnemyMoveAround
 
     private IEnumerator StartFiringLasers()
     {
-        for (int i = 0; i < amountOfLasers; i++)
+        for (int i = 0; i < stats.amountOfProjectiles; i++)
         {
             animator.SetTrigger("Attack");
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(stats.attackInterval / 2);
             Instantiate(laser, enemy.position, enemy.rotation);
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(stats.attackInterval / 2);
         }
         coroutineStarted = false;
         isMoving = false;

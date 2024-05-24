@@ -12,10 +12,12 @@ public class BattleUI : MonoBehaviour
     public Transform player;
     public List<Transform> attacks;
     public List<TMP_Text> attackTexts = new List<TMP_Text>(3);
+    public List<TMP_Text> spCostTexts = new List<TMP_Text>(3);
     public Transform itemList;
     public List<Item> items;
     public GameObject itemButton;
 
+    public GameObject chooseAttack;
     public ItemInfo itemInfo;
     public ItemInfo inventoryItemInfo;
 
@@ -64,6 +66,7 @@ public class BattleUI : MonoBehaviour
         for (int i = 0; i < attackTexts.Count; i++)
         {
             attackTexts[i].text = PlayerHandler.Instance.attacks[i].name;
+            spCostTexts[i].text = PlayerHandler.Instance.attacks[i].GetComponent<Attacking>().attackStats.spCost.ToString();
         }
     }
 
@@ -99,18 +102,41 @@ public class BattleUI : MonoBehaviour
     public void Attack1()
     {
         
+        if (attacks[0].GetComponent<Attacking>().attackStats.spCost > playerHandler.sp)
+        {
+            return;
+        }
+
+        chooseAttack.SetActive(false);
+        playerHandler.sp -= attacks[0].GetComponent<Attacking>().attackStats.spCost;
+        StatsChange();
         BattleManager.instance.playerAttack = attacks[0];
         BattleManager.instance.HandlingStates(BattleState.AttackingTurn);
     }
 
     public void Attack2()
     {
+        if (attacks[1].GetComponent<Attacking>().attackStats.spCost > playerHandler.sp)
+        {
+            return;
+        }
+        chooseAttack.SetActive(false);
+        playerHandler.sp -= attacks[1].GetComponent<Attacking>().attackStats.spCost;
+        StatsChange();
         BattleManager.instance.playerAttack = attacks[1];
         BattleManager.instance.HandlingStates(BattleState.AttackingTurn);
     }
 
     public void Attack3()
     {
+        if (attacks[2].GetComponent<Attacking>().attackStats.spCost > playerHandler.sp)
+        {
+            return;
+        }
+
+        chooseAttack.SetActive(false);
+        playerHandler.sp -= attacks[2].GetComponent<Attacking>().attackStats.spCost;
+        StatsChange();
         BattleManager.instance.playerAttack = attacks[2];
         BattleManager.instance.HandlingStates(BattleState.AttackingTurn);
     }
@@ -147,7 +173,7 @@ public class BattleUI : MonoBehaviour
 
         playerHPSlider.maxValue = playerHandler.maxHp;
         playerHPSlider.value = playerHandler.hp;
-        playerSPSlider.maxValue = playerHandler.sp;
+        playerSPSlider.maxValue = playerHandler.maxSp;
         playerSPSlider.value = playerHandler.sp;
 
         enemyHPSlider.maxValue = FindObjectOfType<EnemyHandler>().maxHp;

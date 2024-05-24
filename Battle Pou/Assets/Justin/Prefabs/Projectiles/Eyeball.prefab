@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5680559007075948167}
   - component: {fileID: 1245092399015054189}
   - component: {fileID: 8509280120839456004}
-  - component: {fileID: 3990545988603491636}
   - component: {fileID: 1315366707574713502}
+  - component: {fileID: 6269113420597478828}
   m_Layer: 9
   m_Name: Eyeball
   m_TagString: Projectile
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c9d02bdd2b1c6924799910f44c81392b, type: 2}
+  - {fileID: 2100000, guid: adf9178f69b41e241bcdbfd948073f69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,7 +129,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3990545988603491636
+--- !u!114 &1315366707574713502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5026574812760903670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c521d95b3ddb6248b635464a03fe8dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 0}
+  player: {fileID: 0}
+  speed: 500
+  rb: {fileID: 0}
+--- !u!54 &6269113420597478828
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,16 +172,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1315366707574713502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5026574812760903670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c521d95b3ddb6248b635464a03fe8dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 500

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +18,8 @@ public class EnemyMoveAround : Attacking
     protected EnemyHandler enemyHandler;
     protected bool isMoving;
 
+    public EnemyStats stats;
+
     private void Awake()
     {
         enemy = transform.parent;
@@ -25,11 +28,12 @@ public class EnemyMoveAround : Attacking
         battleArena = FindObjectOfType<BattleManager>().GetComponent<Collider>().bounds;
         minPosition = battleArena.min;
         maxPosition = battleArena.max;
-        enemyHandler = transform.parent.GetComponent<EnemyHandler>();
+        enemyHandler = enemy.GetComponent<EnemyHandler>();
     }
 
     public override void StartAttack()
     {
+        stats = transform.parent.GetComponent<EnemyHandler>().stats;
         isMoving = false;
     }
 

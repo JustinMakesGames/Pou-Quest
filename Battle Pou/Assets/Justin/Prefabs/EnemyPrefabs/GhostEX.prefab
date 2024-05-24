@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4863044466393514307}
   - component: {fileID: 2978039357520483752}
   m_Layer: 8
-  m_Name: Ghost
+  m_Name: GhostEX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   maxHp: 0
   attackPower: 0
   exp: 0
-  stats: {fileID: 11400000, guid: dbed5b201655a3f428998add13873fe6, type: 2}
+  stats: {fileID: 11400000, guid: 1c1350d8b898e1141a7a6ff704c1b9f5, type: 2}
   enemyAttacks: []
   agent: {fileID: 4863044466393514307}
   animator: {fileID: 0}

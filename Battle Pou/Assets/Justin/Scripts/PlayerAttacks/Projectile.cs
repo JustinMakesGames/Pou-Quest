@@ -9,7 +9,6 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        attackStats = transform.parent.GetComponent<Attacking>().attackStats;
         enemy = FindObjectOfType<EnemyHandler>().transform;
         Destroy(gameObject, 5f);
     }

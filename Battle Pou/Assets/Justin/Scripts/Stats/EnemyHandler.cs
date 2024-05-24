@@ -57,6 +57,7 @@ public class EnemyHandler : MonoBehaviour
        
         if (hp <= 0)
         {
+            hp = 0;
             BattleManager.instance.HandlingStates(BattleState.Win);
             StartCoroutine(EnemyDeathAnimation());
         }
@@ -76,9 +77,10 @@ public class EnemyHandler : MonoBehaviour
 
     private IEnumerator ShowDamage()
     {
+        Color color = GetComponentInChildren<Renderer>().material.color;
         GetComponentInChildren<Renderer>().material.color = Color.red;
         yield return new WaitForSeconds(0.5f);
-        GetComponentInChildren<Renderer>().material.color = Color.white;
+        GetComponentInChildren<Renderer>().material.color = color;
     }
 
 

@@ -121,7 +121,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 157f49575a1d25e459ae2222a5d58e09,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.196
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 157f49575a1d25e459ae2222a5d58e09,
         type: 3}
@@ -166,7 +166,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 157f49575a1d25e459ae2222a5d58e09,
         type: 3}
       propertyPath: m_Name
-      value: Eyeball
+      value: EyeballEX
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 157f49575a1d25e459ae2222a5d58e09,
         type: 3}
@@ -180,19 +180,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8743813690021804245, guid: 157f49575a1d25e459ae2222a5d58e09,
         type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8743813690021804245, guid: 157f49575a1d25e459ae2222a5d58e09,
-        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bf7e3a1759c3c9e44aeaa2fc57feba19, type: 2}
-    - target: {fileID: 8743813690021804245, guid: 157f49575a1d25e459ae2222a5d58e09,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: e507957e12c65714ea3a80bcabd45eed, type: 2}
+      objectReference: {fileID: 2100000, guid: f516de7b9fd700b47a1a79edb1d11246, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -272,7 +262,7 @@ MonoBehaviour:
   maxHp: 0
   attackPower: 0
   exp: 0
-  stats: {fileID: 11400000, guid: aeac320c9445d5243bd0279c625d179f, type: 2}
+  stats: {fileID: 11400000, guid: 0d12f5e718963fa4286b000d85dc2437, type: 2}
   enemyAttacks: []
   agent: {fileID: 8456921585008843219}
   animator: {fileID: 5585934596581207000}

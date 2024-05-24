@@ -12,6 +12,8 @@ public class BattlePlayerMovement : MonoBehaviour
     private Transform cam;
     private Rigidbody rb;
     public Animator animator;
+
+    public bool isUsingRangeAttack;
     
     private void OnEnable()
     {
@@ -37,7 +39,12 @@ public class BattlePlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovingAround();
-        Rotation();
+
+        if (!isUsingRangeAttack)
+        {
+            Rotation();
+        }
+        
     }
 
     private void InputCheck()
@@ -68,7 +75,7 @@ public class BattlePlayerMovement : MonoBehaviour
             transform.rotation = lookRotation;
         }
 
-    }
+    } 
 
     private void OnDisable()
     {

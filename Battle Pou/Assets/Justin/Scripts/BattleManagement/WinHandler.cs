@@ -14,6 +14,7 @@ public class WinHandler : StateHandler
     public GameObject levelUpPanel;
     public TMP_Text maxHpText, maxSpText;
     public TMP_Text plusHpText, plusSpText;
+    public TMP_Text levelUpText;
     public override void HandleState()
     {
         HandleWinning();
@@ -99,6 +100,7 @@ public class WinHandler : StateHandler
         plusHpText.text = "+" + hp.ToString();
         plusSpText.text = "+" + sp.ToString();
 
+        levelUpText.text = playerHandler.level.ToString();
         yield return new WaitForSeconds(2);
 
         ChangeStats(hp, sp);
@@ -108,6 +110,7 @@ public class WinHandler : StateHandler
         plusHpText.text = "";
         plusSpText.text = "";
 
+        levelUpText.text = playerHandler.level.ToString();
         yield return new WaitForSeconds(2);
 
         BattleTransition.instance.EndingBattle();
@@ -121,5 +124,7 @@ public class WinHandler : StateHandler
         playerHandler.maxSp += sp;
         playerHandler.hp = playerHandler.maxHp;
         playerHandler.sp = playerHandler.maxSp;
+
+        playerHandler.level++;
     }
 }

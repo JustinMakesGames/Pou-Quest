@@ -13,7 +13,7 @@ public class PlayerHandler : MonoBehaviour
     public int attackPower;
     public int exp;
     public int maxExp;
-    public int level;
+    public int level = 1;
     public int coins;
     //Battle Management
     public Transform battlePlayer;
@@ -43,6 +43,7 @@ public class PlayerHandler : MonoBehaviour
             BattleUI.instance.StatsChange();
             if (hp <= 0)
             {
+                hp = 0;
                 BattleManager.instance.HandlingStates(BattleState.Lose);
             }
             else

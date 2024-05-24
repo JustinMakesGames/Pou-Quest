@@ -9,17 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92f469e3fc0effb42b9448141c484ff6, type: 3}
-  m_Name: Eyeball
+  m_Script: {fileID: 11500000, guid: 1ac84bd2063492d4a81b19646841edbb, type: 3}
+  m_Name: Fight
   m_EditorClassIdentifier: 
-  enemyName: Eyeball
-  hp: 10
-  maxHp: 10
+  spCost: 0
   attackPower: 1
-  exp: 105
-  attackSpeed: 500
-  attackInterval: 1
-  amountOfProjectiles: 3
-  secondAttackInterval: 1.2
-  secondAttackSpeed: 20
-  secondAmountOfProjectiles: 0
+  projectileSpeed: 0
+  attackInterval: 0

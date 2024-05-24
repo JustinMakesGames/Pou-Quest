@@ -5,6 +5,7 @@ using UnityEngine.Jobs;
 
 public class RollingBalls : EnemyMoveAround
 {
+    
     public GameObject ball;
     private bool hasChosen;
     private Vector3 spawnPosition;
@@ -100,7 +101,7 @@ public class RollingBalls : EnemyMoveAround
 
     private IEnumerator SpawningProjectile()
     {
-        yield return new WaitForSeconds(attackInterval);
+        yield return new WaitForSeconds(stats.attackInterval);
         Instantiate(ball, spawnPosition, spawnRotation);
         hasChosen = false;
     }

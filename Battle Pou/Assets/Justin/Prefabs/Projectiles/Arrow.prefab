@@ -111,4 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  attackStats: {fileID: 0}
+  attackStats: {fileID: 11400000, guid: f75a06f1508105b4ab546347fae993a2, type: 2}

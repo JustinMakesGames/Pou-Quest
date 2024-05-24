@@ -10,4 +10,11 @@ public class EnemyStats : ScriptableObject
     public int maxHp;
     public int attackPower;
     public int exp;
+
+    public float attackSpeed;
+    public float attackInterval;
+    public int amountOfProjectiles;
+    public float secondAttackInterval;
+    public float secondAttackSpeed;
+    public int secondAmountOfProjectiles;
 }

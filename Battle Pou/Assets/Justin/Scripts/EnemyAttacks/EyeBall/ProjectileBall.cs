@@ -1,30 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
-public class ProjectileBall : MonoBehaviour
+public class ProjectileBall : EnemyProjectile
 {
     public float speed;
-    private Rigidbody rb;
-    private EnemyHandler enemyHandler;
+    public Rigidbody rb;
     private Vector3 dir;
-    
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-        enemyHandler = FindObjectOfType<EnemyHandler>();
-        dir = transform.forward;
-    }
 
     private void Start()
     {
-        Destroy(gameObject, 5f);
+        rb = GetComponent<Rigidbody>();
+        dir = transform.forward;
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = dir * speed * Time.deltaTime;
+        rb.velocity = dir * stats.attackSpeed * Time.deltaTime;
         
     }
 
@@ -32,7 +24,7 @@ public class ProjectileBall : MonoBehaviour
     {
         if (other.CompareTag("BattlePlayer"))
         {
-            PlayerHandler.Instance.TakeDamage(enemyHandler.attackPower);
+            PlayerHandler.Instance.TakeDamage(stats.attackPower);
         }
     }
 }
