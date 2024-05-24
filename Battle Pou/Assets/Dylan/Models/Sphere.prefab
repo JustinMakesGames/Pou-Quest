@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6642517598526230552}
   - component: {fileID: 8854505796342921138}
   m_Layer: 0
-  m_Name: Eyeball attack
+  m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
