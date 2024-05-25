@@ -78,4 +78,10 @@ public class PlayerHandler : MonoBehaviour
         }
         immunityFrames = false;
     }
+
+    public void StopImmunityFrames()
+    {
+        StopAllCoroutines();
+        immunityFrames = false;
+    }
 }

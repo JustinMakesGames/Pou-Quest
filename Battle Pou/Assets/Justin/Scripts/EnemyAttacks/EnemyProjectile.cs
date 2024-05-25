@@ -7,7 +7,7 @@ public class EnemyProjectile : MonoBehaviour
     public EnemyStats stats;
     public Transform player;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         stats = FindObjectOfType<EnemyHandler>().stats;
         player = FindObjectOfType<BattlePlayerMovement>().transform;

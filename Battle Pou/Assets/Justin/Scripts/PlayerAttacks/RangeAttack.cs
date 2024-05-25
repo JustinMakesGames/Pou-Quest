@@ -6,16 +6,20 @@ public class RangeAttack : Attacking
 {
     public GameObject projectile;
     public Transform spawnPlace;
+    public BattlePlayerMovement playerMovement;
     public Transform player;
     public bool isReloading;
     public Transform cam;
-    private float rotateSpeed = 50f;
+    public float rotateSpeed;
 
     public override void StartAttack()
     {
         cam = Camera.main.transform;
-        player = FindObjectOfType<BattlePlayerMovement>().transform;
+        playerMovement = FindObjectOfType<BattlePlayerMovement>();
+        player = playerMovement.transform;
         spawnPlace = transform.GetChild(0);
+
+        playerMovement.isUsingRangeAttack = true;
     }
 
     public override void UpdateAttack()
@@ -34,7 +38,8 @@ public class RangeAttack : Attacking
     private void KeepCameraRotation()
     {
         print("IS PLAYING");
-        player.eulerAngles = new Vector3(player.eulerAngles.x, cam.eulerAngles.y, player.eulerAngles.z);
+        player.eulerAngles = Vector3.Lerp(player.eulerAngles,
+            new Vector3(player.eulerAngles.x, cam.eulerAngles.y, player.eulerAngles.z), rotateSpeed * Time.deltaTime);
     }
 
     private IEnumerator Reload()
@@ -54,5 +59,6 @@ public class RangeAttack : Attacking
     {
         StopAllCoroutines();
         isReloading = false;
+        playerMovement.isUsingRangeAttack = false;
     }
 }

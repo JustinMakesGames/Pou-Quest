@@ -22,6 +22,7 @@ public class AttackingHandler : StateHandler
             player.GetComponent<MeshRenderer>().enabled = false;
             playerAttack.GetComponentInChildren<Renderer>().enabled = true;
             playerAttack.GetComponent<Attacking>().StartAttack();
+            Poof.instance.UsePoof(player);
 
             player.GetComponent<BattlePlayerMovement>().animator = playerAttack.GetComponent<Attacking>().animator;
         }
@@ -47,22 +48,16 @@ public class AttackingHandler : StateHandler
             playerAttack.GetComponent<Attacking>().FinishAttack();
         }
         enemyAttack.GetComponent<Attacking>().FinishAttack();
-        StartCoroutine(HandlingEndOfTurn());
+        HandlingEndOfTurn();
     }
 
-    private IEnumerator HandlingEndOfTurn()
+    private void HandlingEndOfTurn()
     {
         TurnAttackRendererOff();
         TurnPlayerMovementOff();
-        PuttingObjectsAtPosition();
+        TurnEnemyMovementOff();
         RemovingAllProjectiles();
-        bool areObjectsBack = false;
-        while (!areObjectsBack)
-        {
-            areObjectsBack = AreObjectsAtStartPosition();
-            yield return null;
-        }
-        PuttingStartRotation();
+        playerHandler.StopImmunityFrames();
         BattleManager.instance.HandlingStates(BattleState.PlayerTurn);
     }
 
@@ -71,11 +66,10 @@ public class AttackingHandler : StateHandler
         player.GetComponent<BattlePlayerMovement>().enabled = false;
         playerAttack = null;
     }
-    private void PuttingObjectsAtPosition()
+
+    private void TurnEnemyMovementOff()
     {
-        player.GetComponent<NavMeshAgent>().enabled = true;
-        player.GetComponent<NavMeshAgent>().SetDestination(playerStartPosition);
-        enemy.GetComponent<NavMeshAgent>().SetDestination(enemyStartPosition);
+        enemy.GetComponent<NavMeshAgent>().SetDestination(enemy.position);
     }
 
     private void RemovingAllProjectiles()
@@ -94,33 +88,7 @@ public class AttackingHandler : StateHandler
         {
             player.GetComponent<Renderer>().enabled = true;
             playerAttack.GetComponentInChildren<Renderer>().enabled = false;
+            Poof.instance.UsePoof(player);
         }
-    }
-
-    private void PuttingStartRotation()
-    {
-        player.rotation = Quaternion.identity;
-        enemy.rotation = Quaternion.Euler(0, 180, 0);
-        player.GetComponent<NavMeshAgent>().enabled = false;
-    }
-
-    private bool AreObjectsAtStartPosition()
-    {
-        float playerDistance = CalculatePlayerDistance();
-        float enemyDistance = Vector3.Distance(enemy.position, enemyStartPosition);
-        if (playerDistance < 0.05f && enemyDistance < 0.05f)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    private float CalculatePlayerDistance()
-    {
-        Vector3 playerPosition = new Vector3(player.position.x, 0, player.position.z);
-        Vector3 playerStartPos = new Vector3(playerStartPosition.x, 0, playerStartPosition.z);
-
-        return Vector3.Distance(playerPosition, playerStartPos);
     }
 }

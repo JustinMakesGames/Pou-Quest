@@ -31,8 +31,15 @@ public class EndBattle : MonoBehaviour
     {
         overworldEnemy = enemy;
     }
-    public void DestroyEnemy()
+
+    public void PrepareToDestroyEnemy()
     {
+        StartCoroutine(DestroyEnemy());
+    }
+    public IEnumerator DestroyEnemy()
+    {
+        yield return new WaitUntil(() => Camera.main.fieldOfView <= 30);
+        Poof.instance.UsePoof(overworldEnemy.transform);
         Destroy(overworldEnemy);
     }
 

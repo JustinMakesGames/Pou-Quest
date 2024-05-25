@@ -33,7 +33,7 @@ public class BattleTransition : MonoBehaviour
         endBattle += Fading.instance.FadingOut;
         endBattle += EndBattle.instance.SettingUpDeletion;
         endBattle += EndBattle.instance.StartingCoroutines;
-        endBattle += EndBattle.instance.DestroyEnemy;
+        endBattle += EndBattle.instance.PrepareToDestroyEnemy;
 
         //Fleeing Battle
         fleeBattle += Fading.instance.FadingOut;

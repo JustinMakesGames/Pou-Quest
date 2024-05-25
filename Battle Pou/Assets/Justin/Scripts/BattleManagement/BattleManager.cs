@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour
     public PlayerturnHandler playerTurnHandler;
     public AttackingHandler attackHandler;
     public WinHandler winHandler;
+    public LoseHandler loseHandler;
     public static BattleManager instance;
 
     public TMP_Text battleText;
@@ -43,6 +44,7 @@ public class BattleManager : MonoBehaviour
         playerTurnHandler = GetComponent<PlayerturnHandler>();
         attackHandler = GetComponent<AttackingHandler>();
         winHandler = GetComponent<WinHandler>();
+        loseHandler = GetComponent<LoseHandler>();
        
     }
     private void Start()
@@ -70,8 +72,8 @@ public class BattleManager : MonoBehaviour
                 winHandler.HandleState();
                 break;
             case BattleState.Lose:
-                StopAllCoroutines();            
-                LoseManager.instance.LoseManagement(player.gameObject);
+                FinishCoroutines();
+                loseHandler.HandleState();
                 break;
             case BattleState.Flee:
                 BattleTransition.instance.FleeingBattle();
@@ -103,6 +105,7 @@ public class BattleManager : MonoBehaviour
         playerTurnHandler.Initialize(this);
         attackHandler.Initialize(this);
         winHandler.Initialize(this);
+        loseHandler.Initialize(this);
 
     }
 
