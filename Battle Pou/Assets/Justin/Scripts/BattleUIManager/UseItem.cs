@@ -15,6 +15,18 @@ public class UseItem : MonoBehaviour
     {
         PlayerHandler.Instance.hp += itemInfo.hpPlus;
         PlayerHandler.Instance.sp += itemInfo.spPlus;
+        
+        if (PlayerHandler.Instance.hp > PlayerHandler.Instance.maxHp)
+        {
+            PlayerHandler.Instance.hp = PlayerHandler.Instance.maxHp;
+        }
+
+        if (PlayerHandler.Instance.sp > PlayerHandler.Instance.maxSp)
+        {
+            PlayerHandler.Instance.sp = PlayerHandler.Instance.maxSp;
+        }
+
+        BattleUI.instance.StatsChange();
 
         BattleManager.instance.HandlingStates(BattleState.AttackingTurn);
     }

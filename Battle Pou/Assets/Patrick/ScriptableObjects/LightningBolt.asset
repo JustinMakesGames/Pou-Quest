@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 1
   itemSprite: {fileID: 21300000, guid: fbc2e6b17773c9f4c93e7deff4b6a98a, type: 3}
   itemName: LightningBolt
-  itemDescription: youtube
+  itemDescription: This will give you 5 sp.
   hp: 0
   sp: 5

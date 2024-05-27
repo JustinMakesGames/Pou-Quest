@@ -41,10 +41,10 @@ public class DialogManager : MonoBehaviour
         }
         for (int i = 0; i < lines.Count; i++)
         {
-            //if (i == showDialogOption)
-            //{
-            //    optionScreen.SetActive(true);
-            //}
+            if (i == showDialogOption & optionScreen != null)
+            {
+                optionScreen.SetActive(true);
+            }
             if (lines[i] == quest)
             {
                 if (quest.StartsWith("Find my pages"))
@@ -59,7 +59,7 @@ public class DialogManager : MonoBehaviour
                 yield return new WaitForSeconds(textSpeed * 0.1f);
             }
             yield return new WaitUntil(() => Input.GetButtonDown("Fire1"));
-            if (lines[i] == quest)
+            if (lines[i] == quest & questNpc)
             {
                 lines.Remove(quest);
             }

@@ -13,10 +13,15 @@ public class OverworldNPCS : MonoBehaviour
     public Transform positionsStored;
 
     private Animator animator;
+
+    public bool isTalking;
+
+    private Transform player;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        player = FindObjectOfType<PlayerOverworld>().transform;
 
         for (int i = 0; i < positionsStored.childCount; i++)
         {
@@ -27,14 +32,24 @@ public class OverworldNPCS : MonoBehaviour
     private void Update()
     {
         PlayAnimations();
-        if (!isMoving)
+
+        if (!isTalking)
         {
-            SetNewPosition();
+            if (!isMoving)
+            {
+                SetNewPosition();
+            }
+            else
+            {
+                CheckIfPositionReached();
+            }
         }
+
         else
         {
-            CheckIfPositionReached();
+            TalkingRotation();
         }
+        
     }
 
     private void PlayAnimations()
@@ -64,6 +79,35 @@ public class OverworldNPCS : MonoBehaviour
 
             isMoving = false;
         }
+    }
+
+    private void TalkingRotation()
+    {
+        float rotationSpeed = 20f;
+        Vector3 lookRotation = player.position - transform.position;
+
+        Quaternion rotation = Quaternion.LookRotation(lookRotation);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+    }
+
+    public void IsTalkingToNPC()
+    {
+        if (!isTalking)
+        {
+            isTalking = true;
+            GetComponent<DialogManager>().StartDialog();
+            agent.SetDestination(transform.position);
+        }
+        
+    }
+
+    public void FinishDialog()
+    {
+        agent.SetDestination(positions[index].position);
+        isTalking = false;
+
+        player.GetComponent<PlayerOverworld>().enabled = true;
     }
 
 

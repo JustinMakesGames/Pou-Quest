@@ -27,6 +27,8 @@ public class AttackingHandler : StateHandler
             player.GetComponent<BattlePlayerMovement>().animator = playerAttack.GetComponent<Attacking>().animator;
         }
         enemyAttack.GetComponent<Attacking>().StartAttack();
+
+        StartCoroutine(BattleUI.instance.ShowTurnLength(attackingLength));
         while (time < attackingLength)
         {
             time += Time.deltaTime;

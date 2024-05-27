@@ -24,6 +24,8 @@ public class BattleUI : MonoBehaviour
     public TMP_Text playerHPText, playerSPText;
 
     public Slider playerHPSlider, playerSPSlider, enemyHPSlider;
+    public Slider turnSlider;
+    public TMP_Text turnText;
     private void Awake()
     {
         if (instance == null)
@@ -178,5 +180,20 @@ public class BattleUI : MonoBehaviour
 
         enemyHPSlider.maxValue = FindObjectOfType<EnemyHandler>().maxHp;
         enemyHPSlider.value = FindObjectOfType<EnemyHandler>().hp;
+    }
+
+    public IEnumerator ShowTurnLength(float length)
+    {
+        turnSlider.gameObject.SetActive(true);
+        while (length > 0)
+        {
+            length -= Time.deltaTime;
+            turnSlider.value = length;
+            turnText.text = length.ToString("0");
+            yield return null;
+
+        }
+
+        turnSlider.gameObject.SetActive(false);
     }
 }
