@@ -41,10 +41,10 @@ public class DialogManager : MonoBehaviour
         }
         for (int i = 0; i < lines.Count; i++)
         {
-            if (i == showDialogOption)
-            {
-                optionScreen.SetActive(true);
-            }
+            //if (i == showDialogOption)
+            //{
+            //    optionScreen.SetActive(true);
+            //}
             if (lines[i] == quest)
             {
                 if (quest.StartsWith("Find my pages"))

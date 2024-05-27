@@ -10,12 +10,12 @@ public class CamMovement : MonoBehaviour
     public LayerMask ground;
     public Collider area;
     public GameObject spawn;
-
+    public GameObject colliderObject;
     private Vector3 offset;
     private Vector3 cameraPos;
     private float cameraXOffset;
     private float cameraZOffset;
-
+    private bool isMakingNewCol;
     public static CamMovement instance;
 
     private void Awake()
@@ -29,8 +29,8 @@ public class CamMovement : MonoBehaviour
     private void Start()
     {
         CalculateOffsets();
-
         player = FindObjectOfType<PlayerOverworld>().transform;
+        area = FindCollider();
         offset = player.position - transform.position;
         
     }
@@ -38,7 +38,10 @@ public class CamMovement : MonoBehaviour
     private void LateUpdate()
     {
         cameraPos = player.position - offset;
-        ClampingCamera(); 
+        if (area != null)
+        {
+            ClampingCamera();
+        }
         transform.position = Vector3.Lerp(transform.position, cameraPos, speed * Time.deltaTime);
     }
 
@@ -49,9 +52,9 @@ public class CamMovement : MonoBehaviour
         cameraPos.z = Mathf.Clamp(cameraPos.z, area.bounds.min.z + cameraZOffset, area.bounds.max.z - cameraZOffset);
     }
 
-    public void ChangeCollider(Collider collider)
+    public void ChangeCollider()
     {
-        area = collider; 
+        area = FindCollider();
     }
 
     private void CalculateOffsets()
@@ -66,6 +69,30 @@ public class CamMovement : MonoBehaviour
             
         }
         
+    }
+    Collider FindCollider()
+    {
+        Collider currentCol = area;
+        RaycastHit hit;
+        if (Physics.Raycast(player.position, Vector3.down, out hit, Mathf.Infinity))
+        {
+            if (hit.collider != null)
+            {
+                foreach (Collider c in colliderObject.GetComponents<Collider>())
+                {
+                    Destroy(c);
+                }
+                colliderObject.AddComponent<BoxCollider>();
+                colliderObject.transform.localScale = new Vector3(8, 8, 8);
+                Collider col = colliderObject.GetComponent<BoxCollider>();
+                foreach (Collider o in colliderObject.GetComponents<Collider>())
+                {
+                    o.isTrigger = true;
+                }
+                return col;
+            }
+        }
+        return currentCol;
     }
 
     float CalculateXOffset(float hitPointX)

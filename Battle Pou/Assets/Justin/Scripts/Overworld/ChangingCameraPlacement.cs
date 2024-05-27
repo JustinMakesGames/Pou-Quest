@@ -8,7 +8,7 @@ public class ChangingCameraPlacement : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            CamMovement.instance.ChangeCollider(gameObject.GetComponent<Collider>());
+            CamMovement.instance.ChangeCollider();
         }
     }
 }
