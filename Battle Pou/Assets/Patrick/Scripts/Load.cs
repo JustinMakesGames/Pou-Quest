@@ -16,11 +16,15 @@ public class Load : MonoBehaviour
         //{
         //    InventoryManager.instance.AddItem(items[i]);
         //}
-
+        PlayerHandler.Instance.level = data.level;
         PlayerHandler.Instance.attackPower = data.attackPower;
         PlayerHandler.Instance.hp = data.health;
         PlayerHandler.Instance.sp = data.sp;
         PlayerHandler.Instance.exp = data.exp;
-        //health and shit
+        PlayerHandler.Instance.maxHp = data.maxHp;
+        PlayerHandler.Instance.maxSp = data.maxSp;
+        PlayerHandler.Instance.coins = data.coins;
+        PlayerHandler.Instance.maxExp = data.maxExp;
+
     }
 }

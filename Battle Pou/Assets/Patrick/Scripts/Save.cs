@@ -105,6 +105,10 @@ public class Save : MonoBehaviour
         saveData.sp = PlayerHandler.Instance.sp;
         saveData.exp = PlayerHandler.Instance.exp;
         saveData.attackPower = PlayerHandler.Instance.attackPower;
+        saveData.maxHp = PlayerHandler.Instance.maxHp;
+        saveData.maxExp = PlayerHandler.Instance.maxExp;
+        saveData.maxSp = PlayerHandler.Instance.maxSp;
+        saveData.coins = PlayerHandler.Instance.coins;
         string json = JsonUtility.ToJson(saveData);
         Debug.Log(json);
         string encryptedJson = EncryptString(json);

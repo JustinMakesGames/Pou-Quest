@@ -1,78 +1,175 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class NewGeneration : MonoBehaviour
 {
-    public enum Direction { Left, Right, Up, Down }
-    public int maxX;
-    public int maxY;
-    public int gridOffset;
-    public Transform grid;
-    public GameObject dungeon;
-    public int maxDungeons;
-    public List<Transform> gridList = new List<Transform>();
-    public List<GameObject> dungeonList = new List<GameObject>();
+    public int maxXZ;
+    public float offsetX;
+    public float offsetZ;
+    public Tile[] tileObjects;
+    public List<Cell> gridList = new();
+    public Cell cell;
+    public Tile blankTile;
+    private int iterations = 0;
+
     private void Start()
     {
-        GenerateGrid();
-    }
-    void GenerateGrid()
-    {
-        for (int x = 0; x < maxX; x++)
-        {
-            for (int y = 0; y < maxY; y++) 
-            {
-                Vector3 pos = new Vector3(x * gridOffset, 0, y * gridOffset);
-                Transform gridObj = Instantiate(grid, pos, Quaternion.identity);
-                gridObj.SetParent(transform);
-                gridList.Add(gridObj);
-            }
-        }
-        GenerateDungeons();
+        InitializeGrid();
     }
 
-    void GenerateDungeons()
+    void InitializeGrid()
     {
-        for (int i = 0; i < maxDungeons; i++)
+        for (int x = 0; x < maxXZ; x++)
         {
-            if (i == 0)
+            for (int z = 0; z < maxXZ; z++)
             {
-                GameObject newDun = Instantiate(dungeon, gridList[0].transform);
-                dungeonList.Add(newDun);
-            }
-            else
-            {
-                for (int d = 0; d < dungeonList[i].GetComponent<PossibleDungeon>().doors.Length; d++)
-                {
-                    GameObject[] dungeons = dungeonList[i].GetComponent<PossibleDungeon>().possibleDungeons;
-                    GameObject dungeonToGenerate = dungeons[Random.Range(0, dungeons.Length)];
-                    if (dungeonToGenerate != null)
-                    {
-                        GameObject newDun = Instantiate(dungeonToGenerate, dungeonList[dungeonList.Count].transform.GetChild
-                            (dungeonList[dungeonList.Count].transform.childCount).GetChild(0).position, Quaternion.identity);
-                        dungeonList.Add(newDun);
-                    }
-                }
-                //foreach (GameObject d in dungeonList[dungeonList.Count].GetComponent<PossibleDungeon>().doors)
-                //{
-                //    GameObject dungeonToGenerate = dungeonList[dungeonList.Count].GetComponent<PossibleDungeon>().possibleDungeons[
-                //        Random.Range(0, dungeonList[dungeonList.Count].GetComponent<PossibleDungeon>().possibleDungeons.Length)];
-                //    if (dungeonToGenerate != null)
-                //    {
-                //        GameObject newDun = Instantiate(dungeonToGenerate, dungeonList[dungeonList.Count].transform.GetChild(dungeonList[dungeonList.Count].transform.childCount - 1).GetChild(0).position, Quaternion.identity);
-                //        dungeonList.Add(newDun);
-                //    }
-                //}
+                Cell newCell = Instantiate(cell, new Vector3(x * offsetX, 0, z * offsetZ), Quaternion.identity);
+                newCell.CreateCell(false, tileObjects);
+                gridList.Add(newCell);
             }
         }
+        StartCoroutine(CheckEntropy());
     }
-    private void OnDrawGizmos()
+
+    IEnumerator CheckEntropy()
     {
-        for(int i = 0; i < gridList.Count; i++)
+        List<Cell> tempGrid = new(gridList);
+        tempGrid.RemoveAll(c => c.collapsed);
+        tempGrid.Sort((a, b) => { return a.tiles.Length - b.tiles.Length; });
+        int arrLength = tempGrid[0].tiles.Length;
+        int stopIndex = default;
+        for (int i = 1; i < tempGrid.Count; i++)
         {
-            Gizmos.DrawCube(gridList[i].transform.position, new Vector3(10, 10, 10));
+            stopIndex = i;
+            break;
+        }
+        if (stopIndex > 0)
+        {
+            tempGrid.RemoveRange(stopIndex, tempGrid.Count - stopIndex);
+        }
+        yield return new WaitForSeconds(0.01f);
+        CollapseCell(tempGrid);
+    }
+
+    void CollapseCell(List<Cell> tempGrid)
+    {
+        int randIndex = UnityEngine.Random.Range(0, tempGrid.Count);
+        Cell colCell = tempGrid[randIndex];
+        colCell.collapsed = true;
+        Tile sTile = blankTile;
+        try
+        {
+            sTile = colCell.tiles[UnityEngine.Random.Range(0, colCell.tiles.Length)];
+        }
+        catch
+        {
+            Debug.Log("array error");
+        }
+        colCell.tiles = new Tile[] { sTile };
+        Tile fTile = colCell.tiles[0];
+        Instantiate(fTile, colCell.transform.position, Quaternion.Euler(Vector3.zero));
+        UpdateGeneration();
+    }
+
+    void UpdateGeneration()
+    {
+        List<Cell> newCells = new(gridList);
+        for (int x = 0; x < maxXZ; x++)
+        {
+            for (int y = 0; y < maxXZ; y++)
+            {
+                var index = x + y * maxXZ;
+                if (gridList[index].collapsed)
+                {
+                    newCells[index] = gridList[index];
+                }
+                else
+                {
+                    List<Tile> options = new();
+                    foreach (var v in tileObjects) 
+                    {
+                        options.Add(v);
+                    }
+                    if (y > 0)
+                    {
+                        Cell up = gridList[x + (y - 1) * maxXZ];
+                        List<Tile> validOptions = new();
+                        foreach (var possible in up.tiles)
+                        {
+                            var valOp = Array.FindIndex(tileObjects, obj => obj == possible);
+                            var valid = tileObjects[valOp].up;
+                            validOptions = validOptions.Concat(valid).ToList();
+                        }
+                        CheckValidity(options, validOptions);
+                    }
+                    if (x < maxXZ - 1)
+                    {
+                        Cell right = gridList[x + 1 + y * maxXZ];
+                        List<Tile> validOptions = new();
+                        foreach (Tile possible in right.tiles)
+                        {
+                            var valOp = Array.FindIndex(tileObjects, obj => obj == possible);
+                            var valid = tileObjects[valOp].right;
+                            validOptions = validOptions.Concat(valid).ToList();
+                        }
+                        CheckValidity(options, validOptions);
+                    }
+                    if (y < maxXZ - 1)
+                    {
+                        Cell down = gridList[x + (y + 1) * maxXZ];
+                        List<Tile> validOptions = new();
+                        foreach (Tile possible in down.tiles)
+                        {
+                            var valOp = Array.FindIndex(tileObjects, obj => obj == possible);
+                            var valid = tileObjects[valOp].down;
+                            validOptions = validOptions.Concat(valid).ToList();
+                        }
+                        CheckValidity(options, validOptions);
+                    }
+                    if (x > 0)
+                    {
+                        Cell left = gridList[x - 1 + y * maxXZ];
+                        List<Tile> validOptions = new();
+                        foreach (Tile possible in left.tiles)
+                        {
+                            var valOp = Array.FindIndex(tileObjects, obj => obj == possible);
+                            var valid = tileObjects[valOp].left;
+                            validOptions = validOptions.Concat(valid).ToList();
+                        }
+                        CheckValidity(options, validOptions);
+                    }
+                    Tile[] newTiles = new Tile[options.Count];
+                    for (int i = 0; i < options.Count; i++)
+                    {
+                        newTiles[i] = options[i];
+                    }
+
+                    newCells[index].RecreateCell(newTiles);
+                }
+            }
+        }
+        gridList = newCells;
+        iterations++;
+        if (iterations < maxXZ * maxXZ)
+        {
+            StartCoroutine(CheckEntropy());
+        }
+    }
+
+    void CheckValidity(List<Tile> optionList, List<Tile> validOption)
+    {
+        for (int x = optionList.Count - 1; x >= 0; x--)
+        {
+            var element = optionList[x];
+            if (!validOption.Contains(element))
+            {
+                optionList.RemoveAt(x);
+            }
         }
     }
 }

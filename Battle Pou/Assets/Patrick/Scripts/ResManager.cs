@@ -17,10 +17,9 @@ public class ResManager : MonoBehaviour
 
     void Start()
     {
+        resolutionDropdown.ClearOptions();
         resolutions = Screen.resolutions;
         resolutionList = new List<Resolution>();
-
-        resolutionDropdown.ClearOptions();
         currentRefRate = Mathf.Round((float)Screen.currentResolution.refreshRateRatio.value);
 
         for (int i = 0; i < resolutions.Length; i++)
@@ -40,6 +39,7 @@ public class ResManager : MonoBehaviour
             {
                 currentResolutionIndex = i;
             }
+            resolutionDropdown.RefreshShownValue();
         }
 
         resolutionDropdown.AddOptions(options);

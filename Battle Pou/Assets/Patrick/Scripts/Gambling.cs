@@ -35,16 +35,18 @@ public class Gambling : MonoBehaviour
                 int r = Random.Range(0, sprites.Length);
                 gamblingPanels[i].GetComponent<Image>().sprite = sprites[r];
                 p = r;
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.1f);
             }
             ints.Add(p);
         }
-        if (ints[0] == ints[0 + 1] && ints[0] == ints[0 + 2])
+        if (ints[0] == ints[1] && ints[0] == ints[2])
         {
-            print("you won");
+            //things that happen when you win
+            Debug.Log("you won");
         }
         else
         {
+            //things that happen when you lose
             Debug.Log("you lost");
         }
         ints.Clear();
