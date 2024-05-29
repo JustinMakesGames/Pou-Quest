@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac84bd2063492d4a81b19646841edbb, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: 
+  id: 2
   spCost: 3
   attackPower: 2
   projectileSpeed: 10

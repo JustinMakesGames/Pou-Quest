@@ -1,27 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PoisonThrow : EnemyMoveAround
 {
-    public GameObject projectile;
-    public float range;
-    private bool hasAttacked;
-    
+    public GameObject rainProjectile;
+
     public override void StartAttack()
     {
         base.StartAttack();
+        SpawnPlacements();
     }
 
     public override void UpdateAttack()
     {
-        base.UpdateAttack();
-
-        if (!hasAttacked)
-        {
-            SpawnAttack();
-        }
-
+        base.UpdateAttack();    
     }
 
     public override void FinishAttack()
@@ -29,20 +23,20 @@ public class PoisonThrow : EnemyMoveAround
         base.FinishAttack();
     }
 
-    private void SpawnAttack()
+    private void SpawnPlacements()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(player.position.x - range, player.position.x + range), 
-            battleArena.max.y, 
-            Random.Range(player.position.z - range, player.position.z + range));
-        Instantiate(projectile, spawnPos, Quaternion.identity);
-        hasAttacked = true;
-
-        StartCoroutine(AttackInterval());
-
+        for (int i = 0; i < stats.secondAmountOfProjectiles; i++)
+        {
+            Instantiate(rainProjectile, GetPosition(), Quaternion.identity);
+        }
     }
-    private IEnumerator AttackInterval()
+
+    private Vector3 GetPosition()
     {
-        yield return new WaitForSeconds(stats.attackInterval);
-        hasAttacked = false;
+        float xPosition = Random.Range(battleArena.min.x, battleArena.max.x);
+        float zPosition = Random.Range(battleArena.min.z, battleArena.max.z);
+        Vector3 positionToSpawn = new Vector3(xPosition, battleArena.max.y, zPosition);
+
+        return positionToSpawn;
     }
 }

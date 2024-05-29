@@ -19,7 +19,7 @@ MonoBehaviour:
   exp: 30
   attackSpeed: 1500
   attackInterval: 1
-  amountOfProjectiles: 15
+  amountOfProjectiles: 3
   secondAttackInterval: 1
-  secondAttackSpeed: 15
+  secondAttackSpeed: 50
   secondAmountOfProjectiles: 5

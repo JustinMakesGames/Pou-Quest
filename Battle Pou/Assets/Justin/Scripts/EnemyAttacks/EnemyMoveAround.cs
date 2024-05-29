@@ -13,7 +13,7 @@ public class EnemyMoveAround : Attacking
     protected Vector3 maxPosition;
 
     protected Vector3 destinationPoint;
-    protected Bounds battleArena;
+    public Bounds battleArena;
 
     protected EnemyHandler enemyHandler;
     protected bool isMoving;

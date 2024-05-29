@@ -200,6 +200,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   enemy: {fileID: 0}
   player: {fileID: 0}
+  battleArena:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
   stats: {fileID: 0}
   projectile: {fileID: 6945558841595884661, guid: 44d671fa40fd7f545863b14e3f7babce,
     type: 3}
@@ -213,6 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7547202099890367433}
+  - component: {fileID: 5495135498954889455}
   m_Layer: 8
   m_Name: Attack2
   m_TagString: Untagged
@@ -235,3 +239,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4625644060210870006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5495135498954889455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7915046909274684642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e1c07730b4d374b916eeeed6cf5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackStats: {fileID: 0}
+  animator: {fileID: 0}
+  enemy: {fileID: 0}
+  player: {fileID: 0}
+  battleArena:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  stats: {fileID: 0}
+  rainProjectile: {fileID: 6945558841595884661, guid: 58b80991f241e9d469c365f4f6dc7c44,
+    type: 3}

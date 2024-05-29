@@ -37,7 +37,6 @@ public class RangeAttack : Attacking
 
     private void KeepCameraRotation()
     {
-        print("IS PLAYING");
         player.eulerAngles = Vector3.Lerp(player.eulerAngles,
             new Vector3(player.eulerAngles.x, cam.eulerAngles.y, player.eulerAngles.z), rotateSpeed * Time.deltaTime);
     }

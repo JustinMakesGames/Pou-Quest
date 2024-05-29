@@ -64,6 +64,10 @@ public class DialogManager : MonoBehaviour
                 lines.Remove(quest);
             }
         }
+        if (optionScreen == null)
+        {
+            GetComponent<OverworldNPCS>().FinishDialog();
+        }
         dialogPanel.SetActive(false);
     }
 }

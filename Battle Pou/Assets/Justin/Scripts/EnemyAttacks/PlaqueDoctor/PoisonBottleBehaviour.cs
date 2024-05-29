@@ -13,6 +13,12 @@ public class PoisonBottleBehaviour : EnemyProjectile
     private bool hasLanded;
 
     private Vector3 rotation;
+
+    public bool isSecondAttack;
+
+    public GameObject poisonGas;
+    
+    
     protected override void Awake()
     {
         base.Awake();
@@ -20,8 +26,6 @@ public class PoisonBottleBehaviour : EnemyProjectile
         explosion = GetComponentInChildren<ParticleSystem>();
         rotation = new Vector3(Random.Range(-1,2), Random.Range(-1,2), Random.Range(-1,2));
     }
-
-    
     private void FixedUpdate()
     {
         if (!hasLanded)
@@ -39,13 +43,22 @@ public class PoisonBottleBehaviour : EnemyProjectile
 
     private void Explode()
     {
-        Destroy(target.gameObject);
+        if (!isSecondAttack)
+        {
+            Destroy(target.gameObject);
+            rb.velocity = Vector3.zero;
+            hasLanded = true;
+            GetComponent<MeshRenderer>().enabled = false;
+            explosion.Play();
+            Destroy(transform.parent.gameObject, 5f);
+        }
 
-        rb.velocity = Vector3.zero;
-        hasLanded = true;
-        GetComponent<MeshRenderer>().enabled = false;
-        explosion.Play();
-        Destroy(transform.parent.gameObject, 3f);
+        else
+        {
+            Instantiate(poisonGas, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        
         
     }
 

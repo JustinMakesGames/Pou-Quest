@@ -12,6 +12,7 @@ TagManager:
   - BattlePlayer
   - Dialogue
   - Description
+  - EnemySpawn
   layers:
   - Default
   - TransparentFX
