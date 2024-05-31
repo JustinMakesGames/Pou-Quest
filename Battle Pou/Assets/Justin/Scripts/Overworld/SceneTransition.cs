@@ -18,6 +18,14 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+    }
+
     private IEnumerator SceneSwitch()
     {
         while (blackScreen.color.a < 0.98f)

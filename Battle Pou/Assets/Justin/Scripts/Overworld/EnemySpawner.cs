@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
         {
             enemyToSpawn = Random.Range(0, enemiesToSpawn.Length);
 
-            Instantiate(enemiesToSpawn[enemyToSpawn], enemySpawns[i].position, Quaternion.identity);
+            Instantiate(enemiesToSpawn[enemyToSpawn], enemySpawns[i].position, Quaternion.identity, transform);
 
 
         }

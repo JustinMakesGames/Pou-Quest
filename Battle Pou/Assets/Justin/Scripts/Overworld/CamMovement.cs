@@ -30,7 +30,6 @@ public class CamMovement : MonoBehaviour
     {
         CalculateOffsets();
         player = FindObjectOfType<PlayerOverworld>().transform;
-        area = FindCollider();
         offset = player.position - transform.position;
         
     }
@@ -47,14 +46,21 @@ public class CamMovement : MonoBehaviour
 
     private void ClampingCamera()
     {
-        
-        cameraPos.x = Mathf.Clamp(cameraPos.x, area.bounds.min.x - cameraXOffset, area.bounds.max.x + cameraXOffset);
-        cameraPos.z = Mathf.Clamp(cameraPos.z, area.bounds.min.z + cameraZOffset, area.bounds.max.z - cameraZOffset);
+        float halfHeight = Camera.main.orthographicSize;
+        float halfWidth = halfHeight * Camera.main.aspect;
+
+        float minX = area.bounds.min.x + halfWidth - 3;
+        float maxX = area.bounds.max.x - halfWidth + 3;
+        float minY = area.bounds.min.z + halfHeight - 5; // Assuming top-down view on the XZ plane
+        float maxY = area.bounds.max.z - halfHeight - 1;
+
+        cameraPos.x = Mathf.Clamp(cameraPos.x, minX, maxX);
+        cameraPos.z = Mathf.Clamp(cameraPos.z, minY, maxY);
     }
 
-    public void ChangeCollider()
+    public void ChangeCollider(Collider collider)
     {
-        area = FindCollider();
+        area = collider;
     }
 
     private void CalculateOffsets()
@@ -78,16 +84,11 @@ public class CamMovement : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                foreach (Collider c in colliderObject.GetComponents<Collider>())
-                {
-                    Destroy(c);
-                }
-                colliderObject.AddComponent<BoxCollider>();
-                colliderObject.transform.localScale = new Vector3(8, 8, 8);
+                
                 Collider col = colliderObject.GetComponent<BoxCollider>();
                 foreach (Collider o in colliderObject.GetComponents<Collider>())
                 {
-                    o.isTrigger = true;
+                    o.isTrigger = false;
                 }
                 return col;
             }
@@ -97,13 +98,13 @@ public class CamMovement : MonoBehaviour
 
     float CalculateXOffset(float hitPointX)
     {
-        float distance = hitPointX - transform.position.x;
+        float distance = transform.position.x - hitPointX;
         return distance;
     }
 
     float CalculateZOffset(float hitPointZ)
     {
-        float distance = hitPointZ - transform.position.z;
+        float distance = transform.position.z - hitPointZ;
         return distance;
     } 
 

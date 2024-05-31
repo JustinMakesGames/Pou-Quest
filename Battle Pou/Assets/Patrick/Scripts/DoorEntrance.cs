@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Door : MonoBehaviour
+public class DoorEntrances : MonoBehaviour
 {
     public GameObject[] possibleDungeons;
     public enum Direction { Left, Right, Top, Bottom, None }

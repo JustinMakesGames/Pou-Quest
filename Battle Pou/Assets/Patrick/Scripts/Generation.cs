@@ -25,25 +25,25 @@ public class Generation : MonoBehaviour
     private void Start()
     {
         random = UnityEngine.Random.Range(0, currentChance);
-        GenerateDungeon(Door.Direction.None);
+        GenerateDungeon(DoorEntrances.Direction.None);
     }
     bool DoesDungeonExist(Vector3 pos)
     {
         return dungeonPositions.Contains(pos);
     }
-    Vector3 Pos(Door.Direction direction)
+    Vector3 Pos(DoorEntrances.Direction direction)
     {
         switch (direction)
         {
-            case Door.Direction.Left: return new Vector3(currentDungeonPos.x, 0, currentDungeonPos.z + offset);
-            case Door.Direction.Right: return new Vector3(currentDungeonPos.x, 0, currentDungeonPos.z - offset);
-            case Door.Direction.Top: return new Vector3(currentDungeonPos.x + offset, 0, currentDungeonPos.z);
-            case Door.Direction.Bottom: return new Vector3(currentDungeonPos.x - offset, 0, currentDungeonPos.z);
-            case Door.Direction.None: return currentDungeonPos;
+            case DoorEntrances.Direction.Left: return new Vector3(currentDungeonPos.x, 0, currentDungeonPos.z + offset);
+            case DoorEntrances.Direction.Right: return new Vector3(currentDungeonPos.x, 0, currentDungeonPos.z - offset);
+            case DoorEntrances.Direction.Top: return new Vector3(currentDungeonPos.x + offset, 0, currentDungeonPos.z);
+            case DoorEntrances.Direction.Bottom: return new Vector3(currentDungeonPos.x - offset, 0, currentDungeonPos.z);
+            case DoorEntrances.Direction.None: return currentDungeonPos;
             default: throw new ArgumentOutOfRangeException();
         }
     }
-    public void GenerateDungeon(Door.Direction direction)
+    public void GenerateDungeon(DoorEntrances.Direction direction)
     {
         Vector3 pos = Pos(direction);
         bool doesDungeonExist = DoesDungeonExist(pos);
