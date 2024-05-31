@@ -355,6 +355,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6572628848105407607, guid: 83d970c39279160489dad59f8026fe90,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 456777491}
+    - target: {fileID: 6572628848105407607, guid: 83d970c39279160489dad59f8026fe90,
+        type: 3}
+      propertyPath: inventoryMenu
+      value: 
+      objectReference: {fileID: 1813210332}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -419,12 +429,8 @@ MonoBehaviour:
     type: 3}
   rooms:
   - {fileID: 3561905615235914117, guid: 7e6b134dd954475478e4c0185ff43c34, type: 3}
-  - {fileID: 3561905615235914117, guid: 7e2dc6e8cc5a7dc4ea64a190f885cdc4, type: 3}
-  - {fileID: 3561905615235914117, guid: 0795ce3f1909d224d893e510edaba723, type: 3}
-  - {fileID: 1175440883297918416, guid: 645ec0327b90e4440aeda7c28b5b12fd, type: 3}
-  - {fileID: 449664653084659494, guid: 08e909940ae8d6f4b83b386f25a3a4c3, type: 3}
   index: 0
-  maxTimes: 5
+  maxTimes: 10
 --- !u!1 &219947209
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +730,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7849326854326989008, guid: 5b11d4556d3009b4cb2029fd540156c6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -828,6 +839,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &456777491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5820026744397804477, guid: 5b11d4556d3009b4cb2029fd540156c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 300847833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &473459048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4335053095553756048, guid: 796d29ab95556f64084f0926fabdd1e1,
@@ -1474,6 +1491,12 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: a344a34cac03aea4e9a749d0bca595b6, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &1813210332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1371556212096511638, guid: 5b11d4556d3009b4cb2029fd540156c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 300847833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

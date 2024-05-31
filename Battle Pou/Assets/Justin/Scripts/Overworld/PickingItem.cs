@@ -9,6 +9,12 @@ public class PickingItem : MonoBehaviour
     public bool isTouched;
     public GameObject itemTextGameObject;
     public TMP_Text itemText;
+
+    private void Start()
+    {
+        itemTextGameObject = GameObject.FindGameObjectWithTag("Dialogue").transform.GetChild(0).gameObject;
+        itemText = itemTextGameObject.transform.GetChild(1).GetComponent<TMP_Text>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") & !isTouched)

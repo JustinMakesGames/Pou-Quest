@@ -13,6 +13,7 @@ TagManager:
   - Dialogue
   - Description
   - EnemySpawn
+  - ItemGet
   layers:
   - Default
   - TransparentFX

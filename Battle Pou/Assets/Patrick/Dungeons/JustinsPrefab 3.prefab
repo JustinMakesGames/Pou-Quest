@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2740518297712898150}
-  - component: {fileID: 8646086533808266927}
+  - component: {fileID: 2940227346823513665}
   - component: {fileID: 2992852509994842505}
   m_Layer: 0
   m_Name: JustinsPrefab 3
@@ -143,7 +143,7 @@ Transform:
   - {fileID: 149295449919847513}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8646086533808266927
+--- !u!114 &2940227346823513665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,21 +152,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3561905615235914117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a5579b7bf059042b0b2ae0cd0d379c, type: 3}
+  m_Script: {fileID: 11500000, guid: aa34f374c7ac32e4787d2d129571101a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  up:
-  - {fileID: 8646086533808266927}
-  - {fileID: 8646086533808266927, guid: b17d2943a1ba02d498c1f7388e9a3aa7, type: 3}
-  down:
-  - {fileID: 8646086533808266927}
-  - {fileID: 8646086533808266927, guid: b17d2943a1ba02d498c1f7388e9a3aa7, type: 3}
-  left:
-  - {fileID: 8646086533808266927}
-  - {fileID: 8646086533808266927, guid: b17d2943a1ba02d498c1f7388e9a3aa7, type: 3}
-  right:
-  - {fileID: 8646086533808266927}
-  - {fileID: 8646086533808266927, guid: b17d2943a1ba02d498c1f7388e9a3aa7, type: 3}
+  up: []
+  down: []
+  left: []
+  right: []
   door: {fileID: 0}
 --- !u!114 &2992852509994842505
 MonoBehaviour:

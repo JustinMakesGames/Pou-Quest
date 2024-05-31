@@ -151,7 +151,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fa2a092e82d90764baf38f054b8d1fe4, type: 2}
+  - {fileID: -876546973899608171, guid: e6fc9250aa7e4614992be49cdbf83a88, type: 3}
   - {fileID: 2100000, guid: b182bb2267b027249b1643055c36a7e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -300,12 +300,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3551522392116912297}
   - component: {fileID: 3101253325166855981}
+  - component: {fileID: 6602389260396039484}
   - component: {fileID: 6349878976396479215}
   - component: {fileID: 6551834221256972624}
-  - component: {fileID: 2650765346424030491}
   m_Layer: 8
-  m_Name: GhostClone
-  m_TagString: Projectile
+  m_Name: 'GHosty '
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -323,6 +323,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8098792724747433870}
+  - {fileID: 781731181030054595}
   - {fileID: 8381987091008373263}
   - {fileID: 8565811807340249057}
   m_Father: {fileID: 0}
@@ -386,6 +388,27 @@ MonoBehaviour:
   m_ForceModule: {fileID: 0}
   m_ForceScale: 1
   m_SimulateSpace: {fileID: 0}
+--- !u!114 &6602389260396039484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4180002772974385683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16201a6590b0d174c81e8acd3b9e06f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyName: 
+  hp: 0
+  maxHp: 0
+  attackPower: 0
+  exp: 0
+  stats: {fileID: 11400000, guid: dbed5b201655a3f428998add13873fe6, type: 2}
+  enemyAttacks: []
+  agent: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!65 &6349878976396479215
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -429,19 +452,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2650765346424030491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4180002772974385683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec14dce9fbcb36448aaafa1419f7aa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &4565762845041496198
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +547,60 @@ Transform:
   - {fileID: 1615713636036454481}
   m_Father: {fileID: 7653377107300919479}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6119981625610593913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8098792724747433870}
+  - component: {fileID: 5516470510791629685}
+  m_Layer: 8
+  m_Name: GhostAttack1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8098792724747433870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6119981625610593913}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3551522392116912297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5516470510791629685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6119981625610593913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d7fc11b85e27a42a253ab495a25e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackStats: {fileID: 0}
+  animator: {fileID: 0}
+  enemy: {fileID: 0}
+  player: {fileID: 0}
+  battleArena:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  stats: {fileID: 0}
+  ghostClone: {fileID: 4180002772974385683, guid: 1db520b720d96364caa7059bcd45565c,
+    type: 3}
 --- !u!1 &6149995293870595649
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +727,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4795130561816250251}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7826905898683310504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 781731181030054595}
+  - component: {fileID: 1237187546557172968}
+  m_Layer: 8
+  m_Name: GhostAttack2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &781731181030054595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826905898683310504}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3551522392116912297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1237187546557172968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826905898683310504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16666526de2429348a5c12d6eee381d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackStats: {fileID: 0}
+  animator: {fileID: 0}
+  enemy: {fileID: 0}
+  player: {fileID: 0}
+  battleArena:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  stats: {fileID: 0}
+  ghostClone: {fileID: 3890351908613260390, guid: d44454aee438a7342934502b93ebcd3a,
+    type: 3}
+  radius: 5
+  ghostClones: []
 --- !u!1 &7940603669063299486
 GameObject:
   m_ObjectHideFlags: 0
