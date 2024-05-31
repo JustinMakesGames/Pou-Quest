@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+
 public class NewGeneration : MonoBehaviour
 {
     public int maxXZ;
@@ -16,12 +17,15 @@ public class NewGeneration : MonoBehaviour
     public Cell cell;
     public Tile blankTile;
     private int iterations = 0;
+    public static NewGeneration instance;
+    public List<GameObject> dungeons = new();
+    public List<Transform> dungeonPositions = new();
 
     private void Start()
     {
+        instance = this;
         InitializeGrid();
     }
-
     void InitializeGrid()
     {
         for (int x = 0; x < maxXZ; x++)
@@ -35,7 +39,6 @@ public class NewGeneration : MonoBehaviour
         }
         StartCoroutine(CheckEntropy());
     }
-
     IEnumerator CheckEntropy()
     {
         List<Cell> tempGrid = new(gridList);
@@ -55,7 +58,6 @@ public class NewGeneration : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         CollapseCell(tempGrid);
     }
-
     void CollapseCell(List<Cell> tempGrid)
     {
         int randIndex = UnityEngine.Random.Range(0, tempGrid.Count);
@@ -72,10 +74,14 @@ public class NewGeneration : MonoBehaviour
         }
         colCell.tiles = new Tile[] { sTile };
         Tile fTile = colCell.tiles[0];
-        Instantiate(fTile, colCell.transform.position, Quaternion.Euler(Vector3.zero));
+        Tile newTile = Instantiate(fTile, colCell.transform.position, Quaternion.Euler(Vector3.zero));
+        dungeons.Add(newTile.gameObject);
+        dungeonPositions.Add(newTile.transform);
+        newTile.transform.parent = transform;
+        newTile.gameObject.isStatic = true;
+        newTile.dungeonId = fTile.dungeonId;
         UpdateGeneration();
     }
-
     void UpdateGeneration()
     {
         List<Cell> newCells = new(gridList);
@@ -160,7 +166,6 @@ public class NewGeneration : MonoBehaviour
             StartCoroutine(CheckEntropy());
         }
     }
-
     void CheckValidity(List<Tile> optionList, List<Tile> validOption)
     {
         for (int x = optionList.Count - 1; x >= 0; x--)

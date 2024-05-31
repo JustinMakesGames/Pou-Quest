@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Patrick.unity
+    guid: 18a7a4fc872dc144d944e34d0cb8bc7b
+  - enabled: 1
     path: Assets/Scenes/Justin 1.unity
     guid: f3087aaa1edee1c46bc5dbc34f8b95f4
   - enabled: 1
@@ -14,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Justin/Justin.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/Patrick.unity
-    guid: 18a7a4fc872dc144d944e34d0cb8bc7b
   - enabled: 1
     path: Assets/Scenes/Marijn.unity
     guid: 6a0b12c79463a9143841fa3ed94df4cf

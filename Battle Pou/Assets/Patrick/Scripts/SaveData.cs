@@ -18,4 +18,10 @@ public class SaveData
     public int level;
     public int coins;
     public List<int> inventoryIds = new List<int>();
+    [Header("Settings")]
+    public int fpsLimit;
+    public bool fullScreen;
+    public int resolution;
+    public float volume;
+    public float textSpeed;
 }

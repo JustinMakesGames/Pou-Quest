@@ -90,10 +90,16 @@ public class Save : MonoBehaviour
     {
         List<float> listX = new List<float>();
         List<float> listZ = new List<float>();
-        for (int i = 0; i < Generation.instance.dungeonPositions.Count; i++)
+        for (int i = 0; i < NewGeneration.instance.dungeonPositions.Count; i++)
         {
-            listX.Add(Generation.instance.dungeonPositions[i].x);
-            listZ.Add(Generation.instance.dungeonPositions[i].z);
+            listX.Add(NewGeneration.instance.dungeonPositions[i].position.x);
+            listZ.Add(NewGeneration.instance.dungeonPositions[i].position.z);
+        }
+        List<int> ints = new List<int>();
+
+        for (int i = 0; i < NewGeneration.instance.dungeons.Count; i++)
+        {
+            ints.Add(NewGeneration.instance.dungeons[i].GetComponent<Tile>().dungeonId);
         }
         saveData.dungeonX = listX.ToArray();
         saveData.dungeonZ = listZ.ToArray();
@@ -109,6 +115,9 @@ public class Save : MonoBehaviour
         saveData.maxExp = PlayerHandler.Instance.maxExp;
         saveData.maxSp = PlayerHandler.Instance.maxSp;
         saveData.coins = PlayerHandler.Instance.coins;
+        saveData.resolution = Application.targetFrameRate;
+        saveData.fullScreen = Screen.fullScreen;
+        saveData.volume = AudioListener.volume;
         string json = JsonUtility.ToJson(saveData);
         Debug.Log(json);
         string encryptedJson = EncryptString(json);

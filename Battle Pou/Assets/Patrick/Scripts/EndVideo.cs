@@ -11,6 +11,7 @@ public class EndVideo : MonoBehaviour
         if (GetComponent<VideoPlayer>().frame >= 180)
         {
             mainMenu.SetActive(true);
+            mainMenu.GetComponentInParent<AudioSource>().Play();
             Destroy(gameObject);
         }
     }

@@ -91,18 +91,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a5579b7bf059042b0b2ae0cd0d379c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dungeonId: 1
   up:
   - {fileID: 8646086533808266927}
-  - {fileID: 8646086533808266927, guid: 7e6b134dd954475478e4c0185ff43c34, type: 3}
+  - {fileID: -8217791675086133878, guid: cca74da7af3ea564781c0eeea486f2b1, type: 3}
+  - {fileID: 2272186332970147386, guid: f30320371041db645ae48336bdb75b48, type: 3}
   down:
   - {fileID: 8646086533808266927}
-  - {fileID: 8646086533808266927, guid: 7e6b134dd954475478e4c0185ff43c34, type: 3}
+  - {fileID: -8217791675086133878, guid: cca74da7af3ea564781c0eeea486f2b1, type: 3}
+  - {fileID: 2272186332970147386, guid: f30320371041db645ae48336bdb75b48, type: 3}
   left:
   - {fileID: 8646086533808266927}
-  - {fileID: 8646086533808266927, guid: 7e6b134dd954475478e4c0185ff43c34, type: 3}
+  - {fileID: -8217791675086133878, guid: cca74da7af3ea564781c0eeea486f2b1, type: 3}
+  - {fileID: 2272186332970147386, guid: f30320371041db645ae48336bdb75b48, type: 3}
   right:
   - {fileID: 8646086533808266927}
-  - {fileID: 8646086533808266927, guid: 7e6b134dd954475478e4c0185ff43c34, type: 3}
+  - {fileID: -8217791675086133878, guid: cca74da7af3ea564781c0eeea486f2b1, type: 3}
+  - {fileID: 2272186332970147386, guid: f30320371041db645ae48336bdb75b48, type: 3}
 --- !u!1001 &101809999072206366
 PrefabInstance:
   m_ObjectHideFlags: 0

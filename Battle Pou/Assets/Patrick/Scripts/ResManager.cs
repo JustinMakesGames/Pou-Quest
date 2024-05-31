@@ -4,20 +4,26 @@ using UnityEngine;
 using TMPro;
 using System.IO;
 using UnityEngine.UI;
+using System;
 
 public class ResManager : MonoBehaviour
 {
-    [SerializeField] private TMP_Dropdown resolutionDropdown;
+    public TMP_Dropdown[] resolutionDropdown;
     private Resolution[] resolutions;
     private List<Resolution> resolutionList;
     private float currentRefRate;
-    private int currentResolutionIndex = 0;
+    public int currentResolutionIndex = 0;
     public string currentRes;
     public bool fullscreen;
-
+    public static ResManager instance;
+    public int fpsLimit;
     void Start()
     {
-        resolutionDropdown.ClearOptions();
+        instance = this;
+        foreach(var v in resolutionDropdown)
+        {
+            v.ClearOptions();
+        }
         resolutions = Screen.resolutions;
         resolutionList = new List<Resolution>();
         currentRefRate = Mathf.Round((float)Screen.currentResolution.refreshRateRatio.value);
@@ -39,12 +45,18 @@ public class ResManager : MonoBehaviour
             {
                 currentResolutionIndex = i;
             }
-            resolutionDropdown.RefreshShownValue();
+            foreach (var v in resolutionDropdown)
+            {
+                v.RefreshShownValue();
+            }
+        }
+        foreach (var v in resolutionDropdown)
+        {
+            v.AddOptions(options);
+            v.value = currentResolutionIndex;
+            v.RefreshShownValue();
         }
 
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
     }
     public void SetResolution(int resolutionIndex)
     {
@@ -52,5 +64,17 @@ public class ResManager : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, fullscreen);
     }
 
+    public void FPSLimit(string target)
+    {
+        fpsLimit = Convert.ToInt32(target);
+        if (fpsLimit == 0)
+        {
+            Application.targetFrameRate = -1;
+        }
+        else
+        {
+            Application.targetFrameRate = fpsLimit;
+        }
+    }
 
 }
