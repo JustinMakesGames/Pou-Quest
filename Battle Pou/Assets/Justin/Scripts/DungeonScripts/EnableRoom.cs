@@ -8,9 +8,9 @@ public class EnableRoom : MonoBehaviour
     public GameObject enableThisRoom;
     public void EnableThisRoom()
     {
-        Tile[] tiles = FindObjectsOfType<Tile>();
+        Tile1[] tiles = FindObjectsOfType<Tile1>();
 
-        foreach (Tile tile in tiles)
+        foreach (Tile1 tile in tiles)
         {
             if (tile.gameObject != enableThisRoom)
             {

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5701707140855491540}
-  - component: {fileID: 1672427983891671112}
   - component: {fileID: 737770843450020881}
+  - component: {fileID: 4516543382399742933}
   m_Layer: 0
   m_Name: NewDungeon 3
   m_TagString: Untagged
@@ -78,27 +78,6 @@ Transform:
   - {fileID: 8295349000915132733}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1672427983891671112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175440883297918416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a5579b7bf059042b0b2ae0cd0d379c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  up:
-  - {fileID: 1672427983891671112}
-  down:
-  - {fileID: 1672427983891671112}
-  left:
-  - {fileID: 1672427983891671112}
-  right:
-  - {fileID: 1672427983891671112}
-  door: {fileID: 0}
 --- !u!114 &737770843450020881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +96,23 @@ MonoBehaviour:
   - {fileID: 5520563274002635015, guid: 525e120f654ca54449450cef90390f2a, type: 3}
   enemyToSpawn: 0
   enemySpawns: []
+--- !u!114 &4516543382399742933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175440883297918416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa34f374c7ac32e4787d2d129571101a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up: []
+  down: []
+  left: []
+  right: []
+  door: {fileID: 0}
 --- !u!1 &2946297940725638116
 GameObject:
   m_ObjectHideFlags: 0

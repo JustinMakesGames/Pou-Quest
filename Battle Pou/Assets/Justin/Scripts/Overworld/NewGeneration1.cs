@@ -8,9 +8,9 @@ public class NewGeneration1 : MonoBehaviour
     public int maxZ;
     public float offsetX;
     public float offsetZ;
-    public List<Tile> tileObjects;
-    public List<Cell> gridList = new();
-    public Cell cell;
+    public List<Tile1> tileObjects;
+    public List<Cell1> gridList = new();
+    public Cell1 cell;
     private int iteration;
 
     public List<GameObject> objectsToSpawn;
@@ -37,7 +37,7 @@ public class NewGeneration1 : MonoBehaviour
         {
             for (int z = 0; z < maxZ; z++)
             {
-                Cell newCell = Instantiate(cell, new Vector3(x * offsetX, 0, z * offsetZ), Quaternion.identity);
+                Cell1 newCell = Instantiate(cell, new Vector3(x * offsetX, 0, z * offsetZ), Quaternion.identity);
                 
                 gridList.Add(newCell);
             }
@@ -51,8 +51,8 @@ public class NewGeneration1 : MonoBehaviour
     {
         Transform pos = gridList[150].transform;
 
-        GameObject nowCell = FindObjectOfType<Tile>().gameObject;
-        pos.GetComponent<Cell>().tiles.Add(nowCell.GetComponent<Tile>());
+        GameObject nowCell = FindObjectOfType<Tile1>().gameObject;
+        pos.GetComponent<Cell1>().tiles.Add(nowCell.GetComponent<Tile1>());
         objectsToSpawn.Add(nowCell);
         
         StartCoroutine(UpdateGeneration());
@@ -92,11 +92,11 @@ public class NewGeneration1 : MonoBehaviour
         {
             roomsUsed.Clear();
             roomsUsed.AddRange(rooms);
-            Cell nextCell = GetCellInDirection(originalPos.position, dir);
+            Cell1 nextCell = GetCellInDirection(originalPos.position, dir);
 
             GameObject randomRoom = GetRandomRoom();
             GameObject newPos = Instantiate(randomRoom, nextCell.transform.position, Quaternion.identity);
-            nextCell.tiles.Add(newPos.GetComponent<Tile>());
+            nextCell.tiles.Add(newPos.GetComponent<Tile1>());
 
             objectsToSpawn.Add(newPos);
 
@@ -123,7 +123,7 @@ public class NewGeneration1 : MonoBehaviour
             int doorToUse = Random.Range(0, doors.Count);
 
             dir = -doors[doorToUse].forward;
-            Cell cell = GetCellInDirection(tile.position, dir);
+            Cell1 cell = GetCellInDirection(tile.position, dir);
 
             if (cell != null)
             {
@@ -159,11 +159,11 @@ public class NewGeneration1 : MonoBehaviour
         return rooms[room];
     }
 
-    private Cell GetCellInDirection(Vector3 origin, Vector3 direction)
+    private Cell1 GetCellInDirection(Vector3 origin, Vector3 direction)
     {
         if (Physics.Raycast(origin, direction, out RaycastHit hit, Mathf.Infinity, cellLayer))
         {
-            return hit.transform.GetComponent<Cell>();
+            return hit.transform.GetComponent<Cell1>();
         }
         return null;
     }
@@ -180,7 +180,7 @@ public class NewGeneration1 : MonoBehaviour
         int getRandomDoor = Random.Range(0, doors.Count);
 
         doors[getRandomDoor].GetChild(1).GetComponent<Renderer>().enabled = false;
-        newPos.GetComponent<Tile>().door = doors[getRandomDoor].gameObject;
+        newPos.GetComponent<Tile1>().door = doors[getRandomDoor].gameObject;
         Vector3 lookPosition = newPos.position - originalPos.position;
 
         Vector3 doorForward = doors[getRandomDoor].forward;
@@ -234,7 +234,7 @@ public class NewGeneration1 : MonoBehaviour
 
         for (int i = 0; i < doors.Count; i++)
         {
-            if (doors[i].gameObject == pos.GetComponent<Tile>().door)
+            if (doors[i].gameObject == pos.GetComponent<Tile1>().door)
             {
                 print("YESSSSSS NOOO");
             }

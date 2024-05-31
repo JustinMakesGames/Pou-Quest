@@ -410,7 +410,7 @@ MonoBehaviour:
   offsetZ: 20
   tileObjects: []
   gridList: []
-  cell: {fileID: 6157504928337955722, guid: c71cf9f25744e21468bb582952358a71, type: 3}
+  cell: {fileID: 1796881908304082525, guid: c71cf9f25744e21468bb582952358a71, type: 3}
   objectsToSpawn: []
   cellLayer:
     serializedVersion: 2

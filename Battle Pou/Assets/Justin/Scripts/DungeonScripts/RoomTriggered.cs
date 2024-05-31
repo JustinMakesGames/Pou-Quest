@@ -8,9 +8,9 @@ public class RoomTriggered : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (GetComponent<Cell>().tiles.Count != 0)
+            if (GetComponent<Cell1>().tiles.Count != 0)
             {
-                FindObjectOfType<EnableRoom>().enableThisRoom = GetComponent<Cell>().tiles[0].gameObject;
+                FindObjectOfType<EnableRoom>().enableThisRoom = GetComponent<Cell1>().tiles[0].gameObject;
                 FindObjectOfType<EnableRoom>().EnableThisRoom();
             }
             
