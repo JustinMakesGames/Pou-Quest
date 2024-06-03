@@ -59,6 +59,7 @@ public class EnemyHandler : MonoBehaviour
         if (hp <= 0)
         {
             hp = 0;
+            QuestManager.instance.UpdateQuest(id);
             BattleManager.instance.HandlingStates(BattleState.Win);
             StartCoroutine(EnemyDeathAnimation());
         }

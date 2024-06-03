@@ -10,7 +10,7 @@ public class Save : MonoBehaviour
 {
     public static Save instance;
     public SaveData saveData;
-    public string path;
+    public string path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
     public string key;
 
     public byte[] MakeKey()
@@ -78,16 +78,17 @@ public class Save : MonoBehaviour
     private void Start()
     {
         instance = this;
-        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
         saveData = LoadData();
+        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
         if (File.Exists(path))
         {
             FindAnyObjectByType<Load>().Initialize(saveData);
         }
         
     }
-    public void SaveDungeons()
+    public void SaveData()
     {
+        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
         List<float> listX = new List<float>();
         List<float> listZ = new List<float>();
         for (int i = 0; i < NewGeneration.instance.dungeonPositions.Count; i++)
@@ -101,6 +102,7 @@ public class Save : MonoBehaviour
         {
             ints.Add(NewGeneration.instance.dungeons[i].GetComponent<Tile>().dungeonId);
         }
+        saveData.dungeonType = ints.ToArray();
         saveData.dungeonX = listX.ToArray();
         saveData.dungeonZ = listZ.ToArray();
         //foreach (var v in InventoryManager.instance.items)
@@ -115,7 +117,8 @@ public class Save : MonoBehaviour
         saveData.maxExp = PlayerHandler.Instance.maxExp;
         saveData.maxSp = PlayerHandler.Instance.maxSp;
         saveData.coins = PlayerHandler.Instance.coins;
-        saveData.resolution = Application.targetFrameRate;
+        saveData.resolution = ResManager.instance.currentResolutionIndex;
+        saveData.fpsLimit = Application.targetFrameRate;
         saveData.fullScreen = Screen.fullScreen;
         saveData.volume = AudioListener.volume;
         string json = JsonUtility.ToJson(saveData);

@@ -26,6 +26,7 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog()
     {
+        textSpeed = Save.instance.saveData.textSpeed;
         dialogPanel.SetActive(true);
         StartCoroutine(Dialog());
     }

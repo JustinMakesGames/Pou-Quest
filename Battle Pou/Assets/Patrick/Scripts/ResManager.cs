@@ -17,6 +17,7 @@ public class ResManager : MonoBehaviour
     public bool fullscreen;
     public static ResManager instance;
     public int fpsLimit;
+    public GameObject obj;
     void Start()
     {
         instance = this;
@@ -64,16 +65,36 @@ public class ResManager : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, fullscreen);
     }
 
+    public void GetGameObject(GameObject calledObject)
+    {
+        obj = calledObject;
+    }
     public void FPSLimit(string target)
     {
-        fpsLimit = Convert.ToInt32(target);
-        if (fpsLimit == 0)
+        bool validInput = true;
+        foreach (char c in target.ToCharArray())
         {
-            Application.targetFrameRate = -1;
+            if (!char.IsNumber(c))
+            {
+                validInput = false;
+                break;
+            }
+        }
+        if (validInput)
+        {
+            fpsLimit = Convert.ToInt32(target);
+            if (fpsLimit == 0)
+            {
+                Application.targetFrameRate = -1;
+            }
+            else
+            {
+                Application.targetFrameRate = fpsLimit;
+            }
         }
         else
         {
-            Application.targetFrameRate = fpsLimit;
+            obj.GetComponent<TMP_Text>().text = "Invalid input.";
         }
     }
 

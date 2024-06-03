@@ -2051,7 +2051,13 @@ MonoBehaviour:
   minCoins: 10
   maxGoal: 20
   minGoal: 5
-  enemy: ghosts
+  enemy:
+  - eyeballs
+  - plague doctors
+  - ghosts
+  enemyID: 0
+  goal: 0
+  coins: 0
 --- !u!4 &587692515
 Transform:
   m_ObjectHideFlags: 0
@@ -2081,6 +2087,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentQuest: 
   questText: {fileID: 433919789}
+  needed: 0
+  coins: 0
+  enemyID: 0
+  enemies: 000000000100000002000000
 --- !u!1001 &592886198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6476,9 +6486,19 @@ PrefabInstance:
       objectReference: {fileID: 587692516}
     - target: {fileID: 4293596076005716939, guid: abd0971ca05642248b3dbc0b07b6f3cb,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293596076005716939, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 587692516}
+    - target: {fileID: 4293596076005716939, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4336722090276638438, guid: abd0971ca05642248b3dbc0b07b6f3cb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6488,6 +6508,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.000022888184
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438064444514067683, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540237824118659815, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4924914291094926001, guid: abd0971ca05642248b3dbc0b07b6f3cb,
         type: 3}
@@ -6629,6 +6659,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -3.079956
       objectReference: {fileID: 0}
+    - target: {fileID: 7415593399296199904, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7492083413803117535, guid: abd0971ca05642248b3dbc0b07b6f3cb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6673,6 +6708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8111144132353819080, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8435680470893454795, guid: abd0971ca05642248b3dbc0b07b6f3cb,
         type: 3}

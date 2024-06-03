@@ -50,12 +50,21 @@ MonoBehaviour:
     dungeonX: []
     dungeonZ: []
     health: 0
+    maxHp: 0
     sp: 0
+    maxSp: 0
     attackPower: 0
     exp: 0
+    maxExp: 0
     level: 0
+    coins: 0
     inventoryIds: 
-  path: 
+    fpsLimit: 0
+    fullScreen: 0
+    resolution: 0
+    volume: 0
+    textSpeed: 0
+  path: C:/Users/Patrick K/Documents/GitHub/Pou-Quest/Battle Pou/Assets/SaveData.pou
   key: wowamazingitspou
 --- !u!114 &3418497987001249811
 MonoBehaviour:
