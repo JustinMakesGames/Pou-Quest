@@ -46,24 +46,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveData:
-    dungeonType: 
-    dungeonX: []
-    dungeonZ: []
-    health: 0
-    maxHp: 0
-    sp: 0
-    maxSp: 0
-    attackPower: 0
+    dungeonType: 00000000000000000100000000000000000000000000000000000000000000000100000001000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000001000000010000000100000000000000
+    dungeonX:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 22
+    - 22
+    - 22
+    - 22
+    - 22
+    - 44
+    - 44
+    - 44
+    - 44
+    - 44
+    - 66
+    - 66
+    - 66
+    - 66
+    - 66
+    - 88
+    - 88
+    - 88
+    - 88
+    - 88
+    dungeonZ:
+    - 0
+    - 22
+    - 44
+    - 66
+    - 88
+    - 0
+    - 22
+    - 44
+    - 66
+    - 88
+    - 0
+    - 22
+    - 44
+    - 66
+    - 88
+    - 0
+    - 22
+    - 44
+    - 66
+    - 88
+    - 0
+    - 22
+    - 44
+    - 66
+    - 88
+    health: 23232
+    maxHp: 3
+    sp: 2
+    maxSp: 2
+    attackPower: 2
     exp: 0
-    maxExp: 0
+    maxExp: 100
     level: 0
     coins: 0
     inventoryIds: 
-    fpsLimit: 0
+    fpsLimit: -1
     fullScreen: 0
-    resolution: 0
-    volume: 0
-    textSpeed: 0
+    resolution: 16
+    volume: 1
+    textSpeed: 1
   path: C:/Users/Patrick K/Documents/GitHub/Pou-Quest/Battle Pou/Assets/SaveData.pou
   key: wowamazingitspou
 --- !u!114 &3418497987001249811

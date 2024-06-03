@@ -74,6 +74,7 @@ public class InventoryManager : MonoBehaviour
         item.GetComponentInChildren<TMP_Text>().text = item.GetComponentInChildren<ItemInfo>().count.ToString();
         if (item.GetComponentInChildren<ItemInfo>().count <= 0)
         {
+            items.Remove(item);
             Destroy(item);
         }
     }

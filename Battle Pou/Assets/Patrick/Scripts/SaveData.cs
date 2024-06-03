@@ -5,23 +5,24 @@ using UnityEngine;
 [Serializable]
 public class SaveData
 {
+    [Header("Player")]
     public int[] dungeonType;
     public float[] dungeonX;
     public float[] dungeonZ;
-    public int health;
-    public int maxHp;
-    public int sp;
-    public int maxSp;
-    public int attackPower;
+    public int health = 20;
+    public int maxHp = 20;
+    public int sp = 20;
+    public int maxSp = 20;
+    public int attackPower = 1;
     public int exp;
-    public int maxExp;
-    public int level;
+    public int maxExp = 100;
+    public int level = 1;
     public int coins;
     public List<int> inventoryIds = new List<int>();
     [Header("Settings")]
-    public int fpsLimit;
-    public bool fullScreen;
+    public int fpsLimit = 0;
+    public bool fullScreen = true;
     public int resolution;
-    public float volume;
-    public float textSpeed;
+    public float volume = 1;
+    public float textSpeed = 1;
 }
