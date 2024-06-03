@@ -25,6 +25,9 @@ public class NewGeneration1 : MonoBehaviour
 
     private List<GameObject> roomsUsed = new List<GameObject>();
 
+    public GameObject bossRoom;
+    private bool isFinalRoom;
+
     private void Start()
     {
         InitializeGrid();
@@ -65,16 +68,16 @@ public class NewGeneration1 : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             Generate(objectsToSpawn[index].transform);
         }
+        yield return new WaitForSeconds(0.5f);
+        isFinalRoom = true;
+        Generate(objectsToSpawn[index].transform);
         
     }
     private void Generate(Transform originalPos)
     {
         Vector3 dir = GetDirection(originalPos);
-
         if (dir == Vector3.zero)
         {
-            print("This happened oh nooooo");
-
             if (roomsUsed.Count == 0)
             {
                 RestartGeneration(originalPos.gameObject);
@@ -84,17 +87,22 @@ public class NewGeneration1 : MonoBehaviour
                 ReplaceOriginalObject(originalPos.gameObject);
                 maxTimes++;
             }
-
-
-
         }
         else
         {
             roomsUsed.Clear();
             roomsUsed.AddRange(rooms);
             Cell1 nextCell = GetCellInDirection(originalPos.position, dir);
+            GameObject randomRoom = null;
 
-            GameObject randomRoom = GetRandomRoom();
+            if (!isFinalRoom)
+            {
+                randomRoom = GetRandomRoom();
+            }
+            else
+            {
+                randomRoom = bossRoom;
+            }
             GameObject newPos = Instantiate(randomRoom, nextCell.transform.position, Quaternion.identity);
             nextCell.tiles.Add(newPos.GetComponent<Tile1>());
 
@@ -104,7 +112,7 @@ public class NewGeneration1 : MonoBehaviour
             newPos.transform.rotation = rotation;
             index++;
         }
-        
+
     }
 
     private Vector3 GetDirection(Transform tile)
@@ -130,6 +138,7 @@ public class NewGeneration1 : MonoBehaviour
                 if (cell.tiles.Count <= 0)
                 {
                     doors[doorToUse].GetChild(1).GetComponent<Renderer>().enabled = false;
+                    tile.GetComponent<Tile1>().inDoor = doors[doorToUse].gameObject;
                     isChecked = true;
                 }
             }
@@ -147,10 +156,7 @@ public class NewGeneration1 : MonoBehaviour
         }
 
         Debug.Log(dir);
-
         return dir;
-
-
     }
 
     private GameObject GetRandomRoom()
@@ -179,8 +185,8 @@ public class NewGeneration1 : MonoBehaviour
         }        
         int getRandomDoor = Random.Range(0, doors.Count);
 
-        doors[getRandomDoor].GetChild(1).GetComponent<Renderer>().enabled = false;
-        newPos.GetComponent<Tile1>().door = doors[getRandomDoor].gameObject;
+        doors[getRandomDoor].gameObject.SetActive(false);
+        newPos.GetComponent<Tile1>().outDoor = doors[getRandomDoor].gameObject;
         Vector3 lookPosition = newPos.position - originalPos.position;
 
         Vector3 doorForward = doors[getRandomDoor].forward;
@@ -217,9 +223,8 @@ public class NewGeneration1 : MonoBehaviour
         objectsToSpawn.Remove(pos);
         Destroy(pos);    
         index--;
-        PutDoorRenderersBack(objectsToSpawn[index]);
-
-        
+        maxTimes++;
+        PutDoorRenderersBack(objectsToSpawn[index]);      
     }
 
     private void PutDoorRenderersBack(GameObject pos)
@@ -234,7 +239,7 @@ public class NewGeneration1 : MonoBehaviour
 
         for (int i = 0; i < doors.Count; i++)
         {
-            if (doors[i].gameObject == pos.GetComponent<Tile1>().door)
+            if (doors[i].gameObject == pos.GetComponent<Tile1>().outDoor)
             {
                 print("YESSSSSS NOOO");
             }

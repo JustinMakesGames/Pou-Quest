@@ -15,6 +15,13 @@ public class EnableRoom : MonoBehaviour
             if (tile.gameObject != enableThisRoom)
             {
                 tile.gameObject.SetActive(false);
+
+                Door[] doors = tile.GetComponentsInChildren<Door>();
+
+                foreach (Door door in doors)
+                {
+                    door.transform.GetChild(3).rotation = door.transform.rotation;
+                }
             }
         }
 

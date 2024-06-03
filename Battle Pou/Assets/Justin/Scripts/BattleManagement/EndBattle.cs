@@ -36,10 +36,16 @@ public class EndBattle : MonoBehaviour
     {
         StartCoroutine(DestroyEnemy());
     }
+
+    public void DestroyBattleEnemy()
+    {
+        Destroy(FindObjectOfType<EnemyHandler>().gameObject);
+    }
     public IEnumerator DestroyEnemy()
     {
         yield return new WaitUntil(() => Camera.main.fieldOfView <= 30);
         Poof.instance.UsePoof(overworldEnemy.transform);
+        FindObjectOfType<SpawnLoot>().SpawningLoot(overworldEnemy.transform.position, overworldEnemy.GetComponent<EnemyOverworld>().hasKey);
         Destroy(overworldEnemy);
     }
 
@@ -69,6 +75,11 @@ public class EndBattle : MonoBehaviour
         CreateBattleArena.instance.OverworldManagement();
     }
 
+    public void MakePlayerInvincible()
+    {
+        FindObjectOfType<InvincibleFrames>().StartInvincibleFrames();
+    }
+
     public void KeepEnemyAlife()
     {
         StartCoroutine(KeepImmuneFrames());
@@ -78,7 +89,7 @@ public class EndBattle : MonoBehaviour
     {
         yield return new WaitUntil(() => Camera.main.fieldOfView <= 30);
         overworldEnemy.GetComponent<EnemyOverworld>().enabled = false;
-        MeshRenderer renderer = overworldEnemy.GetComponent<MeshRenderer>();
+        Renderer renderer = overworldEnemy.GetComponent<Renderer>();
         int amountOfFrames = 20;
 
         for (int i = 0; i < amountOfFrames; i++)

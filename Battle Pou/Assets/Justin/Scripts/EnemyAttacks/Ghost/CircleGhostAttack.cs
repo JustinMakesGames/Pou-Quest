@@ -26,6 +26,7 @@ public class CircleGhostAttack : EnemyMoveAround
         }
         else if (!hasMoven)
         {
+            hasMoven = true;
             GetPositionAndRotation();
         }
 

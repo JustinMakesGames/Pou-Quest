@@ -23,6 +23,7 @@ public class LoseHandler : StateHandler
             player.GetComponent<Renderer>().enabled = false;
         }
         player.GetComponent<BattlePlayerMovement>().enabled = false;
+        enemyAttack.GetComponent<Attacking>().FinishAttack();
 
         Cursor.lockState = CursorLockMode.None;
         loseUI.SetActive(true);

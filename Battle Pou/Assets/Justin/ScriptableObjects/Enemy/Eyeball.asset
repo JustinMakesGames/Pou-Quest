@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Eyeball
   m_EditorClassIdentifier: 
   enemyName: Eyeball
-  hp: 10
+  hp: 1
   maxHp: 10
   attackPower: 1
   exp: 105
@@ -21,5 +21,8 @@ MonoBehaviour:
   attackInterval: 1
   amountOfProjectiles: 3
   secondAttackInterval: 1.2
-  secondAttackSpeed: 20
+  secondAttackSpeed: 45
   secondAmountOfProjectiles: 0
+  thirdAttackInterval: 4
+  thirdAttackSpeed: 0
+  thirdAmountOfProjectiles: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SpawnLoot : MonoBehaviour
@@ -15,18 +16,10 @@ public class SpawnLoot : MonoBehaviour
     public float upSpeed;
     public List<GameObject> lootList;
 
-    private void Start()
-    {
-        StartCoroutine(SpawnEveryTime());
-    }
+    public float gravity;
 
-    private IEnumerator SpawnEveryTime()
-    {
-        SpawningLoot(new Vector3(0.4f, -1.3f, -5.02f));
-        yield return new WaitForSeconds(3f);
-        StartCoroutine(SpawnEveryTime());
-    }
-    public void SpawningLoot(Vector3 position)
+    public GameObject key;
+    public void SpawningLoot(Vector3 position, bool hasKey)
     {
         randomAmountOfCoins = Random.Range(0, maxAmountOfCoins);
         
@@ -43,13 +36,20 @@ public class SpawnLoot : MonoBehaviour
             lootList.Add(items[chosenItem]);
         }
 
+        if (hasKey)
+        {
+            lootList.Add(key);
+        }
+
         for (int i = 0; i < lootList.Count; i++)
         {
-            GameObject clone = Instantiate(lootList[i], position, Random.rotationUniform);
-            clone.transform.rotation = Quaternion.Euler(0, clone.transform.rotation.y, 0);
+            GameObject clone = Instantiate(lootList[i], position, Quaternion.Euler(0, Random.Range(0,360),0));
             Rigidbody rb = clone.GetComponent<Rigidbody>();
-            rb.AddForce(clone.transform.forward * forwardSpeed + clone.transform.up * upSpeed, ForceMode.Impulse);
+            rb.AddForce(clone.transform.forward * forwardSpeed + clone.transform.up * upSpeed, ForceMode.VelocityChange);
+            rb.velocity = new Vector3(0, -gravity, 0);
         }
+
+
         lootList.Clear();
     }
 }

@@ -48,6 +48,9 @@ MonoBehaviour:
   animator: {fileID: 5585934596581207000}
   enemy: {fileID: 0}
   player: {fileID: 0}
+  battleArena:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
   stats: {fileID: 0}
   ball: {fileID: 5026574812760903670, guid: a9841a2fb2c53bb48977d3a1f3b8a61e, type: 3}
   attackInterval: 1
@@ -99,12 +102,19 @@ MonoBehaviour:
   animator: {fileID: 5585934596581207000}
   enemy: {fileID: 0}
   player: {fileID: 0}
+  battleArena:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
   stats: {fileID: 0}
   radius: 10
   laser: {fileID: 428854887141434588, guid: 8fbbf29278ad02341b2961fcb2e7e05b, type: 3}
+  sideLaser: {fileID: 428854887141434588, guid: 7e3a2e4afc9109244a941bc77dd90ee6,
+    type: 3}
   amountOfLasers: 3
   coroutineStarted: 0
   rotationSpeed: 10
+  offsetAmount: 0
+  spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &7005185926046483923
 PrefabInstance:
   m_ObjectHideFlags: 0

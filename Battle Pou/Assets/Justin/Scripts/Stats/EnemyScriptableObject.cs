@@ -17,4 +17,8 @@ public class EnemyStats : ScriptableObject
     public float secondAttackInterval;
     public float secondAttackSpeed;
     public int secondAmountOfProjectiles;
+
+    public float thirdAttackInterval;
+    public float thirdAttackSpeed;
+    public int thirdAmountOfProjectiles;
 }

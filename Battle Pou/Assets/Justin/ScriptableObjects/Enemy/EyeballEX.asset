@@ -15,11 +15,14 @@ MonoBehaviour:
   enemyName: EyeballEX
   hp: 30
   maxHp: 30
-  attackPower: 5
+  attackPower: 2
   exp: 105
   attackSpeed: 750
   attackInterval: 0.5
   amountOfProjectiles: 5
   secondAttackInterval: 0.6
-  secondAttackSpeed: 30
+  secondAttackSpeed: 55
   secondAmountOfProjectiles: 0
+  thirdAttackInterval: 1
+  thirdAttackSpeed: 0
+  thirdAmountOfProjectiles: 0

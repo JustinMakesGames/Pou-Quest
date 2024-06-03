@@ -15,11 +15,5 @@ public class LaserBehaviour : EnemyProjectile
     private void Update()
     {
         transform.Translate(Vector3.forward * stats.secondAttackSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(player.position, transform.GetChild(0).position) < 0.5f)
-        {
-            PlayerHandler.Instance.TakeDamage(FindObjectOfType<EnemyHandler>().attackPower);
-            Destroy(gameObject);
-        }
     }
 }

@@ -11,19 +11,24 @@ public class EnemySpawner : MonoBehaviour
 
     public List<Transform> enemySpawns;
     public List<Transform> itemSpawns;
+
+    public List<GameObject> enemies;
+    public List<GameObject> items;
     private void Start()
     {
         
         for (int i = 0; i < enemySpawns.Count; i++)
         {
             enemyToSpawn = Random.Range(0, enemiesToSpawn.Length);
-            Instantiate(enemiesToSpawn[enemyToSpawn], enemySpawns[i].position, Quaternion.identity, transform);
+            GameObject enemy = Instantiate(enemiesToSpawn[enemyToSpawn], enemySpawns[i].position, Quaternion.identity, transform);
+            enemies.Add(enemy);
         }
 
         for (int i = 0; i < itemSpawns.Count; i++)
         {
-            itemToSpawn = Random.Range(0, itemsToSpawn.Length);
-            Instantiate(itemsToSpawn[itemToSpawn], itemSpawns[i].position, Quaternion.identity, transform);
+           itemToSpawn = Random.Range(0, itemsToSpawn.Length);
+           GameObject item = Instantiate(itemsToSpawn[itemToSpawn], itemSpawns[i].position, Quaternion.identity, transform);
+           items.Add(item);
         }
     }
 }

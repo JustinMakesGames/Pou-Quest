@@ -17,7 +17,7 @@ public class PickingItem : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") & !isTouched)
+        if (other.CompareTag("Player") & !isTouched & !FindObjectOfType<InvincibleFrames>().isInvincible)
         {
             InventoryManager.instance.AddItem(item);
             isTouched = true;

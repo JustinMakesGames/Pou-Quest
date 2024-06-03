@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlaqueDoctor
   m_EditorClassIdentifier: 
   enemyName: Plaque Doctor
-  hp: 30
+  hp: 1
   maxHp: 30
   attackPower: 1
   exp: 30
@@ -23,3 +23,6 @@ MonoBehaviour:
   secondAttackInterval: 1
   secondAttackSpeed: 50
   secondAmountOfProjectiles: 5
+  thirdAttackInterval: 0
+  thirdAttackSpeed: 0
+  thirdAmountOfProjectiles: 0

@@ -33,6 +33,8 @@ public class EnemyOverworld : MonoBehaviour
 
     //Animator
     public Animator animator;
+
+    public bool hasKey;
     
 
 

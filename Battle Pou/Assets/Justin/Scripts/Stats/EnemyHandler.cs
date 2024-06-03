@@ -42,7 +42,7 @@ public class EnemyHandler : MonoBehaviour
     }
     public void ChoosingAttack()
     {
-        int randomAttack = Random.Range(0, 2);
+        int randomAttack = 1;
         Transform attack = enemyAttacks[randomAttack];
         BattleManager.instance.enemyAttack = attack;
         BattleManager.instance.InitializeHandlers();
