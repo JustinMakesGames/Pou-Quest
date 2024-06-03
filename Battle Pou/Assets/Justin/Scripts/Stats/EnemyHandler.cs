@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class EnemyHandler : MonoBehaviour
 {
+    public int id;
     public string enemyName;
     public int hp;
     public int maxHp;
