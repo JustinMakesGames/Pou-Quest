@@ -15,10 +15,10 @@ public class QuestGenerator : MonoBehaviour
     public int goal;
     public int coins;
 
-    public static QuestGenerator Instance;
+    public static QuestGenerator instance;
     public void Awake()
     {
-        Instance = this;
+        instance = this;
     }
 
     public string GenerateQuest()

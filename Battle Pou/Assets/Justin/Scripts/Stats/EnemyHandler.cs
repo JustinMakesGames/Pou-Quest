@@ -15,11 +15,12 @@ public class EnemyHandler : MonoBehaviour
     public EnemyStats stats;
     public List<Transform> enemyAttacks;
     public NavMeshAgent agent;
-
+    public AudioSource[] damageAudios;
     public Animator animator;
 
     private void Awake()
     {
+        damageAudios = GameObject.FindGameObjectWithTag("Audio").GetComponents<AudioSource>();
         enemyName = stats.enemyName;
         hp = stats.hp;
         maxHp = stats.maxHp;
@@ -53,6 +54,7 @@ public class EnemyHandler : MonoBehaviour
     {
         print("YOUCH");
         hp -= damage;
+        damageAudios[Random.Range(0, damageAudios.Length)].Play();
         BattleUI.instance.StatsChange();
         StartCoroutine(ShowDamage());
        

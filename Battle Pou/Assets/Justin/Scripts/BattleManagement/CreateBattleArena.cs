@@ -14,7 +14,8 @@ public class CreateBattleArena : MonoBehaviour
     private Transform enemySpawn;
     private Transform cameraPosition;
     private Transform cam;
-
+    public bool isBoss;
+    public AudioSource battleMusic;
     public Vector3 oldCamPosition;
     public Quaternion oldCamRotation;
 
@@ -45,7 +46,12 @@ public class CreateBattleArena : MonoBehaviour
     public void MakeBattleArena()
     {
         battleArenaClone = Instantiate(battleArena, arenaSpawn.position, Quaternion.identity);
-
+        if (!isBoss)
+        {
+            AudioSource[] audios = GameObject.FindGameObjectWithTag("Audio").GetComponents<AudioSource>();
+            audios[4].Stop();
+            battleMusic.Play();
+        }
     }
 
     public void SpawnEnemy(GameObject enemy)

@@ -78,7 +78,6 @@ public class NewGeneration : MonoBehaviour
         dungeons.Add(newTile.gameObject);
         dungeonPositions.Add(newTile.transform);
         newTile.transform.parent = transform;
-        newTile.gameObject.isStatic = true;
         newTile.dungeonId = fTile.dungeonId;
         UpdateGeneration();
     }

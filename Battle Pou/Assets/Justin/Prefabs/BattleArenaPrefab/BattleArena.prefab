@@ -1155,7 +1155,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 52
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 52
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2772,18 +2772,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: What will you do?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 64a5152cd4639cd4cbc460f9c4c5ff07, type: 2}
-  m_sharedMaterial: {fileID: 832582861590079322, guid: 64a5152cd4639cd4cbc460f9c4c5ff07,
+  m_fontAsset: {fileID: 11400000, guid: be642f0d790f004469672325bfd96847, type: 2}
+  m_sharedMaterial: {fileID: -3285827345500066615, guid: be642f0d790f004469672325bfd96847,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279631616
+  m_fontColor: {r: 0, g: 1, b: 0.08235294, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4189,7 +4189,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 52
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

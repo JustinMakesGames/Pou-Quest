@@ -9,7 +9,7 @@ public class DialogManager : MonoBehaviour
     public TMP_Text nameText;
     public bool questNpc;
     public GameObject dialogPanel;
-    public List<string> lines = new List<string>();
+    public List<string> lines = new();
     public string npcName;
     public string quest;
     public float textSpeed = 1;
@@ -29,7 +29,7 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog()
     {
-        textSpeed = Save.instance.saveData.textSpeed;
+        //textSpeed = Save.instance.saveData.textSpeed;
         dialogPanel.SetActive(true);
         StartCoroutine(Dialog());
     }
@@ -39,7 +39,7 @@ public class DialogManager : MonoBehaviour
         nameText.text = npcName;
         if (questNpc)
         {
-            quest = QuestGenerator.Instance.GenerateQuest();
+            quest = QuestGenerator.instance.GenerateQuest();
             lines.Add(quest);
 
         }
@@ -84,6 +84,8 @@ public class DialogManager : MonoBehaviour
     {
         BattleTransition.instance.StartBattle();
         CreateBattleArena.instance.SpawnEnemy(battleEnemy);
+        FindAnyObjectByType<TriggerPouDialog>().GetComponent<AudioSource>().Stop();
+        GameObject.FindGameObjectWithTag("BossMusic").GetComponent<AudioSource>().Play();
         EndBattle.instance.GetEnemy(gameObject);
     }
 }
