@@ -37,10 +37,10 @@ public class QuestManager : MonoBehaviour
     {
         if (currentQuest != null)
         {
-            currentQuest = QuestGenerator.Instance.GenerateQuest();
-            needed = QuestGenerator.Instance.goal;
-            coins = QuestGenerator.Instance.coins;
-            enemyID = QuestGenerator.Instance.enemyID;
+            currentQuest = QuestGenerator.instance.GenerateQuest();
+            needed = QuestGenerator.instance.goal;
+            coins = QuestGenerator.instance.coins;
+            enemyID = QuestGenerator.instance.enemyID;
             questText.text = currentQuest;
         }
         else

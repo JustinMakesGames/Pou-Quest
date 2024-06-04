@@ -22,6 +22,9 @@ public class Load : MonoBehaviour
             PlayerHandler.Instance.maxSp = data.maxSp;
             PlayerHandler.Instance.coins = data.coins;
             PlayerHandler.Instance.maxExp = data.maxExp;
+            ResManager.instance.fpsLimit = data.fpsLimit;
+            ResManager.instance.currentResolutionIndex = data.resolution;
+            ResManager.instance.SetResolution(data.resolution);
         }
     }
 }

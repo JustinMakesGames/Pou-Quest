@@ -34,11 +34,11 @@ public class Save : MonoBehaviour
 
             ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 
-            using (MemoryStream memoryStream = new MemoryStream())
+            using (MemoryStream memoryStream = new())
             {
-                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+                using (CryptoStream cryptoStream = new(memoryStream, encryptor, CryptoStreamMode.Write))
                 {
-                    using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
+                    using (StreamWriter streamWriter = new(cryptoStream))
                     {
                         streamWriter.Write(saveData);
                     }
@@ -89,14 +89,14 @@ public class Save : MonoBehaviour
     public void SaveData()
     {
         path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
-        List<float> listX = new List<float>();
-        List<float> listZ = new List<float>();
+        List<float> listX = new();
+        List<float> listZ = new();
         for (int i = 0; i < NewGeneration.instance.dungeonPositions.Count; i++)
         {
             listX.Add(NewGeneration.instance.dungeonPositions[i].position.x);
             listZ.Add(NewGeneration.instance.dungeonPositions[i].position.z);
         }
-        List<int> ints = new List<int>();
+        List<int> ints = new();
 
         for (int i = 0; i < NewGeneration.instance.dungeons.Count; i++)
         {

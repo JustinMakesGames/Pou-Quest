@@ -64,11 +64,6 @@ public class ResManager : MonoBehaviour
         Resolution resolution = resolutionList[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, fullscreen);
     }
-
-    public void GetGameObject(GameObject calledObject)
-    {
-        obj = calledObject;
-    }
     public void FPSLimit(string target)
     {
         bool validInput = true;
@@ -91,10 +86,6 @@ public class ResManager : MonoBehaviour
             {
                 Application.targetFrameRate = fpsLimit;
             }
-        }
-        else
-        {
-            obj.GetComponent<TMP_Text>().text = "Invalid input.";
         }
     }
 

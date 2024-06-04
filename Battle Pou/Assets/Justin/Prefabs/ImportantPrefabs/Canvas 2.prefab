@@ -2425,9 +2425,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cannon
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8d0a598099e78574f91716ed4ba29fb1, type: 2}
-  m_sharedMaterial: {fileID: 832582861590079322, guid: 8d0a598099e78574f91716ed4ba29fb1,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3453,9 +3452,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fight
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8d0a598099e78574f91716ed4ba29fb1, type: 2}
-  m_sharedMaterial: {fileID: 832582861590079322, guid: 8d0a598099e78574f91716ed4ba29fb1,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4773,9 +4771,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Bow
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8d0a598099e78574f91716ed4ba29fb1, type: 2}
-  m_sharedMaterial: {fileID: 832582861590079322, guid: 8d0a598099e78574f91716ed4ba29fb1,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8076,6 +8073,17 @@ PrefabInstance:
       propertyPath: m_text
       value: Spear
       objectReference: {fileID: 0}
+    - target: {fileID: 7200800695950654923, guid: f3f57f0638846e6488ae4c5900a243be,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 7200800695950654923, guid: f3f57f0638846e6488ae4c5900a243be,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

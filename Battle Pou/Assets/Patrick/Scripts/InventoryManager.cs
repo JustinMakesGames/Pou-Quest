@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject inventory;
     public GameObject inventoryMenu;
     public GameObject gObject;
-    public List<GameObject> items = new List<GameObject>();
+    public List<GameObject> items = new();
     public int maxStackSize;
     public static InventoryManager instance;
 

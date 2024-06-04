@@ -25,6 +25,8 @@ public class EndBattle : MonoBehaviour
     {
         cam = Camera.main.transform;
         battleArenaClone = FindObjectOfType<BattleManager>().gameObject;
+        FindAnyObjectByType<CreateBattleArena>().battleMusic.Stop();
+        FindAnyObjectByType<CreateBattleArena>().battleMusic.time = 0;
     }
 
     public void GetEnemy(GameObject enemy)
