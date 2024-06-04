@@ -48,6 +48,8 @@ public class CreateBattleArena : MonoBehaviour
         battleArenaClone = Instantiate(battleArena, arenaSpawn.position, Quaternion.identity);
         if (!isBoss)
         {
+            AudioSource[] audios = GameObject.FindGameObjectWithTag("Audio").GetComponents<AudioSource>();
+            audios[4].Stop();
             battleMusic.Play();
         }
     }

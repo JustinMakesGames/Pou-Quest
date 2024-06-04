@@ -11,6 +11,7 @@ public class EndBattle : MonoBehaviour
     private GameObject battleArenaClone;
     private Transform enemySpawn;
     private Transform cam;
+    public AudioSource[] audios;
 
     public GameObject overworldEnemy;
 
@@ -27,6 +28,8 @@ public class EndBattle : MonoBehaviour
         battleArenaClone = FindObjectOfType<BattleManager>().gameObject;
         FindAnyObjectByType<CreateBattleArena>().battleMusic.Stop();
         FindAnyObjectByType<CreateBattleArena>().battleMusic.time = 0;
+        audios = GameObject.FindGameObjectWithTag("Audio").GetComponents<AudioSource>();
+        audios[4].Play();
     }
 
     public void GetEnemy(GameObject enemy)
