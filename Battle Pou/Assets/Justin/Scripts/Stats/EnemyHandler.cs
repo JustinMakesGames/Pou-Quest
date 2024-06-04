@@ -43,7 +43,7 @@ public class EnemyHandler : MonoBehaviour
     }
     public void ChoosingAttack()
     {
-        int randomAttack = 1;
+        int randomAttack = 0;
         Transform attack = enemyAttacks[randomAttack];
         BattleManager.instance.enemyAttack = attack;
         BattleManager.instance.InitializeHandlers();
@@ -59,7 +59,11 @@ public class EnemyHandler : MonoBehaviour
         if (hp <= 0)
         {
             hp = 0;
-            QuestManager.instance.UpdateQuest(id);
+            if (QuestManager.instance != null)
+            {
+                QuestManager.instance.UpdateQuest(id);
+            }
+
             BattleManager.instance.HandlingStates(BattleState.Win);
             StartCoroutine(EnemyDeathAnimation());
         }

@@ -45,7 +45,6 @@ public class EndBattle : MonoBehaviour
     {
         yield return new WaitUntil(() => Camera.main.fieldOfView <= 30);
         Poof.instance.UsePoof(overworldEnemy.transform);
-        FindObjectOfType<SpawnLoot>().SpawningLoot(overworldEnemy.transform.position, overworldEnemy.GetComponent<EnemyOverworld>().hasKey);
         Destroy(overworldEnemy);
     }
 

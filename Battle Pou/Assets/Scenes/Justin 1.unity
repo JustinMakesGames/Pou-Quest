@@ -720,6 +720,7 @@ MonoBehaviour:
   upSpeed: 20
   lootList: []
   gravity: 10
+  key: {fileID: 0}
 --- !u!4 &802489717
 Transform:
   m_ObjectHideFlags: 0
@@ -953,6 +954,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1060278393
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7403304266035388984, guid: 50b47a25f9c139b468d7ffc7800b3e07,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.9002457
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403304266035388984, guid: 50b47a25f9c139b468d7ffc7800b3e07,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.2830348
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403304266035388984, guid: 50b47a25f9c139b468d7ffc7800b3e07,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.451671
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403304266035388984, guid: 50b47a25f9c139b468d7ffc7800b3e07,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403304266035388984, guid: 50b47a25f9c139b468d7ffc7800b3e07,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403304266035388984, guid: 50b47a25f9c139b468d7ffc7800b3e07,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403304266035388984, guid: 50b47a25f9c139b468d7ffc7800b3e07,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403304266035388984, guid: 50b47a25f9c139b468d7ffc7800b3e07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403304266035388984, guid: 50b47a25f9c139b468d7ffc7800b3e07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403304266035388984, guid: 50b47a25f9c139b468d7ffc7800b3e07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923523540611774594, guid: 50b47a25f9c139b468d7ffc7800b3e07,
+        type: 3}
+      propertyPath: m_Name
+      value: EyeBallOverworldEX
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50b47a25f9c139b468d7ffc7800b3e07, type: 3}
 --- !u!1 &1433705712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,6 +2111,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 293595678275192955, guid: 5b11d4556d3009b4cb2029fd540156c6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 293595678275192955, guid: 5b11d4556d3009b4cb2029fd540156c6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 491741278590701998, guid: 5b11d4556d3009b4cb2029fd540156c6,
         type: 3}
       propertyPath: attack
@@ -2056,6 +2135,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893341299548919919, guid: 5b11d4556d3009b4cb2029fd540156c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0009765625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582196288134545562, guid: 5b11d4556d3009b4cb2029fd540156c6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582196288134545562, guid: 5b11d4556d3009b4cb2029fd540156c6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4012941946510277829, guid: 5b11d4556d3009b4cb2029fd540156c6,
         type: 3}
@@ -2287,3 +2381,4 @@ SceneRoots:
   - {fileID: 469519670}
   - {fileID: 1465665603}
   - {fileID: 802489717}
+  - {fileID: 1060278393}

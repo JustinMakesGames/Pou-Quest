@@ -29,6 +29,7 @@ public class EnemyMoveAround : Attacking
         minPosition = battleArena.min;
         maxPosition = battleArena.max;
         enemyHandler = enemy.GetComponent<EnemyHandler>();
+        stats = enemyHandler.stats;
     }
 
     public override void StartAttack()

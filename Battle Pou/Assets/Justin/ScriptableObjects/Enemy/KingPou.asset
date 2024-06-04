@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92f469e3fc0effb42b9448141c484ff6, type: 3}
-  m_Name: EyeballEX
+  m_Name: KingPou
   m_EditorClassIdentifier: 
-  enemyName: EyeballEX
-  hp: 30
-  maxHp: 30
-  attackPower: 3
-  exp: 105
-  attackSpeed: 750
-  attackInterval: 0.5
-  amountOfProjectiles: 5
-  secondAttackInterval: 0.6
-  secondAttackSpeed: 70
+  enemyName: 
+  hp: 200
+  maxHp: 200
+  attackPower: 2
+  exp: 0
+  attackSpeed: 0
+  attackInterval: 0
+  amountOfProjectiles: 0
+  secondAttackInterval: 0
+  secondAttackSpeed: 0
   secondAmountOfProjectiles: 0
-  thirdAttackInterval: 0.6
+  thirdAttackInterval: 0
   thirdAttackSpeed: 0
   thirdAmountOfProjectiles: 0

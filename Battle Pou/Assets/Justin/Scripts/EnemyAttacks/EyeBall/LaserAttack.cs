@@ -121,6 +121,7 @@ public class LaserAttack : EnemyMoveAround
     }
     private void CalculateSide()
     {
+        
         int index = Random.Range(0, 4);
         switch (index)
         {

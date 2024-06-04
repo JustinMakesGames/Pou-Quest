@@ -1305,7 +1305,7 @@ PrefabInstance:
     - target: {fileID: 8139641865135834591, guid: f074ab1dddd88b148a83d4a34a207df6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.57
+      value: -1.82
       objectReference: {fileID: 0}
     - target: {fileID: 8139641865135834591, guid: f074ab1dddd88b148a83d4a34a207df6,
         type: 3}
@@ -1395,6 +1395,9 @@ MonoBehaviour:
   npcName: King Pou
   quest: 
   textSpeed: 0.3
+  isBoss: 1
+  battleEnemy: {fileID: 7789261935378784382, guid: b2204b3528a59174b9f3af683ca7832c,
+    type: 3}
   showDialogOption: 0
   optionScreen: {fileID: 0}
 --- !u!4 &7966946748927420471 stripped

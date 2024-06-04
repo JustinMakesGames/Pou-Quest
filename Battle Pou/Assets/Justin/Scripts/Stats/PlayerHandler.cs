@@ -67,7 +67,7 @@ public class PlayerHandler : MonoBehaviour
 
     private IEnumerator InvincibleFrames(Transform player)
     {
-        int invincibleFrameCount = 10;
+        int invincibleFrameCount = 5;
 
         for (int i = 0; i < invincibleFrameCount; i++)
         {

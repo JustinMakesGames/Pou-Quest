@@ -8,7 +8,7 @@ public class SideLaserBehaviour : EnemyProjectile
     public float timer;
     public float endTimer;
     private bool isAttacking;
-
+    private bool isPreparing;
     public float rotationSpeed = 20f;
     private void Start()
     {
@@ -33,7 +33,15 @@ public class SideLaserBehaviour : EnemyProjectile
             yield return null;
         }
 
+        isPreparing = true;
+        StartCoroutine(PreparingAttack());
+    }
+
+    private IEnumerator PreparingAttack()
+    {
+        yield return new WaitForSeconds(1f);
         isAttacking = true;
+        Destroy(transform.GetChild(0).gameObject);
     }
 
     private void PrepareAttack()

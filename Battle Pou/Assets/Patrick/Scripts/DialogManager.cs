@@ -14,6 +14,9 @@ public class DialogManager : MonoBehaviour
     public string quest;
     public float textSpeed = 1;
 
+    public bool isBoss;
+
+    public GameObject battleEnemy;
     public int showDialogOption;
     public GameObject optionScreen;
 
@@ -60,15 +63,27 @@ public class DialogManager : MonoBehaviour
                 yield return new WaitForSeconds(textSpeed * 0.1f);
             }
             yield return new WaitUntil(() => Input.GetButtonDown("Fire1"));
-            if (lines[i] == quest & questNpc)
+            if (lines[i] == quest && questNpc)
             {
                 lines.Remove(quest);
             }
         }
-        if (optionScreen == null)
+        if (optionScreen == null && GetComponent<OverworldNPCS>() != null)
         {
             GetComponent<OverworldNPCS>().FinishDialog();
         }
+
+        if (isBoss)
+        {
+            StartBossBattle();
+        }
         dialogPanel.SetActive(false);
+    }
+
+    private void StartBossBattle()
+    {
+        BattleTransition.instance.StartBattle();
+        CreateBattleArena.instance.SpawnEnemy(battleEnemy);
+        EndBattle.instance.GetEnemy(gameObject);
     }
 }
