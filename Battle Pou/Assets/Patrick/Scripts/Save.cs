@@ -152,4 +152,9 @@ public class Save : MonoBehaviour
         }
         return data;
     }
+
+    public void ClearData()
+    {
+        File.Delete(path);
+    }
 }

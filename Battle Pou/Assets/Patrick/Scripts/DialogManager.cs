@@ -39,7 +39,8 @@ public class DialogManager : MonoBehaviour
         nameText.text = npcName;
         if (questNpc)
         {
-            quest = QuestGenerator.instance.GenerateQuest();
+            Quest q = QuestGenerator.instance.GenerateQuest();
+            quest = q.quest;
             lines.Add(quest);
 
         }

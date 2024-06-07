@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuestGenerator : MonoBehaviour
 {
-    public string quest;
+    public Quest quest;
     public string[] questOptions;
     public int maxCoins;
     public int minCoins;
@@ -21,17 +21,15 @@ public class QuestGenerator : MonoBehaviour
         instance = this;
     }
 
-    public string GenerateQuest()
+    public Quest GenerateQuest()
     {
-        if (QuestManager.instance.currentQuest != null)
+        if (QuestManager.instance.currentQuest == null)
         {
-            quest = questOptions[Random.Range(0, questOptions.Length)];
-            int coins = Random.Range(minCoins, maxCoins);
-            goal = Random.Range(minGoal, maxGoal);
-            enemyID = QuestManager.instance.enemies[Random.Range(0, QuestManager.instance.enemies.Length)];
-            quest = quest.Replace("[]", goal.ToString());
-            quest = quest.Replace("()", enemy[enemyID]);
-            quest = quest.Replace("{}", coins.ToString());
+            quest.coins = Random.Range(minCoins, maxCoins);
+            quest.goal = Random.Range(maxCoins, maxGoal);
+            quest.enemyId = QuestManager.instance.enemies[Random.Range(0, enemy.Length)];
+            quest.enemyName = enemy[quest.enemyId];
+            enemyID = quest.enemyId;
             return quest;
         }
         else return QuestManager.instance.currentQuest;

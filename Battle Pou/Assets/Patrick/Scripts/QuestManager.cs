@@ -7,9 +7,11 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
-    public string currentQuest;
+    public Quest currentQuest;
+    public string quest;
     public TMP_Text questText;
     public int needed;
+    public int newNeeded;
     public int coins;
     public int enemyID;
     public int[] enemies;
@@ -19,29 +21,31 @@ public class QuestManager : MonoBehaviour
     }
     public void UpdateQuest(int id)
     {
-        currentQuest = currentQuest.Replace(needed.ToString(), needed--.ToString());
-        questText.text = currentQuest;
-        if (needed <= 0)
+        if (id == enemyID)
         {
-            Debug.Log("completed quest");
-            PlayerHandler.Instance.coins += coins;
-            currentQuest = null;
+            newNeeded = needed - 1;
+            quest = quest.Replace(needed.ToString(), newNeeded.ToString());
+            questText.text = quest;
+            if (needed <= 0)
+            {
+                Debug.Log("completed quest");
+                PlayerHandler.Instance.coins += coins;
+                quest = null;
+                currentQuest = null;
+                questText.text = null;
+            }
         }
-        //if (id == enemyID)
-        //{
-
-        //}
     }
 
     public void AddQuest()
     {
-        if (currentQuest != null)
+        if (currentQuest == null)
         {
             currentQuest = QuestGenerator.instance.GenerateQuest();
-            needed = QuestGenerator.instance.goal;
-            coins = QuestGenerator.instance.coins;
-            enemyID = QuestGenerator.instance.enemyID;
-            questText.text = currentQuest;
+            coins = currentQuest.coins;
+            needed = currentQuest.goal;
+            quest = currentQuest.quest;
+            questText.text = quest;
         }
         else
         {
