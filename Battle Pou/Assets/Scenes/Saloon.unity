@@ -830,6 +830,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FotoLijst2
       objectReference: {fileID: 0}
+    - target: {fileID: 3787565605859792025, guid: b50c7747faccb5e479c3c284e60b00ea,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ffc245cf980e6cb47a09262f368c9738, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
