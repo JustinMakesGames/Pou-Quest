@@ -394,7 +394,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180002772974385683}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -334000983
   m_Radius: 0.5
   m_Speed: 5
   m_Acceleration: Infinity
@@ -430,6 +430,7 @@ MonoBehaviour:
   battleEnemy: {fileID: 4180002772974385683, guid: f363c2c0435681641a96122389ea8e42,
     type: 3}
   animator: {fileID: 0}
+  hasKey: 0
 --- !u!65 &6519189213118491362
 BoxCollider:
   m_ObjectHideFlags: 0

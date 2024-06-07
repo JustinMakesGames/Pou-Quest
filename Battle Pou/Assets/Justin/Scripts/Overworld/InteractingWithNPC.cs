@@ -11,7 +11,15 @@ public class InteractingWithNPC : MonoBehaviour
     {
         if (Input.GetButtonDown("NPCInteract") & Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, maxDistance, npc))
         {
-            hit.transform.GetComponent<DialogManager>().StartDialog();
+            if (hit.transform.GetComponent<OverworldNPCS>() != null)
+            {
+                hit.transform.GetComponent<OverworldNPCS>().IsTalkingToNPC();
+            }
+            else
+            {
+                hit.transform.GetComponent<DialogManager>().StartDialog();
+            }
+            
             transform.GetComponent<PlayerOverworld>().enabled = false;
         } 
     }

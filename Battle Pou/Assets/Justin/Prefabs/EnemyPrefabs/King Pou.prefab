@@ -52,9 +52,17 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   stats: {fileID: 0}
-  maxScale: 20
-  growSpeed: 10
+  maxScale: 50
+  growSpeed: 50
   upSpeed: 20
+  indicator: {fileID: 1498803965784521188, guid: c741ce1106ea27143b78b25901f70961,
+    type: 3}
+  cloneIndicator: {fileID: 0}
+  miniPou: {fileID: 6945558841595884661, guid: 2a40e06b93523974982e5326a1ea1ed6, type: 3}
+  getDamageObject: {fileID: 7459222027184639462, guid: 7769d5fa4bf7b844ab0b086060e205ac,
+    type: 3}
+  cloneDamageObject: {fileID: 0}
+  radius: 2
 --- !u!1001 &6978448190474575151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137,6 +145,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: King Pou
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b1bf56050d4ec1c4da07a6c545b25b37,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -230,9 +243,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5093175, y: 0.70018435, z: 0.5053863}
+  m_Size: {x: 0.2, y: 0.7, z: 0.2}
   m_Center: {x: 0, y: 0.35009217, z: 0}

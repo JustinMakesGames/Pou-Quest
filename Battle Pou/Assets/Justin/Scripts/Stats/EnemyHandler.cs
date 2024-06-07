@@ -18,6 +18,7 @@ public class EnemyHandler : MonoBehaviour
     public AudioSource[] damageAudios;
     public Animator animator;
 
+    private Color color;
     private void Awake()
     {
         damageAudios = GameObject.FindGameObjectWithTag("Audio").GetComponents<AudioSource>();
@@ -32,6 +33,7 @@ public class EnemyHandler : MonoBehaviour
         {
             enemyAttacks.Add(attacks[i].transform);
         }
+        color = GetComponentInChildren<Renderer>().material.color;
     }
 
     private void Update()
@@ -85,7 +87,6 @@ public class EnemyHandler : MonoBehaviour
 
     private IEnumerator ShowDamage()
     {
-        Color color = GetComponentInChildren<Renderer>().material.color;
         GetComponentInChildren<Renderer>().material.color = Color.red;
         yield return new WaitForSeconds(0.5f);
         GetComponentInChildren<Renderer>().material.color = color;

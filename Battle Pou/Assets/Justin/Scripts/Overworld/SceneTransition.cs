@@ -28,12 +28,14 @@ public class SceneTransition : MonoBehaviour
 
     private IEnumerator SceneSwitch()
     {
-        while (blackScreen.color.a < 0.98f)
+        
+        while (blackScreen.color.a < 1f)
         {
             blackScreen.color += new Color(0, 0, 0, blackScreenFadeSpeed * Time.deltaTime);
             yield return null;
         }
 
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneName);
 
     }

@@ -129,6 +129,7 @@ MonoBehaviour:
   battleEnemy: {fileID: 4012409324718826269, guid: 920978d6736c97744a51f1fd579bc8c9,
     type: 3}
   animator: {fileID: 0}
+  hasKey: 0
 --- !u!195 &783021921803291575
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -137,7 +138,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5520563274002635015}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -334000983
   m_Radius: 0.5
   m_Speed: 5
   m_Acceleration: Infinity

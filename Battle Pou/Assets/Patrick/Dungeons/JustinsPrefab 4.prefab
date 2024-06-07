@@ -592,8 +592,8 @@ Transform:
   m_GameObject: {fileID: 8017356375817340429}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.34, z: 0}
-  m_LocalScale: {x: 19.573, y: 1, z: 19.932}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 20, y: 1, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8899131248429237425}
@@ -1536,7 +1536,7 @@ PrefabInstance:
     - target: {fileID: 8139641865135834591, guid: f074ab1dddd88b148a83d4a34a207df6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16000009
+      value: -0.405
       objectReference: {fileID: 0}
     - target: {fileID: 8139641865135834591, guid: f074ab1dddd88b148a83d4a34a207df6,
         type: 3}
@@ -1622,7 +1622,7 @@ MonoBehaviour:
   quest: 
   textSpeed: 0.3
   isBoss: 1
-  battleEnemy: {fileID: 7789261935378784382, guid: b2204b3528a59174b9f3af683ca7832c,
+  battleEnemy: {fileID: 1915655070027710804, guid: 5fe4b3f5e9c7e2c48a5f984c23c4a715,
     type: 3}
   showDialogOption: 0
   optionScreen: {fileID: 0}

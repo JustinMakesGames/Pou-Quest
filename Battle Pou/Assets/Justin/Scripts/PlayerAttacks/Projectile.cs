@@ -15,10 +15,13 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.forward * attackStats.projectileSpeed * Time.deltaTime);
+    }
 
-        if (Vector3.Distance(transform.position, enemy.position) < 1)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform == enemy)
         {
-            enemy.GetComponent<EnemyHandler>().TakeDamage(PlayerHandler.Instance.attackPower * attackStats.attackPower);
+            enemy.GetComponent<EnemyHandler>().TakeDamage(attackStats.attackPower);
             Destroy(gameObject);
         }
     }

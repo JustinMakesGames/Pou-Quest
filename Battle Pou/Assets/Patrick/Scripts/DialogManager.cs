@@ -73,6 +73,11 @@ public class DialogManager : MonoBehaviour
             GetComponent<OverworldNPCS>().FinishDialog();
         }
 
+        if (optionScreen != null)
+        {
+            optionScreen.SetActive(true);
+        }
+
         if (isBoss)
         {
             StartBossBattle();

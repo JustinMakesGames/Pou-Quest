@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: KingPou
   m_EditorClassIdentifier: 
   enemyName: 
-  hp: 200
+  hp: 1
   maxHp: 200
   attackPower: 2
   exp: 0
-  attackSpeed: 0
-  attackInterval: 0
+  attackSpeed: 20
+  attackInterval: 1
   amountOfProjectiles: 0
-  secondAttackInterval: 0
-  secondAttackSpeed: 0
-  secondAmountOfProjectiles: 0
-  thirdAttackInterval: 0
+  secondAttackInterval: 0.5
+  secondAttackSpeed: 1000
+  secondAmountOfProjectiles: 10
+  thirdAttackInterval: 0.1
   thirdAttackSpeed: 0
-  thirdAmountOfProjectiles: 0
+  thirdAmountOfProjectiles: 5

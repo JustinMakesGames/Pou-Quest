@@ -37,8 +37,9 @@ public class RangeAttack : Attacking
 
     private void KeepCameraRotation()
     {
-        player.eulerAngles = Vector3.Lerp(player.eulerAngles,
-            new Vector3(player.eulerAngles.x, cam.eulerAngles.y, player.eulerAngles.z), rotateSpeed * Time.deltaTime);
+        Quaternion targetRotation = Quaternion.Euler(player.eulerAngles.x, cam.eulerAngles.y, player.eulerAngles.z);
+        player.rotation = Quaternion.Slerp(player.rotation,
+            targetRotation, rotateSpeed * Time.deltaTime);
     }
 
     private IEnumerator Reload()

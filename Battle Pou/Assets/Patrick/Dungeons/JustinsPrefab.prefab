@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 2579010958498941300}
   - component: {fileID: 2034115508004769052}
   - component: {fileID: 8187819887894874223}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,8 +64,8 @@ Transform:
   m_GameObject: {fileID: 1003105115839341220}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.34, z: 0}
-  m_LocalScale: {x: 19.573, y: 1, z: 19.932}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 20, y: 1, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7074640658289166079}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 2740518297712898150}
   - component: {fileID: 4446767342192314023}
   - component: {fileID: 2992852509994842505}
-  - component: {fileID: 3180521989766431429}
+  - component: {fileID: 1840264103792570940}
   m_Layer: 0
   m_Name: JustinsPrefab
   m_TagString: Untagged
@@ -282,7 +282,7 @@ MonoBehaviour:
   - {fileID: 4848324633491183641}
   enemies: []
   items: []
---- !u!114 &3180521989766431429
+--- !u!114 &1840264103792570940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,13 +294,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
+  m_AgentTypeID: -334000983
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -309,9 +309,9 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 1.37
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: c72b699d7a9f9344ea9ba18640d43576, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ca06253b88595f24892067a92b4cd422, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &5478745878776946807
 GameObject:

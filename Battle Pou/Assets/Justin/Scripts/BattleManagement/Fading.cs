@@ -53,12 +53,12 @@ public class Fading : MonoBehaviour
 
     private IEnumerator BlackScreenFading()
     {
-        while (blackScreen.color.a < 0.98f)
+        while (blackScreen.color.a < 1f)
         {
             blackScreen.color += new Color(0, 0, 0, blackScreenFadeSpeed * Time.deltaTime);
             yield return null;
         }
-        while (blackScreen.color.a >= 0)
+        while (blackScreen.color.a > 0)
         {
             blackScreen.color -= new Color(0, 0, 0, blackScreenFadeSpeed * Time.deltaTime);
             yield return null;

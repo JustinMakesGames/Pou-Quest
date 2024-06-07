@@ -33,7 +33,7 @@ public class OverworldNPCS : MonoBehaviour
     {
         PlayAnimations();
 
-        if (!isTalking)
+        if (!isTalking && positions.Count > 0)
         {
             if (!isMoving)
             {
@@ -104,7 +104,11 @@ public class OverworldNPCS : MonoBehaviour
 
     public void FinishDialog()
     {
-        agent.SetDestination(positions[index].position);
+        if (positions.Count > 0)
+        {
+            agent.SetDestination(positions[index].position);
+        }
+
         isTalking = false;
 
         player.GetComponent<PlayerOverworld>().enabled = true;
