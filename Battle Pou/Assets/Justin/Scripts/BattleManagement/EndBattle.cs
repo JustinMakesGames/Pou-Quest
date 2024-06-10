@@ -76,7 +76,20 @@ public class EndBattle : MonoBehaviour
     private IEnumerator EnableOverworldEnemies()
     {
         yield return new WaitUntil(() => Camera.main.fieldOfView <= 30);
-        CreateBattleArena.instance.OverworldManagement();
+        OverworldManagement();
+    }
+
+    public void OverworldManagement()
+    {
+        PlayerOverworld playerScript = GameObject.FindObjectOfType<PlayerOverworld>();
+        CamMovement camScript = GameObject.FindObjectOfType<CamMovement>();
+        EnemyOverworld[] enemyScripts = GameObject.FindObjectsOfType<EnemyOverworld>();
+        foreach (EnemyOverworld script in enemyScripts)
+        {
+            script.enabled = true;
+        }
+        playerScript.enabled = true;
+        camScript.enabled = true;
     }
 
     public void MakePlayerInvincible()
@@ -93,7 +106,7 @@ public class EndBattle : MonoBehaviour
     {
         yield return new WaitUntil(() => Camera.main.fieldOfView <= 30);
         overworldEnemy.GetComponent<EnemyOverworld>().enabled = false;
-        Renderer renderer = overworldEnemy.GetComponent<Renderer>();
+        Renderer renderer = overworldEnemy.GetComponentInChildren<Renderer>();
         int amountOfFrames = 20;
 
         for (int i = 0; i < amountOfFrames; i++)

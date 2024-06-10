@@ -20,15 +20,21 @@ public class PutPositionOfPlayer : MonoBehaviour
     {
         // Update the current and previous scene names
         SceneTracker.UpdateCurrentScene(scene.name);
+        print(SceneTracker.previousSceneName);
+        print(SceneTracker.currentSceneName);
         // Check if the previous scene is the source scene and the current scene is the target scene
         if (SceneTracker.previousSceneName == sourceSceneName && scene.name == targetSceneName)
         {
             // Move the object to the new position
             if (objectToMove != null)
             {
+                objectToMove.SetActive(false);
                 objectToMove.transform.position = newPosition.position;
+                objectToMove.SetActive(true);
             }
         }
+
+        
     }
 
     void OnDestroy()

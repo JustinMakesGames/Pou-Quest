@@ -15,7 +15,7 @@ public class SpinningPouBehaviour : EnemyProjectile
 
     private void Update()
     {
-        rb.velocity = direction * stats.secondAttackSpeed * Time.deltaTime;
+        rb.velocity = direction * stats.thirdAttackSpeed * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)

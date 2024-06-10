@@ -28,6 +28,10 @@ public class ShootingLaserPou : EnemyProjectile
     {
         yield return new WaitForSeconds(stats.thirdAttackInterval);
         Instantiate(laser, transform.position, transform.rotation);
+        isAttacking = true;
+
+        yield return new WaitForSeconds(1f);
+        isAttacking = false;
         StartCoroutine(ShootLaser());
     }
 }

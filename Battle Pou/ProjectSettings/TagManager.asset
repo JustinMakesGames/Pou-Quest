@@ -17,6 +17,7 @@ TagManager:
   - BossMusic
   - Audio
   - Wall
+  - WinScreen
   layers:
   - Default
   - TransparentFX

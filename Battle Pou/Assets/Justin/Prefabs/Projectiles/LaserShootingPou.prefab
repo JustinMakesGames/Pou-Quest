@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6238899950503485501}
   m_Layer: 0
   m_Name: LaserShootingPou
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   stats: {fileID: 0}
   player: {fileID: 0}
   enemy: {fileID: 0}
-  laser: {fileID: 428854887141434588, guid: 8fbbf29278ad02341b2961fcb2e7e05b, type: 3}
+  laser: {fileID: 428854887141434588, guid: 28f02ae2c0ad0bd44a6bd7f5b0b8f4a3, type: 3}
   rotationSpeed: 30
 --- !u!1001 &3145172522164698009
 PrefabInstance:
@@ -209,7 +209,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7224065314109763232, guid: 7e3a2e4afc9109244a941bc77dd90ee6, type: 3}
     m_RemovedGameObjects:
     - {fileID: 668176735604359196, guid: 7e3a2e4afc9109244a941bc77dd90ee6, type: 3}
     m_AddedGameObjects: []

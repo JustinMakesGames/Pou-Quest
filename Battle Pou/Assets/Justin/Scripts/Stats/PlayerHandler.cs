@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerHandler : MonoBehaviour
 {
     //Stats
@@ -19,6 +20,11 @@ public class PlayerHandler : MonoBehaviour
     public Transform battlePlayer;
     public List<Transform> attacks;
     public bool immunityFrames;
+
+    public TMP_Text playerHPText, playerSPText;
+
+    public Slider playerHPSlider, playerSPSlider, enemyHPSlider;
+    public Slider turnSlider;
 
     private void Awake()
     {
@@ -83,5 +89,16 @@ public class PlayerHandler : MonoBehaviour
     {
         StopAllCoroutines();
         immunityFrames = false;
+    }
+
+    public void StatsOverworldChange()
+    {
+        playerHPText.text = hp.ToString() + "/" + maxHp.ToString();
+        playerSPText.text = sp.ToString() + "/" + maxSp.ToString();
+
+        playerHPSlider.maxValue = maxHp;
+        playerHPSlider.value = hp;
+        playerSPSlider.maxValue = maxSp;
+        playerSPSlider.value = sp;
     }
 }

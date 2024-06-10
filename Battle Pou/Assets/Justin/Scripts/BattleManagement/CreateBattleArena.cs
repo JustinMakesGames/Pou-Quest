@@ -37,10 +37,10 @@ public class CreateBattleArena : MonoBehaviour
         EnemyOverworld[] enemyScripts = GameObject.FindObjectsOfType<EnemyOverworld>();
         foreach (EnemyOverworld script in enemyScripts)
         {
-            script.enabled = !script.enabled;
+            script.enabled = false;
         }
-        playerScript.enabled = !playerScript.enabled;
-        camScript.enabled = !camScript.enabled;
+        playerScript.enabled = false;
+        camScript.enabled = false;
     }
 
     public void MakeBattleArena()

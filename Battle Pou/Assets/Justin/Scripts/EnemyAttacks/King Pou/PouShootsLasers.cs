@@ -1,16 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Jobs;
-using UnityEngine.XR;
 
 public class PouShootsLasers : EnemyMoveAround
 {
-    public GameObject laserShootingPou; 
+    public GameObject laserShootingPou;
+    public GameObject miniPou;
+
+    public float radius;
     public override void StartAttack()
     {
         base.StartAttack();
         SpawnLaserShootingPous();
+        StartCoroutine(SpawnMiniPous());
     }
 
     public override void UpdateAttack()
@@ -21,6 +22,7 @@ public class PouShootsLasers : EnemyMoveAround
     public override void FinishAttack()
     {
         base.FinishAttack();
+        StopAllCoroutines();
     }
 
     private void SpawnLaserShootingPous()
@@ -68,6 +70,17 @@ public class PouShootsLasers : EnemyMoveAround
 
             Instantiate(laserShootingPou, spawnPosition, Quaternion.identity);
         }
+    }
+
+    private IEnumerator SpawnMiniPous()
+    {
+        Instantiate(miniPou,
+            new Vector3(Random.Range(player.position.x - radius, player.position.x + radius),
+            battleArena.max.y,
+            Random.Range(player.position.z - radius, player.position.z + radius)),
+            Quaternion.identity);
+        yield return new WaitForSeconds(stats.secondAttackInterval);
+        StartCoroutine(SpawnMiniPous());
     }
 }
 

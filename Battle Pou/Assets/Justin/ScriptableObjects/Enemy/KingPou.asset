@@ -21,8 +21,8 @@ MonoBehaviour:
   attackInterval: 1
   amountOfProjectiles: 0
   secondAttackInterval: 0.5
-  secondAttackSpeed: 1000
+  secondAttackSpeed: 20
   secondAmountOfProjectiles: 10
-  thirdAttackInterval: 0.1
-  thirdAttackSpeed: 0
+  thirdAttackInterval: 2
+  thirdAttackSpeed: 1000
   thirdAmountOfProjectiles: 5

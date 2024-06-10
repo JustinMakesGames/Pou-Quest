@@ -54,6 +54,7 @@ public class EnemyOverworld : MonoBehaviour
 
     private void OnEnable()
     {
+        agent.isStopped = false;
         StartCoroutine(GettingNextDestination());
     }
 
@@ -197,7 +198,7 @@ public class EnemyOverworld : MonoBehaviour
 
     private void OnDisable()
     {
-        agent.SetDestination(transform.position);
+        agent.isStopped = true;
         StopAllCoroutines();
     }
 
@@ -210,6 +211,8 @@ public class EnemyOverworld : MonoBehaviour
             EndBattle.instance.GetEnemy(gameObject);
         }
     }
+
+ 
 
 
 }

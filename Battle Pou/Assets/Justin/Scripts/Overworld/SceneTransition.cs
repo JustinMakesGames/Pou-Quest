@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneTransition : MonoBehaviour
 {
+    public static SceneTransition instance;
     public Image blackScreen;
     public float blackScreenFadeSpeed;
     public string sceneName;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +36,7 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
-    private IEnumerator SceneSwitch()
+    public IEnumerator SceneSwitch()
     {
         
         while (blackScreen.color.a < 1f)

@@ -14,6 +14,7 @@ public class PlayerOverworld : MonoBehaviour
     private float hor, vert;
     private Vector3 dir;
     private Rigidbody rb;
+    public GameObject inventory;
 
     
     
@@ -26,6 +27,7 @@ public class PlayerOverworld : MonoBehaviour
     private void Update()
     {
         InputCheck();
+        OpeningInventory();
     }
 
     private void FixedUpdate()
@@ -59,6 +61,14 @@ public class PlayerOverworld : MonoBehaviour
             transform.rotation = lookRotation;
         }
 
+    }
+
+    private void OpeningInventory()
+    {
+        if (Input.GetButtonDown("Inventory"))
+        {
+            inventory.SetActive(!inventory.activeInHierarchy);
+        }
     }
 
 }
