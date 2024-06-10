@@ -30,6 +30,7 @@ public class QuestManager : MonoBehaviour
             {
                 Debug.Log("completed quest");
                 PlayerHandler.Instance.coins += coins;
+                PlayerHandler.Instance.exp += (10 * PlayerHandler.Instance.level) / 2;
                 quest = null;
                 currentQuest = null;
                 questText.text = null;

@@ -32,4 +32,9 @@ public class HoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
     }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("HUB");
+    }
 }

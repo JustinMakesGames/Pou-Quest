@@ -8,12 +8,10 @@ public class ItemBuy : MonoBehaviour
     public Item item;
     public void BuyItem()
     {
-        if (PlayerHandler.Instance.coins < price)
+        if (PlayerHandler.Instance.coins >= price)
         {
-            return;
+            PlayerHandler.Instance.coins -= price;
+            InventoryManager.instance.AddItem(item);
         }
-
-        PlayerHandler.Instance.coins -= price;
-        InventoryManager.instance.AddItem(item);
     }
 }
