@@ -25,7 +25,7 @@ public class Tile1 : MonoBehaviour
         }
         if (GetComponent<EnemySpawner>().enemies.Count > 0)
         {
-            int chance = 1;
+            int chance = 0;
 
             if (chance == 0)
             {

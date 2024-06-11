@@ -196,7 +196,7 @@ public class EnemyOverworld : MonoBehaviour
 
     private void OnDisable()
     {
-        if (agent.velocity.magnitude < 0.15f)
+        if (agent.velocity.magnitude >= 0.15f)
             agent.isStopped = true;
         StopAllCoroutines();
     }
