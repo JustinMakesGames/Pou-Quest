@@ -19,6 +19,8 @@ public class CreateBattleArena : MonoBehaviour
     public Vector3 oldCamPosition;
     public Quaternion oldCamRotation;
 
+    public GameObject stats;
+
     private void Awake()
     {
         if (instance == null)
@@ -41,6 +43,8 @@ public class CreateBattleArena : MonoBehaviour
         }
         playerScript.enabled = false;
         camScript.enabled = false;
+
+        stats.SetActive(false);
     }
 
     public void MakeBattleArena()

@@ -98,7 +98,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d0342e61d99905f4bacd5dac892f29ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,12 +166,12 @@ GameObject:
   - component: {fileID: 2992852509994842505}
   - component: {fileID: 1840264103792570940}
   m_Layer: 0
-  m_Name: JustinsPrefab
+  m_Name: FourWay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2740518297712898150
 Transform:
   m_ObjectHideFlags: 0
@@ -521,6 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b63ecfc12246ac48a25d1dbc918c45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 0
 --- !u!1 &6675895586717300006
 GameObject:
   m_ObjectHideFlags: 0

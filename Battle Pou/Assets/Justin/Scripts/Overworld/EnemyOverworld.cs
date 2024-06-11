@@ -5,8 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
-
-[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyOverworld : MonoBehaviour
 {
     public Transform player;
@@ -198,7 +196,8 @@ public class EnemyOverworld : MonoBehaviour
 
     private void OnDisable()
     {
-        agent.isStopped = true;
+        if (agent.velocity.magnitude < 0.15f)
+            agent.isStopped = true;
         StopAllCoroutines();
     }
 

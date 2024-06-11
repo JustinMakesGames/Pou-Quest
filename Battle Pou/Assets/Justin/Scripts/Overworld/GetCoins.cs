@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class GetCoins : MonoBehaviour
 {
+    public float rotateSpeed;
+
+    private void Start()
+    {
+        Destroy(gameObject, 10);
+    }
+    private void Update()
+    {
+        transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             PlayerHandler.Instance.coins++;
+            PlayerHandler.Instance.StatsOverworldChange();
+            Destroy(gameObject);
         }
     }
 }

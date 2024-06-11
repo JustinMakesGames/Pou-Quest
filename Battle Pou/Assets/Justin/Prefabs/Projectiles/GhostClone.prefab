@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 6349878976396479215}
   - component: {fileID: 6551834221256972624}
   - component: {fileID: 2650765346424030491}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GhostClone
   m_TagString: Projectile
   m_Icon: {fileID: 0}

@@ -35,7 +35,11 @@ public class Fight : Attacking
             if (Physics.Raycast(player.position, player.forward, out RaycastHit hit, 3, enemy) && !hasHit)
             {
                 print("has hit");
-                hit.transform.GetComponent<EnemyHandler>().TakeDamage(PlayerHandler.Instance.attackPower);
+                if (hit.transform.GetComponent<EnemyHandler>() != null)
+                {
+                    hit.transform.GetComponent<EnemyHandler>().TakeDamage(PlayerHandler.Instance.attackPower);
+                }
+
                 hasHit = true;
   
             }

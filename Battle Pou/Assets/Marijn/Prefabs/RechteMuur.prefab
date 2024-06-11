@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2655573560833850164, guid: 94e384bbd8798c045a5622d519211e10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: -1992904125535992099, guid: 94e384bbd8798c045a5622d519211e10,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -72,6 +77,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RechteMuur
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94e384bbd8798c045a5622d519211e10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357202460183831334, guid: 94e384bbd8798c045a5622d519211e10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

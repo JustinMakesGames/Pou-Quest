@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16201a6590b0d174c81e8acd3b9e06f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   enemyName: 
   hp: 0
   maxHp: 0
@@ -408,6 +409,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: dbed5b201655a3f428998add13873fe6, type: 2}
   enemyAttacks: []
   agent: {fileID: 0}
+  damageAudios: []
   animator: {fileID: 0}
 --- !u!65 &6349878976396479215
 BoxCollider:
@@ -557,7 +559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8098792724747433870}
   - component: {fileID: 5516470510791629685}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GhostAttack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,7 +739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 781731181030054595}
   - component: {fileID: 1237187546557172968}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GhostAttack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

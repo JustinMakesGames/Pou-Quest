@@ -65,10 +65,10 @@ public class NewGeneration1 : MonoBehaviour
     {
         for (int i = 0; i < maxTimes; i++)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return null;
             Generate(objectsToSpawn[index].transform);
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return null;
         isFinalRoom = true;
         Generate(objectsToSpawn[index].transform);
         
@@ -137,7 +137,13 @@ public class NewGeneration1 : MonoBehaviour
             {
                 if (cell.tiles.Count <= 0)
                 {
-                    doors[doorToUse].GetChild(1).GetComponent<Renderer>().enabled = false;
+                    doors[doorToUse].GetChild(1).GetComponent<Collider>().isTrigger = true;
+                    Renderer[] renderers = doors[doorToUse].GetChild(1).GetComponentsInChildren<Renderer>();
+
+                    foreach (Renderer renderer in renderers)
+                    {
+                        renderer.enabled = false;
+                    }
                     tile.GetComponent<Tile1>().inDoor = doors[doorToUse].gameObject;
                     isChecked = true;
                 }
@@ -245,7 +251,13 @@ public class NewGeneration1 : MonoBehaviour
             }
             else
             {
-                doors[i].GetChild(1).GetComponent<Renderer>().enabled = true;
+                doors[i].GetChild(1).GetComponent<Collider>().isTrigger = false;
+                Renderer[] renderers = doors[i].GetChild(1).GetComponentsInChildren<Renderer>();
+
+                foreach (Renderer renderer in renderers)
+                {
+                    renderer.enabled = true;
+                }
             }
             
         }

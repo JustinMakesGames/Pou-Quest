@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: KingPou
   m_EditorClassIdentifier: 
   enemyName: 
-  hp: 1
-  maxHp: 200
+  hp: 100
+  maxHp: 100
   attackPower: 2
   exp: 0
   attackSpeed: 20

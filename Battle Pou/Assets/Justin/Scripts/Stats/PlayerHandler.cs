@@ -21,10 +21,10 @@ public class PlayerHandler : MonoBehaviour
     public List<Transform> attacks;
     public bool immunityFrames;
 
-    public TMP_Text playerHPText, playerSPText;
+    public TMP_Text playerHPText, playerSPText, coinsText;
 
-    public Slider playerHPSlider, playerSPSlider, enemyHPSlider;
-    public Slider turnSlider;
+    
+    public Slider playerHPSlider, playerSPSlider;
 
     private void Awake()
     {

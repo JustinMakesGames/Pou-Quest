@@ -14,6 +14,7 @@ public class EndBattle : MonoBehaviour
     public AudioSource[] audios;
 
     public GameObject overworldEnemy;
+    public GameObject stats;
 
     private void Awake()
     {
@@ -50,6 +51,7 @@ public class EndBattle : MonoBehaviour
     {
         yield return new WaitUntil(() => Camera.main.fieldOfView <= 30);
         Poof.instance.UsePoof(overworldEnemy.transform);
+        FindObjectOfType<SpawnLoot>().SpawningLoot(overworldEnemy.transform.position, overworldEnemy.GetComponent<EnemyOverworld>().hasKey);
         Destroy(overworldEnemy);
     }
 
@@ -69,6 +71,7 @@ public class EndBattle : MonoBehaviour
     private IEnumerator SetCameraAtPosition()
     {
         yield return new WaitUntil(() => Camera.main.fieldOfView <= 30);
+        Cursor.lockState = CursorLockMode.None;
         cam.position = CreateBattleArena.instance.oldCamPosition;
         cam.rotation = CreateBattleArena.instance.oldCamRotation;
     }
@@ -90,6 +93,8 @@ public class EndBattle : MonoBehaviour
         }
         playerScript.enabled = true;
         camScript.enabled = true;
+        stats.SetActive(true);
+        PlayerHandler.Instance.StatsOverworldChange();
     }
 
     public void MakePlayerInvincible()
