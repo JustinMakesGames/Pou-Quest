@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
@@ -85,6 +86,7 @@ public class Save : MonoBehaviour
             FindAnyObjectByType<Load>().Initialize(saveData);
         }
         
+        
     }
     public void SaveData()
     {
@@ -105,10 +107,10 @@ public class Save : MonoBehaviour
         saveData.dungeonType = ints.ToArray();
         saveData.dungeonX = listX.ToArray();
         saveData.dungeonZ = listZ.ToArray();
-        //foreach (var v in InventoryManager.instance.items)
-        //{
-        //    saveData.inventoryIds.Add(v.GetComponent<ItemInfo>().id);
-        //}
+        foreach (var v in InventoryManager.instance.items)
+        {
+            saveData.inventoryIds.Add(v.GetComponent<ItemInfo>().id);
+        }
         saveData.health = PlayerHandler.Instance.hp;
         saveData.sp = PlayerHandler.Instance.sp;
         saveData.exp = PlayerHandler.Instance.exp;
@@ -153,6 +155,13 @@ public class Save : MonoBehaviour
         return data;
     }
 
+    IEnumerator AutoSave()
+    {
+        yield return new WaitForSeconds(30);
+        SaveData();
+        Debug.Log("Autosaved");
+        StartCoroutine(AutoSave());
+    }
     public void ClearData()
     {
         File.Delete(path);

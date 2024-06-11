@@ -13,7 +13,7 @@ public class DialogManager : MonoBehaviour
     public string npcName;
     public string quest;
     public float textSpeed = 1;
-
+    public bool isInDialog;
     public bool isBoss;
 
     public GameObject battleEnemy;
@@ -30,8 +30,12 @@ public class DialogManager : MonoBehaviour
     public void StartDialog()
     {
         //textSpeed = Save.instance.saveData.textSpeed;
-        dialogPanel.SetActive(true);
-        StartCoroutine(Dialog());
+        if (!isInDialog)
+        {
+            dialogPanel.SetActive(true);
+            StartCoroutine(Dialog());
+            isInDialog = true;
+        }
     }
 
     IEnumerator Dialog()
@@ -84,6 +88,7 @@ public class DialogManager : MonoBehaviour
             StartBossBattle();
         }
         dialogPanel.SetActive(false);
+        isInDialog = false;
     }
 
     private void StartBossBattle()

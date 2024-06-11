@@ -5652,19 +5652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b41d7d24eebfb4db68ef66b549e3a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 67cfaa1958461aa4d99b0d0014f10fce, type: 3}
-  - {fileID: 21300000, guid: fbb6e5e0aa59b1f46864354fc693e42f, type: 3}
-  - {fileID: 21300000, guid: 59758a65618a2574783f9d038aa1f5b2, type: 3}
-  - {fileID: 21300000, guid: 67a528e9229d50945adcf133dc374584, type: 3}
-  - {fileID: 21300000, guid: 5029c7fed7284514d86694221f107be4, type: 3}
-  - {fileID: 21300000, guid: 8750a9593b15d974ebf8058efe6dc9d7, type: 3}
-  - {fileID: 21300000, guid: 1d154c3cc173cd94a939bf7380186ad3, type: 3}
-  ints: 
-  gamblingPanels:
-  - {fileID: 6076164923452361257}
-  - {fileID: 9102700129832852046}
-  - {fileID: 1835821278871272819}
 --- !u!1 &2347805362463049477
 GameObject:
   m_ObjectHideFlags: 0
@@ -14064,10 +14051,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 6172392490858919717}
+        m_TargetAssemblyTypeName: HoverUI, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14077,9 +14064,9 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

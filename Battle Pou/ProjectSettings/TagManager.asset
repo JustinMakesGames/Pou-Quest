@@ -18,6 +18,7 @@ TagManager:
   - Audio
   - Wall
   - WinScreen
+  - Put
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Player
   - Enemy
   - Projectile
-  - NPC
+  - Interactable
   - Cell
   - Door
   - Wall

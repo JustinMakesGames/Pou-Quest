@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4961405588475077346}
   - component: {fileID: 984021880535283950}
   - component: {fileID: 5181862318200840383}
+  - component: {fileID: 802983049515640857}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -158,6 +159,27 @@ MonoBehaviour:
   area: {fileID: 0}
   spawn: {fileID: 0}
   colliderObject: {fileID: 0}
+--- !u!95 &802983049515640857
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998584176169510733}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b8e559c9781a924292ddd8ec93dd7d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2122311936458773904
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 983271111257014527}
+  - component: {fileID: 6121199045455660810}
   m_Layer: 0
   m_Name: OverworldPlayer
   m_TagString: Untagged
@@ -191,6 +214,25 @@ Transform:
   - {fileID: 887431606490238679}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &6121199045455660810
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122311936458773904}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 29ad8b9d8d8c2de40a087d86ce6e8aff, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -5264661695879588411, guid: 29ad8b9d8d8c2de40a087d86ce6e8aff, type: 2}
+    value: {fileID: 802983049515640857}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &4191259996070417602
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 500
   rotateSpeed: 5
+  inventory: {fileID: 0}
 --- !u!114 &2930660989912644849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afcad00ce1996af47982feeaf135654b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc:
+  interactable:
     serializedVersion: 2
     m_Bits: 1024
   maxDistance: 3

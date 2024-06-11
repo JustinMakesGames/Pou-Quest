@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class HoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
+    public int i;
     public float size;
+    public GameObject pou;
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
         gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x + size, gameObject.transform.localScale.y + size);
@@ -35,6 +37,7 @@ public class HoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("HUB");
+        Camera.main.GetComponent<Animator>().enabled = true;
+        pou.GetComponent<Animator>().enabled = true;
     }
 }

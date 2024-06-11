@@ -9,10 +9,10 @@ public class Load : MonoBehaviour
     {
         if (data != null)
         {
-            //foreach (int i in data.inventoryIds)
-            //{
-            //    InventoryManager.instance.AddItem(items[i]);
-            //}
+            foreach (int i in data.inventoryIds)
+            {
+                InventoryManager.instance.AddItem(items[i]);
+            }
             PlayerHandler.Instance.level = data.level;
             PlayerHandler.Instance.attackPower = data.attackPower;
             PlayerHandler.Instance.hp = data.health;
