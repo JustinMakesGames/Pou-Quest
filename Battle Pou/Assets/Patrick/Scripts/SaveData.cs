@@ -18,7 +18,8 @@ public class SaveData
     public int maxExp = 100;
     public int level = 1;
     public int coins;
-    public List<int> inventoryIds = new List<int>();
+    public List<int> inventoryIds = new();
+    public List<int> inventoryCount = new();
     [Header("Settings")]
     public int fpsLimit = 0;
     public bool fullScreen = true;

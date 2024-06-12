@@ -90,26 +90,29 @@ public class Save : MonoBehaviour
     }
     public void SaveData()
     {
+        saveData.inventoryIds.Clear();
+        saveData.inventoryCount.Clear();
         path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
-        List<float> listX = new();
-        List<float> listZ = new();
-        for (int i = 0; i < NewGeneration.instance.dungeonPositions.Count; i++)
-        {
-            listX.Add(NewGeneration.instance.dungeonPositions[i].position.x);
-            listZ.Add(NewGeneration.instance.dungeonPositions[i].position.z);
-        }
-        List<int> ints = new();
+        //List<float> listX = new();
+        //List<float> listZ = new();
+        //for (int i = 0; i < NewGeneration.instance.dungeonPositions.Count; i++)
+        //{
+        //    listX.Add(NewGeneration.instance.dungeonPositions[i].position.x);
+        //    listZ.Add(NewGeneration.instance.dungeonPositions[i].position.z);
+        //}
+        //List<int> ints = new();
 
-        for (int i = 0; i < NewGeneration.instance.dungeons.Count; i++)
-        {
-            ints.Add(NewGeneration.instance.dungeons[i].GetComponent<Tile>().dungeonId);
-        }
-        saveData.dungeonType = ints.ToArray();
-        saveData.dungeonX = listX.ToArray();
-        saveData.dungeonZ = listZ.ToArray();
+        //for (int i = 0; i < NewGeneration.instance.dungeons.Count; i++)
+        //{
+        //    ints.Add(NewGeneration.instance.dungeons[i].GetComponent<Tile>().dungeonId);
+        //}
+        //saveData.dungeonType = ints.ToArray();
+        //saveData.dungeonX = listX.ToArray();
+        //saveData.dungeonZ = listZ.ToArray();
         foreach (var v in InventoryManager.instance.items)
         {
-            saveData.inventoryIds.Add(v.GetComponent<ItemInfo>().id);
+            saveData.inventoryIds.Add(v.GetComponentInChildren<ItemInfo>().id);
+            saveData.inventoryCount.Add(v.GetComponentInChildren<ItemInfo>().count);
         }
         saveData.health = PlayerHandler.Instance.hp;
         saveData.sp = PlayerHandler.Instance.sp;
@@ -120,7 +123,14 @@ public class Save : MonoBehaviour
         saveData.maxSp = PlayerHandler.Instance.maxSp;
         saveData.coins = PlayerHandler.Instance.coins;
         saveData.resolution = ResManager.instance.currentResolutionIndex;
-        saveData.fpsLimit = Application.targetFrameRate;
+        if (Application.targetFrameRate == -1)
+        {
+            saveData.fpsLimit = 0;
+        }
+        else
+        {
+            saveData.fpsLimit = Application.targetFrameRate;
+        }
         saveData.fullScreen = Screen.fullScreen;
         saveData.volume = AudioListener.volume;
         string json = JsonUtility.ToJson(saveData);
@@ -157,7 +167,7 @@ public class Save : MonoBehaviour
 
     IEnumerator AutoSave()
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(5);
         SaveData();
         Debug.Log("Autosaved");
         StartCoroutine(AutoSave());

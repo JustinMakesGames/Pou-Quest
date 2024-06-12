@@ -66,26 +66,14 @@ public class ResManager : MonoBehaviour
     }
     public void FPSLimit(string target)
     {
-        bool validInput = true;
-        foreach (char c in target.ToCharArray())
+        fpsLimit = Convert.ToInt32(target);
+        if (fpsLimit == 0)
         {
-            if (!char.IsNumber(c))
-            {
-                validInput = false;
-                break;
-            }
+            Application.targetFrameRate = -1;
         }
-        if (validInput)
+        else
         {
-            fpsLimit = Convert.ToInt32(target);
-            if (fpsLimit == 0)
-            {
-                Application.targetFrameRate = -1;
-            }
-            else
-            {
-                Application.targetFrameRate = fpsLimit;
-            }
+            Application.targetFrameRate = fpsLimit;
         }
     }
 

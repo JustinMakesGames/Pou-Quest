@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Load : MonoBehaviour
@@ -9,9 +11,11 @@ public class Load : MonoBehaviour
     {
         if (data != null)
         {
-            foreach (int i in data.inventoryIds)
+            for (int i = 0; i < data.inventoryIds.Count; i++) 
             {
-                InventoryManager.instance.AddItem(items[i]);
+                InventoryManager.instance.AddItem(items[data.inventoryIds[i]]);
+                InventoryManager.instance.items[i].GetComponentInChildren<ItemInfo>().count = data.inventoryCount[i];
+                Debug.Log(data.inventoryIds[i]);
             }
             PlayerHandler.Instance.level = data.level;
             PlayerHandler.Instance.attackPower = data.attackPower;
@@ -22,9 +26,15 @@ public class Load : MonoBehaviour
             PlayerHandler.Instance.maxSp = data.maxSp;
             PlayerHandler.Instance.coins = data.coins;
             PlayerHandler.Instance.maxExp = data.maxExp;
-            ResManager.instance.fpsLimit = data.fpsLimit;
-            ResManager.instance.currentResolutionIndex = data.resolution;
-            ResManager.instance.SetResolution(data.resolution);
+            StartCoroutine(Delay(data));
         }
+    }
+
+    IEnumerator Delay(SaveData data)
+    {
+        yield return null;
+        ResManager.instance.FPSLimit(Convert.ToString(data.fpsLimit));
+        ResManager.instance.currentResolutionIndex = data.resolution;
+        ResManager.instance.SetResolution(data.resolution);
     }
 }
