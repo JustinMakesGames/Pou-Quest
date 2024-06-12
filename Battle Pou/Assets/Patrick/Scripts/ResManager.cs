@@ -18,7 +18,7 @@ public class ResManager : MonoBehaviour
     public static ResManager instance;
     public int fpsLimit;
     public GameObject obj;
-    void Start()
+    void Awake()
     {
         instance = this;
         foreach(var v in resolutionDropdown)

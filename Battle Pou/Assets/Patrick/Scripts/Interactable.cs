@@ -17,6 +17,7 @@ public class Interactable : MonoBehaviour
     float egn = 0.1f;
     public bool rigged;
     public GameObject coin;
+    public int coinsToWin;
     private void Start()
     {
         player = FindAnyObjectByType<PlayerOverworld>().gameObject;
@@ -26,7 +27,7 @@ public class Interactable : MonoBehaviour
     {
         if (!isGambling)
         {
-            GetComponentInChildren<Animator>().Play("GamblingMachine", -1, 0);
+            transform.GetChild(5).GetComponent<Animator>().Play("GamblingMachine", -1, 0);
             StartCoroutine(Gamble());
         }
 
@@ -92,7 +93,7 @@ public class Interactable : MonoBehaviour
                 Instantiate(coin, pos, Random.rotation);
             }
             GetComponentInChildren<TMP_Text>().enabled = true;
-            //things that happen when you win
+            PlayerHandler.Instance.coins += coinsToWin;
             Debug.Log("you won");
         }
         else
