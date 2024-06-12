@@ -16,6 +16,7 @@ public class Interactable : MonoBehaviour
     float t = 0;
     float egn = 0.1f;
     public bool rigged;
+    public GameObject coin;
     private void Start()
     {
         player = FindAnyObjectByType<PlayerOverworld>().gameObject;
@@ -83,6 +84,13 @@ public class Interactable : MonoBehaviour
         }
         if (ints[0] == ints[1] && ints[0] == ints[2])
         {
+            Vector3 pos = transform.GetChild(1).position;
+            pos.y += 0.05f;
+            transform.GetChild(3).GetComponent<Animator>().Play("GamblingDoor", -1, 0);
+            for (int i = 0; i < 50; i++)
+            {
+                Instantiate(coin, pos, Random.rotation);
+            }
             GetComponentInChildren<TMP_Text>().enabled = true;
             //things that happen when you win
             Debug.Log("you won");

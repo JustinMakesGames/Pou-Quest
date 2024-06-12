@@ -21,9 +21,9 @@ public class InteractingWithNPC : MonoBehaviour
                 hit.transform.GetComponent<DialogManager>().StartDialog();
                 transform.GetComponent<PlayerOverworld>().enabled = false;
             }
-            if (hit.collider.GetComponentInChildren<Interactable>() != null)
+            if (hit.collider.GetComponent<Interactable>() != null)
             {
-                hit.collider.GetComponentInChildren<Interactable>().StartGambling();
+                hit.collider.GetComponent<Interactable>().StartGambling();
                 transform.GetComponent<PlayerOverworld>().enabled = false;
             }
             

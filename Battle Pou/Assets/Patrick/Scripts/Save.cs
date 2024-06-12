@@ -85,7 +85,7 @@ public class Save : MonoBehaviour
         {
             FindAnyObjectByType<Load>().Initialize(saveData);
         }
-        
+        StartCoroutine(AutoSave());
         
     }
     public void SaveData()
