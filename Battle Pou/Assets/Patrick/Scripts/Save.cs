@@ -85,8 +85,11 @@ public class Save : MonoBehaviour
         path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
         if (File.Exists(path))
         {
+            if (!mainMenu)
+            {
+                FindAnyObjectByType<StatsChangeOverworld>().Change();
+            }
             FindAnyObjectByType<Load>().Initialize(saveData);
-            FindAnyObjectByType<StatsChangeOverworld>().Change();
         }
         StartCoroutine(AutoSave());
         
@@ -101,19 +104,20 @@ public class Save : MonoBehaviour
             path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
             List<float> listX = new();
             List<float> listZ = new();
-            if (NewGeneration1.instance.dungeonPositions != null)
+            List<int> ints = new();
+            if (NewGeneration1.instance != null)
             {
                 for (int i = 0; i < NewGeneration1.instance.dungeonPositions.Count; i++)
                 {
                     listX.Add(NewGeneration1.instance.dungeonPositions[i].position.x);
                     listZ.Add(NewGeneration1.instance.dungeonPositions[i].position.z);
                 }
+                for (int i = 0; i < NewGeneration1.instance.rooms.Count; i++)
+                {
+                    ints.Add(NewGeneration1.instance.rooms[i].GetComponent<Tile1>().dungeonId);
+                }
             }
-            List<int> ints = new();
-            for (int i = 0; i < NewGeneration1.instance.rooms.Count; i++)
-            {
-                ints.Add(NewGeneration1.instance.rooms[i].GetComponent<Tile1>().dungeonId);
-            }
+
             saveData.dungeonType = ints.ToArray();
             saveData.dungeonX = listX.ToArray();
             saveData.dungeonZ = listZ.ToArray();

@@ -16,7 +16,7 @@ MonoBehaviour:
   hp: 10
   maxHp: 10
   attackPower: 1
-  exp: 105
+  exp: 30
   attackSpeed: 500
   attackInterval: 1
   amountOfProjectiles: 3

@@ -41,7 +41,7 @@ public class Load : MonoBehaviour
 
     IEnumerator Delay(SaveData data)
     {
-        yield return null;
+        yield return new WaitForEndOfFrame();
         ResManager.instance.FPSLimit(Convert.ToString(data.fpsLimit));
         ResManager.instance.currentResolutionIndex = data.resolution;
         ResManager.instance.SetResolution(data.resolution);
