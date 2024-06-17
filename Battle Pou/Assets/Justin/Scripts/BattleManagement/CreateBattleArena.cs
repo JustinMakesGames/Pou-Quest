@@ -61,7 +61,7 @@ public class CreateBattleArena : MonoBehaviour
     public void SpawnEnemy(GameObject enemy)
     {
         enemySpawn = battleArenaClone.transform.Find("EnemySpawn");
-        Instantiate(enemy, enemySpawn.position, Quaternion.Euler(0, 180, 0));
+        Instantiate(enemy, enemySpawn.position, Quaternion.Euler(0, 180, 0));      
     }
 
 

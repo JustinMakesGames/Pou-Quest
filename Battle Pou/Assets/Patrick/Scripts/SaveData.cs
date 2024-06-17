@@ -23,7 +23,7 @@ public class SaveData
     [Header("Settings")]
     public int fpsLimit = 0;
     public bool fullScreen = true;
-    public int resolution = 16;
+    public int resolution;
     public float volume = 1;
     public float textSpeed = 1;
 }

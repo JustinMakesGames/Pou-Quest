@@ -15,11 +15,8 @@ public class TouchKey : MonoBehaviour
         if (other.CompareTag("Player") & !FindObjectOfType<InvincibleFrames>().isInvincible)
         {
             print("Touched key");
-            GetComponent<AudioSource>().Play();
             FindObjectOfType<HasKey>().hasKey = true;
-            GetComponent<MeshRenderer>().enabled = false;
-            GetComponent<BoxCollider>().enabled = false;
-            Destroy(gameObject, 1f);
+            Destroy(gameObject);
         }
     }
 }

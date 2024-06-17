@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
     public int maxStackSize;
     public static InventoryManager instance;
 
-    void Awake()
+    void Start()
     {
         instance = this;
     }

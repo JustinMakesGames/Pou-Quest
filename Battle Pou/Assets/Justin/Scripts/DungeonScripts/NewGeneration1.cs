@@ -12,13 +12,13 @@ public class NewGeneration1 : MonoBehaviour
     public List<Cell1> gridList = new();
     public Cell1 cell;
     private int iteration;
-    public List<Transform> dungeonPositions = new();
+
     public List<GameObject> objectsToSpawn;
     public LayerMask cellLayer;
     public GameObject firstRoom;
 
     public List<GameObject> rooms;
-    public static NewGeneration1 instance;
+
     public int index;
 
     public int maxTimes;
@@ -30,7 +30,6 @@ public class NewGeneration1 : MonoBehaviour
 
     private void Start()
     {
-        instance = this;
         InitializeGrid();
     }
 
@@ -106,7 +105,7 @@ public class NewGeneration1 : MonoBehaviour
             }
             GameObject newPos = Instantiate(randomRoom, nextCell.transform.position, Quaternion.identity);
             nextCell.tiles.Add(newPos.GetComponent<Tile1>());
-            dungeonPositions.Add(newPos.transform);
+
             objectsToSpawn.Add(newPos);
 
             Quaternion rotation = GetRotation(originalPos, newPos.transform);

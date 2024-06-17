@@ -10,7 +10,6 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             animator.SetTrigger("PlayDoorAnimation");
-            GetComponent<AudioSource>().Play();
         }
     }
 }

@@ -17,4 +17,3 @@ MonoBehaviour:
   attackPower: 3
   projectileSpeed: 30
   attackInterval: 2
-  sound: {fileID: 8300000, guid: 22df4fa36c3d75948b05d877d585e60a, type: 3}

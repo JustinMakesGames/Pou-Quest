@@ -84,13 +84,12 @@ public class WinHandler : StateHandler
     {
         int hpUp = 2;
         int spUp = 2;
-        int apUp = 2;
 
-        StartCoroutine(ShowLevelUp(hpUp, spUp, apUp));
+        StartCoroutine(ShowLevelUp(hpUp, spUp));
         
     }
 
-    private IEnumerator ShowLevelUp(int hp, int sp, int ap)
+    private IEnumerator ShowLevelUp(int hp, int sp)
     {
         winPanel.SetActive(false);
         levelUpPanel.SetActive(true);
@@ -104,7 +103,7 @@ public class WinHandler : StateHandler
         levelUpText.text = playerHandler.level.ToString();
         yield return new WaitForSeconds(2);
 
-        ChangeStats(hp, sp, ap);
+        ChangeStats(hp, sp);
         maxHpText.text = playerHandler.maxHp.ToString();
         maxSpText.text = playerHandler.maxSp.ToString();
 
@@ -119,11 +118,10 @@ public class WinHandler : StateHandler
 
     }
 
-    private void ChangeStats(int hp, int sp, int ap)
+    private void ChangeStats(int hp, int sp)
     {
         playerHandler.maxHp += hp;
         playerHandler.maxSp += sp;
-        playerHandler.attackPower += ap;
         playerHandler.hp = playerHandler.maxHp;
         playerHandler.sp = playerHandler.maxSp;
 

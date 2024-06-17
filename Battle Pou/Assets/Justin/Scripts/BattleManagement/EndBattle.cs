@@ -94,7 +94,7 @@ public class EndBattle : MonoBehaviour
         playerScript.enabled = true;
         camScript.enabled = true;
         stats.SetActive(true);
-        FindAnyObjectByType<StatsChangeOverworld>().Change();
+        PlayerHandler.Instance.StatsOverworldChange();
     }
 
     public void MakePlayerInvincible()
