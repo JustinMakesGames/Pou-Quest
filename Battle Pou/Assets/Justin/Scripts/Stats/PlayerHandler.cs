@@ -39,13 +39,13 @@ public class PlayerHandler : MonoBehaviour
 
     private void Start()
     {
-        //foreach (Transform attack in transform)
-        //{
-        //    if (attack.GetComponent<Attacking>().isBought)
-        //    {
-        //        allAttacks.Add(attack.GetComponent<Attacking>().attackStats.id);
-        //    }
-        //}
+        foreach (Transform attack in transform)
+        {
+            if (attack.GetComponent<Attacking>().isBought)
+            {
+                allAttacks.Add(attack.GetComponent<Attacking>().attackStats.id);
+            }
+        }
     }
 
     public void BattlePlayerSet(Transform player)

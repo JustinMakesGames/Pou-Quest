@@ -115,7 +115,7 @@ MonoBehaviour:
     resolution: 16
     volume: 1
     textSpeed: 1
-  path: 
+  path: C:/Users/Patrick K/Documents/GitHub/Pou-Quest/Battle Pou/Assets/SaveData.pou
   key: wowamazingitspou
   mainMenu: 0
 --- !u!114 &3418497987001249811

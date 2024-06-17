@@ -11,7 +11,7 @@ public class ResManager : MonoBehaviour
     public TMP_Dropdown[] resolutionDropdown;
     private Resolution[] resolutions;
     private List<Resolution> resolutionList = new();
-    public double currentRefRate;
+    private double currentRefRate;
     public int currentResolutionIndex = 0;
     public string currentRes;
     public bool fullscreen;
@@ -25,19 +25,25 @@ public class ResManager : MonoBehaviour
     }
     void Start()
     {
-        resolutionList.Clear();
         foreach(var v in resolutionDropdown)
         {
             v.ClearOptions();
         }
+        resolutions = Screen.resolutions;
+        resolutionList = new List<Resolution>();
         currentRefRate = Screen.currentResolution.refreshRateRatio.value;
-        foreach (var res in Screen.resolutions)
+        Debug.LogWarning(resolutions.Length);
+        for (int i = 0; i < resolutions.Length; i++)
         {
-            float refRate = Convert.ToSingle(currentRefRate);
-            float rate = (float)res.refreshRateRatio.value;
-             if (Mathf.Approximately(refRate, rate))
+            float refRate = (float)currentRefRate;
+            float rate = (float)resolutions[i].refreshRateRatio.value;
+            if (Mathf.Approximately(refRate, rate))
             {
-                resolutionList.Add(res);
+                resolutionList.Add(resolutions[i]);
+            }
+            else
+            {
+                Debug.LogWarning(refRate.ToString() + rate.ToString());
             }
         }
 
@@ -62,6 +68,7 @@ public class ResManager : MonoBehaviour
             v.RefreshShownValue();
             StartCoroutine(Delay());
         }
+        Debug.Log(resolutionList.Count.ToString());
     }
     public void SetResolution(int resolutionIndex)
     {
