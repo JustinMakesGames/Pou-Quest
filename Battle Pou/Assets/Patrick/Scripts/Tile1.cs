@@ -8,7 +8,7 @@ public class Tile1 : MonoBehaviour
     public Tile[] down;
     public Tile[] left;
     public Tile[] right;
-
+    public int dungeonId;
     public GameObject inDoor;
     public GameObject outDoor;
     public int maxChance;

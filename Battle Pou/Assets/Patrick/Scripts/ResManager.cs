@@ -10,30 +10,40 @@ public class ResManager : MonoBehaviour
 {
     public TMP_Dropdown[] resolutionDropdown;
     private Resolution[] resolutions;
-    private List<Resolution> resolutionList;
-    private float currentRefRate;
+    private List<Resolution> resolutionList = new();
+    private double currentRefRate;
     public int currentResolutionIndex = 0;
     public string currentRes;
     public bool fullscreen;
     public static ResManager instance;
     public int fpsLimit;
     public GameObject obj;
-    void Awake()
+
+    private void Awake()
     {
         instance = this;
+    }
+    void Start()
+    {
         foreach(var v in resolutionDropdown)
         {
             v.ClearOptions();
         }
         resolutions = Screen.resolutions;
         resolutionList = new List<Resolution>();
-        currentRefRate = Mathf.Round((float)Screen.currentResolution.refreshRateRatio.value);
-
+        currentRefRate = Screen.currentResolution.refreshRateRatio.value;
+        Debug.LogWarning(resolutions.Length);
         for (int i = 0; i < resolutions.Length; i++)
         {
-            if (Mathf.Round((float)resolutions[i].refreshRateRatio.value) == currentRefRate)
+            float refRate = (float)currentRefRate;
+            float rate = (float)resolutions[i].refreshRateRatio.value;
+            if (Mathf.Approximately(refRate, rate))
             {
                 resolutionList.Add(resolutions[i]);
+            }
+            else
+            {
+                Debug.LogWarning(refRate.ToString() + rate.ToString());
             }
         }
 
@@ -56,13 +66,19 @@ public class ResManager : MonoBehaviour
             v.AddOptions(options);
             v.value = currentResolutionIndex;
             v.RefreshShownValue();
+            StartCoroutine(Delay());
         }
-
+        Debug.Log(resolutionList.Count.ToString());
     }
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutionList[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, fullscreen);
+        foreach(var v in resolutionDropdown)
+        {
+            v.value = resolutionIndex;
+            v.RefreshShownValue();
+        }
     }
     public void FPSLimit(string target)
     {
@@ -75,6 +91,12 @@ public class ResManager : MonoBehaviour
         {
             Application.targetFrameRate = fpsLimit;
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return null;
+        SetResolution(Save.instance.saveData.resolution);
     }
 
 }

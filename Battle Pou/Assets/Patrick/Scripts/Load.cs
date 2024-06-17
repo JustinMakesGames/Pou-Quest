@@ -11,11 +11,20 @@ public class Load : MonoBehaviour
     {
         if (data != null)
         {
-            for (int i = 0; i < data.inventoryIds.Count; i++) 
+            if (data.inventoryIds != null && data.inventoryIds.Count > 0)
             {
-                InventoryManager.instance.AddItem(items[data.inventoryIds[i]]);
-                InventoryManager.instance.items[i].GetComponentInChildren<ItemInfo>().count = data.inventoryCount[i];
-                Debug.Log(data.inventoryIds[i]);
+                //for (int i = 0; i < data.inventoryIds.Count; i++)
+                //{
+                //    InventoryManager.instance.AddItem(items[data.inventoryIds[i]]);
+                //    InventoryManager.instance.items[i].GetComponentInChildren<ItemInfo>().count = data.inventoryCount[i];
+                //    Debug.Log(data.inventoryIds[i]);
+                //}
+
+                foreach (int i in data.inventoryIds)
+                {
+                    InventoryManager.instance.AddItem(items[i]);
+                    InventoryManager.instance.items[i].GetComponentInChildren<ItemInfo>().count = data.inventoryCount[i];
+                }
             }
             PlayerHandler.Instance.level = data.level;
             PlayerHandler.Instance.attackPower = data.attackPower;

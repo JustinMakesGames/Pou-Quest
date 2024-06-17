@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac84bd2063492d4a81b19646841edbb, type: 3}
   m_Name: Fight
   m_EditorClassIdentifier: 
+  id: 0
   spCost: 0
   attackPower: 1
   projectileSpeed: 0
   attackInterval: 0
+  sound: {fileID: 8300000, guid: 801dc96d215a230429b623a1ff467ea0, type: 3}

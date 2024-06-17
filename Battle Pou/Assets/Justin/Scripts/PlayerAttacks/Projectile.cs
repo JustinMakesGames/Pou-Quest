@@ -6,9 +6,13 @@ public class Projectile : MonoBehaviour
 {
     public Transform enemy;
     public AttackStats attackStats;
-
+    public GameObject empty;
     private void Start()
     {
+        GameObject sound = Instantiate(empty);
+        sound.AddComponent<AudioSource>();
+        sound.GetComponent<AudioSource>().clip = attackStats.sound;
+        sound.GetComponent<AudioSource>().Play();
         enemy = FindObjectOfType<EnemyHandler>().transform;
         Destroy(gameObject, 5f);
     }
@@ -21,7 +25,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.transform == enemy)
         {
-            enemy.GetComponent<EnemyHandler>().TakeDamage(attackStats.attackPower);
+            enemy.GetComponent<EnemyHandler>().TakeDamage(attackStats.attackPower + PlayerHandler.Instance.attackPower);
             Destroy(gameObject);
         }
     }
