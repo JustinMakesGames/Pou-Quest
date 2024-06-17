@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class Save : MonoBehaviour
     public SaveData saveData;
     public string path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
     public string key;
+    public bool mainMenu;
 
     public byte[] MakeKey()
     {
@@ -84,45 +86,53 @@ public class Save : MonoBehaviour
         if (File.Exists(path))
         {
             FindAnyObjectByType<Load>().Initialize(saveData);
+            FindAnyObjectByType<StatsChangeOverworld>().Change();
         }
         StartCoroutine(AutoSave());
         
     }
     public void SaveData()
     {
-        saveData.inventoryIds.Clear();
-        saveData.inventoryCount.Clear();
-        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
-        //List<float> listX = new();
-        //List<float> listZ = new();
-        //for (int i = 0; i < NewGeneration.instance.dungeonPositions.Count; i++)
-        //{
-        //    listX.Add(NewGeneration.instance.dungeonPositions[i].position.x);
-        //    listZ.Add(NewGeneration.instance.dungeonPositions[i].position.z);
-        //}
-        //List<int> ints = new();
-
-        //for (int i = 0; i < NewGeneration.instance.dungeons.Count; i++)
-        //{
-        //    ints.Add(NewGeneration.instance.dungeons[i].GetComponent<Tile>().dungeonId);
-        //}
-        //saveData.dungeonType = ints.ToArray();
-        //saveData.dungeonX = listX.ToArray();
-        //saveData.dungeonZ = listZ.ToArray();
-        foreach (var v in InventoryManager.instance.items)
+        if (!mainMenu)
         {
-            saveData.inventoryIds.Add(v.GetComponentInChildren<ItemInfo>().id);
-            saveData.inventoryCount.Add(v.GetComponentInChildren<ItemInfo>().count);
+            Debug.Log("saved stats");
+            saveData.inventoryIds.Clear();
+            saveData.inventoryCount.Clear();
+            path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
+            List<float> listX = new();
+            List<float> listZ = new();
+            if (NewGeneration1.instance.dungeonPositions != null)
+            {
+                for (int i = 0; i < NewGeneration1.instance.dungeonPositions.Count; i++)
+                {
+                    listX.Add(NewGeneration1.instance.dungeonPositions[i].position.x);
+                    listZ.Add(NewGeneration1.instance.dungeonPositions[i].position.z);
+                }
+            }
+            List<int> ints = new();
+            for (int i = 0; i < NewGeneration1.instance.rooms.Count; i++)
+            {
+                ints.Add(NewGeneration1.instance.rooms[i].GetComponent<Tile1>().dungeonId);
+            }
+            saveData.dungeonType = ints.ToArray();
+            saveData.dungeonX = listX.ToArray();
+            saveData.dungeonZ = listZ.ToArray();
+            foreach (var v in InventoryManager.instance.items)
+            {
+                saveData.inventoryIds.Add(v.GetComponentInChildren<ItemInfo>().id);
+                saveData.inventoryCount.Add(v.GetComponentInChildren<ItemInfo>().count);
+            }
+            saveData.health = PlayerHandler.Instance.hp;
+            saveData.sp = PlayerHandler.Instance.sp;
+            saveData.exp = PlayerHandler.Instance.exp;
+            saveData.attackPower = PlayerHandler.Instance.attackPower;
+            saveData.maxHp = PlayerHandler.Instance.maxHp;
+            saveData.maxExp = PlayerHandler.Instance.maxExp;
+            saveData.maxSp = PlayerHandler.Instance.maxSp;
+            saveData.coins = PlayerHandler.Instance.coins;
+            saveData.level = PlayerHandler.Instance.level;
         }
-        saveData.health = PlayerHandler.Instance.hp;
-        saveData.sp = PlayerHandler.Instance.sp;
-        saveData.exp = PlayerHandler.Instance.exp;
-        saveData.attackPower = PlayerHandler.Instance.attackPower;
-        saveData.maxHp = PlayerHandler.Instance.maxHp;
-        saveData.maxExp = PlayerHandler.Instance.maxExp;
-        saveData.maxSp = PlayerHandler.Instance.maxSp;
-        saveData.coins = PlayerHandler.Instance.coins;
-        saveData.resolution = ResManager.instance.currentResolutionIndex;
+        saveData.resolution = ResManager.instance.resolutionDropdown[0].value;
         if (Application.targetFrameRate == -1)
         {
             saveData.fpsLimit = 0;

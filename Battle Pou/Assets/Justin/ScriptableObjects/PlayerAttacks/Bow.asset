@@ -15,5 +15,6 @@ MonoBehaviour:
   id: 2
   spCost: 3
   attackPower: 2
-  projectileSpeed: 10
+  projectileSpeed: 30
   attackInterval: 1
+  sound: {fileID: 8300000, guid: 59f0c0cc869218d4d8a3b0a5a163430a, type: 3}

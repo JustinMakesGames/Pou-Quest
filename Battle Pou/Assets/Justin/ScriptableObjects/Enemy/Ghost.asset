@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Ghost
   m_EditorClassIdentifier: 
   enemyName: Ghost
-  hp: 5
+  hp: 20
   maxHp: 20
   attackPower: 2
-  exp: 10
+  exp: 25
   attackSpeed: 0
   attackInterval: 0
   amountOfProjectiles: 5
