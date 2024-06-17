@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 2940227346823513665}
   - component: {fileID: 2992852509994842505}
   m_Layer: 0
-  m_Name: JustinsPrefab 4
+  m_Name: PouBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 6962004019399495457}
   - component: {fileID: 7753743060889286437}
   - component: {fileID: 537076513207377142}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1742,6 +1742,7 @@ MonoBehaviour:
   npcName: King Pou
   quest: 
   textSpeed: 0.3
+  isInDialog: 0
   isBoss: 1
   battleEnemy: {fileID: 1915655070027710804, guid: 5fe4b3f5e9c7e2c48a5f984c23c4a715,
     type: 3}

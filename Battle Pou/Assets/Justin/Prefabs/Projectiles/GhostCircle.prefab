@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1311869182626392128}
   - component: {fileID: 7848945402743387752}
   m_Layer: 0
-  m_Name: NoNo
+  m_Name: GhostCircle
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

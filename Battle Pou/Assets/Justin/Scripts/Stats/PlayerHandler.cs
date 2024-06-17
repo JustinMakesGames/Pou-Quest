@@ -26,6 +26,8 @@ public class PlayerHandler : MonoBehaviour
     
     public Slider playerHPSlider, playerSPSlider;
 
+    public List<int> allAttacks;
+
     private void Awake()
     {
         if (Instance == null)
@@ -33,6 +35,17 @@ public class PlayerHandler : MonoBehaviour
             Instance = this;
         }
         
+    }
+
+    private void Start()
+    {
+        foreach (Transform attack in transform)
+        {
+            if (attack.GetComponent<Attacking>().isBought)
+            {
+                allAttacks.Add(attack.GetComponent<Attacking>().attackStats.id);
+            }
+        }
     }
 
     public void BattlePlayerSet(Transform player)

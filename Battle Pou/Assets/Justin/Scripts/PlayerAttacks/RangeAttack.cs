@@ -17,7 +17,6 @@ public class RangeAttack : Attacking
         cam = Camera.main.transform;
         playerMovement = FindObjectOfType<BattlePlayerMovement>();
         player = playerMovement.transform;
-        spawnPlace = transform.GetChild(0);
 
         playerMovement.isUsingRangeAttack = true;
     }

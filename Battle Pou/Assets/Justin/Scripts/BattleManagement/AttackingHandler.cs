@@ -66,7 +66,7 @@ public class AttackingHandler : StateHandler
     private void TurnPlayerMovementOff()
     {
         player.GetComponent<BattlePlayerMovement>().enabled = false;
-        playerAttack = null;
+        BattleManager.instance.playerAttack = null;
     }
 
     private void TurnEnemyMovementOff()

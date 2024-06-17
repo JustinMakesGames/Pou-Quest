@@ -16,7 +16,7 @@ public class GetCoins : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !FindObjectOfType<InvincibleFrames>().isInvincible)
         {
             PlayerHandler.Instance.coins++;
             PlayerHandler.Instance.StatsOverworldChange();

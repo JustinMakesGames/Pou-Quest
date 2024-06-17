@@ -595,6 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackStats: {fileID: 0}
   animator: {fileID: 0}
+  isBought: 0
   enemy: {fileID: 0}
   player: {fileID: 0}
   battleArena:
@@ -775,13 +776,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackStats: {fileID: 0}
   animator: {fileID: 0}
+  isBought: 0
   enemy: {fileID: 0}
   player: {fileID: 0}
   battleArena:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   stats: {fileID: 0}
-  ghostClone: {fileID: 3890351908613260390, guid: d44454aee438a7342934502b93ebcd3a,
+  ghostClone: {fileID: 4180002772974385683, guid: 6fbb3816d9d5bee448aa27860dd3af9f,
     type: 3}
   radius: 5
   ghostClones: []

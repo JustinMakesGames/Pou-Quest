@@ -62,16 +62,20 @@ public class BattleManager : MonoBehaviour
                 StartCoroutine(BattleTextAppears());
                 break;
             case BattleState.PlayerTurn:
+                InitializeHandlers();
                 playerTurnHandler.HandleState();
                 break;
             case BattleState.AttackingTurn:
+                InitializeHandlers();
                 attackHandler.HandleState();
                 break;
             case BattleState.Win:
+                InitializeHandlers();
                 FinishCoroutines();
                 winHandler.HandleState();
                 break;
             case BattleState.Lose:
+                InitializeHandlers();
                 FinishCoroutines();
                 loseHandler.HandleState();
                 break;

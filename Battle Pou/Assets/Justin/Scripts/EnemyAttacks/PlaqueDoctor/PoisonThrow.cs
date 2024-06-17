@@ -11,6 +11,7 @@ public class PoisonThrow : EnemyMoveAround
     {
         base.StartAttack();
         SpawnPlacements();
+        StartCoroutine(Interval());
     }
 
     public override void UpdateAttack()
@@ -21,6 +22,7 @@ public class PoisonThrow : EnemyMoveAround
     public override void FinishAttack()
     {
         base.FinishAttack();
+        StopAllCoroutines();
     }
 
     private void SpawnPlacements()
@@ -38,5 +40,12 @@ public class PoisonThrow : EnemyMoveAround
         Vector3 positionToSpawn = new Vector3(xPosition, battleArena.max.y, zPosition);
 
         return positionToSpawn;
+    }
+
+    private IEnumerator Interval()
+    {
+        yield return new WaitForSeconds(stats.secondAttackInterval);
+        SpawnPlacements();
+        StartCoroutine(Interval());
     }
 }

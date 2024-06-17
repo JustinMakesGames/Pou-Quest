@@ -23,7 +23,7 @@ public class AttackShop : MonoBehaviour
         
     }
 
-    private void SetAttackInInventory()
+    public void SetAttackInInventory()
     {
         attackButtonClone = Instantiate(attackButton, notEquipped);
         AttackButton script = attackButtonClone.GetComponent<AttackButton>();
@@ -33,6 +33,10 @@ public class AttackShop : MonoBehaviour
         script.attack = attack;
         script.attackName = attackName;
         script.attackDescription = attackDescription;
+
+        PlayerHandler.Instance.allAttacks.Add(script.attack.GetComponent<Attacking>().attackStats.id);
+
+        Destroy(gameObject);
         
 
     }

@@ -17,9 +17,16 @@ public class OverworldNPCS : MonoBehaviour
     public bool isTalking;
 
     private Transform player;
+
+    public Quaternion startRotation;
+    public float rotationSpeed = 20f;
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        if (GetComponent<NavMeshAgent>() != null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
+        
         animator = GetComponentInChildren<Animator>();
         player = FindObjectOfType<PlayerOverworld>().transform;
 
@@ -27,6 +34,8 @@ public class OverworldNPCS : MonoBehaviour
         {
             positions.Add(positionsStored.GetChild(i));
         }
+
+        startRotation = transform.rotation;
     }
 
     private void Update()
@@ -45,7 +54,7 @@ public class OverworldNPCS : MonoBehaviour
             }
         }
 
-        else
+        else if (isTalking && positions.Count <= 0)
         {
             TalkingRotation();
         }
@@ -54,7 +63,7 @@ public class OverworldNPCS : MonoBehaviour
 
     private void PlayAnimations()
     {
-        if (animator != null)
+        if (animator != null && agent != null)
         {
             animator.SetFloat("Walking", agent.velocity.magnitude);
         }
@@ -83,12 +92,16 @@ public class OverworldNPCS : MonoBehaviour
 
     private void TalkingRotation()
     {
-        float rotationSpeed = 20f;
+        
         Vector3 lookRotation = player.position - transform.position;
 
         Quaternion rotation = Quaternion.LookRotation(lookRotation);
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        if (transform.rotation != rotation)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        }
+        
     }
 
     public void IsTalkingToNPC()
@@ -97,7 +110,11 @@ public class OverworldNPCS : MonoBehaviour
         {
             isTalking = true;
             GetComponent<DialogManager>().StartDialog();
-            agent.SetDestination(transform.position);
+            if (positions.Count > 0)
+            {
+                agent.SetDestination(transform.position);
+            }
+            
         }
         
     }
@@ -108,10 +125,23 @@ public class OverworldNPCS : MonoBehaviour
         {
             agent.SetDestination(positions[index].position);
         }
+        else
+        {
+            StartCoroutine(SetRotationRight());
+        }
 
         isTalking = false;
 
         player.GetComponent<PlayerOverworld>().enabled = true;
+    }
+
+    private IEnumerator SetRotationRight()
+    {
+        while (transform.rotation != startRotation)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, startRotation, rotationSpeed * Time.deltaTime);
+            yield return null;
+        }
     }
 
 

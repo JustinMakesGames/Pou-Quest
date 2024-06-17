@@ -29,14 +29,9 @@ public class GroundPound : EnemyMoveAround
 
     public GameObject cloneDamageObject;
     public float radius;
-
-    private void Start()
-    {
-        print(gameObject.name);
-    }
     public override void StartAttack()
     {
-        
+        agent.enabled = false;
         originalSize = enemy.localScale.magnitude;
         originalYPosition = player.position.y;
         StartCoroutine(SpawnMiniPous());
@@ -80,6 +75,7 @@ public class GroundPound : EnemyMoveAround
         StopAllCoroutines();
         StartCoroutine(SetSizeBack());
         StartCoroutine(SetPositionOnGround());
+        
     }
 
     private void JumpUp()
@@ -160,5 +156,6 @@ public class GroundPound : EnemyMoveAround
             enemy.Translate(Vector3.down * upSpeed * Time.deltaTime);
             yield return null;
         }
+        agent.enabled = true;
     }
 }

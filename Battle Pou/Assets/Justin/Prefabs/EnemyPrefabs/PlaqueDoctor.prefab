@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16201a6590b0d174c81e8acd3b9e06f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   enemyName: 
   hp: 0
   maxHp: 0
@@ -151,6 +152,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: d5298f4fc1ae9f8489b3f1df210e85be, type: 2}
   enemyAttacks: []
   agent: {fileID: 4863044466393514307}
+  damageAudios: []
   animator: {fileID: 0}
 --- !u!1 &6428798864203873389
 GameObject:
@@ -198,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackStats: {fileID: 0}
   animator: {fileID: 0}
+  isBought: 0
   enemy: {fileID: 0}
   player: {fileID: 0}
   battleArena:
@@ -216,7 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7547202099890367433}
-  - component: {fileID: 691002193132431905}
+  - component: {fileID: 2405467978959270769}
   m_Layer: 8
   m_Name: Attack2
   m_TagString: Untagged
@@ -239,7 +242,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4625644060210870006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &691002193132431905
+--- !u!114 &2405467978959270769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,17 +251,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7915046909274684642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac7bda7d151abe842b5cb65a9695e5af, type: 3}
+  m_Script: {fileID: 11500000, guid: 17e1c07730b4d374b916eeeed6cf5d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackStats: {fileID: 0}
   animator: {fileID: 0}
+  isBought: 0
   enemy: {fileID: 0}
   player: {fileID: 0}
   battleArena:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   stats: {fileID: 0}
-  projectile: {fileID: 6945558841595884661, guid: 44d671fa40fd7f545863b14e3f7babce,
+  rainProjectile: {fileID: 6945558841595884661, guid: 44d671fa40fd7f545863b14e3f7babce,
     type: 3}
-  range: 3

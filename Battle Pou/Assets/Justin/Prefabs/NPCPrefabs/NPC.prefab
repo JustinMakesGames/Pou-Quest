@@ -169,6 +169,8 @@ MonoBehaviour:
   index: 0
   positionsStored: {fileID: 5347174884678452460}
   isTalking: 0
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
+  rotationSpeed: 20
 --- !u!114 &4107310073397375206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +190,10 @@ MonoBehaviour:
   lines: []
   npcName: 
   quest: 
-  textSpeed: 1
+  textSpeed: 0.3
+  isInDialog: 0
+  isBoss: 0
+  battleEnemy: {fileID: 0}
   showDialogOption: 0
   optionScreen: {fileID: 0}
 --- !u!65 &6422997433011232470

@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5837549462464965182}
+  - component: {fileID: 3199031463984397823}
+  - component: {fileID: 1838663808336137520}
   m_Layer: 0
   m_Name: Spear
   m_TagString: Untagged
@@ -31,6 +33,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4007942145375371847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3199031463984397823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4043377641790027896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e1a5e6c4287014a9cfd3addd0b23a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackStats: {fileID: 11400000, guid: 7ee6049f346cd3a44983beb8799238e5, type: 2}
+  animator: {fileID: 0}
+  projectile: {fileID: 3971318611644657489, guid: 38d5a03d4b6bf58468f38c83427a5401,
+    type: 3}
+  spawnPlace: {fileID: 5837549462464965182}
+  playerMovement: {fileID: 0}
+  player: {fileID: 0}
+  isReloading: 0
+  cam: {fileID: 0}
+  rotateSpeed: 40
+--- !u!23 &1838663808336137520
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4043377641790027896}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6792322781729173147
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +131,6 @@ Transform:
   - {fileID: 6260490597497468938}
   - {fileID: 4375406020097589768}
   - {fileID: 5837549462464965182}
-  - {fileID: 5327274325022947871}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2882908192559194199
@@ -95,6 +160,11 @@ MonoBehaviour:
   - {fileID: 6260490597497468938}
   - {fileID: 4375406020097589768}
   immunityFrames: 0
+  playerHPText: {fileID: 0}
+  playerSPText: {fileID: 0}
+  coinsText: {fileID: 0}
+  playerHPSlider: {fileID: 0}
+  playerSPSlider: {fileID: 0}
 --- !u!1 &6795041756817592141
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +268,7 @@ MonoBehaviour:
   enemy:
     serializedVersion: 2
     m_Bits: 256
+  hasHit: 0
 --- !u!95 &3793186929662960950
 Animator:
   serializedVersion: 5
@@ -219,37 +290,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &7712469943069389548
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5327274325022947871}
-  m_Layer: 0
-  m_Name: Staff
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5327274325022947871
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7712469943069389548}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4007942145375371847}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3312430802268591137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -375,7 +415,7 @@ PrefabInstance:
     - target: {fileID: 8327604184700520832, guid: 2b62dee77a6932645a99e2a829deab9a,
         type: 3}
       propertyPath: m_Name
-      value: 'Canon '
+      value: Canon
       objectReference: {fileID: 0}
     - target: {fileID: 8327604184700520832, guid: 2b62dee77a6932645a99e2a829deab9a,
         type: 3}

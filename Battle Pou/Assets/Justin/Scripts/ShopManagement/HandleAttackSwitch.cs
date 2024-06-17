@@ -61,12 +61,14 @@ public class HandleAttackSwitch : MonoBehaviour
                 if (!attack.isEquipped)
                 {
                     attack.isEquipped = true;
-                    PlayerHandler.Instance.attacks.Insert(attack.position, attack.attack);                   
+                    PlayerHandler.Instance.attacks.Insert(attack.position, attack.attack);
+                    print("Inserted " + attack.attack.name);
                 }
                 else
                 {
                     attack.isEquipped = false;
                     PlayerHandler.Instance.attacks.Remove(attack.attack);
+                    print("Removed " + attack.attack.name);
                 }
             }
         }
@@ -76,6 +78,7 @@ public class HandleAttackSwitch : MonoBehaviour
             {
                 PlayerHandler.Instance.attacks.Remove(attack.attack);
                 PlayerHandler.Instance.attacks.Insert(attack.position, attack.attack);
+                print(attack.attack.name + attack.position);
             }
         }
     }
