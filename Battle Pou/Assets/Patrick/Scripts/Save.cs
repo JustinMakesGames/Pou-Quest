@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using TMPro;
@@ -101,27 +102,36 @@ public class Save : MonoBehaviour
             path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
             List<float> listX = new();
             List<float> listZ = new();
-            if (NewGeneration1.instance.dungeonPositions != null)
+
+
+            if (NewGeneration1.instance != null)
             {
-                for (int i = 0; i < NewGeneration1.instance.dungeonPositions.Count; i++)
+                if (NewGeneration1.instance.dungeonPositions != null)
                 {
-                    listX.Add(NewGeneration1.instance.dungeonPositions[i].position.x);
-                    listZ.Add(NewGeneration1.instance.dungeonPositions[i].position.z);
+                    for (int i = 0; i < NewGeneration1.instance.dungeonPositions.Count; i++)
+                    {
+                        listX.Add(NewGeneration1.instance.dungeonPositions[i].position.x);
+                        listZ.Add(NewGeneration1.instance.dungeonPositions[i].position.z);
+                    }
                 }
+
+                List<int> ints = new();
+                for (int i = 0; i < NewGeneration1.instance.rooms.Count; i++)
+                {
+                    ints.Add(NewGeneration1.instance.rooms[i].GetComponent<Tile1>().dungeonId);
+                }
+                saveData.dungeonType = ints.ToArray();
+                saveData.dungeonX = listX.ToArray();
+                saveData.dungeonZ = listZ.ToArray();
+
             }
-            List<int> ints = new();
-            for (int i = 0; i < NewGeneration1.instance.rooms.Count; i++)
-            {
-                ints.Add(NewGeneration1.instance.rooms[i].GetComponent<Tile1>().dungeonId);
-            }
-            saveData.dungeonType = ints.ToArray();
-            saveData.dungeonX = listX.ToArray();
-            saveData.dungeonZ = listZ.ToArray();
+            
             foreach (var v in InventoryManager.instance.items)
             {
                 saveData.inventoryIds.Add(v.GetComponentInChildren<ItemInfo>().id);
                 saveData.inventoryCount.Add(v.GetComponentInChildren<ItemInfo>().count);
             }
+            
             saveData.health = PlayerHandler.Instance.hp;
             saveData.sp = PlayerHandler.Instance.sp;
             saveData.exp = PlayerHandler.Instance.exp;
@@ -131,8 +141,14 @@ public class Save : MonoBehaviour
             saveData.maxSp = PlayerHandler.Instance.maxSp;
             saveData.coins = PlayerHandler.Instance.coins;
             saveData.level = PlayerHandler.Instance.level;
+            saveData.attacks = PlayerHandler.Instance.allAttacks;
         }
-        saveData.resolution = ResManager.instance.resolutionDropdown[0].value;
+
+        if (ResManager.instance.resolutionDropdown.Length > 0)
+        {
+            saveData.resolution = ResManager.instance.resolutionDropdown[0].value;
+        }
+        
         if (Application.targetFrameRate == -1)
         {
             saveData.fpsLimit = 0;
@@ -156,6 +172,7 @@ public class Save : MonoBehaviour
 
     SaveData LoadData()
     {
+        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
         string json;
         SaveData data;
         if (File.Exists(path))

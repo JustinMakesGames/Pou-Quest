@@ -20,6 +20,7 @@ public class SaveData
     public int coins;
     public List<int> inventoryIds = new();
     public List<int> inventoryCount = new();
+    public List<int> attacks = new();
     [Header("Settings")]
     public int fpsLimit = 0;
     public bool fullScreen = true;

@@ -110,12 +110,13 @@ MonoBehaviour:
     coins: 0
     inventoryIds: 
     inventoryCount: 
+    attacks: 
     fpsLimit: -1
     fullScreen: 0
     resolution: 16
     volume: 1
     textSpeed: 1
-  path: C:/Users/Patrick K/Documents/GitHub/Pou-Quest/Battle Pou/Assets/SaveData.pou
+  path: 
   key: wowamazingitspou
   mainMenu: 0
 --- !u!114 &3418497987001249811
@@ -133,3 +134,4 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: 5a440db8307b6c745836c4f1e4844a55, type: 2}
   - {fileID: 11400000, guid: 4c728a6668a9000449d6ad2993b60590, type: 2}
+  shopScreen: {fileID: 0}

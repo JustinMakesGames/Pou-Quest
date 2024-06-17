@@ -37,7 +37,7 @@ public class Fight : Attacking
                 print("has hit");
                 if (hit.transform.GetComponent<EnemyHandler>() != null)
                 {
-                    hit.transform.GetComponent<EnemyHandler>().TakeDamage(PlayerHandler.Instance.attackPower);
+                    hit.transform.GetComponent<EnemyHandler>().TakeDamage(attackStats.attackPower);
                 }
 
                 hasHit = true;
@@ -45,6 +45,8 @@ public class Fight : Attacking
             }
             yield return null;
         }
+
+        yield return new WaitForSeconds(attackStats.attackInterval);
         hasHit = false;
         StartCoroutine(SwordAttack());
        

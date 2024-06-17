@@ -9,7 +9,7 @@ public class AttackStats : ScriptableObject
     public int spCost;
     public int attackPower;
     public float projectileSpeed;
-    public int attackInterval;
+    public float attackInterval;
     public AudioClip sound;
     
 
