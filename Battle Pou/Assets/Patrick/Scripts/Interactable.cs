@@ -34,7 +34,7 @@ public class Interactable : MonoBehaviour
     }
     IEnumerator Gamble()
     {
-        
+
         StartCoroutine(Lerp());
         Camera.main.GetComponent<CamMovement>().enabled = false;
         player.GetComponent<MeshRenderer>().enabled = false;
@@ -85,47 +85,86 @@ public class Interactable : MonoBehaviour
         }
         if (ints[0] == ints[1] && ints[0] == ints[2])
         {
+            StartCoroutine(WinningAnimation());
+            yield return new WaitUntil(() => transform.GetChild(6).position == Camera.main.transform.position);
             Vector3 pos = transform.GetChild(1).position;
-            pos.y += 0.05f;
+            pos.y += 0.02f;
             transform.GetChild(3).GetComponent<Animator>().Play("GamblingDoor", -1, 0);
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 30; i++)
             {
                 Instantiate(coin, pos, Random.rotation);
+                for (int c = 0; c < 3; c++)
+                {
+                    Instantiate(coin, new Vector3(pos.x += Random.Range(-0.2f, 0.2f), pos.y, pos.z), Random.rotation);
+                    pos = transform.GetChild(1).position;
+                    yield return null;
+                }
+                GetComponentInChildren<TMP_Text>().enabled = true;
+                PlayerHandler.Instance.coins += coinsToWin;
+                Debug.Log("you won");
             }
-            GetComponentInChildren<TMP_Text>().enabled = true;
-            PlayerHandler.Instance.coins += coinsToWin;
-            Debug.Log("you won");
         }
         else
         {
             //things that happen when you lose
             Debug.Log("you lost");
         }
-        ints.Clear();
-        yield return new WaitForSeconds(2);
-        player.GetComponent<PlayerOverworld>().enabled = true;
-        Camera.main.GetComponent<CamMovement>().enabled = true;
-        Camera.main.transform.rotation = Quaternion.Euler(65, 0, 0);
-        GetComponentInChildren<TMP_Text>().enabled = false;
-        player.GetComponent<MeshRenderer>().enabled = true;
-        isGambling = false;
-    }
+            ints.Clear();
+            yield return new WaitForSeconds(2);
+            player.GetComponent<PlayerOverworld>().enabled = true;
+            Camera.main.GetComponent<CamMovement>().enabled = true;
+            Camera.main.transform.rotation = Quaternion.Euler(65, 0, 0);
+            GetComponentInChildren<TMP_Text>().enabled = false;
+            player.GetComponent<MeshRenderer>().enabled = true;
+            isGambling = false;
+        }
 
 
-    IEnumerator Lerp()
-    {
-        if (transform.GetChild(0).position != Camera.main.transform.position)
+        IEnumerator Lerp()
         {
-            t += Time.deltaTime * egn;
-            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, transform.GetChild(0).position, t);
-            Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, transform.GetChild(0).rotation, t);
-            yield return null;
-            StartCoroutine(Lerp());
+            if (transform.GetChild(0).position != Camera.main.transform.position)
+            {
+                t += Time.deltaTime * egn;
+                Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, transform.GetChild(0).position, t);
+                Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, transform.GetChild(0).rotation, t);
+                yield return null;
+                StartCoroutine(Lerp());
+            }
+            else
+            {
+                yield return null;
+                t = 0;
+            }
         }
-        else
+        IEnumerator WinningAnimation()
         {
-            yield return null;
-            t = 0;
+            if (transform.GetChild(6).position != Camera.main.transform.position)
+            {
+                t += Time.deltaTime * egn;
+                Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, transform.GetChild(6).position, t);
+                yield return null;
+                StartCoroutine(WinningAnimation());
+            }
+            else
+            {
+                yield return null;
+                t = 0;
+            }
+        }
+        IEnumerator CoinAnimation()
+        {
+            if (transform.GetChild(7).position != Camera.main.transform.position)
+            {
+                GameObject newCoin = Instantiate(coin, transform.GetChild(7).GetChild(0).position, Quaternion.identity);
+                t += Time.deltaTime * egn;
+                Camera.main.transform.position = Vector3.Lerp(newCoin.transform.position, transform.GetChild(7).position, t);
+                yield return null;
+                StartCoroutine(CoinAnimation());
+            }
+            else
+            {
+                t = 0;
+                yield return null;
+            }
         }
     }
-}
