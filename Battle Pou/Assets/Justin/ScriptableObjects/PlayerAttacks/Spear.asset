@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac84bd2063492d4a81b19646841edbb, type: 3}
   m_Name: Spear
   m_EditorClassIdentifier: 
-  id: 0
-  spCost: 0
-  attackPower: 0
+  id: 3
+  spCost: 7
+  attackPower: 4
   projectileSpeed: 0
-  attackInterval: 0
+  attackInterval: 3
   sound: {fileID: 0}
