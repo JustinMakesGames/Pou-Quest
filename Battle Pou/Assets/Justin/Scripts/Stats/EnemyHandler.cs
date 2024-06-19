@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
@@ -21,10 +22,7 @@ public class EnemyHandler : MonoBehaviour
     private Material originalMaterial;
     private void Awake()
     {
-        for (int i = 1; i < 4; i++)
-        {
-            damageAudios.Add(GameObject.FindGameObjectWithTag("Audio").GetComponentAtIndex<AudioSource>(i));
-        }
+        damageAudios = FindAnyObjectByType<AudioRef>().damageAudios.ToList();
         enemyName = stats.enemyName;
         hp = stats.hp;
         maxHp = stats.maxHp;

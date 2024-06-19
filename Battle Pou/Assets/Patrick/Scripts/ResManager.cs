@@ -25,6 +25,8 @@ public class ResManager : MonoBehaviour
     }
     void Start()
     {
+        fullscreen = Save.instance.saveData.fullScreen;
+        Screen.fullScreen = fullscreen;
         foreach(var v in resolutionDropdown)
         {
             v.ClearOptions();

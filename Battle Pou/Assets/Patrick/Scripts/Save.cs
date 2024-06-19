@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -83,11 +84,14 @@ public class Save : MonoBehaviour
     {
         instance = this;
         saveData = LoadData();
-        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
+        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.skibidi";
         if (File.Exists(path))
         {
             FindAnyObjectByType<Load>().Initialize(saveData);
-            FindAnyObjectByType<StatsChangeOverworld>().Change();
+            if (!mainMenu)
+            {
+                FindAnyObjectByType<StatsChangeOverworld>().Change();
+            }
         }
         StartCoroutine(AutoSave());
         
@@ -99,7 +103,7 @@ public class Save : MonoBehaviour
             Debug.Log("saved stats");
             saveData.inventoryIds.Clear();
             saveData.inventoryCount.Clear();
-            path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
+            path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.skibidi";
             List<float> listX = new();
             List<float> listZ = new();
 
@@ -172,7 +176,7 @@ public class Save : MonoBehaviour
 
     SaveData LoadData()
     {
-        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
+        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.skibidi";
         string json;
         SaveData data;
         if (File.Exists(path))

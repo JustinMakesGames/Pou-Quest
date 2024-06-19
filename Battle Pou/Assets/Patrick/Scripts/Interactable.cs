@@ -18,6 +18,8 @@ public class Interactable : MonoBehaviour
     public bool rigged;
     public GameObject coin;
     public int coinsToWin;
+    bool hasSpawnedCoin;
+    public GameObject newCoin;
     private void Start()
     {
         player = FindAnyObjectByType<PlayerOverworld>().gameObject;
@@ -34,7 +36,7 @@ public class Interactable : MonoBehaviour
     }
     IEnumerator Gamble()
     {
-
+        //StartCoroutine(CoinAnimation());
         StartCoroutine(Lerp());
         Camera.main.GetComponent<CamMovement>().enabled = false;
         player.GetComponent<MeshRenderer>().enabled = false;
@@ -153,9 +155,13 @@ public class Interactable : MonoBehaviour
         }
         IEnumerator CoinAnimation()
         {
+            if (!hasSpawnedCoin)
+            {
+                newCoin = Instantiate(coin, transform.GetChild(7).GetChild(0).position, Quaternion.identity);
+            }
             if (transform.GetChild(7).position != Camera.main.transform.position)
             {
-                GameObject newCoin = Instantiate(coin, transform.GetChild(7).GetChild(0).position, Quaternion.identity);
+                
                 t += Time.deltaTime * egn;
                 Camera.main.transform.position = Vector3.Lerp(newCoin.transform.position, transform.GetChild(7).position, t);
                 yield return null;

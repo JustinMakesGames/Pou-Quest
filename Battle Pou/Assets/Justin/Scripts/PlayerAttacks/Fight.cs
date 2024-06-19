@@ -25,7 +25,7 @@ public class Fight : Attacking
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         print("Played attack");
         animator.SetTrigger("Attack");
-        GameObject.FindGameObjectWithTag("Audio").GetComponentAtIndex<AudioSource>(6).Play();
+        AudioRef.instance.swing.Play();
         float timer = 0;
 
         

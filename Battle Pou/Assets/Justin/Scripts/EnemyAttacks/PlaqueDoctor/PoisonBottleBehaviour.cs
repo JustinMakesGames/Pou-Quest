@@ -43,6 +43,7 @@ public class PoisonBottleBehaviour : EnemyProjectile
 
     private void Explode()
     {
+        AudioRef.instance.bottleAudios[Random.Range(0, AudioRef.instance.bottleAudios.Length)].Play();
         if (!isSecondAttack)
         {
             Destroy(target.gameObject);

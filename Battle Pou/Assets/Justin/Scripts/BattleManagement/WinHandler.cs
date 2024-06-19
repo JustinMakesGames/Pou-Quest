@@ -105,6 +105,7 @@ public class WinHandler : StateHandler
         yield return new WaitForSeconds(2);
 
         ChangeStats(hp, sp, ap);
+        AudioRef.instance.levelUp.Play();
         maxHpText.text = playerHandler.maxHp.ToString();
         maxSpText.text = playerHandler.maxSp.ToString();
 

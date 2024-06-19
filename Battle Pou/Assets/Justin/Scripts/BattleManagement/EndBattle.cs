@@ -29,8 +29,6 @@ public class EndBattle : MonoBehaviour
         battleArenaClone = FindObjectOfType<BattleManager>().gameObject;
         FindAnyObjectByType<CreateBattleArena>().battleMusic.Stop();
         FindAnyObjectByType<CreateBattleArena>().battleMusic.time = 0;
-        audios = GameObject.FindGameObjectWithTag("Audio").GetComponents<AudioSource>();
-        audios[4].Play();
     }
 
     public void GetEnemy(GameObject enemy)
@@ -101,6 +99,7 @@ public class EndBattle : MonoBehaviour
         camScript.enabled = true;
         stats.SetActive(true);
         FindAnyObjectByType<StatsChangeOverworld>().Change();
+        AudioRef.instance.ambient.Play();
     }
 
     public void MakePlayerInvincible()

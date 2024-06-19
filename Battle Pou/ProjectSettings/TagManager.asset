@@ -19,6 +19,7 @@ TagManager:
   - Wall
   - WinScreen
   - Put
+  - LoseScreen
   layers:
   - Default
   - TransparentFX
