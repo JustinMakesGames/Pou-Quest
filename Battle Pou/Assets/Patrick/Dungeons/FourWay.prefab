@@ -299,9 +299,9 @@ MonoBehaviour:
   enemiesToSpawn:
   - {fileID: 7923523540611774594, guid: 8f26bd2ae89102b4f951990b03211671, type: 3}
   - {fileID: 4180002772974385683, guid: 749d2862b89468649a7b81515f8f02d6, type: 3}
-  - {fileID: 5520563274002635015, guid: 525e120f654ca54449450cef90390f2a, type: 3}
+  - {fileID: 3587496384797397086, guid: 58fc6193a71322945a961750f9dbf7fa, type: 3}
   itemsToSpawn:
-  - {fileID: 5085223943147736112, guid: 8839a07d06ecf8846af0725f450514e8, type: 3}
+  - {fileID: 5375913416766521228, guid: f17e158ad5a14024b9d026684325543c, type: 3}
   enemyToSpawn: 0
   itemToSpawn: 0
   enemySpawns:

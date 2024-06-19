@@ -44,9 +44,14 @@ public class SpawnLoot : MonoBehaviour
         for (int i = 0; i < lootList.Count; i++)
         {
             GameObject clone = Instantiate(lootList[i], position, Quaternion.Euler(0, Random.Range(0,360),0));
-            Rigidbody rb = clone.GetComponent<Rigidbody>();
-            rb.AddForce(clone.transform.forward * forwardSpeed + clone.transform.up * upSpeed, ForceMode.VelocityChange);
-            rb.velocity = new Vector3(0, -gravity, 0);
+
+            if (clone.GetComponent<Rigidbody>() != null)
+            {
+                Rigidbody rb = clone.GetComponent<Rigidbody>();
+                rb.AddForce(clone.transform.forward * forwardSpeed + clone.transform.up * upSpeed, ForceMode.VelocityChange);
+                rb.velocity = new Vector3(0, -gravity, 0);
+            }
+            
         }
 
 

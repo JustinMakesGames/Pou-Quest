@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac84bd2063492d4a81b19646841edbb, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
-  id: 0
-  spCost: 0
-  attackPower: 0
+  id: 5
+  spCost: 4
+  attackPower: 3
   projectileSpeed: 0
-  attackInterval: 0
+  attackInterval: 2
   sound: {fileID: 0}

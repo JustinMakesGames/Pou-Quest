@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4863044466393514307}
   - component: {fileID: 2978039357520483752}
   m_Layer: 8
-  m_Name: PlaqueDoctor
+  m_Name: FakePlaqueDoctor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

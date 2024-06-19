@@ -60,6 +60,7 @@ public class EnemyMoveAround : Attacking
 
     protected virtual void PositionReached()
     {
+        print(Vector3.Distance(transform.position, destinationPoint));
         if (Vector3.Distance(transform.position, destinationPoint) < 0.5f)
         {
             isMoving = false;

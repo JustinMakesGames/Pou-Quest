@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.transform == enemy)
         {
-            enemy.GetComponent<EnemyHandler>().TakeDamage(attackStats.attackPower + PlayerHandler.Instance.attackPower);
+            enemy.GetComponent<EnemyHandler>().TakeDamage(attackStats.attackPower);
             Destroy(gameObject);
         }
     }

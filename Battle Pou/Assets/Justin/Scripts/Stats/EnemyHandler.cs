@@ -17,8 +17,8 @@ public class EnemyHandler : MonoBehaviour
     public NavMeshAgent agent;
     public List<AudioSource> damageAudios = new();
     public Animator animator;
-
-    private Color color;
+    public Material redMaterial;
+    private Material originalMaterial;
     private void Awake()
     {
         for (int i = 1; i < 4; i++)
@@ -36,7 +36,7 @@ public class EnemyHandler : MonoBehaviour
         {
             enemyAttacks.Add(attacks[i].transform);
         }
-        color = GetComponentInChildren<Renderer>().material.color;
+        originalMaterial = GetComponentInChildren<Renderer>().material;
     }
 
     private void Update()
@@ -90,9 +90,19 @@ public class EnemyHandler : MonoBehaviour
 
     private IEnumerator ShowDamage()
     {
-        GetComponentInChildren<Renderer>().material.color = Color.red;
-        yield return new WaitForSeconds(0.5f);
-        GetComponentInChildren<Renderer>().material.color = color;
+        if (enemyName == "Plaque Doctor")
+        {
+            GetComponentInChildren<Renderer>().material = redMaterial;
+            yield return new WaitForSeconds(0.5f);
+            GetComponentInChildren<Renderer>().material = originalMaterial;
+        }
+        else
+        {
+            GetComponentInChildren<Renderer>().material.color = Color.red;
+            yield return new WaitForSeconds(0.5f);
+            GetComponentInChildren<Renderer>().material.color = originalMaterial.color;
+        }
+        
     }
 
 
