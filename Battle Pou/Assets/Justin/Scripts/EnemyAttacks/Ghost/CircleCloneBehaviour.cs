@@ -7,6 +7,10 @@ public class CircleCloneBehaviour : EnemyProjectile
     private bool isMoving;
     private void Start()
     {
+        if (!AudioRef.instance.ghost.isPlaying)
+        {
+            AudioRef.instance.ghost.Play();
+        }
         Destroy(gameObject, stats.secondAttackInterval);
         StartCoroutine(PreparingToMove());
     }
@@ -37,5 +41,10 @@ public class CircleCloneBehaviour : EnemyProjectile
         {
             PlayerHandler.Instance.TakeDamage(stats.attackPower);
         }
+    }
+
+    private void OnDestroy()
+    {
+        AudioRef.instance.ghost.Stop();
     }
 }

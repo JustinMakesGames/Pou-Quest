@@ -19261,7 +19261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1742206641
 Transform:
   m_ObjectHideFlags: 0
@@ -26394,6 +26394,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 1323334904}
+    - target: {fileID: 1897644237997090259, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1974860429171135782, guid: abd0971ca05642248b3dbc0b07b6f3cb,
         type: 3}
       propertyPath: m_text
@@ -26415,6 +26420,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831231303299302754, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_text
+      value: 'Programmers:
+
+        Justin la Faille
+
+        Patrick Kikkert
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 3575977323890879725, guid: abd0971ca05642248b3dbc0b07b6f3cb,
         type: 3}
@@ -26441,6 +26457,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1715756119}
+    - target: {fileID: 4153930159431160198, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4179153356080780364, guid: abd0971ca05642248b3dbc0b07b6f3cb,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -26451,6 +26472,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 587692516}
+    - target: {fileID: 4964908934014462101, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 261.6099
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964908934014462101, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 19.7694
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964908934014462101, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 138.8051
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964908934014462101, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -9.8848
+      objectReference: {fileID: 0}
     - target: {fileID: 5383569376257147215, guid: abd0971ca05642248b3dbc0b07b6f3cb,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -26655,6 +26696,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559421264308762464, guid: abd0971ca05642248b3dbc0b07b6f3cb,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

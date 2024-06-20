@@ -496,7 +496,7 @@ MonoBehaviour:
   rooms:
   - {fileID: 3561905615235914117, guid: 7e6b134dd954475478e4c0185ff43c34, type: 3}
   index: 0
-  maxTimes: 3
+  maxTimes: 5
   bossRoom: {fileID: 3561905615235914117, guid: 1bf45813d64f7a64d8ccc7cbfce20d77,
     type: 3}
 --- !u!1 &219947209

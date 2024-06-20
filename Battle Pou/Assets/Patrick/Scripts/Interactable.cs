@@ -15,10 +15,11 @@ public class Interactable : MonoBehaviour
     public GameObject player;
     float t = 0;
     float egn = 0.1f;
+    public AudioSource slotAudio;
+    public AudioSource coinWin;
     public bool rigged;
     public GameObject coin;
     public int coinsToWin;
-    bool hasSpawnedCoin;
     public GameObject newCoin;
     private void Start()
     {
@@ -42,10 +43,8 @@ public class Interactable : MonoBehaviour
         player.GetComponent<MeshRenderer>().enabled = false;
         Debug.Log("started gambling");
         isGambling = true;
-        foreach (GameObject go in gamblingPanels)
-        {
-            go.GetComponent<Image>().sprite = null;
-        }
+        yield return new WaitUntil(() => transform.GetChild(0).position == Camera.main.transform.position);
+        slotAudio.Play();
         if (!rigged)
         {
             for (int i = 0; i < gamblingPanels.Length; i++)
@@ -85,26 +84,32 @@ public class Interactable : MonoBehaviour
                 ints.Add(p);
             }
         }
+        slotAudio.Stop();
         if (ints[0] == ints[1] && ints[0] == ints[2])
         {
             StartCoroutine(WinningAnimation());
-            yield return new WaitUntil(() => transform.GetChild(6).position == Camera.main.transform.position);
-            Vector3 pos = transform.GetChild(1).position;
-            pos.y += 0.02f;
+            yield return new WaitUntil(() => transform.GetChild(1).position == Camera.main.transform.position);
+            Vector3 pos = transform.GetChild(6).position;
+            pos.z += 0.04f;
             transform.GetChild(3).GetComponent<Animator>().Play("GamblingDoor", -1, 0);
+            coinWin.Play();
             for (int i = 0; i < 30; i++)
             {
                 Instantiate(coin, pos, Random.rotation);
                 for (int c = 0; c < 3; c++)
                 {
                     Instantiate(coin, new Vector3(pos.x += Random.Range(-0.2f, 0.2f), pos.y, pos.z), Random.rotation);
-                    pos = transform.GetChild(1).position;
+                    pos = transform.GetChild(6).position;
+                    pos.z += 0.04f;
                     yield return null;
                 }
-                GetComponentInChildren<TMP_Text>().enabled = true;
-                PlayerHandler.Instance.coins += coinsToWin;
-                Debug.Log("you won");
+                yield return new WaitForSeconds(0.05f);
             }
+            coinWin.Stop();
+            transform.GetChild(3).GetComponent<Animator>().Play("ClosingDoor", -1, 0);
+            GetComponentInChildren<TMP_Text>().enabled = true;
+            PlayerHandler.Instance.coins += coinsToWin;
+            Debug.Log("you won");
         }
         else
         {
@@ -140,10 +145,10 @@ public class Interactable : MonoBehaviour
         }
         IEnumerator WinningAnimation()
         {
-            if (transform.GetChild(6).position != Camera.main.transform.position)
+            if (transform.GetChild(1).position != Camera.main.transform.position)
             {
                 t += Time.deltaTime * egn;
-                Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, transform.GetChild(6).position, t);
+                Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, transform.GetChild(1).position, t);
                 yield return null;
                 StartCoroutine(WinningAnimation());
             }
@@ -151,26 +156,6 @@ public class Interactable : MonoBehaviour
             {
                 yield return null;
                 t = 0;
-            }
-        }
-        IEnumerator CoinAnimation()
-        {
-            if (!hasSpawnedCoin)
-            {
-                newCoin = Instantiate(coin, transform.GetChild(7).GetChild(0).position, Quaternion.identity);
-            }
-            if (transform.GetChild(7).position != Camera.main.transform.position)
-            {
-                
-                t += Time.deltaTime * egn;
-                Camera.main.transform.position = Vector3.Lerp(newCoin.transform.position, transform.GetChild(7).position, t);
-                yield return null;
-                StartCoroutine(CoinAnimation());
-            }
-            else
-            {
-                t = 0;
-                yield return null;
             }
         }
     }

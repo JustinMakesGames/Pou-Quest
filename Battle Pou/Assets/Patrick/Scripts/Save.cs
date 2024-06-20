@@ -80,11 +80,14 @@ public class Save : MonoBehaviour
             }
         }
     }
-    private void Start()
+    private void Awake()
     {
         instance = this;
         saveData = LoadData();
-        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.skibidi";
+        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";        
+    }
+    private void Start()
+    {
         if (File.Exists(path))
         {
             FindAnyObjectByType<Load>().Initialize(saveData);
@@ -94,7 +97,6 @@ public class Save : MonoBehaviour
             }
         }
         StartCoroutine(AutoSave());
-        
     }
     public void SaveData()
     {
@@ -103,7 +105,7 @@ public class Save : MonoBehaviour
             Debug.Log("saved stats");
             saveData.inventoryIds.Clear();
             saveData.inventoryCount.Clear();
-            path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.skibidi";
+            path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
             List<float> listX = new();
             List<float> listZ = new();
 
@@ -176,7 +178,7 @@ public class Save : MonoBehaviour
 
     SaveData LoadData()
     {
-        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.skibidi";
+        path = Application.dataPath + Path.AltDirectorySeparatorChar + "skibidi.toilet";
         string json;
         SaveData data;
         if (File.Exists(path))

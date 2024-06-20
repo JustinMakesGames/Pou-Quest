@@ -65,6 +65,7 @@ public class LaserAttack : EnemyMoveAround
             animator.SetTrigger("Attack");
             yield return new WaitForSeconds(stats.attackInterval / 2);
             Instantiate(laser, enemy.position, enemy.rotation);
+            AudioRef.instance.laser.Play();
             yield return new WaitForSeconds(stats.attackInterval / 2);
             
         }

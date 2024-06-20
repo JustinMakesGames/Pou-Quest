@@ -15,13 +15,14 @@ public class DialogManager : MonoBehaviour
     public float textSpeed = 1;
     public bool isInDialog;
     public bool isBoss;
-
+    public AudioSource[] audios;
     public GameObject battleEnemy;
     public int showDialogOption;
     public GameObject optionScreen;
 
     private void Start()
     {
+        audios = AudioRef.instance.dialog;
         dialogPanel = GameObject.FindGameObjectWithTag("Dialogue").transform.GetChild(0).gameObject;
         nameText = dialogPanel.transform.GetChild(0).GetComponent<TMP_Text>();
         dialogText = dialogPanel.transform.GetChild(1).GetComponent<TMP_Text>();
@@ -50,6 +51,7 @@ public class DialogManager : MonoBehaviour
         }
         for (int i = 0; i < lines.Count; i++)
         {
+            audios[0].Play();
             if (i == showDialogOption & optionScreen != null)
             {
                 optionScreen.SetActive(true);
@@ -66,6 +68,10 @@ public class DialogManager : MonoBehaviour
             {
                 dialogText.text += lines[i].ToCharArray()[c];
                 yield return new WaitForSeconds(textSpeed * 0.1f);
+                if (c == lines[i].ToCharArray().Length - 1)
+                {
+                    audios[0].Stop();
+                }
             }
             yield return new WaitUntil(() => Input.GetButtonDown("Fire1"));
             if (lines[i] == quest && questNpc)

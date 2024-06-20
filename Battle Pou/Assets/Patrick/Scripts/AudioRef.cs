@@ -10,6 +10,9 @@ public class AudioRef : MonoBehaviour
     public AudioSource ambient;
     public static AudioRef instance;
     public AudioSource levelUp;
+    public AudioSource laser;
+    public AudioSource ghost;
+    public AudioSource[] dialog;
 
     public void Awake()
     {
