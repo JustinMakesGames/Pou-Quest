@@ -113,5 +113,7 @@ public class PlayerHandler : MonoBehaviour
         playerHPSlider.value = hp;
         playerSPSlider.maxValue = maxSp;
         playerSPSlider.value = sp;
+
+        coinsText.text = coins.ToString();
     }
 }

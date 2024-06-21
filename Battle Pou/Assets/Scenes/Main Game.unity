@@ -683,6 +683,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: e0e82ecffac6e6f49b2219971ce1929d, type: 2}
     - target: {fileID: 2882908192559194199, guid: 918ef5234c2437e4fbb9776c3d6b11f5,
         type: 3}
+      propertyPath: coinsText
+      value: 
+      objectReference: {fileID: 819807805}
+    - target: {fileID: 2882908192559194199, guid: 918ef5234c2437e4fbb9776c3d6b11f5,
+        type: 3}
       propertyPath: playerHPText
       value: 
       objectReference: {fileID: 1637602094}
@@ -1099,6 +1104,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &819807805 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8024578846949045854, guid: 38ba97c9e173cf740adb7fb884389dca,
+    type: 3}
+  m_PrefabInstance: {fileID: 4957624417964108462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &837109076
 GameObject:
   m_ObjectHideFlags: 0
