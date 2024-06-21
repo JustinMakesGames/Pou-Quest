@@ -124,6 +124,7 @@ public class Interactable : MonoBehaviour
             GetComponentInChildren<TMP_Text>().enabled = false;
             player.GetComponent<MeshRenderer>().enabled = true;
             isGambling = false;
+            FindObjectOfType<EToInteract>().isAlreadyInteracting = false;
         }
 
 

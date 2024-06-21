@@ -130,7 +130,7 @@ Transform:
   m_GameObject: {fileID: 1169591176477207422}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.49, y: 0, z: -2.56}
+  m_LocalPosition: {x: 6.49, y: 0, z: 9.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 2487663865962036014}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.47, y: 0, z: 6.83}
+  m_LocalPosition: {x: 3.43, y: 0, z: -7.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -185,7 +185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2740518297712898150
 Transform:
   m_ObjectHideFlags: 0
@@ -265,8 +265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesToSpawn:
   - {fileID: 7923523540611774594, guid: 8f26bd2ae89102b4f951990b03211671, type: 3}
-  - {fileID: 5520563274002635015, guid: fb262efda52043644b5c019b8a178ce8, type: 3}
-  - {fileID: 5520563274002635015, guid: 525e120f654ca54449450cef90390f2a, type: 3}
+  - {fileID: 4180002772974385683, guid: 749d2862b89468649a7b81515f8f02d6, type: 3}
+  - {fileID: 3587496384797397086, guid: 58fc6193a71322945a961750f9dbf7fa, type: 3}
   itemsToSpawn: []
   enemyToSpawn: 0
   itemToSpawn: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
+  m_AgentTypeID: -334000983
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
@@ -303,9 +303,9 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 1.37
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: d7b8059bc9cee9543b62ab60fdd2edf4, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ea243ac0359c7ef40bce98b9c0c279f1, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &7944404951003191556
 MonoBehaviour:
@@ -323,6 +323,7 @@ MonoBehaviour:
   down: []
   left: []
   right: []
+  dungeonId: 0
   inDoor: {fileID: 0}
   outDoor: {fileID: 0}
   maxChance: 0

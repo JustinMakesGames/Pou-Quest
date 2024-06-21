@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   id: 0
-  itemSprite: {fileID: 21300000, guid: b6517273bf674c74f9b4026b4efae24d, type: 3}
+  itemSprite: {fileID: 21300000, guid: 243b3d2b280644a4183a1d69ae61ea50, type: 3}
   itemName: Apple
   itemDescription: 'This will heal you 5 hp. '
   hp: 5

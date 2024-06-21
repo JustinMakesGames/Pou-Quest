@@ -54,7 +54,7 @@ MonoBehaviour:
   maxHp: 20
   sp: 20
   maxSp: 20
-  attackPower: 2
+  attackPower: 1
   exp: 0
   maxExp: 100
   level: 1

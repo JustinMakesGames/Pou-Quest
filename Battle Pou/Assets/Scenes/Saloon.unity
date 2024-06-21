@@ -2376,6 +2376,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d6c0d6eb30368c419e031edef1aa9e1, type: 3}
+--- !u!224 &1162323192 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2890284377370777909, guid: 38ba97c9e173cf740adb7fb884389dca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1959453821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1212845004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5096,6 +5102,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 846609638560054267, guid: 39d6de554c6eba14d9ba5d699bfc0b18,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1162323192}
     - target: {fileID: 1706109105166076656, guid: 39d6de554c6eba14d9ba5d699bfc0b18,
         type: 3}
       propertyPath: m_Name

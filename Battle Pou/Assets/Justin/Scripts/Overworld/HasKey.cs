@@ -18,14 +18,27 @@ public class HasKey : MonoBehaviour
 
     private void UseKey()
     {
-        if (Input.GetKeyDown(KeyCode.E) & Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 2f, door))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 2, door)) 
         {
+
             print(hit.transform.name);
             if (hit.collider.gameObject == hit.transform.parent.GetComponent<Tile1>().inDoor)
             {
-                hasKey = false;
-                StartCoroutine(LockAnimation(hit.transform));               
+                FindObjectOfType<EToInteract>().doorInteraction = true;
+                FindObjectOfType<EToInteract>().door = hit.transform;
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hasKey = false;
+                    StartCoroutine(LockAnimation(hit.transform));
+                    FindObjectOfType<EToInteract>().doorInteraction = false;
+                    
+                }
             }
+        }
+        else
+        {
+            FindObjectOfType<EToInteract>().doorInteraction = false;
         }
     }
 

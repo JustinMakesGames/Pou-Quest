@@ -95,6 +95,7 @@ public class DialogManager : MonoBehaviour
         }
         dialogPanel.SetActive(false);
         isInDialog = false;
+        FindObjectOfType<EToInteract>().isAlreadyInteracting = false;
     }
 
     private void StartBossBattle()

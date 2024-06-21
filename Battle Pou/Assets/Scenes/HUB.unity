@@ -753,6 +753,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 124380449}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &124380451 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2890284377370777909, guid: 38ba97c9e173cf740adb7fb884389dca,
+    type: 3}
+  m_PrefabInstance: {fileID: 124380449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &149684043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2901,6 +2907,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 99471426393908379, guid: 796d29ab95556f64084f0926fabdd1e1,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 124380451}
     - target: {fileID: 983271111257014527, guid: 796d29ab95556f64084f0926fabdd1e1,
         type: 3}
       propertyPath: m_LocalPosition.x

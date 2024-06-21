@@ -20,6 +20,7 @@ public class EnemyHandler : MonoBehaviour
     public Animator animator;
     public Material redMaterial;
     private Material originalMaterial;
+    private Color originalColor;
     private void Awake()
     {
         damageAudios = FindAnyObjectByType<AudioRef>().damageAudios.ToList();
@@ -35,6 +36,7 @@ public class EnemyHandler : MonoBehaviour
             enemyAttacks.Add(attacks[i].transform);
         }
         originalMaterial = GetComponentInChildren<Renderer>().material;
+        originalColor = originalMaterial.color;
     }
 
     private void Update()
@@ -98,7 +100,7 @@ public class EnemyHandler : MonoBehaviour
         {
             GetComponentInChildren<Renderer>().material.color = Color.red;
             yield return new WaitForSeconds(0.5f);
-            GetComponentInChildren<Renderer>().material.color = originalMaterial.color;
+            GetComponentInChildren<Renderer>().material.color = originalColor;
         }
         
     }

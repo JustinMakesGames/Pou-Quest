@@ -19,13 +19,10 @@ public class Tile1 : MonoBehaviour
 
     private IEnumerator GiveEnemyKey()
     {
-        while (inDoor == null)
-        {
-            yield return null;
-        }
+        yield return new WaitForSeconds(0.1f);
         if (GetComponent<EnemySpawner>().enemies.Count > 0)
         {
-            int chance = 0;
+            int chance = 1;
 
             if (chance == 0)
             {
@@ -33,6 +30,7 @@ public class Tile1 : MonoBehaviour
             }
             else
             {
+                print("HOLY MOLY IT HAPPENED YESSS");
                 EnemySpawner enemySpawner = GetComponent<EnemySpawner>();
 
                 int randomEnemy = Random.Range(0, enemySpawner.enemies.Count);
