@@ -36,6 +36,11 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    public void StartSceneSwitch()
+    {
+        StartCoroutine(SceneSwitch());
+    }
+
     public IEnumerator SceneSwitch()
     {
         

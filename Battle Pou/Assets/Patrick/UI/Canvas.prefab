@@ -11635,6 +11635,7 @@ MonoBehaviour:
   textSpeed: 0.5
   isInDialog: 0
   isBoss: 0
+  audios: []
   battleEnemy: {fileID: 0}
   showDialogOption: 0
   optionScreen: {fileID: 0}
