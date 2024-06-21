@@ -33,11 +33,13 @@ public class AttackButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnPointerEnter(PointerEventData eventData)
     {
         attackNameText.text = attackName;
+        GameObject.FindGameObjectWithTag("Description").GetComponent<Image>().color = new Color(0, 0, 0, 0.8f);
         attackDescriptionText.text = attackDescription;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        GameObject.FindGameObjectWithTag("Description").GetComponent<Image>().color = new Color(0, 0, 0, 0);
         attackNameText.text = "";
         attackDescriptionText.text = "";
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EToInteract : MonoBehaviour
+public class Interact : MonoBehaviour
 {
     public Transform canvas;
     public bool isAlreadyInteracting;

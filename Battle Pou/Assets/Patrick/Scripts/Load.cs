@@ -15,8 +15,8 @@ public class Load : MonoBehaviour
         {
             if (!mainMenu)
             {
-                if (data.inventoryIds != null && data.inventoryIds.Count > 0)
-                {
+                //if (data.inventoryIds != null && data.inventoryIds.Count > 0)
+                //{
                     //for (int i = 0; i < data.inventoryIds.Count; i++)
                     //{
                     //    InventoryManager.instance.AddItem(items[data.inventoryIds[i]]);
@@ -25,7 +25,7 @@ public class Load : MonoBehaviour
                     //}
 
 
-                }
+                //}
 
                 //foreach (Transform attack in shopScreen)
                 //{
@@ -43,16 +43,17 @@ public class Load : MonoBehaviour
                     InventoryManager.instance.AddItem(items[i]);
                     InventoryManager.instance.items[i].GetComponentInChildren<ItemInfo>().count = data.inventoryCount[i];
                 }
+                PlayerHandler.Instance.level = data.level;
+                PlayerHandler.Instance.attackPower = data.attackPower;
+                PlayerHandler.Instance.hp = data.health;
+                PlayerHandler.Instance.sp = data.sp;
+                PlayerHandler.Instance.exp = data.exp;
+                PlayerHandler.Instance.maxHp = data.maxHp;
+                PlayerHandler.Instance.maxSp = data.maxSp;
+                PlayerHandler.Instance.coins = data.coins;
+                PlayerHandler.Instance.maxExp = data.maxExp;
             }
-            PlayerHandler.Instance.level = data.level;
-            PlayerHandler.Instance.attackPower = data.attackPower;
-            PlayerHandler.Instance.hp = data.health;
-            PlayerHandler.Instance.sp = data.sp;
-            PlayerHandler.Instance.exp = data.exp;
-            PlayerHandler.Instance.maxHp = data.maxHp;
-            PlayerHandler.Instance.maxSp = data.maxSp;
-            PlayerHandler.Instance.coins = data.coins;
-            PlayerHandler.Instance.maxExp = data.maxExp;
+
         }
         StartCoroutine(Delay(data));
 

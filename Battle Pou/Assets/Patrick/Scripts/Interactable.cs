@@ -21,6 +21,7 @@ public class Interactable : MonoBehaviour
     public GameObject coin;
     public int coinsToWin;
     public GameObject newCoin;
+    public int price;
     private void Start()
     {
         player = FindAnyObjectByType<PlayerOverworld>().gameObject;
@@ -28,10 +29,15 @@ public class Interactable : MonoBehaviour
 
     public void StartGambling()
     {
-        if (!isGambling)
+        if (PlayerHandler.Instance.coins >= price)
         {
-            transform.GetChild(5).GetComponent<Animator>().Play("GamblingMachine", -1, 0);
-            StartCoroutine(Gamble());
+            if (!isGambling)
+            {
+                PlayerHandler.Instance.coins -= price;
+                transform.GetChild(5).GetComponent<Animator>().Play("GamblingMachine", -1, 0);
+                PlayerHandler.Instance.StatsOverworldChange();
+                StartCoroutine(Gamble());
+            }
         }
 
     }
@@ -109,6 +115,7 @@ public class Interactable : MonoBehaviour
             transform.GetChild(3).GetComponent<Animator>().Play("ClosingDoor", -1, 0);
             GetComponentInChildren<TMP_Text>().enabled = true;
             PlayerHandler.Instance.coins += coinsToWin;
+            PlayerHandler.Instance.StatsOverworldChange();
             Debug.Log("you won");
         }
         else
@@ -124,7 +131,7 @@ public class Interactable : MonoBehaviour
             GetComponentInChildren<TMP_Text>().enabled = false;
             player.GetComponent<MeshRenderer>().enabled = true;
             isGambling = false;
-            FindObjectOfType<EToInteract>().isAlreadyInteracting = false;
+            FindObjectOfType<Interact>().isAlreadyInteracting = false;
         }
 
 

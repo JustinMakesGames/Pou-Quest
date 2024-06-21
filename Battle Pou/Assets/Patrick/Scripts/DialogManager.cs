@@ -19,9 +19,13 @@ public class DialogManager : MonoBehaviour
     public GameObject battleEnemy;
     public int showDialogOption;
     public GameObject optionScreen;
-
+    public bool options;
     private void Start()
     {
+        if (options)
+        {
+            optionScreen = GameObject.FindGameObjectWithTag("Choice").transform.GetChild(0).gameObject;
+        }
         audios = AudioRef.instance.dialog;
         dialogPanel = GameObject.FindGameObjectWithTag("Dialogue").transform.GetChild(0).gameObject;
         nameText = dialogPanel.transform.GetChild(0).GetComponent<TMP_Text>();
@@ -41,6 +45,11 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator Dialog()
     {
+        EnemyOverworld[] enemies = FindObjectsOfType<EnemyOverworld>();
+        foreach (var enemy in enemies)
+        {
+            enemy.enabled = false;
+        }
         nameText.text = npcName;
         if (questNpc)
         {
@@ -73,6 +82,7 @@ public class DialogManager : MonoBehaviour
                     audios[0].Stop();
                 }
             }
+            audios[0].Stop();
             yield return new WaitUntil(() => Input.GetButtonDown("Fire1"));
             if (lines[i] == quest && questNpc)
             {
@@ -84,18 +94,21 @@ public class DialogManager : MonoBehaviour
             GetComponent<OverworldNPCS>().FinishDialog();
         }
 
-        if (optionScreen != null)
-        {
-            optionScreen.SetActive(true);
-        }
-
         if (isBoss)
         {
             StartBossBattle();
         }
         dialogPanel.SetActive(false);
         isInDialog = false;
-        FindObjectOfType<EToInteract>().isAlreadyInteracting = false;
+        FindObjectOfType<Interact>().isAlreadyInteracting = false;
+        if (!options)
+        {
+            FindAnyObjectByType<PlayerOverworld>().enabled = true;
+        }
+        foreach (var enemy in enemies)
+        {
+            enemy.enabled = true;
+        }
     }
 
     private void StartBossBattle()

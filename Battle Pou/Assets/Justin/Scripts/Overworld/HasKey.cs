@@ -7,11 +7,17 @@ public class HasKey : MonoBehaviour
 {
     public bool hasKey;
     public LayerMask door;
+    public GameObject keyPanel;
 
+    private void Start()
+    {
+        keyPanel = GameObject.FindGameObjectWithTag("Key");
+    }
     private void Update()
     {
         if (hasKey)
         {
+            keyPanel.transform.GetChild(0).gameObject.SetActive(true);
             UseKey();
         }
     }
@@ -24,21 +30,21 @@ public class HasKey : MonoBehaviour
             print(hit.transform.name);
             if (hit.collider.gameObject == hit.transform.parent.GetComponent<Tile1>().inDoor)
             {
-                FindObjectOfType<EToInteract>().doorInteraction = true;
-                FindObjectOfType<EToInteract>().door = hit.transform;
+                FindObjectOfType<Interact>().doorInteraction = true;
+                FindObjectOfType<Interact>().door = hit.transform;
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     hasKey = false;
                     StartCoroutine(LockAnimation(hit.transform));
-                    FindObjectOfType<EToInteract>().doorInteraction = false;
+                    FindObjectOfType<Interact>().doorInteraction = false;
                     
                 }
             }
         }
         else
         {
-            FindObjectOfType<EToInteract>().doorInteraction = false;
+            FindObjectOfType<Interact>().doorInteraction = false;
         }
     }
 

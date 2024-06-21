@@ -14,9 +14,18 @@ public class EnemySpawner : MonoBehaviour
 
     public List<GameObject> enemies;
     public List<GameObject> items;
+    public GameObject market;
     private void Start()
     {
-        
+        if (enemySpawns != null && enemySpawns.Count != 0)
+        {
+            if (Random.Range(0, 20) == 4)
+            {
+                int i = Random.Range(0, enemySpawns.Count);
+                Instantiate(market, enemySpawns[i].position, enemySpawns[i].rotation);
+                enemySpawns.RemoveAt(i);
+            }
+        }
         for (int i = 0; i < enemySpawns.Count; i++)
         {
             enemyToSpawn = Random.Range(0, enemiesToSpawn.Length);

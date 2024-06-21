@@ -5,6 +5,13 @@ using UnityEngine;
 public class TouchKey : MonoBehaviour
 {
     public float rotateSpeed;
+    public GameObject keyPanel;
+
+    private void Start()
+    {
+        keyPanel = GameObject.FindGameObjectWithTag("Key");
+        keyPanel.SetActive(false);
+    }
 
     private void Update()
     {
@@ -17,6 +24,7 @@ public class TouchKey : MonoBehaviour
             print("Touched key");
             GetComponent<AudioSource>().Play();
             FindObjectOfType<HasKey>().hasKey = true;
+            keyPanel.SetActive(true);
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
             Destroy(gameObject, 1f);

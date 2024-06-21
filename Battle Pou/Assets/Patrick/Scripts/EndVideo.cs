@@ -6,8 +6,13 @@ using UnityEngine.Video;
 public class EndVideo : MonoBehaviour
 {
     public GameObject mainMenu;
+    public GameObject blackScreen;
     private void Update()
     {
+        if (GetComponent<VideoPlayer>().isPlaying)
+        {
+            blackScreen.SetActive(false);
+        }
         if (GetComponent<VideoPlayer>().frame >= 180)
         {
             mainMenu.SetActive(true);

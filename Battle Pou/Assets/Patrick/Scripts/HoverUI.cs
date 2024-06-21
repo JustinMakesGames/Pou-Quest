@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class HoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    public int i;
     public float size;
     public GameObject pou;
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
@@ -39,5 +38,9 @@ public class HoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         Camera.main.GetComponent<Animator>().enabled = true;
         pou.GetComponent<Animator>().enabled = true;
+    }
+    public void TurnOn()
+    {
+        FindAnyObjectByType<PlayerOverworld>().enabled = true;
     }
 }

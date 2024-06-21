@@ -30,7 +30,7 @@ public class PickingItem : MonoBehaviour
     {
         itemTextGameObject.SetActive(true);
         itemText.text = "You got an " + item.name + "!";
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         itemTextGameObject.SetActive(false);
         Destroy(gameObject);
 

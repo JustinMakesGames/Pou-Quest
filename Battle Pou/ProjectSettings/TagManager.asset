@@ -20,6 +20,7 @@ TagManager:
   - WinScreen
   - Put
   - LoseScreen
+  - Key
   layers:
   - Default
   - TransparentFX

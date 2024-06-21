@@ -56,7 +56,8 @@ public class PoisonBottleBehaviour : EnemyProjectile
 
         else
         {
-            Instantiate(poisonGas, transform.position, Quaternion.identity);
+            GameObject poison = Instantiate(poisonGas, transform.position, Quaternion.identity);
+            Destroy(poison, 3f);
             Destroy(gameObject);
         }
         

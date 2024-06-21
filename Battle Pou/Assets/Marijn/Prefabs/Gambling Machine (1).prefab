@@ -890,10 +890,11 @@ MonoBehaviour:
   player: {fileID: 0}
   slotAudio: {fileID: 6658325775447237249}
   coinWin: {fileID: 1494008387521670237}
-  rigged: 1
+  rigged: 0
   coin: {fileID: 2323753140484191498, guid: a84b5e552159d3a41bec510e039548f0, type: 3}
   coinsToWin: 5000
   newCoin: {fileID: 0}
+  price: 5
 --- !u!65 &2458352417737965603
 BoxCollider:
   m_ObjectHideFlags: 0

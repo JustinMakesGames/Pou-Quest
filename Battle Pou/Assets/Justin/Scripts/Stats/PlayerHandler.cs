@@ -39,6 +39,7 @@ public class PlayerHandler : MonoBehaviour
 
     private void Start()
     {
+        StatsOverworldChange();
         foreach (Transform attack in transform)
         {
             if (attack.GetComponent<Attacking>().isBought)
