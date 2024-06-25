@@ -10,7 +10,7 @@ public class ResManager : MonoBehaviour
 {
     public TMP_Dropdown[] resolutionDropdown;
     private Resolution[] resolutions;
-    private List<Resolution> resolutionList = new();
+    public List<Resolution> resolutionList = new();
     private double currentRefRate;
     public int currentResolutionIndex = 0;
     public string currentRes;
@@ -45,7 +45,7 @@ public class ResManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning(refRate.ToString() + rate.ToString());
+                Debug.LogWarning("refresh rate not correct");
             }
         }
 
@@ -68,9 +68,9 @@ public class ResManager : MonoBehaviour
             v.AddOptions(options);
             v.value = currentResolutionIndex;
             v.RefreshShownValue();
-            StartCoroutine(Delay());
         }
         Debug.Log(resolutionList.Count.ToString());
+        SetResolution(resolutionList.Count - 1);
     }
     public void SetResolution(int resolutionIndex)
     {
@@ -93,12 +93,6 @@ public class ResManager : MonoBehaviour
         {
             Application.targetFrameRate = fpsLimit;
         }
-    }
-
-    IEnumerator Delay()
-    {
-        yield return null;
-        SetResolution(Save.instance.saveData.resolution);
     }
 
 }

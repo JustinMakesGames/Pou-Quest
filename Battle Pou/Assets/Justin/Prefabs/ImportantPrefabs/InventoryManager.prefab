@@ -48,4 +48,4 @@ MonoBehaviour:
   inventoryMenu: {fileID: 0}
   gObject: {fileID: 7982594772867656311, guid: c0ba3e47da768eb4fa4a95068ecc6179, type: 3}
   items: []
-  maxStackSize: 10
+  maxStackSize: 999

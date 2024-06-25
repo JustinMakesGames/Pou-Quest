@@ -88,7 +88,7 @@ public class CircleGhostAttack : EnemyMoveAround
         hasSpawned = true;
         yield return new WaitForSeconds(stats.secondAttackInterval / 2);
         hasMoven = true;
-        yield return new WaitForSeconds(stats.secondAttackInterval / 2);
+        yield return new WaitForSeconds(stats.secondAttackInterval / 2 + 0.5f);
         RemovingAllProjectiles();
         hasSpawned = false;
         hasMoven = false;

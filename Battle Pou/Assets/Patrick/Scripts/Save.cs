@@ -84,7 +84,7 @@ public class Save : MonoBehaviour
     {
         instance = this;
         saveData = LoadData();
-        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";        
+        path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";        
     }
     private void Start()
     {
@@ -105,12 +105,12 @@ public class Save : MonoBehaviour
             Debug.Log("saved stats");
             saveData.inventoryIds.Clear();
             saveData.inventoryCount.Clear();
-            path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
+            path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
             List<float> listX = new();
             List<float> listZ = new();
 
 
-            if (NewGeneration1.instance != null)
+            /*if (NewGeneration1.instance != null)
             {
                 if (NewGeneration1.instance.dungeonPositions != null)
                 {
@@ -130,24 +130,28 @@ public class Save : MonoBehaviour
                 saveData.dungeonX = listX.ToArray();
                 saveData.dungeonZ = listZ.ToArray();
 
-            }
-            
-            foreach (var v in InventoryManager.instance.items)
+            }*/
+  
+            if (PlayerHandler.Instance != null)
             {
-                saveData.inventoryIds.Add(v.GetComponentInChildren<ItemInfo>().id);
-                saveData.inventoryCount.Add(v.GetComponentInChildren<ItemInfo>().count);
+                foreach (var v in InventoryManager.instance.items)
+                {
+                    saveData.inventoryIds.Add(v.GetComponentInChildren<ItemInfo>().id);
+                    saveData.inventoryCount.Add(v.GetComponentInChildren<ItemInfo>().count);
+                }
+
+                saveData.health = PlayerHandler.Instance.hp;
+                saveData.sp = PlayerHandler.Instance.sp;
+                saveData.exp = PlayerHandler.Instance.exp;
+                saveData.attackPower = PlayerHandler.Instance.attackPower;
+                saveData.maxHp = PlayerHandler.Instance.maxHp;
+                saveData.maxExp = PlayerHandler.Instance.maxExp;
+                saveData.maxSp = PlayerHandler.Instance.maxSp;
+                saveData.coins = PlayerHandler.Instance.coins;
+                saveData.level = PlayerHandler.Instance.level;
+                saveData.attacks = PlayerHandler.Instance.allAttacks;
             }
             
-            saveData.health = PlayerHandler.Instance.hp;
-            saveData.sp = PlayerHandler.Instance.sp;
-            saveData.exp = PlayerHandler.Instance.exp;
-            saveData.attackPower = PlayerHandler.Instance.attackPower;
-            saveData.maxHp = PlayerHandler.Instance.maxHp;
-            saveData.maxExp = PlayerHandler.Instance.maxExp;
-            saveData.maxSp = PlayerHandler.Instance.maxSp;
-            saveData.coins = PlayerHandler.Instance.coins;
-            saveData.level = PlayerHandler.Instance.level;
-            saveData.attacks = PlayerHandler.Instance.allAttacks;
         }
 
         if (ResManager.instance.resolutionDropdown.Length > 0)
@@ -178,8 +182,9 @@ public class Save : MonoBehaviour
 
     SaveData LoadData()
     {
-        path = Application.dataPath + Path.AltDirectorySeparatorChar + "skibidi.toilet";
+        path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.pou";
         string json;
+       
         SaveData data;
         if (File.Exists(path))
         {
@@ -190,11 +195,14 @@ public class Save : MonoBehaviour
             string decodedJson = DecryptString(json);
 
             data = JsonUtility.FromJson<SaveData>(decodedJson);
+
+            print("Loaded the epic data: " + decodedJson);
         }
         else
         {
             data = new SaveData();
         }
+        
         return data;
     }
 

@@ -26,6 +26,15 @@ public class HandleAttackSwitch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             attackPanel.SetActive(!attackPanel.activeInHierarchy);
+
+            if (attackPanel.activeInHierarchy)
+            {
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                Time.timeScale = 1.0f;
+            }
         }
     }
 

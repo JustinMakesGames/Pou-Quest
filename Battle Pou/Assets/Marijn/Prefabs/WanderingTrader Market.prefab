@@ -171,7 +171,8 @@ PrefabInstance:
       propertyPath: lines.Array.data[1]
       value: Anyway, wanna buy something?
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1977841821058178023, guid: 9e265fd8a1cfafa4693c227bc086a35e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

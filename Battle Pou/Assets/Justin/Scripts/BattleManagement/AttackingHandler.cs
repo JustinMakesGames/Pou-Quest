@@ -20,7 +20,7 @@ public class AttackingHandler : StateHandler
         if (playerAttack != null)
         {
             player.GetComponent<MeshRenderer>().enabled = false;
-            playerAttack.GetComponentInChildren<Renderer>().enabled = true;
+            TurnPlayerRenderersOn();
             playerAttack.GetComponent<Attacking>().StartAttack();
             Poof.instance.UsePoof(player);
 
@@ -53,6 +53,16 @@ public class AttackingHandler : StateHandler
         HandlingEndOfTurn();
     }
 
+    private void TurnPlayerRenderersOn()
+    {
+        Renderer[] renderers = playerAttack.GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = true;
+        }
+    }
+
     private void HandlingEndOfTurn()
     {
         TurnAttackRendererOff();
@@ -71,7 +81,7 @@ public class AttackingHandler : StateHandler
 
     private void TurnEnemyMovementOff()
     {
-        enemy.GetComponent<NavMeshAgent>().SetDestination(enemy.position);
+         enemy.GetComponent<NavMeshAgent>().SetDestination(enemy.position);
     }
 
     private void RemovingAllProjectiles()
@@ -89,7 +99,12 @@ public class AttackingHandler : StateHandler
         if (playerAttack != null)
         {
             player.GetComponent<Renderer>().enabled = true;
-            playerAttack.GetComponentInChildren<Renderer>().enabled = false;
+            Renderer[] renderers = playerAttack.GetComponentsInChildren<Renderer>();
+
+            foreach (Renderer renderer in renderers)
+            {
+                renderer.enabled = false;
+            }
             Poof.instance.UsePoof(player);
         }
     }

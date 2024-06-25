@@ -88,14 +88,17 @@ public class EndBattle : MonoBehaviour
 
     public void OverworldManagement()
     {
-        PlayerOverworld playerScript = GameObject.FindObjectOfType<PlayerOverworld>();
+        MonoBehaviour[] playerScripts = FindObjectOfType<PlayerOverworld>().GetComponentsInChildren<MonoBehaviour>();
         CamMovement camScript = GameObject.FindObjectOfType<CamMovement>();
         EnemyOverworld[] enemyScripts = GameObject.FindObjectsOfType<EnemyOverworld>();
         foreach (EnemyOverworld script in enemyScripts)
         {
             script.enabled = true;
         }
-        playerScript.enabled = true;
+        foreach (MonoBehaviour script in playerScripts)
+        {
+            script.enabled = true;
+        }
         camScript.enabled = true;
         stats.SetActive(true);
         FindAnyObjectByType<StatsChangeOverworld>().Change();

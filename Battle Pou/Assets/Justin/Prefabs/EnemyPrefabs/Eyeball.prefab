@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackStats: {fileID: 0}
   animator: {fileID: 5585934596581207000}
+  isBought: 0
   enemy: {fileID: 0}
   player: {fileID: 0}
   battleArena:
@@ -100,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackStats: {fileID: 0}
   animator: {fileID: 5585934596581207000}
+  isBought: 0
   enemy: {fileID: 0}
   player: {fileID: 0}
   battleArena:
@@ -288,6 +290,7 @@ MonoBehaviour:
   agent: {fileID: 8456921585008843219}
   damageAudios: []
   animator: {fileID: 5585934596581207000}
+  redMaterial: {fileID: 0}
 --- !u!195 &8456921585008843219
 NavMeshAgent:
   m_ObjectHideFlags: 0

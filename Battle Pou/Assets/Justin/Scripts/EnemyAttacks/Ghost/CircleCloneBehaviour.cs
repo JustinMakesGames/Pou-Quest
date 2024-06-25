@@ -11,7 +11,6 @@ public class CircleCloneBehaviour : EnemyProjectile
         {
             AudioRef.instance.ghost.Play();
         }
-        Destroy(gameObject, stats.secondAttackInterval);
         StartCoroutine(PreparingToMove());
     }
 

@@ -39,6 +39,11 @@ public class Interactable : MonoBehaviour
                 StartCoroutine(Gamble());
             }
         }
+        else
+        {
+            player.GetComponent<PlayerOverworld>().enabled = true;
+            FindObjectOfType<Interact>().isAlreadyInteracting = false;
+        }
 
     }
     IEnumerator Gamble()

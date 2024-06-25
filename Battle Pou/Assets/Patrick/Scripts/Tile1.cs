@@ -22,7 +22,7 @@ public class Tile1 : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (GetComponent<EnemySpawner>().enemies.Count > 0)
         {
-            int chance = 1;
+            int chance = 0;
 
             if (chance == 0)
             {

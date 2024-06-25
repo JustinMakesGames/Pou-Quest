@@ -34,14 +34,19 @@ public class CreateBattleArena : MonoBehaviour
     {      
         oldCamPosition = cam.position;
         oldCamRotation = cam.rotation;
-        PlayerOverworld playerScript = GameObject.FindObjectOfType<PlayerOverworld>();
+        MonoBehaviour[] playerScripts = FindObjectOfType<PlayerOverworld>().GetComponentsInChildren<MonoBehaviour>();
         CamMovement camScript = GameObject.FindObjectOfType<CamMovement>();
         EnemyOverworld[] enemyScripts = GameObject.FindObjectsOfType<EnemyOverworld>();
         foreach (EnemyOverworld script in enemyScripts)
         {
             script.enabled = false;
         }
-        playerScript.enabled = false;
+
+        foreach (MonoBehaviour script in playerScripts)
+        {
+            script.enabled = false;
+        }
+        
         camScript.enabled = false;
 
         stats.SetActive(false);

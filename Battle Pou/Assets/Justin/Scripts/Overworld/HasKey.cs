@@ -26,7 +26,6 @@ public class HasKey : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 2, door)) 
         {
-
             print(hit.transform.name);
             if (hit.collider.gameObject == hit.transform.parent.GetComponent<Tile1>().inDoor)
             {
@@ -36,6 +35,7 @@ public class HasKey : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     hasKey = false;
+                    keyPanel.transform.GetChild(0).gameObject.SetActive(false);
                     StartCoroutine(LockAnimation(hit.transform));
                     FindObjectOfType<Interact>().doorInteraction = false;
                     

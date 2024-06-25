@@ -13,21 +13,21 @@ public class InteractingWithNPC : MonoBehaviour
         {
             if (hit.transform.GetComponent<OverworldNPCS>() != null)
             {
-                hit.transform.GetComponent<OverworldNPCS>().IsTalkingToNPC();
                 transform.GetComponent<PlayerOverworld>().enabled = false;
                 FindObjectOfType<Interact>().isAlreadyInteracting = true;
+                hit.transform.GetComponent<OverworldNPCS>().IsTalkingToNPC();
             }
             if (hit.collider.GetComponent<DialogManager>() != null)
             {
-                hit.transform.GetComponent<DialogManager>().StartDialog();
                 transform.GetComponent<PlayerOverworld>().enabled = false;
                 FindObjectOfType<Interact>().isAlreadyInteracting = true;
+                hit.transform.GetComponent<DialogManager>().StartDialog();
             }
             if (hit.collider.GetComponent<Interactable>() != null)
             {
-                hit.collider.GetComponent<Interactable>().StartGambling();
                 transform.GetComponent<PlayerOverworld>().enabled = false;
                 FindObjectOfType<Interact>().isAlreadyInteracting = true;
+                hit.collider.GetComponent<Interactable>().StartGambling();
             }
             
             

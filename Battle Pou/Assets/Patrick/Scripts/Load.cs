@@ -13,36 +13,50 @@ public class Load : MonoBehaviour
     {
         if (data != null)
         {
-            if (!mainMenu)
+            //if (data.inventoryIds != null && data.inventoryIds.Count > 0)
+            //{
+            //for (int i = 0; i < data.inventoryIds.Count; i++)
+            //{
+            //    InventoryManager.instance.AddItem(items[data.inventoryIds[i]]);
+            //    InventoryManager.instance.items[i].GetComponentInChildren<ItemInfo>().count = data.inventoryCount[i];
+            //    Debug.Log(data.inventoryIds[i]);
+            //}
+
+
+            //}
+
+            //foreach (Transform attack in shopScreen)
+            //{
+            //    for (int i = 0; i < data.attacks.Count; i++)
+            //    {
+            //        if (attack.GetComponent<AttackShop>().attack.GetComponent<Attacking>().attackStats.id == data.attacks[i])
+            //        {
+            //            attack.GetComponent<AttackShop>().SetAttackInInventory();
+            //        }
+            //    }
+
+            //}
+
+            if (PlayerHandler.Instance != null)
             {
-                //if (data.inventoryIds != null && data.inventoryIds.Count > 0)
-                //{
-                    //for (int i = 0; i < data.inventoryIds.Count; i++)
-                    //{
-                    //    InventoryManager.instance.AddItem(items[data.inventoryIds[i]]);
-                    //    InventoryManager.instance.items[i].GetComponentInChildren<ItemInfo>().count = data.inventoryCount[i];
-                    //    Debug.Log(data.inventoryIds[i]);
-                    //}
-
-
-                //}
-
-                //foreach (Transform attack in shopScreen)
-                //{
-                //    for (int i = 0; i < data.attacks.Count; i++)
-                //    {
-                //        if (attack.GetComponent<AttackShop>().attack.GetComponent<Attacking>().attackStats.id == data.attacks[i])
-                //        {
-                //            attack.GetComponent<AttackShop>().SetAttackInInventory();
-                //        }
-                //    }
-
-                //}
-                foreach (int i in data.inventoryIds)
+                if (data.inventoryIds.Count > 0)
                 {
-                    InventoryManager.instance.AddItem(items[i]);
-                    InventoryManager.instance.items[i].GetComponentInChildren<ItemInfo>().count = data.inventoryCount[i];
+                    for(int i = 0; i < data.inventoryIds.Count; i++)
+                    {
+                        InventoryManager.instance.AddItem(items[i]);
+                        
+                    }
+
+                    int count = 0;
+                    foreach (GameObject item in InventoryManager.instance.items)
+                    {
+                        
+                        item.GetComponentInChildren<ItemInfo>().count = data.inventoryCount[count];
+                        count++;
+                    }
+                    
                 }
+                
                 PlayerHandler.Instance.level = data.level;
                 PlayerHandler.Instance.attackPower = data.attackPower;
                 PlayerHandler.Instance.hp = data.health;
@@ -54,9 +68,11 @@ public class Load : MonoBehaviour
                 PlayerHandler.Instance.maxExp = data.maxExp;
             }
 
+
+
         }
         StartCoroutine(Delay(data));
-
+        print("Loaded this data: " + data);
 
 
     }
@@ -66,8 +82,8 @@ public class Load : MonoBehaviour
         yield return null;
         ResManager.instance.FPSLimit(Convert.ToString(data.fpsLimit));
         ResManager.instance.currentResolutionIndex = data.resolution;
-        ResManager.instance.SetResolution(data.resolution);
         ResManager.instance.fullscreen = data.fullScreen;
+        ResManager.instance.SetResolution(data.resolution);
     }
     
 
