@@ -72,6 +72,20 @@ public class InventoryManager : MonoBehaviour
         
         item.GetComponentInChildren<ItemInfo>().count--;
         item.GetComponentInChildren<TMP_Text>().text = item.GetComponentInChildren<ItemInfo>().count.ToString();
+        PlayerHandler.Instance.hp += item.GetComponentInChildren<ItemInfo>().hpPlus;
+        PlayerHandler.Instance.sp += item.GetComponentInChildren<ItemInfo>().spPlus;
+
+        if (PlayerHandler.Instance.hp > PlayerHandler.Instance.maxHp)
+        {
+            PlayerHandler.Instance.hp = PlayerHandler.Instance.maxHp;
+        }
+
+        if (PlayerHandler.Instance.sp > PlayerHandler.Instance.maxSp)
+        {
+            PlayerHandler.Instance.sp = PlayerHandler.Instance.maxSp;
+        }
+
+        PlayerHandler.Instance.StatsOverworldChange();
         if (item.GetComponentInChildren<ItemInfo>().count <= 0)
         {
             items.Remove(item);

@@ -101,7 +101,7 @@ public class DialogManager : MonoBehaviour
         dialogPanel.SetActive(false);
         isInDialog = false;
         FindObjectOfType<Interact>().isAlreadyInteracting = false;
-        if (!options)
+        if (!options && !isBoss)
         {
             FindAnyObjectByType<PlayerOverworld>().enabled = true;
         }
@@ -113,8 +113,10 @@ public class DialogManager : MonoBehaviour
 
     private void StartBossBattle()
     {
+        CreateBattleArena.instance.isBoss = true;
         BattleTransition.instance.StartBattle();
         CreateBattleArena.instance.SpawnEnemy(battleEnemy);
+        
         FindAnyObjectByType<TriggerPouDialog>().GetComponent<AudioSource>().Stop();
         GameObject.FindGameObjectWithTag("BossMusic").GetComponent<AudioSource>().Play();
         EndBattle.instance.GetEnemy(gameObject);

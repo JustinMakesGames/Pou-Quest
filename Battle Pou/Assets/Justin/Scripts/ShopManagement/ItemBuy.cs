@@ -11,6 +11,7 @@ public class ItemBuy : MonoBehaviour
         if (PlayerHandler.Instance.coins >= price)
         {
             PlayerHandler.Instance.coins -= price;
+            PlayerHandler.Instance.StatsOverworldChange();
             InventoryManager.instance.AddItem(item);
         }
     }

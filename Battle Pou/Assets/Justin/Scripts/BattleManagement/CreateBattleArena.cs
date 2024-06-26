@@ -34,7 +34,7 @@ public class CreateBattleArena : MonoBehaviour
     {      
         oldCamPosition = cam.position;
         oldCamRotation = cam.rotation;
-        MonoBehaviour[] playerScripts = FindObjectOfType<PlayerOverworld>().GetComponentsInChildren<MonoBehaviour>();
+        MonoBehaviour[] playerScripts = FindObjectOfType<PlayerOverworld>().GetComponents<MonoBehaviour>();
         CamMovement camScript = GameObject.FindObjectOfType<CamMovement>();
         EnemyOverworld[] enemyScripts = GameObject.FindObjectsOfType<EnemyOverworld>();
         foreach (EnemyOverworld script in enemyScripts)
@@ -55,11 +55,16 @@ public class CreateBattleArena : MonoBehaviour
     public void MakeBattleArena()
     {
         battleArenaClone = Instantiate(battleArena, arenaSpawn.position, Quaternion.identity);
+        AudioRef.instance.ambient.Pause();
         if (!isBoss)
-        {
-            AudioRef.instance.ambient.Pause();
+        {          
             battleMusic.Play();
         }
+        else
+        {
+            Destroy(battleArenaClone.transform.GetChild(1).GetChild(1).GetChild(2).gameObject);
+        }
+        EndBattle.instance.isInBattle = true;
     }
 
     public void SpawnEnemy(GameObject enemy)

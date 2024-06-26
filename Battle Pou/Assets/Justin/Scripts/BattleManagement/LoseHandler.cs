@@ -7,6 +7,10 @@ public class LoseHandler : StateHandler
 {
     public GameObject loseUI;
 
+    private void Start()
+    {
+        loseUI = GameObject.FindGameObjectWithTag("WinScreen").transform.GetChild(1).gameObject;
+    }
     public override void HandleState()
     {
         RemovingAllProjectiles();
@@ -37,10 +41,5 @@ public class LoseHandler : StateHandler
         {
             Destroy(projectile);
         }
-    }
-
-    public void ResetGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

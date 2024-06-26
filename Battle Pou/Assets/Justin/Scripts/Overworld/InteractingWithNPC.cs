@@ -17,7 +17,7 @@ public class InteractingWithNPC : MonoBehaviour
                 FindObjectOfType<Interact>().isAlreadyInteracting = true;
                 hit.transform.GetComponent<OverworldNPCS>().IsTalkingToNPC();
             }
-            if (hit.collider.GetComponent<DialogManager>() != null)
+            if (hit.collider.GetComponent<DialogManager>() != null && hit.collider.GetComponent<OverworldNPCS>() == null)
             {
                 transform.GetComponent<PlayerOverworld>().enabled = false;
                 FindObjectOfType<Interact>().isAlreadyInteracting = true;

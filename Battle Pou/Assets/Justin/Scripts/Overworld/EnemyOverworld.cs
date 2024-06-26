@@ -196,14 +196,26 @@ public class EnemyOverworld : MonoBehaviour
 
     private void OnDisable()
     {
-        if (agent.velocity.magnitude >= 0.15f)
-            agent.isStopped = true;
+        if (!transform.parent.gameObject.activeInHierarchy)
+        {
+            if (agent.velocity.magnitude > 0f)
+            {
+                agent.isStopped = true;
+            }
+            
+        }
+        else
+        {
+            agent.SetDestination(transform.position);
+        }
+
+            
         StopAllCoroutines();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && this.enabled)
         {
             BattleTransition.instance.StartBattle();
             CreateBattleArena.instance.SpawnEnemy(battleEnemy);

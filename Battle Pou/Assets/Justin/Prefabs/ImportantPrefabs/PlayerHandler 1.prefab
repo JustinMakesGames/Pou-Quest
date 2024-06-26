@@ -58,7 +58,7 @@ MonoBehaviour:
   exp: 0
   maxExp: 100
   level: 1
-  coins: 50
+  coins: 0
   battlePlayer: {fileID: 0}
   attacks:
   - {fileID: 6636557230557103407}

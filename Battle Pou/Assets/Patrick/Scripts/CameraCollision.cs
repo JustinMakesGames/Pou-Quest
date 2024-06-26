@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class CameraCollision : MonoBehaviour
 {
-    private void FixedUpdate()
+    public bool hasHit;
+    private void Update()
     {
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 0.3f))
         {
-            if (hit.collider.CompareTag("Put"))
+            if (hit.collider.CompareTag("Put") && !hasHit)
             {
-                SceneManager.LoadScene("HUB");
+                FindObjectOfType<SceneTransition>().StartSceneSwitch();
+                hasHit = true;
             }
 
         }

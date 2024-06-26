@@ -39,7 +39,7 @@ public class PlayerHandler : MonoBehaviour
 
     private void Start()
     {
-        StatsOverworldChange();
+        StartCoroutine(StartingToChange());
         foreach (Transform attack in transform)
         {
             if (attack.GetComponent<Attacking>().isBought)
@@ -47,6 +47,12 @@ public class PlayerHandler : MonoBehaviour
                 allAttacks.Add(attack.GetComponent<Attacking>().attackStats.id);
             }
         }
+    }
+
+    private IEnumerator StartingToChange()
+    {
+        yield return null;
+        StatsOverworldChange();
     }
 
     public void BattlePlayerSet(Transform player)

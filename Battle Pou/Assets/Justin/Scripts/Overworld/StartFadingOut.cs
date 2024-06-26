@@ -20,6 +20,7 @@ public class StartFadingOut : MonoBehaviour
             blackScreen.color -= new Color(0, 0, 0, blackScreenFadeSpeed * Time.deltaTime);
             yield return null;
         }
+        FindObjectOfType<PlayerOverworld>().enabled = true;
     }
 
 

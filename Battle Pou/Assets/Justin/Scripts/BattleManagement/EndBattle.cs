@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class EndBattle : MonoBehaviour
 
     public GameObject overworldEnemy;
     public GameObject stats;
+    public bool isInBattle;
+    public bool isInvincible;
 
     private void Awake()
     {
@@ -88,7 +91,7 @@ public class EndBattle : MonoBehaviour
 
     public void OverworldManagement()
     {
-        MonoBehaviour[] playerScripts = FindObjectOfType<PlayerOverworld>().GetComponentsInChildren<MonoBehaviour>();
+        MonoBehaviour[] playerScripts = FindObjectOfType<PlayerOverworld>().GetComponents<MonoBehaviour>();
         CamMovement camScript = GameObject.FindObjectOfType<CamMovement>();
         EnemyOverworld[] enemyScripts = GameObject.FindObjectsOfType<EnemyOverworld>();
         foreach (EnemyOverworld script in enemyScripts)
@@ -103,6 +106,8 @@ public class EndBattle : MonoBehaviour
         stats.SetActive(true);
         FindAnyObjectByType<StatsChangeOverworld>().Change();
         AudioRef.instance.ambient.Play();
+        CreateBattleArena.instance.isBoss = false;
+        isInBattle = false;
     }
 
     public void MakePlayerInvincible()
@@ -113,11 +118,16 @@ public class EndBattle : MonoBehaviour
     public void KeepEnemyAlife()
     {
         StartCoroutine(KeepImmuneFrames());
+        StartCoroutine(KeepingScriptFalse());
+        
     }
 
     private IEnumerator KeepImmuneFrames()
     {
         yield return new WaitUntil(() => Camera.main.fieldOfView <= 30);
+        yield return new WaitUntil(() => Fading.instance.blackScreen.color.a <= 0.01f);
+        yield return null;
+        isInvincible = true;
         overworldEnemy.GetComponent<EnemyOverworld>().enabled = false;
         Renderer renderer = overworldEnemy.GetComponentInChildren<Renderer>();
         int amountOfFrames = 20;
@@ -130,6 +140,21 @@ public class EndBattle : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
+        isInvincible = false;
         overworldEnemy.GetComponent<EnemyOverworld>().enabled = true;
+    }
+
+    private IEnumerator KeepingScriptFalse()
+    {
+        while (isInvincible)
+        {
+            if (isInBattle)
+            {
+                StopCoroutine(KeepImmuneFrames());
+                isInvincible = false;
+            }
+
+            yield return null;
+        }
     }
 }

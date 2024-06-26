@@ -15,6 +15,7 @@ public class PlayerOverworld : MonoBehaviour
     private Vector3 dir;
     private Rigidbody rb;
     public GameObject inventory;
+    public Animator animator;
 
     
     
