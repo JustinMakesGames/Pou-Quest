@@ -43,4 +43,9 @@ public class HoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         FindAnyObjectByType<PlayerOverworld>().enabled = true;
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

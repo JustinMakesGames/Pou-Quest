@@ -135,7 +135,7 @@ MonoBehaviour:
   battleEnemy: {fileID: 0}
   showDialogOption: 1
   optionScreen: {fileID: 0}
-  options: 0
+  options: 1
 --- !u!1001 &4245111956343349072
 PrefabInstance:
   m_ObjectHideFlags: 0

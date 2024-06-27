@@ -95,11 +95,27 @@ public class PlayerHandler : MonoBehaviour
     {
         int invincibleFrameCount = 5;
 
+        Renderer[] renderers = null;
+        if (player.CompareTag("BattlePlayer"))
+        {
+            renderers = player.GetChild(0).GetComponentsInChildren<Renderer>();
+        }
+        else
+        {
+            renderers = player.GetComponentsInChildren<Renderer>();
+        }
+        
         for (int i = 0; i < invincibleFrameCount; i++)
         {
-            player.GetComponentInChildren<Renderer>().enabled = false;
+            foreach (Renderer renderer in renderers)
+            {
+                renderer.enabled = false;
+            }
             yield return new WaitForSeconds(0.1f);
-            player.GetComponentInChildren<Renderer>().enabled = true;
+            foreach (Renderer renderer in renderers)
+            {
+                renderer.enabled = true;
+            }
             yield return new WaitForSeconds(0.1f);
         }
         immunityFrames = false;

@@ -924,58 +924,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 398583572590899616}
+        m_TargetAssemblyTypeName: SetTimeNormal, Assembly-CSharp
+        m_MethodName: SettingTimeToNormal
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2938,6 +2890,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 398583572590899616}
+        m_TargetAssemblyTypeName: SetTimeNormal, Assembly-CSharp
+        m_MethodName: SettingTimeToNormal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &8917915889538680905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4783,8 +4747,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 500
   attack: {fileID: 0}
-  attackName: Spear
-  attackDescription: Use a powerful melee attack.
+  attackName: Staff
+  attackDescription: Use a fast shooting staff.
   attackButton: {fileID: 1030586704289938115, guid: f3f57f0638846e6488ae4c5900a243be,
     type: 3}
   attackButtonClone: {fileID: 0}
@@ -14324,6 +14288,7 @@ GameObject:
   - component: {fileID: 5495702175679062833}
   - component: {fileID: 5257575477097739499}
   - component: {fileID: 2010927930443414389}
+  - component: {fileID: 398583572590899616}
   m_Layer: 5
   m_Name: Canvas 3
   m_TagString: Untagged
@@ -14456,6 +14421,18 @@ MonoBehaviour:
   fullscreen: 0
   fpsLimit: 0
   obj: {fileID: 0}
+--- !u!114 &398583572590899616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391363794061172797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f54a27b8b8b4884881072df663e7d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7417212874500409492
 GameObject:
   m_ObjectHideFlags: 0
@@ -14971,8 +14948,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 250
   attack: {fileID: 0}
-  attackName: Spear
-  attackDescription: Use a powerful melee attack.
+  attackName: Halbert
+  attackDescription: Use a powerful halbert to defeat your opponents.
   attackButton: {fileID: 1030586704289938115, guid: f3f57f0638846e6488ae4c5900a243be,
     type: 3}
   attackButtonClone: {fileID: 0}

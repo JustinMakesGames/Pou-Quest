@@ -139,9 +139,6 @@ public class Save : MonoBehaviour
                     saveData.inventoryIds.Add(v.GetComponentInChildren<ItemInfo>().id);
                     saveData.inventoryCount.Add(v.GetComponentInChildren<ItemInfo>().count);
                 }
-
-                saveData.health = PlayerHandler.Instance.hp;
-                saveData.sp = PlayerHandler.Instance.sp;
                 saveData.exp = PlayerHandler.Instance.exp;
                 saveData.attackPower = PlayerHandler.Instance.attackPower;
                 saveData.maxHp = PlayerHandler.Instance.maxHp;

@@ -13,14 +13,22 @@ public class InvincibleFrames : MonoBehaviour
     private IEnumerator IsBeingInvincible()
     {
         isInvincible = true;
-        Renderer renderer = GetComponent<Renderer>();
+        Renderer[] renderers = transform.GetChild(0).GetComponentsInChildren<Renderer>();
         int amountOfFrames = 10;
+
 
         for (int i = 0; i < amountOfFrames; i++)
         {
-            renderer.enabled = false;
+            foreach (Renderer renderer in renderers)
+            {
+                renderer.enabled = false;
+            }
+            
             yield return new WaitForSeconds(0.1f);
-            renderer.enabled = true;
+            foreach (Renderer renderer in renderers)
+            {
+                renderer.enabled = true;
+            }
             yield return new WaitForSeconds(0.1f);
         }
 

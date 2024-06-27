@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Staff
   m_EditorClassIdentifier: 
   id: 4
-  spCost: 4
+  spCost: 6
   attackPower: 2
   projectileSpeed: 20
   attackInterval: 0.3

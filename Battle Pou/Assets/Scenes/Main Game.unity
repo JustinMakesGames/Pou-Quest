@@ -331,7 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 6549844785989392671}
   blackScreenFadeSpeed: 0.8
-  sceneName: Patrick
+  sceneName: MainMenu
 --- !u!4 &143647631
 Transform:
   m_ObjectHideFlags: 0
@@ -347,6 +347,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &190809599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 398583572590899616, guid: 38ba97c9e173cf740adb7fb884389dca,
+    type: 3}
+  m_PrefabInstance: {fileID: 4957624417964108462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f54a27b8b8b4884881072df663e7d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &201117851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4375406020097589768, guid: 918ef5234c2437e4fbb9776c3d6b11f5,
@@ -2722,11 +2734,16 @@ PrefabInstance:
     - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
@@ -2736,13 +2753,33 @@ PrefabInstance:
       objectReference: {fileID: 143647630}
     - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 190809599}
+    - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: StartSceneSwitch
       objectReference: {fileID: 0}
     - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SettingTimeToNormal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SceneTransition, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: SetTimeNormal, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
         type: 3}
@@ -2752,6 +2789,11 @@ PrefabInstance:
     - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226176900072989129, guid: 38ba97c9e173cf740adb7fb884389dca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3372266821760029198, guid: 38ba97c9e173cf740adb7fb884389dca,

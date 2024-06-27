@@ -16,6 +16,8 @@ public class PlayerOverworld : MonoBehaviour
     private Rigidbody rb;
     public GameObject inventory;
     public Animator animator;
+    public float timer;
+    public float endTimer;
 
     
     
@@ -29,6 +31,9 @@ public class PlayerOverworld : MonoBehaviour
     {
         InputCheck();
         OpeningInventory();
+        PlayIdleAnimations();
+        PlayWalkingAnimations();
+        
     }
 
     private void FixedUpdate()
@@ -47,6 +52,32 @@ public class PlayerOverworld : MonoBehaviour
     {
         dir = new Vector3(hor, 0, vert);
         rb.velocity = dir.normalized * speed * Time.deltaTime;
+    }
+
+    private void PlayIdleAnimations()
+    {
+        if (rb.velocity.magnitude < 0.1f)
+        {
+            timer += Time.deltaTime;
+
+            if (timer > endTimer)
+            {
+                timer = 0;
+                int randomIdleAnimation = Random.Range(1, 4);
+
+                animator.SetTrigger("PlayIdle" + randomIdleAnimation.ToString());
+            }
+        }
+
+        else
+        {
+            timer = 0;
+        }
+    }
+
+    private void PlayWalkingAnimations()
+    {
+        animator.SetFloat("Walking", rb.velocity.magnitude);
     }
 
     private void Rotation()

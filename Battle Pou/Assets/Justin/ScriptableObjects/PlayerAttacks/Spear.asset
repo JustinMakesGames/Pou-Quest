@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spear
   m_EditorClassIdentifier: 
   id: 3
-  spCost: 7
+  spCost: 2
   attackPower: 4
   projectileSpeed: 0
   attackInterval: 3

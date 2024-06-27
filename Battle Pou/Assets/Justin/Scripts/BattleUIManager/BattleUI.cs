@@ -57,7 +57,7 @@ public class BattleUI : MonoBehaviour
     {
         yield return null;
         yield return null;
-        for (int i = 0; i < player.childCount; i++)
+        for (int i = 1; i < player.childCount; i++)
         {
             attacks.Add(player.GetChild(i));
         }
@@ -145,8 +145,7 @@ public class BattleUI : MonoBehaviour
     
     public void Flee()
     {
-        //int chanceToEscape = Random.Range(0,3);
-        int chanceToEscape = 0;
+        int chanceToEscape = Random.Range(0,2);
         if (chanceToEscape == 0)
         {
             BattleManager.instance.HandlingStates(BattleState.Flee);

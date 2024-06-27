@@ -25,17 +25,21 @@ public class Load : MonoBehaviour
 
             //}
 
-            //foreach (Transform attack in shopScreen)
-            //{
-            //    for (int i = 0; i < data.attacks.Count; i++)
-            //    {
-            //        if (attack.GetComponent<AttackShop>().attack.GetComponent<Attacking>().attackStats.id == data.attacks[i])
-            //        {
-            //            attack.GetComponent<AttackShop>().SetAttackInInventory();
-            //        }
-            //    }
+            if (shopScreen != null)
+            {
+                foreach (Transform attack in shopScreen)
+                {
+                    for (int i = 0; i < data.attacks.Count; i++)
+                    {
+                        if (attack.GetComponent<AttackShop>().attack.GetComponent<Attacking>().attackStats.id == data.attacks[i])
+                        {
+                            attack.GetComponent<AttackShop>().SetAttackInInventory();
+                        }
+                    }
 
-            //}
+                }
+            }
+            
 
             if (PlayerHandler.Instance != null)
             {
@@ -59,8 +63,8 @@ public class Load : MonoBehaviour
                 
                 PlayerHandler.Instance.level = data.level;
                 PlayerHandler.Instance.attackPower = data.attackPower;
-                PlayerHandler.Instance.hp = data.health;
-                PlayerHandler.Instance.sp = data.sp;
+                PlayerHandler.Instance.hp = data.maxHp;
+                PlayerHandler.Instance.sp = data.maxSp;
                 PlayerHandler.Instance.exp = data.exp;
                 PlayerHandler.Instance.maxHp = data.maxHp;
                 PlayerHandler.Instance.maxSp = data.maxSp;

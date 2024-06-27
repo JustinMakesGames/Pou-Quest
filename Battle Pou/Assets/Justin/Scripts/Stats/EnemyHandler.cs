@@ -83,7 +83,9 @@ public class EnemyHandler : MonoBehaviour
             yield return new WaitForSeconds(1);
             animator.SetTrigger("Death");
             yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
-        }      
+        }
+
+        FindObjectOfType<Poof>().UsePoof(transform);
         Destroy(gameObject);
         
     }

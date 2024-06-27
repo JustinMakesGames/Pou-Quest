@@ -100,10 +100,16 @@ public class DialogManager : MonoBehaviour
         }
         dialogPanel.SetActive(false);
         isInDialog = false;
-        FindObjectOfType<Interact>().isAlreadyInteracting = false;
+        
         if (!options && !isBoss)
         {
             FindAnyObjectByType<PlayerOverworld>().enabled = true;
+
+        }
+
+        if (!options)
+        {
+            FindObjectOfType<Interact>().isAlreadyInteracting = false;
         }
         foreach (var enemy in enemies)
         {

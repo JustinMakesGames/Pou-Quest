@@ -352,7 +352,7 @@ PrefabInstance:
     - target: {fileID: 8708351233860162362, guid: 2b62dee77a6932645a99e2a829deab9a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8708351233860162362, guid: 2b62dee77a6932645a99e2a829deab9a,
         type: 3}
@@ -533,7 +533,7 @@ MonoBehaviour:
   attackStats: {fileID: 11400000, guid: c3bc226c7b4811c4d8b21507b3b8bfd6, type: 2}
   animator: {fileID: 433828226532405857}
   isBought: 0
-  projectile: {fileID: 2896436688900702437, guid: 81467d3fdf4c9024199ccfc8d6f10f4f,
+  projectile: {fileID: 2144516620990342694, guid: cb5be12ec3534774aa144c7eefb0ebc4,
     type: 3}
   spawnPlace: {fileID: 7347306260553869363}
   playerMovement: {fileID: 0}
@@ -772,7 +772,7 @@ PrefabInstance:
     - target: {fileID: 7749529083286999563, guid: 258d60b54f343e5468db489acb34ea81,
         type: 3}
       propertyPath: m_Name
-      value: Spear better
+      value: Spear
       objectReference: {fileID: 0}
     - target: {fileID: 8109619346827834334, guid: 258d60b54f343e5468db489acb34ea81,
         type: 3}

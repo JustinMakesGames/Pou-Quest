@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Axe
   m_EditorClassIdentifier: 
   id: 5
-  spCost: 4
+  spCost: 3
   attackPower: 3
   projectileSpeed: 0
   attackInterval: 2
