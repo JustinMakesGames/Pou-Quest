@@ -145,7 +145,7 @@ public class BattleUI : MonoBehaviour
     
     public void Flee()
     {
-        int chanceToEscape = Random.Range(0,2);
+        int chanceToEscape = 0;
         if (chanceToEscape == 0)
         {
             BattleManager.instance.HandlingStates(BattleState.Flee);

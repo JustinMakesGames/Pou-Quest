@@ -112,4 +112,9 @@ public class PlayerOverworld : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        animator.SetFloat("Walking", 0);
+    }
+
 }

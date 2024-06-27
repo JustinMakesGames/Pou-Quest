@@ -31,6 +31,12 @@ public class EndBattle : MonoBehaviour
         cam = Camera.main.transform;
         battleArenaClone = FindObjectOfType<BattleManager>().gameObject;
         FindAnyObjectByType<CreateBattleArena>().battleMusic.Stop();
+
+        if (GameObject.FindGameObjectWithTag("BossMusic") != null)
+        {
+            GameObject.FindGameObjectWithTag("BossMusic").GetComponent<AudioSource>().Stop();
+        }
+
         FindAnyObjectByType<CreateBattleArena>().battleMusic.time = 0;
     }
 
@@ -117,6 +123,7 @@ public class EndBattle : MonoBehaviour
 
     public void KeepEnemyAlife()
     {
+        isInvincible = true;
         StartCoroutine(KeepImmuneFrames());
         StartCoroutine(KeepingScriptFalse());
         
@@ -124,10 +131,11 @@ public class EndBattle : MonoBehaviour
 
     private IEnumerator KeepImmuneFrames()
     {
+
         yield return new WaitUntil(() => Camera.main.fieldOfView <= 30);
         yield return new WaitUntil(() => Fading.instance.blackScreen.color.a <= 0.01f);
         yield return null;
-        isInvincible = true;
+
         overworldEnemy.GetComponent<EnemyOverworld>().enabled = false;
         Renderer renderer = overworldEnemy.GetComponentInChildren<Renderer>();
         int amountOfFrames = 20;
@@ -155,6 +163,7 @@ public class EndBattle : MonoBehaviour
             }
 
             yield return null;
+            print("Is being invincible");
         }
     }
 }

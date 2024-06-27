@@ -12,7 +12,7 @@ public class TriggerPouDialog : MonoBehaviour
         {
             hasTriggered = true;
             FindObjectOfType<PlayerOverworld>().enabled = false;
-            GameObject.FindGameObjectWithTag("Audio").GetComponentAtIndex<AudioSource>(5).Stop();
+            GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioRef>().ambient.Stop();
             GetComponent<AudioSource>().Play();
             pouDialog.StartDialog();
         }

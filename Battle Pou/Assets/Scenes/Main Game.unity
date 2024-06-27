@@ -992,6 +992,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: OverworldPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 3158677708508810810, guid: 796d29ab95556f64084f0926fabdd1e1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 465b019b82beaa04c8aa595bcabf1bcb, type: 2}
+    - target: {fileID: 3158677708508810810, guid: 796d29ab95556f64084f0926fabdd1e1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 657693fd104187548b570a7b9bf997e5, type: 2}
     - target: {fileID: 5181862318200840383, guid: 796d29ab95556f64084f0926fabdd1e1,
         type: 3}
       propertyPath: area
