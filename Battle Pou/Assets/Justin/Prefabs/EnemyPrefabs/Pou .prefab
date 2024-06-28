@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackStats: {fileID: 0}
   animator: {fileID: 0}
+  isBought: 0
   enemy: {fileID: 0}
   player: {fileID: 0}
   battleArena:
@@ -104,13 +105,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackStats: {fileID: 0}
   animator: {fileID: 0}
+  isBought: 0
   enemy: {fileID: 0}
   player: {fileID: 0}
   battleArena:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   stats: {fileID: 0}
-  maxScale: 50
+  maxScale: 40
   growSpeed: 50
   upSpeed: 20
   indicator: {fileID: 1498803965784521188, guid: c741ce1106ea27143b78b25901f70961,
@@ -167,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackStats: {fileID: 0}
   animator: {fileID: 0}
+  isBought: 0
   enemy: {fileID: 0}
   player: {fileID: 0}
   battleArena:
@@ -337,6 +340,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   damageAudios: []
   animator: {fileID: 0}
+  redMaterial: {fileID: 0}
 --- !u!65 &3821812849096267358
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -19,6 +19,9 @@ public class EndBattle : MonoBehaviour
     public bool isInBattle;
     public bool isInvincible;
 
+    public Coroutine immuneFrames;
+    public Renderer enemyRenderer;
+
     private void Awake()
     {
         if (instance == null)
@@ -97,6 +100,7 @@ public class EndBattle : MonoBehaviour
 
     public void OverworldManagement()
     {
+        FindObjectOfType<InvincibleFrames>().StartInvincibleFrames();
         MonoBehaviour[] playerScripts = FindObjectOfType<PlayerOverworld>().GetComponents<MonoBehaviour>();
         CamMovement camScript = GameObject.FindObjectOfType<CamMovement>();
         EnemyOverworld[] enemyScripts = GameObject.FindObjectsOfType<EnemyOverworld>();
@@ -113,18 +117,13 @@ public class EndBattle : MonoBehaviour
         FindAnyObjectByType<StatsChangeOverworld>().Change();
         AudioRef.instance.ambient.Play();
         CreateBattleArena.instance.isBoss = false;
-        isInBattle = false;
-    }
-
-    public void MakePlayerInvincible()
-    {
-        FindObjectOfType<InvincibleFrames>().StartInvincibleFrames();
     }
 
     public void KeepEnemyAlife()
     {
+        isInBattle = false;
         isInvincible = true;
-        StartCoroutine(KeepImmuneFrames());
+        immuneFrames = StartCoroutine(KeepImmuneFrames());
         StartCoroutine(KeepingScriptFalse());
         
     }
@@ -137,14 +136,14 @@ public class EndBattle : MonoBehaviour
         yield return null;
 
         overworldEnemy.GetComponent<EnemyOverworld>().enabled = false;
-        Renderer renderer = overworldEnemy.GetComponentInChildren<Renderer>();
+        enemyRenderer = overworldEnemy.GetComponentInChildren<Renderer>();
         int amountOfFrames = 20;
 
         for (int i = 0; i < amountOfFrames; i++)
         {
-            renderer.enabled = false;
+            enemyRenderer.enabled = false;
             yield return new WaitForSeconds(0.1f);
-            renderer.enabled = true;
+            enemyRenderer.enabled = true;
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -158,8 +157,9 @@ public class EndBattle : MonoBehaviour
         {
             if (isInBattle)
             {
-                StopCoroutine(KeepImmuneFrames());
+                StopCoroutine(immuneFrames);
                 isInvincible = false;
+                enemyRenderer.enabled = true;
             }
 
             yield return null;

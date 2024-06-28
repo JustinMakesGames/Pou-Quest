@@ -34,7 +34,6 @@ public class BattleTransition : MonoBehaviour
         endBattle += EndBattle.instance.SettingUpDeletion;
         endBattle += EndBattle.instance.StartingCoroutines;
         endBattle += EndBattle.instance.PrepareToDestroyEnemy;
-        endBattle += EndBattle.instance.MakePlayerInvincible;
 
         //Fleeing Battle
         fleeBattle += Fading.instance.FadingOut;
@@ -42,7 +41,6 @@ public class BattleTransition : MonoBehaviour
         fleeBattle += EndBattle.instance.StartingCoroutines;
         fleeBattle += EndBattle.instance.KeepEnemyAlife;
         fleeBattle += EndBattle.instance.DestroyBattleEnemy;
-        fleeBattle += EndBattle.instance.MakePlayerInvincible;
     }
 
     public void StartBattle()

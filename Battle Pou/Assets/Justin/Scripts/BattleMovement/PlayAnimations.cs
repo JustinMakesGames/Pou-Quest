@@ -17,6 +17,7 @@ public class PlayAnimations : MonoBehaviour
     {
         if (rb.velocity.magnitude < 0.1f)
         {
+            animator.SetFloat("Walking", 0);
             timer += Time.deltaTime;
 
             if (timer > endTimer)
@@ -31,6 +32,8 @@ public class PlayAnimations : MonoBehaviour
         else
         {
             timer = 0;
+            
+            
         }
     }
 }

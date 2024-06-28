@@ -51,7 +51,12 @@ public class Interactable : MonoBehaviour
         //StartCoroutine(CoinAnimation());
         StartCoroutine(Lerp());
         Camera.main.GetComponent<CamMovement>().enabled = false;
-        player.GetComponent<MeshRenderer>().enabled = false;
+        Renderer[] renderers = player.transform.GetChild(0).GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = false;
+        }
         Debug.Log("started gambling");
         isGambling = true;
         yield return new WaitUntil(() => transform.GetChild(0).position == Camera.main.transform.position);
@@ -134,7 +139,12 @@ public class Interactable : MonoBehaviour
             Camera.main.GetComponent<CamMovement>().enabled = true;
             Camera.main.transform.rotation = Quaternion.Euler(65, 0, 0);
             GetComponentInChildren<TMP_Text>().enabled = false;
-            player.GetComponent<MeshRenderer>().enabled = true;
+            Renderer[] playerRenderers = player.transform.GetChild(0).GetComponentsInChildren<Renderer>();
+
+            foreach (Renderer renderer in renderers)
+            {
+                renderer.enabled = true;
+            }
             isGambling = false;
             FindObjectOfType<Interact>().isAlreadyInteracting = false;
         }

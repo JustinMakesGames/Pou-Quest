@@ -18,7 +18,7 @@ public class GetCoins : MonoBehaviour
     {
         if (other.CompareTag("Player") && !FindObjectOfType<InvincibleFrames>().isInvincible)
         {
-            PlayerHandler.Instance.coins++;
+            PlayerHandler.Instance.coins += 10;
             PlayerHandler.Instance.StatsOverworldChange();
             Destroy(gameObject);
         }
