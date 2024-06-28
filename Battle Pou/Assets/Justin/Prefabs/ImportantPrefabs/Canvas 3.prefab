@@ -2914,6 +2914,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 8842629387363280157}
+        m_TargetAssemblyTypeName: SetEToInteractNormal, Assembly-CSharp
+        m_MethodName: SetEToNormal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &8917915889538680905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10710,7 +10722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lightning
+  m_text: Green Apple
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be642f0d790f004469672325bfd96847, type: 2}
   m_sharedMaterial: {fileID: -3285827345500066615, guid: be642f0d790f004469672325bfd96847,
@@ -14313,6 +14325,7 @@ GameObject:
   - component: {fileID: 5257575477097739499}
   - component: {fileID: 2010927930443414389}
   - component: {fileID: 398583572590899616}
+  - component: {fileID: 8842629387363280157}
   m_Layer: 5
   m_Name: Canvas 3
   m_TagString: Untagged
@@ -14455,6 +14468,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f54a27b8b8b4884881072df663e7d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8842629387363280157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391363794061172797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a277d345e23ee459d3312b253328e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7417212874500409492

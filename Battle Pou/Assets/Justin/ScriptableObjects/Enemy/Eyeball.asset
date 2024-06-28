@@ -15,8 +15,8 @@ MonoBehaviour:
   enemyName: Eyeball
   hp: 30
   maxHp: 30
-  attackPower: 1
-  exp: 105
+  attackPower: 2
+  exp: 15
   attackSpeed: 500
   attackInterval: 1
   amountOfProjectiles: 3

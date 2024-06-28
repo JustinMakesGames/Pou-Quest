@@ -15,8 +15,8 @@ MonoBehaviour:
   enemyName: King Pou
   hp: 50
   maxHp: 50
-  attackPower: 2
-  exp: 250
+  attackPower: 3
+  exp: 100
   attackSpeed: 20
   attackInterval: 1
   amountOfProjectiles: 0

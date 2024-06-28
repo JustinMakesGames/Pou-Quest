@@ -15,8 +15,8 @@ MonoBehaviour:
   enemyName: Plaque Doctor
   hp: 30
   maxHp: 30
-  attackPower: 1
-  exp: 30
+  attackPower: 4
+  exp: 35
   attackSpeed: 1500
   attackInterval: 1
   amountOfProjectiles: 3

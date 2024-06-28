@@ -23,7 +23,7 @@ public class HandleAttackSwitch : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             attackPanel.SetActive(!attackPanel.activeInHierarchy);
 

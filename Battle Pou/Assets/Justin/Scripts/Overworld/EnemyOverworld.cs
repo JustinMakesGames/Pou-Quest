@@ -39,7 +39,11 @@ public class EnemyOverworld : MonoBehaviour
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        if (GetComponent<NavMeshAgent>() != null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
+
         player = FindObjectOfType<PlayerOverworld>().transform;
     }
 
@@ -55,9 +59,10 @@ public class EnemyOverworld : MonoBehaviour
         if (agent != null)
         {
             agent.isStopped = false;
+            StartCoroutine(GettingNextDestination());
         }
         
-        StartCoroutine(GettingNextDestination());
+        
     }
 
     private void Update()

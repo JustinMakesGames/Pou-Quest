@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 27190241}
   - component: {fileID: 27190243}
   - component: {fileID: 27190242}
+  - component: {fileID: 27190244}
   m_Layer: 0
   m_Name: MarketStall.009 (1)
   m_TagString: Untagged
@@ -360,6 +361,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27190240}
   m_Mesh: {fileID: 8196543624076293212, guid: b01ce81a746e64246a3f4705ae05971c, type: 3}
+--- !u!65 &27190244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27190240}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.767993, y: 1.4265922, z: 0.6651572}
+  m_Center: {x: -0.05040121, y: 0.7132961, z: -0.0642789}
 --- !u!1001 &33754786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -896,7 +918,7 @@ PrefabInstance:
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[1]
-      value: If you click on escape, you see your equipped attacks on the left side.
+      value: If you press enter, you see your equipped attacks on the left side.
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
@@ -1482,6 +1504,7 @@ GameObject:
   - component: {fileID: 125789658}
   - component: {fileID: 125789660}
   - component: {fileID: 125789659}
+  - component: {fileID: 125789661}
   m_Layer: 0
   m_Name: MarketStall.007 (1)
   m_TagString: Untagged
@@ -1554,6 +1577,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125789657}
   m_Mesh: {fileID: -7727261971658905252, guid: b01ce81a746e64246a3f4705ae05971c, type: 3}
+--- !u!65 &125789661
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125789657}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.90648127, y: 1.4576052, z: 0.75916386}
+  m_Center: {x: -0.059916735, y: 0.7263083, z: 0.005635619}
 --- !u!1001 &133878176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1650,6 +1694,7 @@ GameObject:
   - component: {fileID: 136721721}
   - component: {fileID: 136721723}
   - component: {fileID: 136721722}
+  - component: {fileID: 136721724}
   m_Layer: 0
   m_Name: MarketStall.008 (1)
   m_TagString: Untagged
@@ -1722,6 +1767,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136721720}
   m_Mesh: {fileID: 8769690193832972401, guid: b01ce81a746e64246a3f4705ae05971c, type: 3}
+--- !u!65 &136721724
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136721720}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0343671, y: 1.1648171, z: 0.97242296}
+  m_Center: {x: -0.02690053, y: 0.581516, z: -0.029716074}
 --- !u!1001 &149684043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5681,6 +5747,7 @@ GameObject:
   - component: {fileID: 622816824}
   - component: {fileID: 622816826}
   - component: {fileID: 622816825}
+  - component: {fileID: 622816827}
   m_Layer: 0
   m_Name: MarketStall.008 (2)
   m_TagString: Untagged
@@ -5753,6 +5820,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622816823}
   m_Mesh: {fileID: 8769690193832972401, guid: b01ce81a746e64246a3f4705ae05971c, type: 3}
+--- !u!65 &622816827
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622816823}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0343671, y: 1.1648171, z: 0.97242296}
+  m_Center: {x: -0.02690053, y: 0.581516, z: -0.029716074}
 --- !u!1 &625959612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 766242235743123291, guid: 42d9fdc5c87fb4040a869a0da3370df2,
@@ -10413,6 +10501,7 @@ GameObject:
   - component: {fileID: 1237713470}
   - component: {fileID: 1237713472}
   - component: {fileID: 1237713471}
+  - component: {fileID: 1237713473}
   m_Layer: 0
   m_Name: MarketStall.009 (2)
   m_TagString: Untagged
@@ -10485,6 +10574,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237713469}
   m_Mesh: {fileID: 8196543624076293212, guid: b01ce81a746e64246a3f4705ae05971c, type: 3}
+--- !u!65 &1237713473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237713469}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.767993, y: 1.4265922, z: 0.6651572}
+  m_Center: {x: -0.05040121, y: 0.7132961, z: -0.0642789}
 --- !u!4 &1245898580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6199784098972305061, guid: 1af7dc3f8d3b4c84693d3a30bae8a0a6,
@@ -15066,6 +15176,7 @@ GameObject:
   - component: {fileID: 1904740844}
   - component: {fileID: 1904740846}
   - component: {fileID: 1904740845}
+  - component: {fileID: 1904740847}
   m_Layer: 0
   m_Name: MarketStall.007 (2)
   m_TagString: Untagged
@@ -15138,6 +15249,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904740843}
   m_Mesh: {fileID: -7727261971658905252, guid: b01ce81a746e64246a3f4705ae05971c, type: 3}
+--- !u!65 &1904740847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904740843}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.90648127, y: 1.4576052, z: 0.75916386}
+  m_Center: {x: -0.059916735, y: 0.7263083, z: 0.005635619}
 --- !u!1001 &1941507177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15525,13 +15657,13 @@ PrefabInstance:
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[1]
-      value: In the overworld, Press WASD to move around, press Enter to go to the
+      value: In the overworld, Press WASD to move around, press Escape to go to the
         pause menu.
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[2]
-      value: And to select your attacks, press escape and to go into your inventory
+      value: And to select your attacks, press TAB and to go into your inventory
         press Q.
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,

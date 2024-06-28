@@ -8,7 +8,7 @@ public class MenuScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             menu.SetActive(true);
             Time.timeScale = 0f;
