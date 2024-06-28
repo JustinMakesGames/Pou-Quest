@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class AttackShop : MonoBehaviour
 {
@@ -26,6 +28,7 @@ public class AttackShop : MonoBehaviour
     public void SetAttackInInventory()
     {
         attackButtonClone = Instantiate(attackButton, notEquipped);
+        
         AttackButton script = attackButtonClone.GetComponent<AttackButton>();
 
         attackButtonClone.GetComponentInChildren<TMP_Text>().text = attackName;

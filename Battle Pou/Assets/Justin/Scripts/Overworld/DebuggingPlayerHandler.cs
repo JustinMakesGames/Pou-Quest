@@ -8,7 +8,7 @@ public class DebuggingPlayerHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            PlayerHandler.Instance.coins = 9999;
+            PlayerHandler.Instance.coins = 999;
             PlayerHandler.Instance.StatsOverworldChange();
         }
 

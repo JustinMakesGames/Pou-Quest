@@ -7,6 +7,7 @@ public class TriggerWin : MonoBehaviour
 {
     public GameObject winScreen;
     public Image blackScreen;
+    public bool hasTriggeredWin;
 
     private void Start()
     {
@@ -15,8 +16,10 @@ public class TriggerWin : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !hasTriggeredWin)
         {
+            hasTriggeredWin = true;
+            FindObjectOfType<PlayerOverworld>().GetComponent<PlayerOverworld>().enabled = false;
             StartCoroutine(Fading());
         }
         

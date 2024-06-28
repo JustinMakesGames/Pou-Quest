@@ -26,11 +26,10 @@ public class Tile1 : MonoBehaviour
 
             if (chance == 0)
             {
-                print("Nothing happens");
+                print("Epic");
             }
             else
             {
-                print("HOLY MOLY IT HAPPENED YESSS");
                 EnemySpawner enemySpawner = GetComponent<EnemySpawner>();
 
                 int randomEnemy = Random.Range(0, enemySpawner.enemies.Count);

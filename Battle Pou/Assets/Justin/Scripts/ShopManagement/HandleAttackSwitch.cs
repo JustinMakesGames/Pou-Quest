@@ -23,7 +23,7 @@ public class HandleAttackSwitch : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && FindObjectOfType<PlayerOverworld>().GetComponent<PlayerOverworld>().enabled)
         {
             attackPanel.SetActive(!attackPanel.activeInHierarchy);
 
