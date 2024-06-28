@@ -736,7 +736,7 @@ MonoBehaviour:
   - {fileID: 3561905615235914117, guid: 7e2dc6e8cc5a7dc4ea64a190f885cdc4, type: 3}
   - {fileID: 3561905615235914117, guid: 1264ac1388761a442a0f724be279a160, type: 3}
   index: 0
-  maxTimes: 5
+  maxTimes: 0
   bossRoom: {fileID: 3561905615235914117, guid: f8d0bdee4fd1e624ea3b0213b32ac769,
     type: 3}
 --- !u!1 &219947209
@@ -1714,6 +1714,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1176826341}
+    - targetCorrespondingSourceObject: {fileID: 4191259996070417602, guid: 796d29ab95556f64084f0926fabdd1e1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1176826342}
   m_SourcePrefab: {fileID: 100100000, guid: 796d29ab95556f64084f0926fabdd1e1, type: 3}
 --- !u!114 &705699083 stripped
 MonoBehaviour:
@@ -2743,6 +2747,22 @@ MonoBehaviour:
     m_Bits: 1024
   doorInteraction: 0
   door: {fileID: 0}
+--- !u!114 &1176826342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176826318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7a1352cb0257147b86e8f0ef5f8c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyeBall: {fileID: 7923523540611774594, guid: 8f26bd2ae89102b4f951990b03211671, type: 3}
+  ghosty: {fileID: 4180002772974385683, guid: 749d2862b89468649a7b81515f8f02d6, type: 3}
+  plaqueDoctor: {fileID: 3587496384797397086, guid: 58fc6193a71322945a961750f9dbf7fa,
+    type: 3}
 --- !u!1 &1185700704 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 998584176169510733, guid: 796d29ab95556f64084f0926fabdd1e1,

@@ -52,23 +52,31 @@ public class EnemyOverworld : MonoBehaviour
 
     private void OnEnable()
     {
-        agent.isStopped = false;
+        if (agent != null)
+        {
+            agent.isStopped = false;
+        }
+        
         StartCoroutine(GettingNextDestination());
     }
 
     private void Update()
     {
-        SetAnimation();
-        if (!isChasing && !isPreparing)
+        if (agent != null)
         {
-            CheckingForPlayer();
+            SetAnimation();
+            if (!isChasing && !isPreparing)
+            {
+                CheckingForPlayer();
+            }
+            else if (isChasing)
+            {
+
+                ChasePlayer();
+                CheckingOutOfRadius();
+            }
         }
-        else if (isChasing)
-        {
-            
-            ChasePlayer();
-            CheckingOutOfRadius();
-        }       
+              
     }
 
     private void SetAnimation()
@@ -196,18 +204,22 @@ public class EnemyOverworld : MonoBehaviour
 
     private void OnDisable()
     {
-        if (!transform.parent.gameObject.activeInHierarchy)
+        if (agent != null)
         {
-            if (agent.velocity.magnitude > 0f)
+            if (!transform.parent.gameObject.activeInHierarchy)
             {
-                agent.isStopped = true;
+                if (agent.velocity.magnitude > 0f)
+                {
+                    agent.isStopped = true;
+                }
+
             }
-            
+            else
+            {
+                agent.SetDestination(transform.position);
+            }
         }
-        else
-        {
-            agent.SetDestination(transform.position);
-        }
+        
 
             
         StopAllCoroutines();

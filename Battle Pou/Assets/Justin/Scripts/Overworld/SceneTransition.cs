@@ -28,13 +28,7 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            SceneManager.LoadScene(sceneName);
-        }
-    }
+    
 
     public void StartSceneSwitch()
     {

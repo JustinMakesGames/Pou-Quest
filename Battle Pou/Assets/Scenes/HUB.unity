@@ -959,47 +959,43 @@ PrefabInstance:
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.size
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[0]
-      value: 
+      value: I am the overworld Pou and I will explain to you what to do in the overworld.
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[1]
-      value: So in the battle, the game will give the choose to Attack, Use an item
-        or Flee.
+      value: If you click on escape, you see your equipped attacks on the left side.
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[2]
-      value: 'Attack: If you choose to attack, you will use the attack that you would
-        like to use in that turn.'
+      value: You will see the attacks you have not equipped on the right side.
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[3]
-      value: The attacks can cost SP points, so be careful that you do not spend
-        it all on the most powerful attack.
+      value: 'If you click 2 of them, they will switch places. '
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[4]
-      value: While attacking, the enemy is attacking to so watch out that you do
-        not get hit.
+      value: The pause menu will show you the settings en main menu button.
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[5]
-      value: 'Use item: You can also use an item to restore your hp or sp. If you
-        use this, you can no longer use another attack.'
+      value: If you press Q, you can use the items in your inventory to fill your
+        hp (health points) or sp (stamina points).
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[6]
-      value: You would have to only dodge the attacks of the enemy in this turn.
+      value: Thanks for listening!
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
@@ -15477,14 +15473,14 @@ PrefabInstance:
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[1]
-      value: In the overworld, Press WASD to move around, press ESC to go to the
+      value: In the overworld, Press WASD to move around, press Enter to go to the
         pause menu.
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
       propertyPath: lines.Array.data[2]
-      value: And to select your attacks, press Q and to go into your inventory press
-        E.
+      value: And to select your attacks, press escape and to go into your inventory
+        press Q.
       objectReference: {fileID: 0}
     - target: {fileID: 4107310073397375206, guid: 9e265fd8a1cfafa4693c227bc086a35e,
         type: 3}
